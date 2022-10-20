@@ -9,6 +9,10 @@ interface Wallhaven {
     suspend fun search(
         @Query("q") query: String? = null,
         @Query("ratio") ratio: String? = null,
-        @Query("page") page: Int = 1
+        @Query("page") page: Int = 1,
+        @Query("categories") categories: Int = 100,
+        @Query("order") order: String = "desc",
+        @Query("purity") purity: Int = 100,
+        @Query("sorting") sorting: String = "favorites"
     ): WhSearchResponse
 }
