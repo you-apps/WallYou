@@ -21,6 +21,7 @@ import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.window.Dialog
 import coil.compose.AsyncImage
+import coil.request.ImageRequest
 import com.bnyro.wallpaper.R
 import com.bnyro.wallpaper.obj.Wallpaper
 import com.bnyro.wallpaper.util.WallpaperHelper
@@ -45,7 +46,10 @@ fun WallpaperPreview(
                 .fillMaxSize()
         ) {
             AsyncImage(
-                model = wallpaper.imgSrc,
+                model = ImageRequest.Builder(LocalContext.current)
+                    .data(wallpaper.url)
+                    .crossfade(true)
+                    .build(),
                 contentDescription = null,
                 modifier = Modifier
                     .fillMaxSize()

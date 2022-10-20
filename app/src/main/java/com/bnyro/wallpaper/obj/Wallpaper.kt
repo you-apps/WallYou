@@ -5,5 +5,6 @@ data class Wallpaper(
     val category: String?,
     val resolution: String?,
     val fileSize: Int?,
-    val imgSrc: String?
+    val imgSrc: String?,
+    var thumb: String?
 )

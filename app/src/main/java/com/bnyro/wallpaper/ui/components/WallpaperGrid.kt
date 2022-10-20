@@ -46,7 +46,7 @@ fun WallpaperGrid(
                     modifier = Modifier.padding(4.dp)
                 ) {
                     AsyncImage(
-                        model = it.imgSrc,
+                        model = it.thumb,
                         contentDescription = null,
                         contentScale = ContentScale.Crop,
                         modifier = Modifier

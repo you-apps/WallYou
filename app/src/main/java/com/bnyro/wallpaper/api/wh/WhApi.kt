@@ -15,7 +15,8 @@ class WhApi() : Api() {
                 category = it.category,
                 fileSize = it.file_size,
                 resolution = it.resolution,
-                imgSrc = it.thumbs?.original
+                imgSrc = it.path,
+                thumb = it.thumbs?.original
             )
         } ?: listOf()
     }
