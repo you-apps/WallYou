@@ -17,13 +17,16 @@ import androidx.compose.material3.Icon
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.ModalNavigationDrawer
 import androidx.compose.material3.NavigationDrawerItem
+import androidx.compose.material3.NavigationDrawerItemDefaults
 import androidx.compose.material3.Surface
 import androidx.compose.material3.Text
 import androidx.compose.material3.contentColorFor
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
 import androidx.compose.runtime.rememberCoroutineScope
+import androidx.compose.runtime.setValue
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.graphics.RectangleShape
@@ -42,7 +45,7 @@ fun NavigationDrawer(
 ) {
     val scope = rememberCoroutineScope()
 
-    val selectedItem = remember {
+    var selectedItem by remember {
         mutableStateOf(items[0])
     }
 
@@ -66,15 +69,16 @@ fun NavigationDrawer(
                         label = {
                             Text(it.title)
                         },
-                        selected = it == selectedItem.value,
+                        selected = it == selectedItem,
                         onClick = {
                             scope.launch {
                                 drawerState.close()
                                 it.onClick()
                             }
-                            selectedItem.value = it
+                            selectedItem = it
                         },
-                        modifier = Modifier.padding(12.dp, 3.dp)
+                        modifier = Modifier
+                            .padding(NavigationDrawerItemDefaults.ItemPadding)
                     )
                 }
             }

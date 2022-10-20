@@ -3,7 +3,7 @@ package com.bnyro.wallpaper
 import android.os.Bundle
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
-import androidx.compose.foundation.layout.Column
+import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.padding
 import androidx.compose.material.icons.Icons
@@ -11,6 +11,7 @@ import androidx.compose.material.icons.filled.Favorite
 import androidx.compose.material.icons.filled.Info
 import androidx.compose.material.icons.filled.Menu
 import androidx.compose.material.icons.filled.Settings
+import androidx.compose.material3.CircularProgressIndicator
 import androidx.compose.material3.DrawerValue
 import androidx.compose.material3.ExperimentalMaterial3Api
 import androidx.compose.material3.Icon
@@ -121,16 +122,22 @@ fun MainContent() {
                 )
             }
         ) {
-            Column(
+            Box(
                 modifier = Modifier
                     .padding(it)
-                    .fillMaxSize(),
-                horizontalAlignment = Alignment.CenterHorizontally
+                    .fillMaxSize()
             ) {
-                WallpaperGrid(
-                    wallpapers = viewModel.wallpapers
-                ) {
-                    viewModel.fetchWallpapers()
+                if (viewModel.wallpapers.isNotEmpty()) {
+                    WallpaperGrid(
+                        wallpapers = viewModel.wallpapers
+                    ) {
+                        viewModel.fetchWallpapers()
+                    }
+                } else {
+                    CircularProgressIndicator(
+                        modifier = Modifier
+                            .align(Alignment.Center)
+                    )
                 }
             }
         }
