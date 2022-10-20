@@ -1,4 +1,4 @@
-package com.bnyro.wallpaper.ui.components
+package com.bnyro.wallpaper.util
 
 import android.content.Context
 import android.graphics.Bitmap

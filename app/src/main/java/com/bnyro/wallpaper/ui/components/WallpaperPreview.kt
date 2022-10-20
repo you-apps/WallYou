@@ -25,9 +25,9 @@ import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.window.Dialog
 import androidx.compose.ui.window.DialogProperties
-import coil.compose.AsyncImage
 import com.bnyro.wallpaper.R
 import com.bnyro.wallpaper.obj.Wallpaper
+import com.bnyro.wallpaper.util.ImageHelper
 import com.bnyro.wallpaper.util.WallpaperHelper
 
 @OptIn(ExperimentalComposeUiApi::class)
@@ -54,9 +54,8 @@ fun WallpaperPreview(
             modifier = Modifier
                 .fillMaxSize()
         ) {
-            AsyncImage(
-                model = bitmap,
-                contentDescription = null,
+            ZoomableImage(
+                bitmap = bitmap,
                 contentScale = ContentScale.Crop,
                 modifier = Modifier
                     .fillMaxSize()
