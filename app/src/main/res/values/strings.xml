@@ -1,6 +1,10 @@
 <resources>
     <string name="app_name">Wall You</string>
 
+    <string name="both">Both</string>
+    <string name="system">System</string>
+    <string name="lockscreen">Lockscreen</string>
+
     <string name="favorites">Favorites</string>
     <string name="settings">Settings</string>
     <string name="about">About</string>

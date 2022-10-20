@@ -1,8 +1,6 @@
 package com.bnyro.wallpaper.ui.components
 
-import android.app.WallpaperManager
 import android.graphics.Bitmap
-import android.os.Build
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.padding
@@ -11,13 +9,19 @@ import androidx.compose.material.icons.filled.Wallpaper
 import androidx.compose.material3.FloatingActionButton
 import androidx.compose.material3.Icon
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.getValue
+import androidx.compose.runtime.mutableStateOf
+import androidx.compose.runtime.remember
 import androidx.compose.runtime.rememberCoroutineScope
+import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.platform.LocalContext
+import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.window.Dialog
 import coil.compose.AsyncImage
+import com.bnyro.wallpaper.R
 import com.bnyro.wallpaper.obj.Wallpaper
 import com.bnyro.wallpaper.util.WallpaperHelper
 
@@ -28,6 +32,10 @@ fun WallpaperPreview(
 ) {
     val context = LocalContext.current
     var bitmap: Bitmap? = null
+
+    var showModeSelection by remember {
+        mutableStateOf(false)
+    }
 
     Dialog(
         onDismissRequest = onDismissRequest
@@ -49,20 +57,8 @@ fun WallpaperPreview(
                         bottom = 30.dp
                     ),
                 onClick = {
-                    if (bitmap != null) {
-                        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.N) {
-                            WallpaperHelper.setWallpaper(
-                                context.applicationContext,
-                                bitmap!!,
-                                WallpaperManager.FLAG_SYSTEM
-                            )
-                        } else {
-                            WallpaperHelper.setWallpaperLegacy(
-                                context.applicationContext,
-                                bitmap!!
-                            )
-                        }
-                    }
+                    if (bitmap == null) return@FloatingActionButton
+                    showModeSelection = true
                 }
             ) {
                 Icon(Icons.Default.Wallpaper, null)
@@ -76,5 +72,26 @@ fun WallpaperPreview(
         context
     ) {
         bitmap = it
+    }
+
+    if (showModeSelection) {
+        ListDialog(
+            items = listOf(
+                stringResource(R.string.both),
+                stringResource(R.string.system),
+                stringResource(R.string.lockscreen)
+            ),
+            onDismissRequest = {
+                showModeSelection = false
+                onDismissRequest.invoke()
+            },
+            onClick = {
+                WallpaperHelper.setWallpaper(
+                    context.applicationContext,
+                    bitmap!!,
+                    it
+                )
+            }
+        )
     }
 }
