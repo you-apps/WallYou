@@ -25,13 +25,20 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
+import androidx.lifecycle.ViewModelProvider
+import androidx.lifecycle.get
+import androidx.lifecycle.viewmodel.compose.viewModel
 import com.bnyro.wallpaper.ui.components.NavigationDrawer
+import com.bnyro.wallpaper.ui.components.WallpaperGrid
+import com.bnyro.wallpaper.ui.models.MainModel
 import com.bnyro.wallpaper.ui.theme.WallYouTheme
 import kotlinx.coroutines.launch
 
 class MainActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+        val viewModel: MainModel = ViewModelProvider(this).get()
+
         setContent {
             WallYouTheme {
                 // A surface container using the 'background' color from the theme
@@ -43,12 +50,16 @@ class MainActivity : ComponentActivity() {
                 }
             }
         }
+
+        viewModel.fetchWallpapers()
     }
 }
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
 fun MainContent() {
+    val viewModel: MainModel = viewModel()
+
     val drawerState = rememberDrawerState(DrawerValue.Closed)
     val scope = rememberCoroutineScope()
 
@@ -87,6 +98,9 @@ fun MainContent() {
                     .padding(16.dp),
                 horizontalAlignment = Alignment.CenterHorizontally
             ) {
+                WallpaperGrid(
+                    wallpapers = viewModel.wallpapers
+                )
             }
         }
     }
