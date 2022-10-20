@@ -34,7 +34,7 @@ fun WallpaperGrid(
     val scrollEnded by remember {
         derivedStateOf {
             val lastVisibleItem = listState.layoutInfo.visibleItemsInfo.lastOrNull()
-                ?: return@derivedStateOf true
+                ?: return@derivedStateOf false
 
             lastVisibleItem.index == listState.layoutInfo.totalItemsCount - 1
         }
