@@ -10,7 +10,7 @@ import com.bnyro.wallpaper.obj.Wallpaper
 import kotlinx.coroutines.launch
 
 class MainModel : ViewModel() {
-    private val api = WhApi()
+    var api = WhApi()
     var wallpapers by mutableStateOf(
         listOf<Wallpaper>()
     )
@@ -19,5 +19,9 @@ class MainModel : ViewModel() {
         viewModelScope.launch {
             wallpapers = api.getWallpapers()
         }
+    }
+
+    fun clearWallpapers() {
+        wallpapers = listOf()
     }
 }

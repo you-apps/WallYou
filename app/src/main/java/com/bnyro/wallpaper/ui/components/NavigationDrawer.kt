@@ -9,10 +9,6 @@ import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.sizeIn
 import androidx.compose.foundation.layout.windowInsetsPadding
-import androidx.compose.material.icons.Icons
-import androidx.compose.material.icons.filled.Favorite
-import androidx.compose.material.icons.filled.Info
-import androidx.compose.material.icons.filled.Settings
 import androidx.compose.material3.Divider
 import androidx.compose.material3.DrawerDefaults
 import androidx.compose.material3.DrawerState
@@ -32,10 +28,8 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.graphics.RectangleShape
 import androidx.compose.ui.graphics.Shape
-import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.unit.Dp
 import androidx.compose.ui.unit.dp
-import com.bnyro.wallpaper.R
 import com.bnyro.wallpaper.obj.DrawerItem
 import kotlinx.coroutines.launch
 
@@ -43,27 +37,13 @@ import kotlinx.coroutines.launch
 @Composable
 fun NavigationDrawer(
     drawerState: DrawerState,
+    items: List<DrawerItem>,
     content: @Composable () -> Unit
 ) {
     val scope = rememberCoroutineScope()
 
-    val socialItems = listOf(
-        DrawerItem(
-            stringResource(R.string.favorites),
-            Icons.Default.Favorite
-        ),
-        DrawerItem(
-            stringResource(R.string.settings),
-            Icons.Default.Settings
-        ),
-        DrawerItem(
-            stringResource(R.string.about),
-            Icons.Default.Info
-        )
-    )
-
     val selectedItem = remember {
-        mutableStateOf(socialItems[0])
+        mutableStateOf(items[0])
     }
 
     ModalNavigationDrawer(
@@ -71,8 +51,8 @@ fun NavigationDrawer(
         drawerContent = {
             ModalDrawerSheet {
                 Spacer(Modifier.height(12.dp))
-                socialItems.forEach {
-                    if (socialItems.indexOf(it) == socialItems.size - 2) {
+                items.forEach {
+                    if (it.divideBefore) {
                         Divider(
                             modifier = Modifier
                                 .padding(25.dp, 15.dp)
