@@ -8,8 +8,10 @@ class WhApi() : Api() {
     override val baseUrl: String = "https://wallhaven.cc/api/v1/"
     private val api = RetrofitBuilder.create(baseUrl, Wallhaven::class.java)
 
-    override suspend fun getWallpapers(): List<Wallpaper> {
-        return api.search().data?.map {
+    override suspend fun getWallpapers(page: Int): List<Wallpaper> {
+        return api.search(
+            page = page
+        ).data?.map {
             Wallpaper(
                 url = it.url,
                 category = it.category,

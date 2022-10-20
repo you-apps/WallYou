@@ -129,7 +129,9 @@ fun MainContent() {
             ) {
                 WallpaperGrid(
                     wallpapers = viewModel.wallpapers
-                )
+                ) {
+                    viewModel.fetchWallpapers()
+                }
             }
         }
     }

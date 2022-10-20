@@ -15,9 +15,12 @@ class MainModel : ViewModel() {
         listOf<Wallpaper>()
     )
 
+    private var page: Int = 1
+
     fun fetchWallpapers() {
         viewModelScope.launch {
-            wallpapers = api.getWallpapers()
+            wallpapers = wallpapers + api.getWallpapers(page)
+            page += 1
         }
     }
 
