@@ -125,8 +125,7 @@ fun MainContent() {
             Column(
                 modifier = Modifier
                     .padding(it)
-                    .fillMaxSize()
-                    .padding(16.dp),
+                    .fillMaxSize(),
                 horizontalAlignment = Alignment.CenterHorizontally
             ) {
                 WallpaperGrid(
