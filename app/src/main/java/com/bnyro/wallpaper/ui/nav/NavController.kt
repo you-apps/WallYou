@@ -6,6 +6,7 @@ import androidx.navigation.NavHostController
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
+import com.bnyro.wallpaper.R
 import com.bnyro.wallpaper.ui.activities.AboutPage
 import com.bnyro.wallpaper.ui.components.WallpaperPage
 import com.bnyro.wallpaper.ui.models.MainModel
@@ -23,11 +24,13 @@ fun AppNavHost(
         startDestination = startDestination
     ) {
         composable("Wallhaven") {
+            viewModel.titleResource = R.string.app_name
             WallpaperPage(
                 viewModel = viewModel
             )
         }
         composable("About") {
+            viewModel.titleResource = R.string.about
             AboutPage()
         }
     }

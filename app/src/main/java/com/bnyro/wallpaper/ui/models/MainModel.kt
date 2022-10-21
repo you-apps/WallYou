@@ -6,6 +6,7 @@ import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.setValue
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
+import com.bnyro.wallpaper.R
 import com.bnyro.wallpaper.api.wh.WhApi
 import com.bnyro.wallpaper.obj.Wallpaper
 import kotlinx.coroutines.launch
@@ -14,6 +15,9 @@ class MainModel : ViewModel() {
     var api = WhApi()
     var wallpapers by mutableStateOf(
         listOf<Wallpaper>()
+    )
+    var titleResource by mutableStateOf(
+        R.string.app_name
     )
 
     private var page: Int = 1
