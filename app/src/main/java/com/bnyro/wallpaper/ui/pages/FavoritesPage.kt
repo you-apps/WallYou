@@ -9,7 +9,7 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 
 @Composable
-fun SettingsPage() {
+fun FavoritesPage() {
     Column(
         modifier = Modifier
             .fillMaxSize(),

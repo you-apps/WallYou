@@ -15,7 +15,7 @@ sealed class DrawerScreens(
     val divideBefore: Boolean = false
 ) {
     object Wallhaven : DrawerScreens(R.string.wallhaven, "wh", Icons.Default.Wallpaper)
-    object Favorites : DrawerScreens(R.string.favorites, "wh", Icons.Default.Favorite, true)
+    object Favorites : DrawerScreens(R.string.favorites, "favorites", Icons.Default.Favorite, true)
     object Settings : DrawerScreens(R.string.settings, "settings", Icons.Default.Settings, true)
     object About : DrawerScreens(R.string.about, "about", Icons.Default.Info)
 }
