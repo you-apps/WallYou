@@ -1,10 +1,7 @@
-package com.bnyro.wallpaper
+package com.bnyro.wallpaper.ui.activities
 
 import android.os.Bundle
 import android.widget.Toast
-import androidx.activity.ComponentActivity
-import androidx.activity.compose.setContent
-import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.padding
 import androidx.compose.material.icons.Icons
@@ -12,20 +9,16 @@ import androidx.compose.material.icons.filled.Favorite
 import androidx.compose.material.icons.filled.Info
 import androidx.compose.material.icons.filled.Menu
 import androidx.compose.material.icons.filled.Settings
-import androidx.compose.material3.CircularProgressIndicator
 import androidx.compose.material3.DrawerValue
 import androidx.compose.material3.ExperimentalMaterial3Api
 import androidx.compose.material3.Icon
 import androidx.compose.material3.IconButton
-import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Scaffold
-import androidx.compose.material3.Surface
 import androidx.compose.material3.Text
 import androidx.compose.material3.TopAppBar
 import androidx.compose.material3.rememberDrawerState
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.rememberCoroutineScope
-import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.vector.ImageVector
 import androidx.compose.ui.platform.LocalContext
@@ -35,29 +28,23 @@ import androidx.compose.ui.tooling.preview.Preview
 import androidx.lifecycle.ViewModelProvider
 import androidx.lifecycle.get
 import androidx.lifecycle.viewmodel.compose.viewModel
+import androidx.navigation.compose.rememberNavController
+import com.bnyro.wallpaper.R
 import com.bnyro.wallpaper.api.wh.WhApi
 import com.bnyro.wallpaper.obj.DrawerItem
 import com.bnyro.wallpaper.ui.components.NavigationDrawer
-import com.bnyro.wallpaper.ui.components.WallpaperGrid
 import com.bnyro.wallpaper.ui.models.MainModel
+import com.bnyro.wallpaper.ui.nav.AppNavHost
 import com.bnyro.wallpaper.ui.theme.WallYouTheme
 import kotlinx.coroutines.launch
 
-class MainActivity : ComponentActivity() {
+class MainActivity : BaseActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         val viewModel: MainModel = ViewModelProvider(this).get()
-
-        setContent {
-            WallYouTheme {
-                // A surface container using the 'background' color from the theme
-                Surface(
-                    modifier = Modifier.fillMaxSize(),
-                    color = MaterialTheme.colorScheme.background
-                ) {
-                    MainContent()
-                }
-            }
+        
+        showContent {
+            MainContent()
         }
 
         viewModel.fetchWallpapers {
@@ -68,9 +55,10 @@ class MainActivity : ComponentActivity() {
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
-fun MainContent() {
+private fun MainContent() {
     val context = LocalContext.current
     val viewModel: MainModel = viewModel()
+    val navController = rememberNavController()
 
     val drawerState = rememberDrawerState(DrawerValue.Closed)
     val scope = rememberCoroutineScope()
@@ -82,6 +70,8 @@ fun MainContent() {
                 "Wallhaven",
                 ImageVector.vectorResource(R.drawable.ic_wallhaven)
             ) {
+                navController.navigate("Wallhaven")
+
                 viewModel.api = WhApi()
                 viewModel.clearWallpapers()
 
@@ -102,7 +92,9 @@ fun MainContent() {
             DrawerItem(
                 stringResource(R.string.about),
                 Icons.Default.Info
-            )
+            ) {
+                navController.navigate("About")
+            }
         )
     ) {
         Scaffold(
@@ -130,26 +122,13 @@ fun MainContent() {
                 )
             }
         ) {
-            Box(
+            AppNavHost(
                 modifier = Modifier
                     .padding(it)
-                    .fillMaxSize()
-            ) {
-                if (viewModel.wallpapers.isNotEmpty()) {
-                    WallpaperGrid(
-                        wallpapers = viewModel.wallpapers
-                    ) {
-                        viewModel.fetchWallpapers {
-                            Toast.makeText(context, it.localizedMessage, Toast.LENGTH_LONG).show()
-                        }
-                    }
-                } else {
-                    CircularProgressIndicator(
-                        modifier = Modifier
-                            .align(Alignment.Center)
-                    )
-                }
-            }
+                    .fillMaxSize(),
+                navController = navController,
+                viewModel = viewModel
+            )
         }
     }
 }

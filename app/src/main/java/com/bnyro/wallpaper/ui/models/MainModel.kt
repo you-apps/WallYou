@@ -1,9 +1,6 @@
 package com.bnyro.wallpaper.ui.models
 
-import android.os.Handler
-import android.os.Looper
 import android.util.Log
-import android.widget.Toast
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.setValue
@@ -18,8 +15,6 @@ class MainModel : ViewModel() {
     var wallpapers by mutableStateOf(
         listOf<Wallpaper>()
     )
-
-    val handler = Handler(Looper.getMainLooper())
 
     private var page: Int = 1
 

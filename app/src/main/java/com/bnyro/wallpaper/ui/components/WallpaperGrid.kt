@@ -79,8 +79,6 @@ fun WallpaperGrid(
         }
     }
 
-    Log.e("index", scrollEnded.toString())
-
     if (scrollEnded) {
         LaunchedEffect(Unit) {
             onScrollEnd.invoke()
