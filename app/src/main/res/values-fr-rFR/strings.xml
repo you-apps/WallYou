@@ -1,5 +1,6 @@
 <resources>
     <string name="app_name" translatable="false">Wall You</string>
+    <string name="wallhaven" translatable="false">Wallhaven</string>
 
     <!-- Navigation Drawer -->
     <string name="favorites">Favoris</string>
@@ -18,7 +19,7 @@
     <string name="creationDate">Date de création</string>
 
     <!-- Set wallpaper -->
-    <string name="both">l\'un et l\'autre</string>
+    <string name="both">L\'un et l\'autre</string>
     <string name="system">Système</string>
     <string name="lockscreen">Écran de verrouillage</string>
 </resources>
