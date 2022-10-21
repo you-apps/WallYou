@@ -15,6 +15,7 @@
     <string name="category">Category</string>
     <string name="fileSize">File size</string>
     <string name="source">Source</string>
+    <string name="creationDate">Creation date</string>
 
     <!-- Set wallpaper -->
     <string name="both">Both</string>

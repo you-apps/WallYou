@@ -16,6 +16,7 @@ fun ImageInfoDialog(
         stringResource(R.string.author) to wallpaper.author,
         stringResource(R.string.resolution) to wallpaper.resolution,
         stringResource(R.string.fileSize) to wallpaper.fileSize?.formatBinarySize(),
+        stringResource(R.string.creationDate) to wallpaper.creationDate,
         stringResource(R.string.source) to wallpaper.url
     )
 

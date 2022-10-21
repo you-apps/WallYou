@@ -1,6 +1,9 @@
 package com.bnyro.wallpaper.ui.components
 
 import android.graphics.Bitmap
+import android.net.Uri
+import androidx.activity.compose.rememberLauncherForActivityResult
+import androidx.activity.result.contract.ActivityResultContracts
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
@@ -34,6 +37,7 @@ import androidx.compose.ui.window.Dialog
 import androidx.compose.ui.window.DialogProperties
 import com.bnyro.wallpaper.R
 import com.bnyro.wallpaper.obj.Wallpaper
+import com.bnyro.wallpaper.util.DownloadHelper
 import com.bnyro.wallpaper.util.ImageHelper
 import com.bnyro.wallpaper.util.WallpaperHelper
 
@@ -55,6 +59,12 @@ fun WallpaperPreview(
 
     var showInfoDialog by remember {
         mutableStateOf(false)
+    }
+
+    val launcher = rememberLauncherForActivityResult(
+        ActivityResultContracts.CreateDocument("image/png")
+    ) {
+        DownloadHelper.save(context, it, bitmap)
     }
 
     Dialog(
@@ -99,6 +109,7 @@ fun WallpaperPreview(
                         ButtonWithIcon(
                             icon = Icons.Default.Download
                         ) {
+                            launcher.launch("${wallpaper.title}.png")
                         }
 
                         ButtonWithIcon(

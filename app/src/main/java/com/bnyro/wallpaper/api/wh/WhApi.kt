@@ -13,13 +13,15 @@ class WhApi() : Api() {
             page = page
         ).data?.map {
             Wallpaper(
+                title = it.category,
                 url = it.url,
                 category = it.category,
                 fileSize = it.file_size,
                 resolution = it.resolution,
                 imgSrc = it.path,
                 thumb = it.thumbs?.original,
-                author = null
+                author = null,
+                creationDate = it.created_at
             )
         } ?: listOf()
     }
