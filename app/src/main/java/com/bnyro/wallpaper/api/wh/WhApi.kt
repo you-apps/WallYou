@@ -18,7 +18,8 @@ class WhApi() : Api() {
                 fileSize = it.file_size,
                 resolution = it.resolution,
                 imgSrc = it.path,
-                thumb = it.thumbs?.original
+                thumb = it.thumbs?.original,
+                author = null
             )
         } ?: listOf()
     }

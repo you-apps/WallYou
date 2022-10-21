@@ -5,8 +5,10 @@ import androidx.compose.foundation.gestures.detectTransformGestures
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
+import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
@@ -18,19 +20,25 @@ import coil.compose.AsyncImage
 @Composable
 fun ZoomableImage(
     bitmap: Bitmap?,
-    minScale: Float = 0.7f,
+    minScale: Float = 1f,
     maxScale: Float = 3f
 ) {
-    val scale = remember { mutableStateOf(1f) }
-    // val rotationState = remember { mutableStateOf(0f) }
+    var scale by remember { mutableStateOf(1f) }
+    var offsetX by remember { mutableStateOf(0f) }
+    var offsetY by remember { mutableStateOf(0f) }
     Box(
         modifier = Modifier
             .clip(RectangleShape) // Clip the box content
             .fillMaxSize() // Give the size you want...
             .pointerInput(Unit) {
-                detectTransformGestures { centroid, pan, zoom, rotation ->
-                    scale.value *= zoom
-                    // rotationState.value += rotation
+                detectTransformGestures { _, pan, zoom, _ ->
+                    scale = maxOf(minScale, minOf(scale * zoom, maxScale))
+                    val maxX = (size.width * (scale - 1)) / 2
+                    val minX = -maxX
+                    offsetX = maxOf(minX, minOf(maxX, offsetX + pan.x))
+                    val maxY = (size.height * (scale - 1)) / 2
+                    val minY = -maxY
+                    offsetY = maxOf(minY, minOf(maxY, offsetY + pan.y))
                 }
             }
     ) {
@@ -39,9 +47,10 @@ fun ZoomableImage(
             modifier = Modifier
                 .align(Alignment.Center)
                 .graphicsLayer(
-                    scaleX = maxOf(minScale, minOf(maxScale, scale.value)),
-                    scaleY = maxOf(minScale, minOf(maxScale, scale.value))
-                    // rotationZ = rotationState.value
+                    scaleX = scale,
+                    scaleY = scale,
+                    translationX = offsetX,
+                    translationY = offsetY
                 ),
             contentDescription = null
         )
