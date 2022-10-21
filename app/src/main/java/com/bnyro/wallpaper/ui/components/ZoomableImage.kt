@@ -15,6 +15,7 @@ import androidx.compose.ui.draw.clip
 import androidx.compose.ui.graphics.RectangleShape
 import androidx.compose.ui.graphics.graphicsLayer
 import androidx.compose.ui.input.pointer.pointerInput
+import androidx.compose.ui.layout.ContentScale
 import coil.compose.AsyncImage
 
 @Composable
@@ -52,7 +53,8 @@ fun ZoomableImage(
                     translationX = offsetX,
                     translationY = offsetY
                 ),
-            contentDescription = null
+            contentDescription = null,
+            contentScale = ContentScale.FillHeight
         )
     }
 }
