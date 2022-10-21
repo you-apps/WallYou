@@ -1,0 +1,24 @@
+<resources>
+    <string name="app_name" translatable="false">Wall You</string>
+
+    <!-- Navigation Drawer -->
+    <string name="favorites">Favoris</string>
+    <string name="settings">Paramètres</string>
+    <string name="about">À propos</string>
+
+    <!-- Image Preview -->
+    <string name="info">Info</string>
+
+    <!-- Info Dialog -->
+    <string name="author">Auteur</string>
+    <string name="resolution">Résolution</string>
+    <string name="category">Catégorie</string>
+    <string name="fileSize">Taille du fichier</string>
+    <string name="source">Source</string>
+    <string name="creationDate">Date de création</string>
+
+    <!-- Set wallpaper -->
+    <string name="both">l\'un et l\'autre</string>
+    <string name="system">Système</string>
+    <string name="lockscreen">Écran de verrouillage</string>
+</resources>
