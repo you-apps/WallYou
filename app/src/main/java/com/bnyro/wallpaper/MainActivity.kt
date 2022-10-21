@@ -1,6 +1,7 @@
 package com.bnyro.wallpaper
 
 import android.os.Bundle
+import android.widget.Toast
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
 import androidx.compose.foundation.layout.Box
@@ -27,6 +28,7 @@ import androidx.compose.runtime.rememberCoroutineScope
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.vector.ImageVector
+import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.res.vectorResource
 import androidx.compose.ui.tooling.preview.Preview
@@ -58,13 +60,16 @@ class MainActivity : ComponentActivity() {
             }
         }
 
-        viewModel.fetchWallpapers()
+        viewModel.fetchWallpapers {
+            Toast.makeText(this, it.localizedMessage, Toast.LENGTH_LONG).show()
+        }
     }
 }
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
 fun MainContent() {
+    val context = LocalContext.current
     val viewModel: MainModel = viewModel()
 
     val drawerState = rememberDrawerState(DrawerValue.Closed)
@@ -79,7 +84,10 @@ fun MainContent() {
             ) {
                 viewModel.api = WhApi()
                 viewModel.clearWallpapers()
-                viewModel.fetchWallpapers()
+
+                viewModel.fetchWallpapers {
+                    Toast.makeText(context, it.localizedMessage, Toast.LENGTH_LONG).show()
+                }
             },
             DrawerItem(
                 stringResource(R.string.favorites),
@@ -131,7 +139,9 @@ fun MainContent() {
                     WallpaperGrid(
                         wallpapers = viewModel.wallpapers
                     ) {
-                        viewModel.fetchWallpapers()
+                        viewModel.fetchWallpapers {
+                            Toast.makeText(context, it.localizedMessage, Toast.LENGTH_LONG).show()
+                        }
                     }
                 } else {
                     CircularProgressIndicator(
