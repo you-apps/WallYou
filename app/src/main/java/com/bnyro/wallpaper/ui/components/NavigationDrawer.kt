@@ -31,22 +31,25 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.graphics.RectangleShape
 import androidx.compose.ui.graphics.Shape
+import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.unit.Dp
 import androidx.compose.ui.unit.dp
-import com.bnyro.wallpaper.obj.DrawerItem
+import androidx.navigation.NavController
+import com.bnyro.wallpaper.ui.nav.DrawerScreens
 import kotlinx.coroutines.launch
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
 fun NavigationDrawer(
     drawerState: DrawerState,
-    items: List<DrawerItem>,
+    pages: List<DrawerScreens>,
+    navController: NavController,
     content: @Composable () -> Unit
 ) {
     val scope = rememberCoroutineScope()
 
     var selectedItem by remember {
-        mutableStateOf(items[0])
+        mutableStateOf<DrawerScreens>(DrawerScreens.Wallhaven)
     }
 
     ModalNavigationDrawer(
@@ -54,7 +57,7 @@ fun NavigationDrawer(
         drawerContent = {
             ModalDrawerSheet {
                 Spacer(Modifier.height(12.dp))
-                items.forEach {
+                pages.forEach {
                     if (it.divideBefore) {
                         Divider(
                             modifier = Modifier
@@ -67,13 +70,13 @@ fun NavigationDrawer(
                             Icon(it.icon, null)
                         },
                         label = {
-                            Text(it.title)
+                            Text(stringResource(it.titleResource))
                         },
                         selected = it == selectedItem,
                         onClick = {
                             scope.launch {
                                 drawerState.close()
-                                it.onClick()
+                                navController.navigate(it.route)
                             }
                             selectedItem = it
                         },
