@@ -7,7 +7,6 @@ import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
 import com.bnyro.wallpaper.R
-import com.bnyro.wallpaper.constants.Destination
 import com.bnyro.wallpaper.ui.activities.AboutPage
 import com.bnyro.wallpaper.ui.activities.SettingsPage
 import com.bnyro.wallpaper.ui.components.WallpaperPage
@@ -17,7 +16,7 @@ import com.bnyro.wallpaper.ui.models.MainModel
 fun AppNavHost(
     modifier: Modifier = Modifier,
     navController: NavHostController = rememberNavController(),
-    startDestination: String = "Wallhaven",
+    startDestination: String = DrawerScreens.Wallhaven.route,
     viewModel: MainModel
 ) {
     NavHost(
@@ -25,17 +24,17 @@ fun AppNavHost(
         navController = navController,
         startDestination = startDestination
     ) {
-        composable("Wallhaven") {
+        composable(DrawerScreens.Wallhaven.route) {
             viewModel.titleResource = R.string.app_name
             WallpaperPage(
                 viewModel = viewModel
             )
         }
-        composable(Destination.SETTINGS) {
+        composable(DrawerScreens.Settings.route) {
             viewModel.titleResource = R.string.settings
             SettingsPage()
         }
-        composable(Destination.ABOUT) {
+        composable(DrawerScreens.About.route) {
             viewModel.titleResource = R.string.about
             AboutPage()
         }
