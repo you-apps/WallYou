@@ -5,7 +5,7 @@ data class Wallpaper(
     var author: String?,
     val category: String?,
     val resolution: String?,
-    val fileSize: Int?,
+    val fileSize: Long?,
     val imgSrc: String?,
     var thumb: String?
 )

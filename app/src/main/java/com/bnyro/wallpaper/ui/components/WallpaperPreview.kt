@@ -53,6 +53,10 @@ fun WallpaperPreview(
         mutableStateOf(false)
     }
 
+    var showInfoDialog by remember {
+        mutableStateOf(false)
+    }
+
     Dialog(
         onDismissRequest = onDismissRequest,
         properties = DialogProperties(usePlatformDefaultWidth = false)
@@ -82,6 +86,7 @@ fun WallpaperPreview(
                         ButtonWithIcon(
                             icon = Icons.Default.Info
                         ) {
+                            showInfoDialog = true
                         }
 
                         ButtonWithIcon(
@@ -117,6 +122,14 @@ fun WallpaperPreview(
         context.applicationContext
     ) {
         bitmap = it
+    }
+
+    if (showInfoDialog) {
+        ImageInfoDialog(
+            wallpaper = wallpaper
+        ) {
+            showInfoDialog = false
+        }
     }
 
     if (showModeSelection) {

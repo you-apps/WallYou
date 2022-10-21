@@ -7,7 +7,7 @@ data class WhData(
     val dimension_x: Int? = null,
     val dimension_y: Int? = null,
     val favorites: Int? = null,
-    val file_size: Int? = null,
+    val file_size: Long? = null,
     val file_type: String? = null,
     val id: String? = null,
     val path: String? = null,

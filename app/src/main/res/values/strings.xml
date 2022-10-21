@@ -1,11 +1,23 @@
 <resources>
-    <string name="app_name">Wall You</string>
+    <string name="app_name" translatable="false">Wall You</string>
 
-    <string name="both">Both</string>
-    <string name="system">System</string>
-    <string name="lockscreen">Lockscreen</string>
-
+    <!-- Navigation Drawer -->
     <string name="favorites">Favorites</string>
     <string name="settings">Settings</string>
     <string name="about">About</string>
+
+    <!-- Image Preview -->
+    <string name="info">Info</string>
+
+    <!-- Info Dialog -->
+    <string name="author">Author</string>
+    <string name="resolution">Resolution</string>
+    <string name="category">Category</string>
+    <string name="fileSize">File size</string>
+    <string name="source">Source</string>
+
+    <!-- Set wallpaper -->
+    <string name="both">Both</string>
+    <string name="system">System</string>
+    <string name="lockscreen">Lockscreen</string>
 </resources>
