@@ -31,6 +31,7 @@ import androidx.lifecycle.viewmodel.compose.viewModel
 import androidx.navigation.compose.rememberNavController
 import com.bnyro.wallpaper.R
 import com.bnyro.wallpaper.api.wh.WhApi
+import com.bnyro.wallpaper.constants.Destination
 import com.bnyro.wallpaper.obj.DrawerItem
 import com.bnyro.wallpaper.ui.components.NavigationDrawer
 import com.bnyro.wallpaper.ui.models.MainModel
@@ -88,12 +89,14 @@ private fun MainContent() {
                 stringResource(R.string.settings),
                 Icons.Default.Settings,
                 true
-            ),
+            ) {
+                navController.navigate(Destination.SETTINGS)
+            },
             DrawerItem(
                 stringResource(R.string.about),
                 Icons.Default.Info
             ) {
-                navController.navigate("About")
+                navController.navigate(Destination.ABOUT)
             }
         )
     ) {

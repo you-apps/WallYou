@@ -7,7 +7,9 @@ import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
 import com.bnyro.wallpaper.R
+import com.bnyro.wallpaper.constants.Destination
 import com.bnyro.wallpaper.ui.activities.AboutPage
+import com.bnyro.wallpaper.ui.activities.SettingsPage
 import com.bnyro.wallpaper.ui.components.WallpaperPage
 import com.bnyro.wallpaper.ui.models.MainModel
 
@@ -29,7 +31,11 @@ fun AppNavHost(
                 viewModel = viewModel
             )
         }
-        composable("About") {
+        composable(Destination.SETTINGS) {
+            viewModel.titleResource = R.string.settings
+            SettingsPage()
+        }
+        composable(Destination.ABOUT) {
             viewModel.titleResource = R.string.about
             AboutPage()
         }
