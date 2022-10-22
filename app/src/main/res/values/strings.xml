@@ -25,9 +25,11 @@
 
     <!-- Preference categories -->
     <string name="general">General</string>
+    <string name="cache">Cache</string>
 
     <!-- Preferences -->
     <string name="crop_images">Crop images</string>
+    <string name="coil_cache">Coil image cache</string>
 
     <!-- About -->
     <string name="version">Version</string>

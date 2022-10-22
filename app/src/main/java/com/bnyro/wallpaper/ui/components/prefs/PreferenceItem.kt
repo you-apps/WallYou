@@ -19,7 +19,8 @@ fun PreferenceItem(
 ) {
     Row {
         Column(
-            verticalArrangement = Arrangement.Center
+            verticalArrangement = Arrangement.Center,
+            modifier = modifier
         ) {
             Text(title)
             if (summary != null) {
