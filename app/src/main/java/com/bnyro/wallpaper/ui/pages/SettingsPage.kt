@@ -1,11 +1,14 @@
 package com.bnyro.wallpaper.ui.activities
 
 import androidx.compose.foundation.layout.Column
+import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxSize
+import androidx.compose.foundation.layout.height
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.res.stringResource
+import androidx.compose.ui.unit.dp
 import com.bnyro.wallpaper.R
 import com.bnyro.wallpaper.ext.formatBinarySize
 import com.bnyro.wallpaper.ext.formatMinutes
@@ -71,6 +74,10 @@ fun SettingsPage() {
         AboutContainer {
             SettingsCategory(
                 title = stringResource(R.string.wallpaper_changer)
+            )
+            Spacer(
+                modifier = Modifier
+                    .height(5.dp)
             )
             CheckboxPref(
                 prefKey = PrefHolder.wallpaperChangerKey,

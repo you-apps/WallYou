@@ -109,6 +109,15 @@ fun TagsEditor(
                     Text(stringResource(android.R.string.ok))
                 }
             },
+            dismissButton = {
+                TextButton(
+                    onClick = {
+                        showDialog = false
+                    }
+                ) {
+                    Text(stringResource(android.R.string.cancel))
+                }
+            },
             title = {
                 Text(
                     text = stringResource(id = R.string.add)

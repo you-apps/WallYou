@@ -28,6 +28,6 @@ abstract class Api {
     }
 
     fun setTags(tags: List<String>) {
-        setPref(this.name + "tags", tags.joinToString(""))
+        setPref(this.name + "tags", tags.joinToString(","))
     }
 }
