@@ -10,9 +10,10 @@ interface Wallhaven {
         @Query("q") query: String? = null,
         @Query("ratio") ratio: String? = null,
         @Query("page") page: Int = 1,
-        @Query("categories") categories: Int = 100,
+        @Query("categories") categories: String = "general",
         @Query("order") order: String = "desc",
-        @Query("purity") purity: Int = 100,
-        @Query("sorting") sorting: String = "favorites"
+        @Query("purity") purity: String = "sfw",
+        @Query("sorting") sorting: String = "favorites",
+        @Query("ratios") ratios: String = "portrait"
     ): WhSearchResponse
 }

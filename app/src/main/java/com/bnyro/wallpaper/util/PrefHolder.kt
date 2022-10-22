@@ -5,6 +5,7 @@ import android.content.SharedPreferences
 
 object PrefHolder {
     const val cropImagesKey = "cropImages"
+    const val diskCacheKey = "diskCache"
 
     private const val prefFile = "preferences"
     lateinit var Preferences: SharedPreferences
