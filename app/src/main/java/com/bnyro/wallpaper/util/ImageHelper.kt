@@ -4,6 +4,7 @@ import android.content.Context
 import android.graphics.Bitmap
 import androidx.core.graphics.drawable.toBitmap
 import coil.ImageLoader
+import coil.executeBlocking
 import coil.request.ImageRequest
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
@@ -26,5 +27,13 @@ object ImageHelper {
                 .build()
             ImageLoader(context).enqueue(request)
         }
+    }
+
+    fun getBlocking(context: Context, imageURL: String?): Bitmap? {
+        val request: ImageRequest = ImageRequest.Builder(context)
+            .data(imageURL)
+            .build()
+
+        return ImageLoader(context).executeBlocking(request).drawable?.toBitmap()
     }
 }

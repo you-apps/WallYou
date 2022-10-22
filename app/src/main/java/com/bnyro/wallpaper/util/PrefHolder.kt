@@ -6,6 +6,9 @@ import android.content.SharedPreferences
 object PrefHolder {
     const val cropImagesKey = "cropImages"
     const val diskCacheKey = "diskCache"
+    const val wallpaperChangerKey = "wallpaperChanger"
+    const val wallpaperChangerIntervalKey = "wallpaperChangerInterval"
+    const val wallpaperChangerTargetKey = "wallpaperChangerTarget"
 
     private const val prefFile = "preferences"
     lateinit var Preferences: SharedPreferences

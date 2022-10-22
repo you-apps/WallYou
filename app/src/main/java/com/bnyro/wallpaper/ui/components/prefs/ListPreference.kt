@@ -21,7 +21,8 @@ fun ListPreference(
     title: String,
     summary: String? = null,
     entries: List<String>,
-    values: List<String>
+    values: List<String>,
+    onChange: (String) -> Unit = {}
 ) {
     var showDialog by remember {
         mutableStateOf(false)
@@ -51,6 +52,7 @@ fun ListPreference(
                     prefKey,
                     values[it]
                 ).apply()
+                onChange.invoke(values[it])
                 showDialog = false
             }
         )

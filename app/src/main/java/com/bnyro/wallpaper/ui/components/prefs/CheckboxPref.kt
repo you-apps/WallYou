@@ -18,7 +18,8 @@ fun CheckboxPref(
     prefKey: String,
     title: String,
     summary: String? = null,
-    defaultValue: Boolean = false
+    defaultValue: Boolean = false,
+    onCheckedChange: (Boolean) -> Unit = {}
 ) {
     var checked by remember {
         mutableStateOf(
@@ -41,6 +42,7 @@ fun CheckboxPref(
             onCheckedChange = {
                 checked = it
                 PrefHolder.PrefEditor.putBoolean(prefKey, it).apply()
+                onCheckedChange.invoke(it)
             }
         )
     }

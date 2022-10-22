@@ -32,6 +32,9 @@
     <!-- Preferences -->
     <string name="crop_images">Crop images</string>
     <string name="coil_cache">Coil image cache</string>
+    <string name="wallpaper_changer">Wallpaper changer</string>
+    <string name="change_interval">Change interval</string>
+    <string name="change_target">Wallpaper target</string>
 
     <!-- About -->
     <string name="version">Version</string>
