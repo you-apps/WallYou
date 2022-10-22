@@ -9,7 +9,8 @@
 
     <!-- Image Preview -->
     <string name="info">Info</string>
-
+    <string name="filter">Filtre</string>
+    
     <!-- Info Dialog -->
     <string name="author">Auteur</string>
     <string name="resolution">Résolution</string>
@@ -25,8 +26,15 @@
     
         <!-- Preference categories -->
     <string name="general">Générale</string>
+    <string name="cache">Cache</string>
 
     <!-- Preferences -->
     <string name="crop_images">Recadrer les images</string>
-    
+    <string name="coil_cache">Coil image cache</string>
+
+    <!-- About -->
+    <string name="version">Version</string>
+    <string name="github" translatable="false">GitHub</string>
+    <string name="license">Licence</string>
+    <string name="website">Site web</string>
 </resources>
