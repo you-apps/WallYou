@@ -5,7 +5,7 @@ import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.padding
 import androidx.compose.material.icons.Icons
-import androidx.compose.material.icons.filled.Filter
+import androidx.compose.material.icons.filled.FilterList
 import androidx.compose.material3.CircularProgressIndicator
 import androidx.compose.material3.FloatingActionButton
 import androidx.compose.material3.Icon
@@ -51,15 +51,21 @@ fun WallpaperPage(
                 }
             ) {
                 Icon(
-                    imageVector = Icons.Default.Filter,
+                    imageVector = Icons.Default.FilterList,
                     contentDescription = null
                 )
             }
             if (showFilterDialog) {
                 WallhavenFilterDialog(
                     api = viewModel.api
-                ) {
+                ) { changed ->
                     showFilterDialog = false
+                    if (changed) {
+                        viewModel.clearWallpapers()
+                        viewModel.fetchWallpapers {
+                            Toast.makeText(context, it.localizedMessage, Toast.LENGTH_SHORT).show()
+                        }
+                    }
                 }
             }
         } else {

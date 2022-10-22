@@ -25,16 +25,20 @@ import java.util.*
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
 fun FilterDialog(
-    onDismissRequest: () -> Unit,
     api: Api,
-    filters: Map<String, List<String>>
+    filters: Map<String, List<String>>,
+    onDismissRequest: (Boolean) -> Unit
 ) {
+    var changed = false
+
     AlertDialog(
-        onDismissRequest = onDismissRequest,
+        onDismissRequest = {
+            onDismissRequest.invoke(changed)
+        },
         confirmButton = {
             TextButton(
                 onClick = {
-                    onDismissRequest.invoke()
+                    onDismissRequest.invoke(changed)
                 }
             ) {
                 Text(stringResource(android.R.string.ok))
@@ -48,8 +52,11 @@ fun FilterDialog(
                 filters.forEach {
                     Text(
                         text = it.key.replaceFirstChar {
-                            if (it.isLowerCase()) it.titlecase(Locale.getDefault())
-                            else it.toString()
+                            if (it.isLowerCase()) {
+                                it.titlecase(Locale.getDefault())
+                            } else {
+                                it.toString()
+                            }
                         },
                         fontSize = 14.sp
                     )
@@ -63,18 +70,24 @@ fun FilterDialog(
                                 api.getPref(it.key, it.value.first())
                             )
                         }
-                        it.value.forEach {
+                        it.value.forEach { entry ->
                             ElevatedFilterChip(
-                                selected = it == selected,
+                                selected = entry == selected,
                                 onClick = {
-                                    selected = it
+                                    changed = true
+                                    selected = entry
+                                    api.setPref(it.key, entry)
                                 },
                                 label = {
                                     Text(
-                                        it.replaceFirstChar {
-                                            if (it.isLowerCase()) it.titlecase(
-                                                Locale.getDefault()
-                                            ) else it.toString()
+                                        entry.replaceFirstChar {
+                                            if (it.isLowerCase()) {
+                                                it.titlecase(
+                                                    Locale.getDefault()
+                                                )
+                                            } else {
+                                                it.toString()
+                                            }
                                         }
                                     )
                                 }
