@@ -36,6 +36,12 @@
     <string name="change_interval">Change interval</string>
     <string name="change_target">Wallpaper target</string>
 
+    <!-- Theme -->
+    <string name="theme_mode">Theme mode</string>
+    <string name="theme_system">System</string>
+    <string name="theme_light">Light</string>
+    <string name="theme_dark">Dark</string>
+
     <!-- About -->
     <string name="version">Version</string>
     <string name="github" translatable="false">GitHub</string>

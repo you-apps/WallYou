@@ -8,10 +8,19 @@ import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.bnyro.wallpaper.R
 import com.bnyro.wallpaper.api.wh.WhApi
+import com.bnyro.wallpaper.constants.ThemeMode
 import com.bnyro.wallpaper.obj.Wallpaper
+import com.bnyro.wallpaper.util.Preferences
 import kotlinx.coroutines.launch
 
 class MainModel : ViewModel() {
+    var themeMode by mutableStateOf(
+        Preferences.getString(
+            Preferences.themeModeKey,
+            ThemeMode.AUTO.toString()
+        )!!.toInt()
+    )
+
     var api = WhApi()
     var wallpapers by mutableStateOf(
         listOf<Wallpaper>()

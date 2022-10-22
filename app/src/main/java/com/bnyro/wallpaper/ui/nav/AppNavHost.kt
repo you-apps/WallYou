@@ -27,9 +27,7 @@ fun AppNavHost(
     ) {
         composable(DrawerScreens.Wallhaven.route) {
             viewModel.titleResource = R.string.app_name
-            WallpaperPage(
-                viewModel = viewModel
-            )
+            WallpaperPage(viewModel)
         }
         composable(DrawerScreens.Favorites.route) {
             viewModel.titleResource = R.string.favorites
@@ -37,7 +35,7 @@ fun AppNavHost(
         }
         composable(DrawerScreens.Settings.route) {
             viewModel.titleResource = R.string.settings
-            SettingsPage()
+            SettingsPage(viewModel)
         }
         composable(DrawerScreens.About.route) {
             viewModel.titleResource = R.string.about

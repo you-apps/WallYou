@@ -10,6 +10,7 @@ object Preferences {
     const val wallpaperChangerKey = "wallpaperChanger"
     const val wallpaperChangerIntervalKey = "wallpaperChangerInterval"
     const val wallpaperChangerTargetKey = "wallpaperChangerTarget"
+    const val themeModeKey = "themeModeKey"
 
     const val defaultDiskCacheSize = 128L * 1024 * 1024
     const val defaultWallpaperChangeInterval = 15L

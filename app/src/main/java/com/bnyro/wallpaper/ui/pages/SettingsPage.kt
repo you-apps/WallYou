@@ -10,17 +10,21 @@ import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.unit.dp
 import com.bnyro.wallpaper.R
+import com.bnyro.wallpaper.constants.ThemeMode
 import com.bnyro.wallpaper.ext.formatBinarySize
 import com.bnyro.wallpaper.ext.formatMinutes
 import com.bnyro.wallpaper.ui.components.about.AboutContainer
 import com.bnyro.wallpaper.ui.components.prefs.CheckboxPref
 import com.bnyro.wallpaper.ui.components.prefs.ListPreference
 import com.bnyro.wallpaper.ui.components.prefs.SettingsCategory
+import com.bnyro.wallpaper.ui.models.MainModel
 import com.bnyro.wallpaper.util.Preferences
 import com.bnyro.wallpaper.util.WorkerHelper
 
 @Composable
-fun SettingsPage() {
+fun SettingsPage(
+    viewModel: MainModel
+) {
     val context = LocalContext.current.applicationContext
 
     Column(
@@ -32,6 +36,19 @@ fun SettingsPage() {
                 SettingsCategory(
                     title = stringResource(R.string.general)
                 )
+                ListPreference(
+                    prefKey = Preferences.themeModeKey,
+                    title = stringResource(R.string.theme_mode),
+                    entries = listOf(
+                        stringResource(R.string.theme_system),
+                        stringResource(R.string.theme_light),
+                        stringResource(R.string.theme_dark)
+                    ),
+                    values = (0..2).map { it.toString() },
+                    defaultValue = ThemeMode.AUTO.toString()
+                ) {
+                    viewModel.themeMode = it.toInt()
+                }
                 CheckboxPref(
                     prefKey = Preferences.cropImagesKey,
                     title = stringResource(R.string.crop_images)
