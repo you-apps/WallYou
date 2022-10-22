@@ -9,7 +9,7 @@ import androidx.lifecycle.viewModelScope
 import com.bnyro.wallpaper.R
 import com.bnyro.wallpaper.api.wh.WhApi
 import com.bnyro.wallpaper.constants.ThemeMode
-import com.bnyro.wallpaper.obj.Wallpaper
+import com.bnyro.wallpaper.db.obj.Wallpaper
 import com.bnyro.wallpaper.util.Preferences
 import kotlinx.coroutines.launch
 

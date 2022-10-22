@@ -1,6 +1,7 @@
 package com.bnyro.wallpaper.ui.components
 
 import android.graphics.Bitmap
+import android.util.Log
 import androidx.activity.compose.rememberLauncherForActivityResult
 import androidx.activity.result.contract.ActivityResultContracts
 import androidx.compose.foundation.background
@@ -16,10 +17,12 @@ import androidx.compose.material.icons.filled.Download
 import androidx.compose.material.icons.filled.Favorite
 import androidx.compose.material.icons.filled.Info
 import androidx.compose.material.icons.filled.Wallpaper
+import androidx.compose.material.icons.outlined.Favorite
 import androidx.compose.material3.CircularProgressIndicator
 import androidx.compose.material3.ElevatedCard
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
@@ -35,7 +38,9 @@ import androidx.compose.ui.unit.dp
 import androidx.compose.ui.window.Dialog
 import androidx.compose.ui.window.DialogProperties
 import com.bnyro.wallpaper.R
-import com.bnyro.wallpaper.obj.Wallpaper
+import com.bnyro.wallpaper.db.DatabaseHolder.Companion.Database
+import com.bnyro.wallpaper.db.obj.Wallpaper
+import com.bnyro.wallpaper.ext.Query
 import com.bnyro.wallpaper.util.DownloadHelper
 import com.bnyro.wallpaper.util.ImageHelper
 import com.bnyro.wallpaper.util.WallpaperHelper
@@ -58,6 +63,17 @@ fun WallpaperPreview(
 
     var showInfoDialog by remember {
         mutableStateOf(false)
+    }
+
+    var liked by remember {
+        mutableStateOf(false)
+    }
+
+    LaunchedEffect(true) {
+        Query {
+            wallpaper.imgSrc.let { liked = Database.favoritesDao().exists(it) }
+            Log.e("liked", liked.toString())
+        }
     }
 
     val launcher = rememberLauncherForActivityResult(
@@ -87,7 +103,7 @@ fun WallpaperPreview(
                         .clip(RoundedCornerShape(50.dp))
                 ) {
                     Row(
-                        horizontalArrangement = Arrangement.SpaceBetween,
+                        horizontalArrangement = Arrangement.SpaceEvenly,
                         modifier = Modifier
                             .fillMaxWidth()
                             .padding(10.dp)
@@ -112,8 +128,16 @@ fun WallpaperPreview(
                         }
 
                         ButtonWithIcon(
-                            icon = Icons.Default.Favorite
+                            icon = if (liked) Icons.Filled.Favorite else Icons.Outlined.Favorite
                         ) {
+                            Query {
+                                if (!liked) {
+                                    Database.favoritesDao().delete(wallpaper)
+                                } else {
+                                    Database.favoritesDao().insertAll(wallpaper)
+                                }
+                            }
+                            liked = !liked
                         }
                     }
                 }
@@ -128,7 +152,7 @@ fun WallpaperPreview(
 
     ImageHelper.urlToBitmap(
         rememberCoroutineScope(),
-        wallpaper.imgSrc ?: "",
+        wallpaper.imgSrc,
         context.applicationContext
     ) {
         bitmap = it

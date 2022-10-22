@@ -42,6 +42,9 @@
     <string name="theme_light">Light</string>
     <string name="theme_dark">Dark</string>
 
+    <!-- Favorites -->
+    <string name="no_favorites">No favorites yet</string>
+
     <!-- About -->
     <string name="version">Version</string>
     <string name="github" translatable="false">GitHub</string>

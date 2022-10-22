@@ -22,12 +22,12 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.unit.dp
 import coil.compose.AsyncImage
-import com.bnyro.wallpaper.obj.Wallpaper
+import com.bnyro.wallpaper.db.obj.Wallpaper
 
 @Composable
 fun WallpaperGrid(
     wallpapers: List<Wallpaper>,
-    onScrollEnd: () -> Unit
+    onScrollEnd: () -> Unit = {}
 ) {
     val listState = rememberLazyGridState()
     val scrollEnded by remember {

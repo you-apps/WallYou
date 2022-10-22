@@ -1,0 +1,82 @@
+{
+  "formatVersion": 1,
+  "database": {
+    "version": 1,
+    "identityHash": "b8804b8b4eaa74f2f2977f3c05bc3500",
+    "entities": [
+      {
+        "tableName": "favorites",
+        "createSql": "CREATE TABLE IF NOT EXISTS `${TABLE_NAME}` (`imgSrc` TEXT NOT NULL, `title` TEXT, `url` TEXT, `author` TEXT, `category` TEXT, `resolution` TEXT, `fileSize` INTEGER, `thumb` TEXT, `creationDate` TEXT, PRIMARY KEY(`imgSrc`))",
+        "fields": [
+          {
+            "fieldPath": "imgSrc",
+            "columnName": "imgSrc",
+            "affinity": "TEXT",
+            "notNull": true
+          },
+          {
+            "fieldPath": "title",
+            "columnName": "title",
+            "affinity": "TEXT",
+            "notNull": false
+          },
+          {
+            "fieldPath": "url",
+            "columnName": "url",
+            "affinity": "TEXT",
+            "notNull": false
+          },
+          {
+            "fieldPath": "author",
+            "columnName": "author",
+            "affinity": "TEXT",
+            "notNull": false
+          },
+          {
+            "fieldPath": "category",
+            "columnName": "category",
+            "affinity": "TEXT",
+            "notNull": false
+          },
+          {
+            "fieldPath": "resolution",
+            "columnName": "resolution",
+            "affinity": "TEXT",
+            "notNull": false
+          },
+          {
+            "fieldPath": "fileSize",
+            "columnName": "fileSize",
+            "affinity": "INTEGER",
+            "notNull": false
+          },
+          {
+            "fieldPath": "thumb",
+            "columnName": "thumb",
+            "affinity": "TEXT",
+            "notNull": false
+          },
+          {
+            "fieldPath": "creationDate",
+            "columnName": "creationDate",
+            "affinity": "TEXT",
+            "notNull": false
+          }
+        ],
+        "primaryKey": {
+          "columnNames": [
+            "imgSrc"
+          ],
+          "autoGenerate": false
+        },
+        "indices": [],
+        "foreignKeys": []
+      }
+    ],
+    "views": [],
+    "setupQueries": [
+      "CREATE TABLE IF NOT EXISTS room_master_table (id INTEGER PRIMARY KEY,identity_hash TEXT)",
+      "INSERT OR REPLACE INTO room_master_table (id,identity_hash) VALUES(42, 'b8804b8b4eaa74f2f2977f3c05bc3500')"
+    ]
+  }
+}

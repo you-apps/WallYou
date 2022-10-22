@@ -1,6 +1,6 @@
 package com.bnyro.wallpaper.api
 
-import com.bnyro.wallpaper.obj.Wallpaper
+import com.bnyro.wallpaper.db.obj.Wallpaper
 import com.bnyro.wallpaper.util.Preferences
 
 abstract class Api {

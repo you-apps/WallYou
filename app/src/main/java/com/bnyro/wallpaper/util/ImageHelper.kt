@@ -13,7 +13,7 @@ import kotlinx.coroutines.launch
 object ImageHelper {
     fun urlToBitmap(
         scope: CoroutineScope,
-        imageURL: String,
+        imageURL: String?,
         context: Context,
         onSuccess: (bitmap: Bitmap) -> Unit
     ) {

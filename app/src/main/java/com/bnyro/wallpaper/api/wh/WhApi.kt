@@ -1,7 +1,7 @@
 package com.bnyro.wallpaper.api.wh
 
 import com.bnyro.wallpaper.api.Api
-import com.bnyro.wallpaper.obj.Wallpaper
+import com.bnyro.wallpaper.db.obj.Wallpaper
 import com.bnyro.wallpaper.util.RetrofitBuilder
 
 class WhApi : Api() {
@@ -38,12 +38,12 @@ class WhApi : Api() {
             }
         ).data?.map {
             Wallpaper(
+                imgSrc = it.path!!,
                 title = it.category,
                 url = it.url,
                 category = it.category,
                 fileSize = it.file_size,
                 resolution = it.resolution,
-                imgSrc = it.path,
                 thumb = it.thumbs?.original,
                 author = null,
                 creationDate = it.created_at

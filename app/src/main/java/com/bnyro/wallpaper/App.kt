@@ -4,6 +4,7 @@ import android.app.Application
 import coil.ImageLoader
 import coil.ImageLoaderFactory
 import coil.disk.DiskCache
+import com.bnyro.wallpaper.db.DatabaseHolder
 import com.bnyro.wallpaper.util.Preferences
 
 class App : Application(), ImageLoaderFactory {
@@ -11,6 +12,8 @@ class App : Application(), ImageLoaderFactory {
         super.onCreate()
 
         Preferences.init(this)
+
+        DatabaseHolder().create(this)
     }
 
     override fun newImageLoader(): ImageLoader {
