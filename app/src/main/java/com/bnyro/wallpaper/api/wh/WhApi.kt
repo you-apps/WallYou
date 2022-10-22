@@ -5,6 +5,7 @@ import com.bnyro.wallpaper.obj.Wallpaper
 import com.bnyro.wallpaper.util.RetrofitBuilder
 
 class WhApi() : Api() {
+    override val name: String = "Wallhaven"
     override val baseUrl: String = "https://wallhaven.cc/api/v1/"
     private val api = RetrofitBuilder.create(baseUrl, Wallhaven::class.java)
 
