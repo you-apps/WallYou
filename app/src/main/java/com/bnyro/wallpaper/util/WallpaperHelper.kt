@@ -30,7 +30,16 @@ object WallpaperHelper {
 
     fun setWallpaper(context: Context, bitmap: Bitmap, mode: Int) {
         Thread {
-            val resizedBitmap = getResizedBitmap(bitmap, context.resources.displayMetrics)
+            val resizedBitmap = if (
+                PrefHolder.Preferences.getBoolean(
+                    PrefHolder.cropImagesKey,
+                    false
+                )
+            ) {
+                getCroppedBitmap(bitmap, context.resources.displayMetrics)
+            } else {
+                getResizedBitmap(bitmap, context.resources.displayMetrics)
+            }
             if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.N) {
                 if (mode in listOf(WallpaperMode.BOTH, WallpaperMode.HOME)) {
                     setWallpaperUp(context, resizedBitmap, WallpaperManager.FLAG_SYSTEM)
@@ -42,6 +51,15 @@ object WallpaperHelper {
                 setWallpaperLegacy(context, resizedBitmap)
             }
         }.start()
+    }
+
+    fun getCroppedBitmap(bitmap: Bitmap, displayMetrics: DisplayMetrics): Bitmap {
+        return Bitmap.createScaledBitmap(
+            bitmap,
+            displayMetrics.widthPixels,
+            displayMetrics.heightPixels,
+            true
+        )
     }
 
     fun getResizedBitmap(bitmap: Bitmap, displayMetrics: DisplayMetrics): Bitmap {
@@ -68,7 +86,7 @@ object WallpaperHelper {
             resizedBitmap,
             bitmapNewWidth,
             bitmapNewHeight,
-            true
+            false
         )
 
         val bitmapGapX: Int = ((bitmapNewWidth - screenWidth) / 2.0f).toInt()

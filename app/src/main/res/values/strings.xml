@@ -22,4 +22,16 @@
     <string name="both">Both</string>
     <string name="system">System</string>
     <string name="lockscreen">Lockscreen</string>
+
+    <!-- Preference categories -->
+    <string name="general">General</string>
+
+    <!-- Preferences -->
+    <string name="crop_images">Crop images</string>
+
+    <!-- About -->
+    <string name="version">Version</string>
+    <string name="github" translatable="false">GitHub</string>
+    <string name="license">License</string>
+    <string name="website">Website</string>
 </resources>

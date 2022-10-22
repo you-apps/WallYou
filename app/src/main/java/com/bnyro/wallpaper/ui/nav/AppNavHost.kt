@@ -8,6 +8,7 @@ import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
 import com.bnyro.wallpaper.R
 import com.bnyro.wallpaper.ui.activities.AboutPage
+import com.bnyro.wallpaper.ui.activities.FavoritesPage
 import com.bnyro.wallpaper.ui.activities.SettingsPage
 import com.bnyro.wallpaper.ui.components.WallpaperPage
 import com.bnyro.wallpaper.ui.models.MainModel
@@ -29,6 +30,10 @@ fun AppNavHost(
             WallpaperPage(
                 viewModel = viewModel
             )
+        }
+        composable(DrawerScreens.Favorites.route) {
+            viewModel.titleResource = R.string.favorites
+            FavoritesPage()
         }
         composable(DrawerScreens.Settings.route) {
             viewModel.titleResource = R.string.settings
