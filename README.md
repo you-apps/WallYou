@@ -26,7 +26,7 @@
 <!-- ---------- Download ---------- -->
 ## Download
 
-[<img src="ghbadge.png" alt="Get it on GitHub" height="80">](https://github.com/bnyro/translateyou/releases)
+[<img src="ghbadge.png" alt="Get it on GitHub" height="80">](https://github.com/bnyro/WallYou/releases)
 
 <!-- ---------- Contribution ---------- -->
 ## Contribution
@@ -36,4 +36,4 @@ If you are a developer and wish to contribute to the app, please **fork** the pr
 
 ## License
 
-Translate You is licensed under the [**GNU General Public License**](https://www.gnu.org/licenses/gpl.html): You can use, study and share it as you want.
+Wall You is licensed under the [**GNU General Public License**](https://www.gnu.org/licenses/gpl.html): You can use, study and share it as you want.
