@@ -4,22 +4,24 @@ import com.bnyro.wallpaper.api.Api
 import com.bnyro.wallpaper.obj.Wallpaper
 import com.bnyro.wallpaper.util.RetrofitBuilder
 
-class WhApi() : Api() {
+class WhApi : Api() {
     override val name: String = "Wallhaven"
     override val baseUrl: String = "https://wallhaven.cc/api/v1/"
     override val filters: Map<String, List<String>> = mapOf(
         "ratios" to listOf("portrait", "landscape"),
-        "categories" to listOf("all", "general", "anime", "people"),
+        "categories" to listOf("general", "anime", "people", "all"),
         "sorting" to listOf("favorites", "date_added", "relevance", "random", "views", "toplist"),
         "order" to listOf("desc", "asc"),
-        "purity" to listOf("all", "sfw", "sketchy")
+        "purity" to listOf("sfw", "sketchy", "all")
     )
+    override val supportsTags: Boolean = true
 
     private val api = RetrofitBuilder.create(baseUrl, Wallhaven::class.java)
 
     override suspend fun getWallpapers(page: Int): List<Wallpaper> {
         return api.search(
             page = page,
+            query = getTags().joinToString(" "),
             ratios = getQuery("ratios"),
             categories = when (getQuery("categories")) {
                 "general" -> "100"

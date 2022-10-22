@@ -7,7 +7,7 @@ import retrofit2.http.Query
 interface Wallhaven {
     @GET("search")
     suspend fun search(
-        @Query("q") query: String? = null,
+        @Query("q") query: String,
         @Query("page") page: Int = 1,
         @Query("categories") categories: String,
         @Query("order") order: String,

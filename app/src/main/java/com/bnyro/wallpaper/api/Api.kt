@@ -7,6 +7,7 @@ abstract class Api {
     abstract val name: String
     abstract val baseUrl: String
     abstract val filters: Map<String, List<String>>
+    abstract val supportsTags: Boolean
 
     abstract suspend fun getWallpapers(page: Int): List<Wallpaper>
 
@@ -20,5 +21,13 @@ abstract class Api {
 
     fun getQuery(key: String): String {
         return getPref(key, filters[key]?.first() ?: "")
+    }
+
+    fun getTags(): List<String> {
+        return getPref(this.name + "tags", "sunset,portrait,display").split(",")
+    }
+
+    fun setTags(tags: List<String>) {
+        setPref(this.name + "tags", tags.joinToString(""))
     }
 }

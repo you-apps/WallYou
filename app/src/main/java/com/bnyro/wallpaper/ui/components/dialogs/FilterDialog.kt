@@ -22,6 +22,7 @@ import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import com.bnyro.wallpaper.R
 import com.bnyro.wallpaper.api.Api
+import com.bnyro.wallpaper.ui.components.TagsEditor
 import java.util.*
 
 @OptIn(ExperimentalMaterial3Api::class)
@@ -30,16 +31,16 @@ fun FilterDialog(
     api: Api,
     onDismissRequest: (Boolean) -> Unit
 ) {
-    var changed = false
+    var modified = false
 
     AlertDialog(
         onDismissRequest = {
-            onDismissRequest.invoke(changed)
+            onDismissRequest.invoke(modified)
         },
         confirmButton = {
             TextButton(
                 onClick = {
-                    onDismissRequest.invoke(changed)
+                    onDismissRequest.invoke(modified)
                 }
             ) {
                 Text(stringResource(android.R.string.ok))
@@ -50,6 +51,13 @@ fun FilterDialog(
         },
         text = {
             Column {
+                if (api.supportsTags) {
+                    TagsEditor(
+                        api = api
+                    ) {
+                        modified = true
+                    }
+                }
                 api.filters.forEach {
                     Text(
                         text = it.key.replaceFirstChar {
@@ -77,7 +85,7 @@ fun FilterDialog(
                                     .padding(2.dp, 0.dp),
                                 selected = entry == selected,
                                 onClick = {
-                                    changed = true
+                                    modified = true
                                     selected = entry
                                     api.setPref(it.key, entry)
                                 },

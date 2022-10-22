@@ -10,6 +10,7 @@
     <!-- Image Preview -->
     <string name="info">Info</string>
     <string name="filter">Filter</string>
+    <string name="add">Add</string>
 
     <!-- Info Dialog -->
     <string name="author">Author</string>

@@ -10,8 +10,8 @@ import com.bnyro.wallpaper.R
 import com.bnyro.wallpaper.ui.activities.AboutPage
 import com.bnyro.wallpaper.ui.activities.FavoritesPage
 import com.bnyro.wallpaper.ui.activities.SettingsPage
-import com.bnyro.wallpaper.ui.components.WallpaperPage
 import com.bnyro.wallpaper.ui.models.MainModel
+import com.bnyro.wallpaper.ui.pages.WallpaperPage
 
 @Composable
 fun AppNavHost(

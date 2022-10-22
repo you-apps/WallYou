@@ -1,4 +1,4 @@
-package com.bnyro.wallpaper.ui.components
+package com.bnyro.wallpaper.ui.pages
 
 import android.widget.Toast
 import androidx.compose.foundation.layout.Box
@@ -18,6 +18,7 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.unit.dp
+import com.bnyro.wallpaper.ui.components.WallpaperGrid
 import com.bnyro.wallpaper.ui.components.dialogs.FilterDialog
 import com.bnyro.wallpaper.ui.models.MainModel
 
@@ -42,37 +43,38 @@ fun WallpaperPage(
                     Toast.makeText(context, it.localizedMessage, Toast.LENGTH_LONG).show()
                 }
             }
-            FloatingActionButton(
-                modifier = Modifier
-                    .padding(20.dp)
-                    .align(Alignment.BottomEnd),
-                onClick = {
-                    showFilterDialog = true
-                }
-            ) {
-                Icon(
-                    imageVector = Icons.Default.FilterList,
-                    contentDescription = null
-                )
-            }
-            if (showFilterDialog) {
-                FilterDialog(
-                    api = viewModel.api
-                ) { changed ->
-                    showFilterDialog = false
-                    if (changed) {
-                        viewModel.clearWallpapers()
-                        viewModel.fetchWallpapers {
-                            Toast.makeText(context, it.localizedMessage, Toast.LENGTH_SHORT).show()
-                        }
-                    }
-                }
-            }
         } else {
             CircularProgressIndicator(
                 modifier = Modifier
                     .align(Alignment.Center)
             )
+        }
+
+        FloatingActionButton(
+            modifier = Modifier
+                .padding(20.dp)
+                .align(Alignment.BottomEnd),
+            onClick = {
+                showFilterDialog = true
+            }
+        ) {
+            Icon(
+                imageVector = Icons.Default.FilterList,
+                contentDescription = null
+            )
+        }
+        if (showFilterDialog) {
+            FilterDialog(
+                api = viewModel.api
+            ) { changed ->
+                showFilterDialog = false
+                if (changed) {
+                    viewModel.clearWallpapers()
+                    viewModel.fetchWallpapers {
+                        Toast.makeText(context, it.localizedMessage, Toast.LENGTH_SHORT).show()
+                    }
+                }
+            }
         }
     }
 }
