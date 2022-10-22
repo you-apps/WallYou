@@ -4,6 +4,8 @@ import android.content.Context
 import android.content.SharedPreferences
 
 object PrefHolder {
+    const val cropImagesKey = "cropImages"
+
     private const val prefFile = "preferences"
     lateinit var Preferences: SharedPreferences
     val PrefEditor: SharedPreferences.Editor
