@@ -22,4 +22,11 @@
     <string name="both">L\'un et l\'autre</string>
     <string name="system">Système</string>
     <string name="lockscreen">Écran de verrouillage</string>
+    
+        <!-- Preference categories -->
+    <string name="general">Générale</string>
+
+    <!-- Preferences -->
+    <string name="crop_images">Recadrer les images</string>
+    
 </resources>
