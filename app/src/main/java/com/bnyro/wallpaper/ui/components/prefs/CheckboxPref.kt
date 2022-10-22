@@ -1,5 +1,6 @@
 package com.bnyro.wallpaper.ui.components.prefs
 
+import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.material3.Checkbox
@@ -8,6 +9,7 @@ import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
 import androidx.compose.runtime.setValue
+import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import com.bnyro.wallpaper.util.PrefHolder
 
@@ -27,7 +29,8 @@ fun CheckboxPref(
     Row(
         modifier = Modifier
             .fillMaxWidth(),
-        horizontalArrangment = Arrangement.SpaceBetween
+        horizontalArrangement = Arrangement.SpaceBetween,
+        verticalAlignment = Alignment.CenterVertically
     ) {
         PreferenceItem(
             title = title,
@@ -37,6 +40,7 @@ fun CheckboxPref(
             checked = checked,
             onCheckedChange = {
                 checked = it
+                PrefHolder.PrefEditor.putBoolean(prefKey, it).apply()
             }
         )
     }

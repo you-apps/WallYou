@@ -86,7 +86,7 @@ object WallpaperHelper {
             resizedBitmap,
             bitmapNewWidth,
             bitmapNewHeight,
-            true
+            false
         )
 
         val bitmapGapX: Int = ((bitmapNewWidth - screenWidth) / 2.0f).toInt()

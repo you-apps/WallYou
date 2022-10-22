@@ -17,15 +17,12 @@ fun SettingsCategory(
         modifier = Modifier
             .fillMaxWidth()
             .padding(
-                top = 20.dp,
-                bottom = 5.dp,
-                start = 5.dp,
-                end = 5.dp
+                top = 5.dp
             )
     ) {
         Text(
             text = title,
-            fontSize = 14.sp
+            fontSize = 12.sp
         )
     }
 }

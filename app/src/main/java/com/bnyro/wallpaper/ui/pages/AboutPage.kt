@@ -36,9 +36,7 @@ fun AboutPage() {
         modifier = Modifier
             .fillMaxSize()
     ) {
-        AboutContainer(
-            modifier = Modifier.padding(10.dp)
-        ) {
+        AboutContainer {
             AboutRow(
                 title = stringResource(R.string.version),
                 summary = "${BuildConfig.VERSION_NAME} (${BuildConfig.VERSION_CODE})",
@@ -61,9 +59,7 @@ fun AboutPage() {
             modifier = Modifier
                 .height(10.dp)
         )
-        AboutContainer(
-            modifier = Modifier.padding(10.dp)
-        ) {
+        AboutContainer {
             Text(
                 text = stringResource(R.string.author),
                 modifier = Modifier.padding(
