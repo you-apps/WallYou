@@ -1,9 +1,11 @@
-package com.bnyro.wallpaper.ui.components.prefs
+package com.bnyro.wallpaper.ui.components.dialogs
 
 import androidx.compose.foundation.layout.Column
-import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.height
+import androidx.compose.foundation.layout.padding
+import androidx.compose.foundation.lazy.LazyRow
+import androidx.compose.foundation.lazy.items
 import androidx.compose.material3.AlertDialog
 import androidx.compose.material3.ElevatedFilterChip
 import androidx.compose.material3.ExperimentalMaterial3Api
@@ -26,7 +28,6 @@ import java.util.*
 @Composable
 fun FilterDialog(
     api: Api,
-    filters: Map<String, List<String>>,
     onDismissRequest: (Boolean) -> Unit
 ) {
     var changed = false
@@ -49,7 +50,7 @@ fun FilterDialog(
         },
         text = {
             Column {
-                filters.forEach {
+                api.filters.forEach {
                     Text(
                         text = it.key.replaceFirstChar {
                             if (it.isLowerCase()) {
@@ -64,14 +65,16 @@ fun FilterDialog(
                         modifier = Modifier
                             .height(5.dp)
                     )
-                    Row {
-                        var selected by remember {
-                            mutableStateOf(
-                                api.getPref(it.key, it.value.first())
-                            )
-                        }
-                        it.value.forEach { entry ->
+                    var selected by remember {
+                        mutableStateOf(
+                            api.getPref(it.key, it.value.first())
+                        )
+                    }
+                    LazyRow {
+                        items(it.value) { entry ->
                             ElevatedFilterChip(
+                                modifier = Modifier
+                                    .padding(2.dp, 0.dp),
                                 selected = entry == selected,
                                 onClick = {
                                     changed = true
@@ -80,15 +83,17 @@ fun FilterDialog(
                                 },
                                 label = {
                                     Text(
-                                        entry.replaceFirstChar {
-                                            if (it.isLowerCase()) {
-                                                it.titlecase(
-                                                    Locale.getDefault()
-                                                )
-                                            } else {
-                                                it.toString()
+                                        entry
+                                            .replace("_", " ")
+                                            .replaceFirstChar {
+                                                if (it.isLowerCase()) {
+                                                    it.titlecase(
+                                                        Locale.getDefault()
+                                                    )
+                                                } else {
+                                                    it.toString()
+                                                }
                                             }
-                                        }
                                     )
                                 }
                             )

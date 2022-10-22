@@ -18,7 +18,7 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.unit.dp
-import com.bnyro.wallpaper.ui.components.dialogs.WallhavenFilterDialog
+import com.bnyro.wallpaper.ui.components.dialogs.FilterDialog
 import com.bnyro.wallpaper.ui.models.MainModel
 
 @Composable
@@ -56,7 +56,7 @@ fun WallpaperPage(
                 )
             }
             if (showFilterDialog) {
-                WallhavenFilterDialog(
+                FilterDialog(
                     api = viewModel.api
                 ) { changed ->
                     showFilterDialog = false

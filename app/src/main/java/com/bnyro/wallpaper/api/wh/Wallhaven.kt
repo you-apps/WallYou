@@ -8,12 +8,11 @@ interface Wallhaven {
     @GET("search")
     suspend fun search(
         @Query("q") query: String? = null,
-        @Query("ratio") ratio: String? = null,
         @Query("page") page: Int = 1,
-        @Query("categories") categories: String = "general",
-        @Query("order") order: String = "desc",
-        @Query("purity") purity: String = "sfw",
-        @Query("sorting") sorting: String = "favorites",
-        @Query("ratios") ratios: String = "portrait"
+        @Query("categories") categories: String,
+        @Query("order") order: String,
+        @Query("purity") purity: String,
+        @Query("sorting") sorting: String,
+        @Query("ratios") ratios: String
     ): WhSearchResponse
 }
