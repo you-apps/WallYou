@@ -90,6 +90,16 @@ fun SettingsPage() {
             ) {
                 WorkerHelper.enqueue(context, true)
             }
+            ListPreference(
+                prefKey = PrefHolder.wallpaperChangerTargetKey,
+                title = stringResource(R.string.change_target),
+                entries = listOf(
+                    stringResource(R.string.both),
+                    stringResource(R.string.home),
+                    stringResource(R.string.lockscreen)
+                ),
+                values = (0..2).map { it.toString() }
+            )
         }
     }
 }

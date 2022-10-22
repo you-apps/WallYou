@@ -30,7 +30,14 @@ class BackgroundWorker(
             }
 
             ImageHelper.getBlocking(applicationContext, wallpaper.imgSrc)?.let {
-                WallpaperHelper.setWallpaper(applicationContext, it, WallpaperMode.BOTH)
+                WallpaperHelper.setWallpaper(
+                    applicationContext,
+                    it,
+                    PrefHolder.Preferences.getString(
+                        PrefHolder.wallpaperChangerTargetKey,
+                        WallpaperMode.BOTH.toString()
+                    )?.toInt() ?: WallpaperMode.BOTH
+                )
             }
         }
         return if (success) Result.success() else Result.retry()

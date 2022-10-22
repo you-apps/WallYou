@@ -22,7 +22,7 @@
 
     <!-- Set wallpaper -->
     <string name="both">Both</string>
-    <string name="system">System</string>
+    <string name="home">Home</string>
     <string name="lockscreen">Lockscreen</string>
 
     <!-- Preference categories -->

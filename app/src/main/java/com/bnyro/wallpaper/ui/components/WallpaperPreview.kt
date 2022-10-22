@@ -146,7 +146,7 @@ fun WallpaperPreview(
         ListDialog(
             items = listOf(
                 stringResource(R.string.both),
-                stringResource(R.string.system),
+                stringResource(R.string.home),
                 stringResource(R.string.lockscreen)
             ),
             onDismissRequest = {
