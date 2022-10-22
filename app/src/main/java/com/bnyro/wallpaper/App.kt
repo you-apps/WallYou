@@ -4,15 +4,13 @@ import android.app.Application
 import coil.ImageLoader
 import coil.ImageLoaderFactory
 import coil.disk.DiskCache
-import com.bnyro.wallpaper.util.PrefHolder
+import com.bnyro.wallpaper.util.Preferences
 
 class App : Application(), ImageLoaderFactory {
-    private val defaultCacheSize = 128L * 1024L * 1024L
-
     override fun onCreate() {
         super.onCreate()
 
-        PrefHolder.init(this)
+        Preferences.init(this)
     }
 
     override fun newImageLoader(): ImageLoader {
@@ -25,10 +23,10 @@ class App : Application(), ImageLoaderFactory {
                         cacheDir.resolve("coil")
                     )
                     .maxSizeBytes(
-                        PrefHolder.Preferences.getString(
-                            PrefHolder.diskCacheKey,
-                            defaultCacheSize.toString()
-                        )?.toLong() ?: defaultCacheSize
+                        Preferences.getString(
+                            Preferences.diskCacheKey,
+                            Preferences.defaultDiskCacheSize.toString()
+                        )?.toLong() ?: Preferences.defaultDiskCacheSize
                     )
                     .build()
             )

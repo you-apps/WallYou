@@ -11,7 +11,7 @@ import androidx.compose.runtime.remember
 import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
-import com.bnyro.wallpaper.util.PrefHolder
+import com.bnyro.wallpaper.util.Preferences
 
 @Composable
 fun CheckboxPref(
@@ -23,7 +23,7 @@ fun CheckboxPref(
 ) {
     var checked by remember {
         mutableStateOf(
-            PrefHolder.Preferences.getBoolean(prefKey, defaultValue)
+            Preferences.getBoolean(prefKey, defaultValue)
         )
     }
 
@@ -41,7 +41,7 @@ fun CheckboxPref(
             checked = checked,
             onCheckedChange = {
                 checked = it
-                PrefHolder.PrefEditor.putBoolean(prefKey, it).apply()
+                Preferences.PrefEditor.putBoolean(prefKey, it).apply()
                 onCheckedChange.invoke(it)
             }
         )

@@ -16,7 +16,7 @@ import com.bnyro.wallpaper.ui.components.about.AboutContainer
 import com.bnyro.wallpaper.ui.components.prefs.CheckboxPref
 import com.bnyro.wallpaper.ui.components.prefs.ListPreference
 import com.bnyro.wallpaper.ui.components.prefs.SettingsCategory
-import com.bnyro.wallpaper.util.PrefHolder
+import com.bnyro.wallpaper.util.Preferences
 import com.bnyro.wallpaper.util.WorkerHelper
 
 @Composable
@@ -33,7 +33,7 @@ fun SettingsPage() {
                     title = stringResource(R.string.general)
                 )
                 CheckboxPref(
-                    prefKey = PrefHolder.cropImagesKey,
+                    prefKey = Preferences.cropImagesKey,
                     title = stringResource(R.string.crop_images)
                 )
             }
@@ -53,10 +53,11 @@ fun SettingsPage() {
                     title = stringResource(R.string.cache)
                 )
                 ListPreference(
-                    prefKey = PrefHolder.diskCacheKey,
+                    prefKey = Preferences.diskCacheKey,
                     title = stringResource(R.string.coil_cache),
                     entries = cacheSizes.map { it.formatBinarySize() },
-                    values = cacheSizes.map { it.toString() }
+                    values = cacheSizes.map { it.toString() },
+                    defaultValue = Preferences.defaultDiskCacheSize.toString()
                 )
             }
         }
@@ -80,7 +81,7 @@ fun SettingsPage() {
                     .height(5.dp)
             )
             CheckboxPref(
-                prefKey = PrefHolder.wallpaperChangerKey,
+                prefKey = Preferences.wallpaperChangerKey,
                 title = stringResource(R.string.wallpaper_changer)
             ) {
                 if (it) {
@@ -90,22 +91,24 @@ fun SettingsPage() {
                 }
             }
             ListPreference(
-                prefKey = PrefHolder.wallpaperChangerIntervalKey,
+                prefKey = Preferences.wallpaperChangerIntervalKey,
                 title = stringResource(R.string.change_interval),
                 entries = changeIntervals.map { it.formatMinutes() },
-                values = changeIntervals.map { it.toString() }
+                values = changeIntervals.map { it.toString() },
+                defaultValue = Preferences.defaultWallpaperChangeInterval.toString()
             ) {
                 WorkerHelper.enqueue(context, true)
             }
             ListPreference(
-                prefKey = PrefHolder.wallpaperChangerTargetKey,
+                prefKey = Preferences.wallpaperChangerTargetKey,
                 title = stringResource(R.string.change_target),
                 entries = listOf(
                     stringResource(R.string.both),
                     stringResource(R.string.home),
                     stringResource(R.string.lockscreen)
                 ),
-                values = (0..2).map { it.toString() }
+                values = (0..2).map { it.toString() },
+                defaultValue = Preferences.defaultWallpaperChangerTarget.toString()
             )
         }
     }

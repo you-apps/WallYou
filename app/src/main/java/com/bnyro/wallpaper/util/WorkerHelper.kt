@@ -13,10 +13,10 @@ object WorkerHelper {
 
     fun enqueue(context: Context, verbose: Boolean = false) {
         val job = PeriodicWorkRequestBuilder<BackgroundWorker>(
-            PrefHolder.Preferences.getString(
-                PrefHolder.wallpaperChangerIntervalKey,
-                "15"
-            )?.toLong() ?: 15L,
+            Preferences.getString(
+                Preferences.wallpaperChangerIntervalKey,
+                Preferences.defaultWallpaperChangeInterval.toString()
+            )?.toLong() ?: Preferences.defaultWallpaperChangeInterval,
             TimeUnit.MINUTES
         ).setConstraints(
             Constraints.Builder()

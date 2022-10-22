@@ -1,7 +1,7 @@
 package com.bnyro.wallpaper.api
 
 import com.bnyro.wallpaper.obj.Wallpaper
-import com.bnyro.wallpaper.util.PrefHolder
+import com.bnyro.wallpaper.util.Preferences
 
 abstract class Api {
     abstract val name: String
@@ -12,11 +12,11 @@ abstract class Api {
     abstract suspend fun getWallpapers(page: Int): List<Wallpaper>
 
     fun getPref(key: String, defValue: String): String {
-        return PrefHolder.Preferences.getString(this.name + key, defValue) ?: defValue
+        return Preferences.getString(this.name + key, defValue) ?: defValue
     }
 
     fun setPref(key: String, value: String) {
-        PrefHolder.PrefEditor.putString(this.name + key, value).apply()
+        Preferences.PrefEditor.putString(this.name + key, value).apply()
     }
 
     fun getQuery(key: String): String {

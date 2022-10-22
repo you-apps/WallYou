@@ -13,19 +13,26 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
 import androidx.compose.ui.unit.dp
 import com.bnyro.wallpaper.ui.components.ListDialog
-import com.bnyro.wallpaper.util.PrefHolder
+import com.bnyro.wallpaper.util.Preferences
 
 @Composable
 fun ListPreference(
     prefKey: String,
     title: String,
-    summary: String? = null,
     entries: List<String>,
     values: List<String>,
+    defaultValue: String,
     onChange: (String) -> Unit = {}
 ) {
     var showDialog by remember {
         mutableStateOf(false)
+    }
+
+    val indexOfCurrent = values.indexOf(Preferences.getString(prefKey, defaultValue))
+    var summary by remember {
+        mutableStateOf(
+            if (indexOfCurrent != -1) entries[indexOfCurrent] else null
+        )
     }
 
     PreferenceItem(
@@ -48,7 +55,8 @@ fun ListPreference(
                 showDialog = false
             },
             onClick = {
-                PrefHolder.PrefEditor.putString(
+                summary = entries[it]
+                Preferences.PrefEditor.putString(
                     prefKey,
                     values[it]
                 ).apply()

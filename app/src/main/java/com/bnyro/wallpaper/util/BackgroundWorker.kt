@@ -4,7 +4,6 @@ import android.content.Context
 import androidx.work.Worker
 import androidx.work.WorkerParameters
 import com.bnyro.wallpaper.api.wh.WhApi
-import com.bnyro.wallpaper.constants.WallpaperMode
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.async
 import kotlinx.coroutines.runBlocking
@@ -33,10 +32,10 @@ class BackgroundWorker(
                 WallpaperHelper.setWallpaper(
                     applicationContext,
                     it,
-                    PrefHolder.Preferences.getString(
-                        PrefHolder.wallpaperChangerTargetKey,
-                        WallpaperMode.BOTH.toString()
-                    )?.toInt() ?: WallpaperMode.BOTH
+                    Preferences.getString(
+                        Preferences.wallpaperChangerTargetKey,
+                        Preferences.defaultWallpaperChangerTarget.toString()
+                    )?.toInt() ?: Preferences.defaultWallpaperChangerTarget
                 )
             }
         }
