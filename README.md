@@ -18,10 +18,12 @@
 <!-- ---------- Description ---------- -->
 ## Features
 
+- [x] Automatic Wallpaper Changer
+- [x] Favorites
+- [x] Search filters
 - [x] Material Design 3 (You)
-- [x] Dark and light theme
+- [x] Written in Jetpack Compose
 - [x] Entirely Open Source
-- [X] Written in Jetpack Compose 
 
 <!-- ---------- Download ---------- -->
 ## Download
