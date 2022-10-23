@@ -3,8 +3,8 @@ package com.bnyro.wallpaper.ui.components
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.res.stringResource
 import com.bnyro.wallpaper.R
+import com.bnyro.wallpaper.db.obj.Wallpaper
 import com.bnyro.wallpaper.ext.formatBinarySize
-import com.bnyro.wallpaper.obj.Wallpaper
 
 @Composable
 fun ImageInfoDialog(

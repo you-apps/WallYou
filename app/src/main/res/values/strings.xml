@@ -10,6 +10,7 @@
     <!-- Image Preview -->
     <string name="info">Info</string>
     <string name="filter">Filter</string>
+    <string name="add">Add</string>
 
     <!-- Info Dialog -->
     <string name="author">Author</string>
@@ -21,7 +22,7 @@
 
     <!-- Set wallpaper -->
     <string name="both">Both</string>
-    <string name="system">System</string>
+    <string name="home">Home</string>
     <string name="lockscreen">Lockscreen</string>
 
     <!-- Preference categories -->
@@ -31,6 +32,18 @@
     <!-- Preferences -->
     <string name="crop_images">Crop images</string>
     <string name="coil_cache">Coil image cache</string>
+    <string name="wallpaper_changer">Wallpaper changer</string>
+    <string name="change_interval">Change interval</string>
+    <string name="change_target">Wallpaper target</string>
+
+    <!-- Theme -->
+    <string name="theme_mode">Theme mode</string>
+    <string name="theme_system">System</string>
+    <string name="theme_light">Light</string>
+    <string name="theme_dark">Dark</string>
+
+    <!-- Favorites -->
+    <string name="no_favorites">No favorites yet</string>
 
     <!-- About -->
     <string name="version">Version</string>

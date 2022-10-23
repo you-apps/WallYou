@@ -1,0 +1,10 @@
+<i>Wall You</i> is a Wallpaper App built with <a href='https://m3.material.io/'>Material Design 3 (You)</a>. The app uses the Wallhaven API at the moment which unfortunately is non-free.
+
+<br><b>Features:</b>
+
+* Automatic Wallpaper Changer
+* Favorites
+* Search filters
+* Material Design 3 (You)
+* Written in Jetpack Compose
+* Entirely Open Source

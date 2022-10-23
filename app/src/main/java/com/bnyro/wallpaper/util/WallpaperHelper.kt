@@ -31,8 +31,8 @@ object WallpaperHelper {
     fun setWallpaper(context: Context, bitmap: Bitmap, mode: Int) {
         Thread {
             val resizedBitmap = if (
-                PrefHolder.Preferences.getBoolean(
-                    PrefHolder.cropImagesKey,
+                Preferences.getBoolean(
+                    Preferences.cropImagesKey,
                     false
                 )
             ) {

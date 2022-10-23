@@ -10,8 +10,8 @@ import com.bnyro.wallpaper.R
 import com.bnyro.wallpaper.ui.activities.AboutPage
 import com.bnyro.wallpaper.ui.activities.FavoritesPage
 import com.bnyro.wallpaper.ui.activities.SettingsPage
-import com.bnyro.wallpaper.ui.components.WallpaperPage
 import com.bnyro.wallpaper.ui.models.MainModel
+import com.bnyro.wallpaper.ui.pages.WallpaperPage
 
 @Composable
 fun AppNavHost(
@@ -27,9 +27,7 @@ fun AppNavHost(
     ) {
         composable(DrawerScreens.Wallhaven.route) {
             viewModel.titleResource = R.string.app_name
-            WallpaperPage(
-                viewModel = viewModel
-            )
+            WallpaperPage(viewModel)
         }
         composable(DrawerScreens.Favorites.route) {
             viewModel.titleResource = R.string.favorites
@@ -37,7 +35,7 @@ fun AppNavHost(
         }
         composable(DrawerScreens.Settings.route) {
             viewModel.titleResource = R.string.settings
-            SettingsPage()
+            SettingsPage(viewModel)
         }
         composable(DrawerScreens.About.route) {
             viewModel.titleResource = R.string.about
