@@ -12,6 +12,11 @@ object WorkerHelper {
     private const val JOB_NAME = "WallpaperChanger"
 
     fun enqueue(context: Context, verbose: Boolean = false) {
+        if (!Preferences.getBoolean(Preferences.wallpaperChangerKey, false)) {
+            cancel(context)
+            return
+        }
+
         val job = PeriodicWorkRequestBuilder<BackgroundWorker>(
             Preferences.getString(
                 Preferences.wallpaperChangerIntervalKey,

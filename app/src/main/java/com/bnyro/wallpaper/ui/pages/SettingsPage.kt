@@ -101,11 +101,7 @@ fun SettingsPage(
                 prefKey = Preferences.wallpaperChangerKey,
                 title = stringResource(R.string.wallpaper_changer)
             ) {
-                if (it) {
-                    WorkerHelper.enqueue(context, true)
-                } else {
-                    WorkerHelper.cancel(context)
-                }
+                WorkerHelper.enqueue(context, true)
             }
             ListPreference(
                 prefKey = Preferences.wallpaperChangerIntervalKey,
