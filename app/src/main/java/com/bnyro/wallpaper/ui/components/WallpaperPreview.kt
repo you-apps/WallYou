@@ -1,7 +1,6 @@
 package com.bnyro.wallpaper.ui.components
 
 import android.graphics.Bitmap
-import android.util.Log
 import androidx.activity.compose.rememberLauncherForActivityResult
 import androidx.activity.result.contract.ActivityResultContracts
 import androidx.compose.foundation.background
@@ -15,9 +14,9 @@ import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.Download
 import androidx.compose.material.icons.filled.Favorite
+import androidx.compose.material.icons.filled.FavoriteBorder
 import androidx.compose.material.icons.filled.Info
 import androidx.compose.material.icons.filled.Wallpaper
-import androidx.compose.material.icons.outlined.Favorite
 import androidx.compose.material3.CircularProgressIndicator
 import androidx.compose.material3.ElevatedCard
 import androidx.compose.material3.MaterialTheme
@@ -72,7 +71,6 @@ fun WallpaperPreview(
     LaunchedEffect(true) {
         Query {
             wallpaper.imgSrc.let { liked = Database.favoritesDao().exists(it) }
-            Log.e("liked", liked.toString())
         }
     }
 
@@ -128,8 +126,9 @@ fun WallpaperPreview(
                         }
 
                         ButtonWithIcon(
-                            icon = if (liked) Icons.Filled.Favorite else Icons.Outlined.Favorite
+                            icon = if (liked) Icons.Default.Favorite else Icons.Default.FavoriteBorder
                         ) {
+                            liked = !liked
                             Query {
                                 if (!liked) {
                                     Database.favoritesDao().delete(wallpaper)
@@ -137,7 +136,6 @@ fun WallpaperPreview(
                                     Database.favoritesDao().insertAll(wallpaper)
                                 }
                             }
-                            liked = !liked
                         }
                     }
                 }
