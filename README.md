@@ -29,6 +29,7 @@
 ## Download
   <div align="center">
 
+[<img src="https://gitlab.com/IzzyOnDroid/repo/-/raw/master/assets/IzzyOnDroid.png" alt="Get it on IzzyOnDroid" height="80">](https://apt.izzysoft.de/fdroid/index/apk/com.bnyro.wallpaper)
 [<img src="https://fdroid.gitlab.io/artwork/badge/get-it-on.png" alt="Get it on GitHub" height="80">](https://github.com/bnyro/WallYou/releases)
 
 </div>
