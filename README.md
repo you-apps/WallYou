@@ -27,8 +27,23 @@
 
 <!-- ---------- Download ---------- -->
 ## Download
+  <div align="center">
 
-[<img src="ghbadge.png" alt="Get it on GitHub" height="80">](https://github.com/bnyro/WallYou/releases)
+[<img src="https://gitlab.com/IzzyOnDroid/repo/-/raw/master/assets/IzzyOnDroid.png" alt="Get it on IzzyOnDroid" height="80">](https://apt.izzysoft.de/fdroid/index/apk/com.bnyro.wallpaper)
+[<img src="https://raw.githubusercontent.com/vadret/android/master/assets/get-github.png" alt="Get it on GitHub" height="80">](https://github.com/bnyro/WallYou/releases)
+
+</div>
+
+<!-- ---------- Screenshots ---------- -->
+## Screenshots
+
+<div style="display: flex;">
+  <img src="fastlane/metadata/android/en-US/images/phoneScreenshots/1-home.png" width=30%>
+  <img src="fastlane/metadata/android/en-US/images/phoneScreenshots/2-filter.png" width=30%>
+  <img src="fastlane/metadata/android/en-US/images/phoneScreenshots/3-option.png" width=30%>
+  <img src="fastlane/metadata/android/en-US/images/phoneScreenshots/4-about.png" width=30%>
+
+</div>
 
 <!-- ---------- Contribution ---------- -->
 ## Contribution
