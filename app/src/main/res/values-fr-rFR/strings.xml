@@ -31,7 +31,7 @@
 
     <!-- Preferences -->
     <string name="crop_images">Recadrer les images</string>
-    <string name="coil_cache">Coil image cache</string>
+    <string name="coil_cache">Cache d'image du diaporama</string>
     <string name="wallpaper_changer">Modification du fond d\'écran</string>
     <string name="change_interval">Intervalle de changement</string>
     <string name="change_target">fond d\'écran cible</string>
