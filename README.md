@@ -27,8 +27,11 @@
 
 <!-- ---------- Download ---------- -->
 ## Download
+  <div align="center">
 
-[<img src="ghbadge.png" alt="Get it on GitHub" height="80">](https://github.com/bnyro/WallYou/releases)
+[<img src="https://fdroid.gitlab.io/artwork/badge/get-it-on.png" alt="Get it on GitHub" height="80">](https://github.com/bnyro/WallYou/releases)
+
+</div>
 
 <!-- ---------- Screenshots ---------- -->
 ## Screenshots
