@@ -1,0 +1,53 @@
+<resources>
+    <string name="app_name" translatable="false">Wall You</string>
+    <string name="wallhaven" translatable="false">Wallhaven</string>
+
+    <!-- Navigation Drawer -->
+    <string name="favorites">Вибране</string>
+    <string name="settings">Налаштування</string>
+    <string name="about">Про</string>
+
+    <!-- Image Preview -->
+    <string name="info">Інформація</string>
+    <string name="filter">Фільтр</string>
+    <string name="add">Додати</string>
+
+    <!-- Info Dialog -->
+    <string name="author">Автор</string>
+    <string name="resolution">Роздільна здатність</string>
+    <string name="category">Категорія</string>
+    <string name="fileSize">Розмір файлу</string>
+    <string name="source">Джерело</string>
+    <string name="creationDate">Дата створення</string>
+
+    <!-- Set wallpaper -->
+    <string name="both">Обидва</string>
+    <string name="home">Домашній екран</string>
+    <string name="lockscreen">Екран блокування</string>
+
+    <!-- Preference categories -->
+    <string name="general">Загальний</string>
+    <string name="cache">Кеш</string>
+
+    <!-- Preferences -->
+    <string name="crop_images">Обрізати зображення</string>
+    <string name="coil_cache">Кеш зображень</string>
+    <string name="wallpaper_changer">Зміна шпалер</string>
+    <string name="change_interval">Інтервал зміни</string>
+    <string name="change_target">Цільові шпалери</string>
+
+    <!-- Theme -->
+    <string name="theme_mode">Тематичний режим</string>
+    <string name="theme_system">Система</string>
+    <string name="theme_light">Світлий</string>
+    <string name="theme_dark">Темний</string>
+
+    <!-- Favorites -->
+    <string name="no_favorites">Вибраних ще немає</string>
+
+    <!-- About -->
+    <string name="version">Версія</string>
+    <string name="github" translatable="false">GitHub</string>
+    <string name="license">Ліцензія</string>
+    <string name="website">Веб-сайт</string>
+</resources>
