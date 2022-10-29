@@ -1,0 +1,53 @@
+<resources>
+    <string name="app_name" translatable="false">Wall You</string>
+    <string name="wallhaven" translatable="false">Wallhaven</string>
+
+    <!-- Navigation Drawer -->
+    <string name="favorites">Favorit</string>
+    <string name="settings">Pengaturan</string>
+    <string name="about">Tentang</string>
+
+    <!-- Image Preview -->
+    <string name="info">Info</string>
+    <string name="filter">Filter</string>
+    <string name="add">Tambah</string>
+
+    <!-- Info Dialog -->
+    <string name="author">Pencipta</string>
+    <string name="resolution">Resolusi</string>
+    <string name="category">Kategori</string>
+    <string name="fileSize">Ukuran berkas</string>
+    <string name="source">Sumber</string>
+    <string name="creationDate">Tanggal pembuatan</string>
+
+    <!-- Set wallpaper -->
+    <string name="both">Keduanya</string>
+    <string name="home">Beranda</string>
+    <string name="lockscreen">Kunci layar</string>
+
+    <!-- Preference categories -->
+    <string name="general">Umum</string>
+    <string name="cache">Cache</string>
+
+    <!-- Preferences -->
+    <string name="crop_images">Pangkas gambar</string>
+    <string name="coil_cache">Cache gambar koil</string>
+    <string name="wallpaper_changer">Pengubah wallpaper</string>
+    <string name="change_interval">Ubah interval</string>
+    <string name="change_target">Target wallpaper</string>
+
+    <!-- Theme -->
+    <string name="theme_mode">Mode tema</string>
+    <string name="theme_system">Sistem</string>
+    <string name="theme_light">Terang</string>
+    <string name="theme_dark">Gelap</string>
+
+    <!-- Favorites -->
+    <string name="no_favorites">Belum ada favorit</string>
+
+    <!-- About -->
+    <string name="version">Versi</string>
+    <string name="github" translatable="false">GitHub</string>
+    <string name="license">Lisensi</string>
+    <string name="website">Website</string>
+</resources>
