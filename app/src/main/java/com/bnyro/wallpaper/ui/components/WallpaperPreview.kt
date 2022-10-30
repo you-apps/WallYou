@@ -12,6 +12,7 @@ import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material.icons.Icons
+import androidx.compose.material.icons.filled.DarkMode
 import androidx.compose.material.icons.filled.Download
 import androidx.compose.material.icons.filled.Favorite
 import androidx.compose.material.icons.filled.FavoriteBorder
@@ -30,6 +31,7 @@ import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.ExperimentalComposeUiApi
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.draw.blur
 import androidx.compose.ui.draw.clip
 import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.res.stringResource
@@ -40,7 +42,9 @@ import com.bnyro.wallpaper.R
 import com.bnyro.wallpaper.db.DatabaseHolder.Companion.Database
 import com.bnyro.wallpaper.db.obj.Wallpaper
 import com.bnyro.wallpaper.ext.Query
+import com.bnyro.wallpaper.util.ColorFilterGenerator
 import com.bnyro.wallpaper.util.DownloadHelper
+import com.bnyro.wallpaper.util.ImageFilterHelper
 import com.bnyro.wallpaper.util.ImageHelper
 import com.bnyro.wallpaper.util.WallpaperHelper
 
@@ -62,6 +66,20 @@ fun WallpaperPreview(
 
     var showInfoDialog by remember {
         mutableStateOf(false)
+    }
+
+    var showFilterDialog by remember {
+        mutableStateOf(false)
+    }
+
+    val (filter, blur) = ImageFilterHelper.getFilter()
+
+    var colorFilter by remember {
+        mutableStateOf(filter)
+    }
+
+    var blurRadius by remember {
+        mutableStateOf(blur)
     }
 
     var liked by remember {
@@ -91,7 +109,10 @@ fun WallpaperPreview(
         ) {
             if (bitmap != null) {
                 ZoomableImage(
-                    bitmap = bitmap
+                    bitmap = bitmap,
+                    colorFilter = colorFilter,
+                    modifier = Modifier
+                        .blur(blurRadius)
                 )
                 ElevatedCard(
                     modifier = Modifier
@@ -110,6 +131,12 @@ fun WallpaperPreview(
                             icon = Icons.Default.Info
                         ) {
                             showInfoDialog = true
+                        }
+
+                        ButtonWithIcon(
+                            icon = Icons.Default.DarkMode
+                        ) {
+                            showFilterDialog = true
                         }
 
                         ButtonWithIcon(
@@ -153,7 +180,14 @@ fun WallpaperPreview(
         wallpaper.imgSrc,
         context.applicationContext
     ) {
-        bitmap = it
+        bitmap = ColorFilterGenerator.blur(it, context, 5f)
+        /*
+        bitmap = ImageFilterHelper.getBitmapFromColorMatrix(
+            ColorFilterGenerator.adjustColor(0, 10, 1,1),
+            it
+        )
+
+         */
     }
 
     if (showInfoDialog) {
@@ -161,6 +195,17 @@ fun WallpaperPreview(
             wallpaper = wallpaper
         ) {
             showInfoDialog = false
+        }
+    }
+
+    if (showFilterDialog) {
+        ImageFilterDialog(
+            onDismissRequest = {
+                showFilterDialog = false
+            }
+        ) { filter, radius ->
+            colorFilter = filter
+            blurRadius = radius
         }
     }
 

@@ -12,6 +12,9 @@ object Preferences {
     const val wallpaperChangerTargetKey = "wallpaperChangerTarget"
     const val themeModeKey = "themeModeKey"
 
+    const val saturationKey = "saturation"
+    const val blurKey = "blur"
+
     const val defaultDiskCacheSize = 128L * 1024 * 1024
     const val defaultWallpaperChangeInterval = 15L
     const val defaultWallpaperChangerTarget = WallpaperMode.BOTH
@@ -27,4 +30,7 @@ object Preferences {
 
     fun getBoolean(key: String, defValue: Boolean) = preferences.getBoolean(key, defValue)
     fun getString(key: String, defValue: String) = preferences.getString(key, defValue)
+
+    fun getFloat(key: String, defValue: Float) = preferences.getFloat(key, defValue)
+    fun setFloat(key: String, value: Float) = PrefEditor.putFloat(key, value).apply()
 }

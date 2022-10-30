@@ -44,11 +44,10 @@ fun InfoDialog(
         },
         onDismissRequest = onDismissRequest,
         confirmButton = {
-            TextButton(
+            DialogButton(
+                text = stringResource(android.R.string.ok),
                 onClick = onDismissRequest
-            ) {
-                Text(stringResource(android.R.string.ok))
-            }
+            )
         }
     )
 }
