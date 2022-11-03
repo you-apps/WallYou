@@ -12,7 +12,7 @@ object Preferences {
     const val wallpaperChangerTargetKey = "wallpaperChangerTarget"
     const val themeModeKey = "themeModeKey"
 
-    const val saturationKey = "saturation"
+    const val grayscaleKey = "grayscale"
     const val blurKey = "blur"
 
     const val defaultDiskCacheSize = 128L * 1024 * 1024

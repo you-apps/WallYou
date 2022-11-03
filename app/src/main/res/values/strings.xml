@@ -26,8 +26,8 @@
     <string name="lockscreen">Lockscreen</string>
 
     <!-- Image filters -->
-    <string name="saturation">Saturation</string>
     <string name="blur">Blur</string>
+    <string name="grayscale">Grayscale</string>
     <string name="reset">Reset</string>
 
     <!-- Preference categories -->

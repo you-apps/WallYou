@@ -31,7 +31,7 @@ class BackgroundWorker(
             ImageHelper.getBlocking(applicationContext, wallpaper.imgSrc)?.let {
                 WallpaperHelper.setWallpaper(
                     applicationContext,
-                    it,
+                    BitmapProcessor.processBitmapByPrefs(it),
                     Preferences.getString(
                         Preferences.wallpaperChangerTargetKey,
                         Preferences.defaultWallpaperChangerTarget.toString()

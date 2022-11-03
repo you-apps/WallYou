@@ -7,6 +7,7 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.res.stringResource
 import com.bnyro.wallpaper.R
+import com.bnyro.wallpaper.ui.components.prefs.CheckboxPref
 import com.bnyro.wallpaper.util.Preferences
 
 @Composable
@@ -20,7 +21,7 @@ fun ImageFilterDialog(
             DialogButton(
                 stringResource(R.string.reset)
             ) {
-                Preferences.setFloat(Preferences.saturationKey, 1f)
+                Preferences.setFloat(Preferences.grayscaleKey, 1f)
                 Preferences.setFloat(Preferences.blurKey, 0f)
                 onChange.invoke()
                 onDismissRequest.invoke()
@@ -39,23 +40,20 @@ fun ImageFilterDialog(
                 modifier = Modifier.fillMaxWidth()
             ) {
                 ImageFilterSlider(
-                    prefKey = Preferences.saturationKey,
-                    title = stringResource(R.string.saturation),
-                    defValue = 1f,
-                    valueRange = 0f..5f,
-                    onValueChange = {
-                        onChange.invoke()
-                    }
-                )
-                ImageFilterSlider(
                     prefKey = Preferences.blurKey,
                     title = stringResource(R.string.blur),
                     defValue = 1f,
-                    valueRange = 0f..15f,
+                    valueRange = 1f..25f,
                     onValueChange = {
                         onChange.invoke()
                     }
                 )
+                CheckboxPref(
+                    prefKey = Preferences.grayscaleKey,
+                    title = stringResource(R.string.grayscale)
+                ) {
+                    onChange.invoke()
+                }
             }
         }
     )

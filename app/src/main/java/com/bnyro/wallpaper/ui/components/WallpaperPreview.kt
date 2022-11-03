@@ -54,6 +54,8 @@ fun WallpaperPreview(
 ) {
     val context = LocalContext.current
 
+    var originalBitmap: Bitmap? = null
+
     var bitmap by remember {
         mutableStateOf<Bitmap?>(null)
     }
@@ -165,14 +167,8 @@ fun WallpaperPreview(
         wallpaper.imgSrc,
         context.applicationContext
     ) {
-        bitmap = BitmapProcessor.blur(it, 1f)
-        /*
-        bitmap = ImageFilterHelper.getBitmapFromColorMatrix(
-            ColorFilterGenerator.adjustColor(0, 10, 1,1),
-            it
-        )
-
-         */
+        originalBitmap = it
+        bitmap = BitmapProcessor.processBitmapByPrefs(it)
     }
 
     if (showInfoDialog) {
@@ -189,7 +185,7 @@ fun WallpaperPreview(
                 showFilterDialog = false
             }
         ) {
-            //
+            bitmap = originalBitmap?.let { BitmapProcessor.processBitmapByPrefs(it) }
         }
     }
 
