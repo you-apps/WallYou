@@ -22,7 +22,6 @@
 
     <!-- Set wallpaper -->
     <string name="both">L\'un et l\'autre</string>
-    <string name="system">Accueil</string>
     <string name="lockscreen">Écran de verrouillage</string>
     
         <!-- Preference categories -->
@@ -31,7 +30,7 @@
 
     <!-- Preferences -->
     <string name="crop_images">Recadrer les images</string>
-    <string name="coil_cache">Cache d'image du diaporama</string>
+    <string name="coil_cache">Cache d\'image du diaporama</string>
     <string name="wallpaper_changer">Modification du fond d\'écran</string>
     <string name="change_interval">Intervalle de changement</string>
     <string name="change_target">fond d\'écran cible</string>
