@@ -85,6 +85,9 @@ dependencies {
     // Coil
     implementation 'io.coil-kt:coil-compose:2.2.2'
 
+    // Renderscript
+    implementation project(':renderscript-toolkit')
+
     // Room
     implementation 'androidx.room:room-runtime:2.4.3'
     kapt "androidx.room:room-compiler:2.4.3"

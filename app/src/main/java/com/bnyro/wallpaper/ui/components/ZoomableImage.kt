@@ -13,6 +13,7 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
 import androidx.compose.ui.graphics.ColorFilter
+import androidx.compose.ui.graphics.ColorMatrix
 import androidx.compose.ui.graphics.RectangleShape
 import androidx.compose.ui.graphics.graphicsLayer
 import androidx.compose.ui.input.pointer.pointerInput
@@ -23,7 +24,7 @@ import coil.compose.AsyncImage
 fun ZoomableImage(
     modifier: Modifier = Modifier,
     bitmap: Bitmap?,
-    colorFilter: ColorFilter,
+    colorFilter: ColorFilter = ColorFilter.colorMatrix(ColorMatrix()),
     minScale: Float = 1f,
     maxScale: Float = 3f
 ) {

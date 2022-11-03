@@ -4,26 +4,16 @@ import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.material3.AlertDialog
 import androidx.compose.runtime.Composable
-import androidx.compose.runtime.getValue
-import androidx.compose.runtime.setValue
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.graphics.ColorFilter
 import androidx.compose.ui.res.stringResource
-import androidx.compose.ui.unit.Dp
 import com.bnyro.wallpaper.R
-import com.bnyro.wallpaper.util.ImageFilterHelper
 import com.bnyro.wallpaper.util.Preferences
 
 @Composable
 fun ImageFilterDialog(
     onDismissRequest: () -> Unit,
-    onChange: (ColorFilter, Dp) -> Unit
+    onChange: () -> Unit
 ) {
-    fun updateFilter() {
-        val (filter, blur) = ImageFilterHelper.getFilter()
-        onChange.invoke(filter, blur)
-    }
-
     AlertDialog(
         onDismissRequest = onDismissRequest,
         dismissButton = {
@@ -32,7 +22,7 @@ fun ImageFilterDialog(
             ) {
                 Preferences.setFloat(Preferences.saturationKey, 1f)
                 Preferences.setFloat(Preferences.blurKey, 0f)
-                updateFilter()
+                onChange.invoke()
                 onDismissRequest.invoke()
             }
         },
@@ -40,7 +30,7 @@ fun ImageFilterDialog(
             DialogButton(
                 text = stringResource(android.R.string.ok)
             ) {
-                updateFilter()
+                onChange.invoke()
                 onDismissRequest.invoke()
             }
         },
@@ -54,7 +44,7 @@ fun ImageFilterDialog(
                     defValue = 1f,
                     valueRange = 0f..5f,
                     onValueChange = {
-                        updateFilter()
+                        onChange.invoke()
                     }
                 )
                 ImageFilterSlider(
@@ -63,7 +53,7 @@ fun ImageFilterDialog(
                     defValue = 1f,
                     valueRange = 0f..15f,
                     onValueChange = {
-                        updateFilter()
+                        onChange.invoke()
                     }
                 )
             }
