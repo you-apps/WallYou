@@ -21,8 +21,8 @@ fun ImageFilterDialog(
             DialogButton(
                 stringResource(R.string.reset)
             ) {
-                Preferences.setFloat(Preferences.grayscaleKey, 1f)
-                Preferences.setFloat(Preferences.blurKey, 0f)
+                Preferences.edit { putFloat(Preferences.blurKey, 1f) }
+                Preferences.edit { putBoolean(Preferences.grayscaleKey, false) }
                 onChange.invoke()
                 onDismissRequest.invoke()
             }

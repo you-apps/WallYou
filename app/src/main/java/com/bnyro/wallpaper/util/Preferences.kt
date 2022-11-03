@@ -21,8 +21,6 @@ object Preferences {
 
     private const val prefFile = "preferences"
     private lateinit var preferences: SharedPreferences
-    val PrefEditor: SharedPreferences.Editor
-        get() = preferences.edit()
 
     fun init(context: Context) {
         preferences = context.getSharedPreferences(prefFile, Context.MODE_PRIVATE)
@@ -32,5 +30,8 @@ object Preferences {
     fun getString(key: String, defValue: String) = preferences.getString(key, defValue)
 
     fun getFloat(key: String, defValue: Float) = preferences.getFloat(key, defValue)
-    fun setFloat(key: String, value: Float) = PrefEditor.putFloat(key, value).apply()
+
+    fun edit(action: SharedPreferences.Editor.() -> Unit) {
+        preferences.edit().apply(action).apply()
+    }
 }

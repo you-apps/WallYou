@@ -1,5 +1,7 @@
 package com.bnyro.wallpaper.ui.components
 
+import android.os.Handler
+import android.os.Looper
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.height
@@ -19,12 +21,23 @@ fun ImageFilterSlider(
     title: String,
     defValue: Float,
     valueRange: ClosedFloatingPointRange<Float>,
+    changeDelay: Long = 300L,
     onValueChange: (Float) -> Unit = {}
 ) {
+    val handler = Handler(Looper.getMainLooper())
+
     var value by remember {
         mutableStateOf(
             Preferences.getFloat(prefKey, defValue)
         )
+    }
+
+    var lastChanged = System.currentTimeMillis()
+
+    val delayedRunnable = Runnable {
+        if (System.currentTimeMillis() - lastChanged < changeDelay) return@Runnable
+        lastChanged = System.currentTimeMillis()
+        onValueChange.invoke(value)
     }
 
     Column {
@@ -35,8 +48,8 @@ fun ImageFilterSlider(
             valueRange = valueRange,
             onValueChange = {
                 value = it
-                Preferences.setFloat(prefKey, it)
-                onValueChange.invoke(it)
+                Preferences.edit { putFloat(prefKey, it) }
+                handler.postDelayed(delayedRunnable, changeDelay)
             }
         )
     }
