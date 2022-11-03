@@ -16,7 +16,7 @@ abstract class Api {
     }
 
     fun setPref(key: String, value: String) {
-        Preferences.PrefEditor.putString(this.name + key, value).apply()
+        Preferences.edit { putString(this@Api.name + key, value) }
     }
 
     fun getQuery(key: String): String {

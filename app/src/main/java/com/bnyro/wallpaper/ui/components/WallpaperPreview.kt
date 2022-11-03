@@ -12,9 +12,12 @@ import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material.icons.Icons
+import androidx.compose.material.icons.filled.DarkMode
 import androidx.compose.material.icons.filled.Download
 import androidx.compose.material.icons.filled.Favorite
 import androidx.compose.material.icons.filled.FavoriteBorder
+import androidx.compose.material.icons.filled.Filter
+import androidx.compose.material.icons.filled.FilterList
 import androidx.compose.material.icons.filled.Info
 import androidx.compose.material.icons.filled.Wallpaper
 import androidx.compose.material3.CircularProgressIndicator
@@ -40,6 +43,7 @@ import com.bnyro.wallpaper.R
 import com.bnyro.wallpaper.db.DatabaseHolder.Companion.Database
 import com.bnyro.wallpaper.db.obj.Wallpaper
 import com.bnyro.wallpaper.ext.Query
+import com.bnyro.wallpaper.util.BitmapProcessor
 import com.bnyro.wallpaper.util.DownloadHelper
 import com.bnyro.wallpaper.util.ImageHelper
 import com.bnyro.wallpaper.util.WallpaperHelper
@@ -51,6 +55,8 @@ fun WallpaperPreview(
     onDismissRequest: () -> Unit
 ) {
     val context = LocalContext.current
+
+    var originalBitmap: Bitmap? = null
 
     var bitmap by remember {
         mutableStateOf<Bitmap?>(null)
@@ -64,13 +70,19 @@ fun WallpaperPreview(
         mutableStateOf(false)
     }
 
+    var showFilterDialog by remember {
+        mutableStateOf(false)
+    }
+
     var liked by remember {
         mutableStateOf(false)
     }
 
     LaunchedEffect(true) {
         Query {
-            wallpaper.imgSrc.let { liked = Database.favoritesDao().exists(it) }
+            wallpaper.imgSrc.let {
+                liked = Database.favoritesDao().exists(it)
+            }
         }
     }
 
@@ -110,6 +122,12 @@ fun WallpaperPreview(
                             icon = Icons.Default.Info
                         ) {
                             showInfoDialog = true
+                        }
+
+                        ButtonWithIcon(
+                            icon = Icons.Default.DarkMode
+                        ) {
+                            showFilterDialog = true
                         }
 
                         ButtonWithIcon(
@@ -153,7 +171,8 @@ fun WallpaperPreview(
         wallpaper.imgSrc,
         context.applicationContext
     ) {
-        bitmap = it
+        originalBitmap = it
+        bitmap = BitmapProcessor.processBitmapByPrefs(it)
     }
 
     if (showInfoDialog) {
@@ -161,6 +180,18 @@ fun WallpaperPreview(
             wallpaper = wallpaper
         ) {
             showInfoDialog = false
+        }
+    }
+
+    if (showFilterDialog) {
+        ImageFilterDialog(
+            onDismissRequest = {
+                showFilterDialog = false
+            }
+        ) {
+            originalBitmap?.let {
+                bitmap = BitmapProcessor.processBitmapByPrefs(it)
+            }
         }
     }
 

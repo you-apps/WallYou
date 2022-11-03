@@ -41,7 +41,7 @@ fun CheckboxPref(
             checked = checked,
             onCheckedChange = {
                 checked = it
-                Preferences.PrefEditor.putBoolean(prefKey, it).apply()
+                Preferences.edit { putBoolean(prefKey, it) }
                 onCheckedChange.invoke(it)
             }
         )

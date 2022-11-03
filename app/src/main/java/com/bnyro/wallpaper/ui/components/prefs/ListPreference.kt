@@ -56,10 +56,9 @@ fun ListPreference(
             },
             onClick = {
                 summary = entries[it]
-                Preferences.PrefEditor.putString(
-                    prefKey,
-                    values[it]
-                ).apply()
+                Preferences.edit {
+                    putString(prefKey, values[it])
+                }
                 onChange.invoke(values[it])
                 showDialog = false
             }

@@ -17,13 +17,12 @@ fun ListDialog(
     AlertDialog(
         onDismissRequest = onDismissRequest,
         confirmButton = {
-            TextButton(
+            DialogButton(
+                text = stringResource(android.R.string.cancel),
                 onClick = {
                     onDismissRequest()
                 }
-            ) {
-                Text(stringResource(android.R.string.cancel))
-            }
+            )
         },
         text = {
             Column(

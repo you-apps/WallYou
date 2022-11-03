@@ -22,6 +22,7 @@ import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import com.bnyro.wallpaper.R
 import com.bnyro.wallpaper.api.Api
+import com.bnyro.wallpaper.ui.components.DialogButton
 import com.bnyro.wallpaper.ui.components.TagsEditor
 import java.util.*
 
@@ -38,13 +39,12 @@ fun FilterDialog(
             onDismissRequest.invoke(modified)
         },
         confirmButton = {
-            TextButton(
+            DialogButton(
+                text = stringResource(android.R.string.ok),
                 onClick = {
                     onDismissRequest.invoke(modified)
                 }
-            ) {
-                Text(stringResource(android.R.string.ok))
-            }
+            )
         },
         title = {
             Text(stringResource(R.string.filter))
