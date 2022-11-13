@@ -7,6 +7,7 @@ import android.os.Build
 import android.util.DisplayMetrics
 import androidx.annotation.RequiresApi
 import com.bnyro.wallpaper.constants.WallpaperMode
+import kotlin.math.absoluteValue
 
 object WallpaperHelper {
     @RequiresApi(Build.VERSION_CODES.N)
@@ -94,8 +95,8 @@ object WallpaperHelper {
 
         return Bitmap.createBitmap(
             resizedBitmap,
-            bitmapGapX,
-            bitmapGapY,
+            bitmapGapX.absoluteValue,
+            bitmapGapY.absoluteValue,
             screenWidth,
             screenHeight
         )
