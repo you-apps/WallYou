@@ -18,9 +18,7 @@ object ImageHelper {
         onSuccess: (bitmap: Bitmap) -> Unit
     ) {
         scope.launch(Dispatchers.IO) {
-            val request = ImageRequest.Builder(context)
-                .data(imageURL)
-                .allowHardware(false)
+            val request = buildRequest(context, imageURL)
                 .target {
                     onSuccess(it.toBitmap())
                 }
@@ -30,10 +28,14 @@ object ImageHelper {
     }
 
     fun getBlocking(context: Context, imageURL: String?): Bitmap? {
-        val request: ImageRequest = ImageRequest.Builder(context)
-            .data(imageURL)
-            .build()
+        val request = buildRequest(context, imageURL).build()
 
         return ImageLoader(context).executeBlocking(request).drawable?.toBitmap()
+    }
+
+    private fun buildRequest(context: Context, url: String?): ImageRequest.Builder {
+        return ImageRequest.Builder(context)
+            .data(url)
+            .allowHardware(false)
     }
 }

@@ -83,11 +83,11 @@ object Toolkit {
     ) {
         require(sourceArray.size >= sizeX * sizeY * 4) {
             "$externalName blend. sourceArray is too small for the given dimensions. " +
-                    "$sizeX*$sizeY*4 < ${sourceArray.size}."
+                "$sizeX*$sizeY*4 < ${sourceArray.size}."
         }
         require(destArray.size >= sizeX * sizeY * 4) {
             "$externalName blend. sourceArray is too small for the given dimensions. " +
-                    "$sizeX*$sizeY*4 < ${sourceArray.size}."
+                "$sizeX*$sizeY*4 < ${sourceArray.size}."
         }
         validateRestriction("blend", sizeX, sizeY, restriction)
 
@@ -127,15 +127,15 @@ object Toolkit {
         validateBitmap("blend", destBitmap)
         require(
             sourceBitmap.width == destBitmap.width &&
-                    sourceBitmap.height == destBitmap.height
+                sourceBitmap.height == destBitmap.height
         ) {
             "$externalName blend. Source and destination bitmaps should be the same size. " +
-                    "${sourceBitmap.width}x${sourceBitmap.height} and " +
-                    "${destBitmap.width}x${destBitmap.height} provided."
+                "${sourceBitmap.width}x${sourceBitmap.height} and " +
+                "${destBitmap.width}x${destBitmap.height} provided."
         }
         require(sourceBitmap.config == destBitmap.config) {
             "RenderScript Toolkit blend. Source and destination bitmaps should have the same " +
-                    "config. ${sourceBitmap.config} and ${destBitmap.config} provided."
+                "config. ${sourceBitmap.config} and ${destBitmap.config} provided."
         }
         validateRestriction("blend", sourceBitmap.width, sourceBitmap.height, restriction)
 
@@ -186,7 +186,7 @@ object Toolkit {
         }
         require(inputArray.size >= sizeX * sizeY * vectorSize) {
             "$externalName blur. inputArray is too small for the given dimensions. " +
-                    "$sizeX*$sizeY*$vectorSize < ${inputArray.size}."
+                "$sizeX*$sizeY*$vectorSize < ${inputArray.size}."
         }
         require(radius in 1..25) {
             "$externalName blur. The radius should be between 1 and 25. $radius provided."
@@ -195,7 +195,14 @@ object Toolkit {
 
         val outputArray = ByteArray(inputArray.size)
         nativeBlur(
-            nativeHandle, inputArray, vectorSize, sizeX, sizeY, radius, outputArray, restriction
+            nativeHandle,
+            inputArray,
+            vectorSize,
+            sizeX,
+            sizeY,
+            radius,
+            outputArray,
+            restriction
         )
         return outputArray
     }
@@ -346,22 +353,22 @@ object Toolkit {
     ): ByteArray {
         require(inputVectorSize in 1..4) {
             "$externalName colorMatrix. The inputVectorSize should be between 1 and 4. " +
-                    "$inputVectorSize provided."
+                "$inputVectorSize provided."
         }
         require(outputVectorSize in 1..4) {
             "$externalName colorMatrix. The outputVectorSize should be between 1 and 4. " +
-                    "$outputVectorSize provided."
+                "$outputVectorSize provided."
         }
         require(inputArray.size >= sizeX * sizeY * inputVectorSize) {
             "$externalName colorMatrix. inputArray is too small for the given dimensions. " +
-                    "$sizeX*$sizeY*$inputVectorSize < ${inputArray.size}."
+                "$sizeX*$sizeY*$inputVectorSize < ${inputArray.size}."
         }
         require(matrix.size == 16) {
             "$externalName colorMatrix. matrix should have 16 entries. ${matrix.size} provided."
         }
         require(addVector.size == 4) {
             "$externalName colorMatrix. addVector should have 4 entries. " +
-                    "${addVector.size} provided."
+                "${addVector.size} provided."
         }
         validateRestriction("colorMatrix", sizeX, sizeY, restriction)
 
@@ -467,15 +474,15 @@ object Toolkit {
     ): ByteArray {
         require(vectorSize in 1..4) {
             "$externalName convolve. The vectorSize should be between 1 and 4. " +
-                    "$vectorSize provided."
+                "$vectorSize provided."
         }
         require(inputArray.size >= sizeX * sizeY * vectorSize) {
             "$externalName convolve. inputArray is too small for the given dimensions. " +
-                    "$sizeX*$sizeY*$vectorSize < ${inputArray.size}."
+                "$sizeX*$sizeY*$vectorSize < ${inputArray.size}."
         }
         require(coefficients.size == 9 || coefficients.size == 25) {
             "$externalName convolve. Only 3x3 or 5x5 convolutions are supported. " +
-                    "${coefficients.size} coefficients provided."
+                "${coefficients.size} coefficients provided."
         }
         validateRestriction("convolve", sizeX, sizeY, restriction)
 
@@ -525,7 +532,7 @@ object Toolkit {
         validateBitmap("convolve", inputBitmap)
         require(coefficients.size == 9 || coefficients.size == 25) {
             "$externalName convolve. Only 3x3 or 5x5 convolutions are supported. " +
-                    "${coefficients.size} coefficients provided."
+                "${coefficients.size} coefficients provided."
         }
         validateRestriction("convolve", inputBitmap, restriction)
 
@@ -571,11 +578,11 @@ object Toolkit {
     ): IntArray {
         require(vectorSize in 1..4) {
             "$externalName histogram. The vectorSize should be between 1 and 4. " +
-                    "$vectorSize provided."
+                "$vectorSize provided."
         }
         require(inputArray.size >= sizeX * sizeY * vectorSize) {
             "$externalName histogram. inputArray is too small for the given dimensions. " +
-                    "$sizeX*$sizeY*$vectorSize < ${inputArray.size}."
+                "$sizeX*$sizeY*$vectorSize < ${inputArray.size}."
         }
         validateRestriction("histogram", sizeX, sizeY, restriction)
 
@@ -672,11 +679,11 @@ object Toolkit {
     ): IntArray {
         require(vectorSize in 1..4) {
             "$externalName histogramDot. The vectorSize should be between 1 and 4. " +
-                    "$vectorSize provided."
+                "$vectorSize provided."
         }
         require(inputArray.size >= sizeX * sizeY * vectorSize) {
             "$externalName histogramDot. inputArray is too small for the given dimensions. " +
-                    "$sizeX*$sizeY*$vectorSize < ${inputArray.size}."
+                "$sizeX*$sizeY*$vectorSize < ${inputArray.size}."
         }
         validateHistogramDotCoefficients(coefficients, vectorSize)
         validateRestriction("histogramDot", sizeX, sizeY, restriction)
@@ -737,7 +744,11 @@ object Toolkit {
         val outputArray = IntArray(256)
         val actualCoefficients = coefficients ?: floatArrayOf(0.299f, 0.587f, 0.114f, 0f)
         nativeHistogramDotBitmap(
-            nativeHandle, inputBitmap, outputArray, actualCoefficients, restriction
+            nativeHandle,
+            inputBitmap,
+            outputArray,
+            actualCoefficients,
+            restriction
         )
         return outputArray
     }
@@ -777,7 +788,7 @@ object Toolkit {
     ): ByteArray {
         require(inputArray.size >= sizeX * sizeY * 4) {
             "$externalName lut. inputArray is too small for the given dimensions. " +
-                    "$sizeX*$sizeY*4 < ${inputArray.size}."
+                "$sizeX*$sizeY*4 < ${inputArray.size}."
         }
         validateRestriction("lut", sizeX, sizeY, restriction)
 
@@ -878,14 +889,14 @@ object Toolkit {
     ): ByteArray {
         require(inputArray.size >= sizeX * sizeY * 4) {
             "$externalName lut3d. inputArray is too small for the given dimensions. " +
-                    "$sizeX*$sizeY*4 < ${inputArray.size}."
+                "$sizeX*$sizeY*4 < ${inputArray.size}."
         }
         require(
             cube.sizeX >= 2 && cube.sizeY >= 2 && cube.sizeZ >= 2 &&
-                    cube.sizeX <= 256 && cube.sizeY <= 256 && cube.sizeZ <= 256
+                cube.sizeX <= 256 && cube.sizeY <= 256 && cube.sizeZ <= 256
         ) {
             "$externalName lut3d. The dimensions of the cube should be between 2 and 256. " +
-                    "(${cube.sizeX}, ${cube.sizeY}, ${cube.sizeZ}) provided."
+                "(${cube.sizeX}, ${cube.sizeY}, ${cube.sizeZ}) provided."
         }
         validateRestriction("lut3d", sizeX, sizeY, restriction)
 
@@ -933,8 +944,14 @@ object Toolkit {
 
         val outputBitmap = createCompatibleBitmap(inputBitmap)
         nativeLut3dBitmap(
-            nativeHandle, inputBitmap, outputBitmap, cube.values, cube.sizeX,
-            cube.sizeY, cube.sizeZ, restriction
+            nativeHandle,
+            inputBitmap,
+            outputBitmap,
+            cube.values,
+            cube.sizeX,
+            cube.sizeY,
+            cube.sizeZ,
+            restriction
         )
         return outputBitmap
     }
@@ -981,7 +998,7 @@ object Toolkit {
         }
         require(inputArray.size >= inputSizeX * inputSizeY * vectorSize) {
             "$externalName resize. inputArray is too small for the given dimensions. " +
-                    "$inputSizeX*$inputSizeY*$vectorSize < ${inputArray.size}."
+                "$inputSizeX*$inputSizeY*$vectorSize < ${inputArray.size}."
         }
         validateRestriction("resize", outputSizeX, outputSizeY, restriction)
 
@@ -1053,7 +1070,7 @@ object Toolkit {
     fun yuvToRgb(inputArray: ByteArray, sizeX: Int, sizeY: Int, format: YuvFormat): ByteArray {
         require(sizeX % 2 == 0 && sizeY % 2 == 0) {
             "$externalName yuvToRgb. Non-even dimensions are not supported. " +
-                    "$sizeX and $sizeY were provided."
+                "$sizeX and $sizeY were provided."
         }
 
         val outputArray = ByteArray(sizeX * sizeY * 4)
@@ -1079,7 +1096,7 @@ object Toolkit {
     fun yuvToRgbBitmap(inputArray: ByteArray, sizeX: Int, sizeY: Int, format: YuvFormat): Bitmap {
         require(sizeX % 2 == 0 && sizeY % 2 == 0) {
             "$externalName yuvToRgbBitmap. Non-even dimensions are not supported. " +
-                    "$sizeX and $sizeY were provided."
+                "$sizeX and $sizeY were provided."
         }
 
         val outputBitmap = Bitmap.createBitmap(sizeX, sizeY, Bitmap.Config.ARGB_8888)
@@ -1422,7 +1439,7 @@ class LookupTable {
  */
 enum class YuvFormat(val value: Int) {
     NV21(0x11),
-    YV12(0x32315659),
+    YV12(0x32315659)
 }
 
 /**
@@ -1479,21 +1496,21 @@ internal fun validateBitmap(
     if (alphaAllowed) {
         require(
             inputBitmap.config == Bitmap.Config.ARGB_8888 ||
-                    inputBitmap.config == Bitmap.Config.ALPHA_8
+                inputBitmap.config == Bitmap.Config.ALPHA_8
         ) {
             "$externalName. $function supports only ARGB_8888 and ALPHA_8 bitmaps. " +
-                    "${inputBitmap.config} provided."
+                "${inputBitmap.config} provided."
         }
     } else {
         require(inputBitmap.config == Bitmap.Config.ARGB_8888) {
             "$externalName. $function supports only ARGB_8888. " +
-                    "${inputBitmap.config} provided."
+                "${inputBitmap.config} provided."
         }
     }
     require(inputBitmap.width * vectorSize(inputBitmap) == inputBitmap.rowBytes) {
         "$externalName $function. Only bitmaps with rowSize equal to the width * vectorSize are " +
-                "currently supported. Provided were rowBytes=${inputBitmap.rowBytes}, " +
-                "width={${inputBitmap.width}, and vectorSize=${vectorSize(inputBitmap)}."
+            "currently supported. Provided were rowBytes=${inputBitmap.rowBytes}, " +
+            "width={${inputBitmap.width}, and vectorSize=${vectorSize(inputBitmap)}."
     }
 }
 
@@ -1512,7 +1529,7 @@ internal fun validateHistogramDotCoefficients(
         for (i in 0 until vectorSize) {
             require(coefficients[i] >= 0.0f) {
                 "$externalName histogramDot. Coefficients should not be negative. " +
-                        "Coefficient $i was ${coefficients[i]}."
+                    "Coefficient $i was ${coefficients[i]}."
             }
             sum += coefficients[i]
         }
@@ -1535,21 +1552,21 @@ internal fun validateRestriction(
     if (restriction == null) return
     require(restriction.startX < sizeX && restriction.endX <= sizeX) {
         "$externalName $tag. sizeX should be greater than restriction.startX and greater " +
-                "or equal to restriction.endX. $sizeX, ${restriction.startX}, " +
-                "and ${restriction.endX} were provided respectively."
+            "or equal to restriction.endX. $sizeX, ${restriction.startX}, " +
+            "and ${restriction.endX} were provided respectively."
     }
     require(restriction.startY < sizeY && restriction.endY <= sizeY) {
         "$externalName $tag. sizeY should be greater than restriction.startY and greater " +
-                "or equal to restriction.endY. $sizeY, ${restriction.startY}, " +
-                "and ${restriction.endY} were provided respectively."
+            "or equal to restriction.endY. $sizeY, ${restriction.startY}, " +
+            "and ${restriction.endY} were provided respectively."
     }
     require(restriction.startX < restriction.endX) {
         "$externalName $tag. Restriction startX should be less than endX. " +
-                "${restriction.startX} and ${restriction.endX} were provided respectively."
+            "${restriction.startX} and ${restriction.endX} were provided respectively."
     }
     require(restriction.startY < restriction.endY) {
         "$externalName $tag. Restriction startY should be less than endY. " +
-                "${restriction.startY} and ${restriction.endY} were provided respectively."
+            "${restriction.startY} and ${restriction.endY} were provided respectively."
     }
 }
 
