@@ -21,8 +21,10 @@ fun PaletteRow(palette: Palette, modifier: Modifier = Modifier) {
             palette.darkVibrantSwatch,
             palette.darkMutedSwatch
         )) {
-            item {
-                color?.let { PaletteItem(it.rgb) }
+            color?.let {
+                item {
+                    PaletteItem(it.rgb)
+                }
             }
         }
     }
