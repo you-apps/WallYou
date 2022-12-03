@@ -6,6 +6,7 @@ import androidx.activity.result.contract.ActivityResultContracts
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
+import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
@@ -37,6 +38,7 @@ import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.window.Dialog
 import androidx.compose.ui.window.DialogProperties
+import androidx.palette.graphics.Palette
 import com.bnyro.wallpaper.R
 import com.bnyro.wallpaper.db.DatabaseHolder.Companion.Database
 import com.bnyro.wallpaper.db.obj.Wallpaper
@@ -76,6 +78,10 @@ fun WallpaperPreview(
         mutableStateOf(false)
     }
 
+    var palette by remember {
+        mutableStateOf<Palette?>(null)
+    }
+
     LaunchedEffect(true) {
         Query {
             wallpaper.imgSrc.let {
@@ -110,48 +116,55 @@ fun WallpaperPreview(
                         .align(Alignment.BottomCenter)
                         .clip(RoundedCornerShape(50.dp))
                 ) {
-                    Row(
-                        horizontalArrangement = Arrangement.SpaceEvenly,
-                        modifier = Modifier
-                            .fillMaxWidth()
-                            .padding(10.dp)
+                    Column(
+                        modifier = Modifier.padding(20.dp)
                     ) {
-                        ButtonWithIcon(
-                            icon = Icons.Default.Info
+                        Row(
+                            horizontalArrangement = Arrangement.SpaceEvenly,
+                            modifier = Modifier
+                                .fillMaxWidth()
                         ) {
-                            showInfoDialog = true
-                        }
+                            ButtonWithIcon(
+                                icon = Icons.Default.Info
+                            ) {
+                                showInfoDialog = true
+                            }
 
-                        ButtonWithIcon(
-                            icon = Icons.Default.DarkMode
-                        ) {
-                            showFilterDialog = true
-                        }
+                            ButtonWithIcon(
+                                icon = Icons.Default.DarkMode
+                            ) {
+                                showFilterDialog = true
+                            }
 
-                        ButtonWithIcon(
-                            icon = Icons.Default.Wallpaper
-                        ) {
-                            if (bitmap == null) return@ButtonWithIcon
-                            showModeSelection = true
-                        }
+                            ButtonWithIcon(
+                                icon = Icons.Default.Wallpaper
+                            ) {
+                                if (bitmap == null) return@ButtonWithIcon
+                                showModeSelection = true
+                            }
 
-                        ButtonWithIcon(
-                            icon = Icons.Default.Download
-                        ) {
-                            launcher.launch("${wallpaper.title}.png")
-                        }
+                            ButtonWithIcon(
+                                icon = Icons.Default.Download
+                            ) {
+                                launcher.launch("${wallpaper.title}.png")
+                            }
 
-                        ButtonWithIcon(
-                            icon = if (liked) Icons.Default.Favorite else Icons.Default.FavoriteBorder
-                        ) {
-                            liked = !liked
-                            Query {
-                                if (!liked) {
-                                    Database.favoritesDao().delete(wallpaper)
-                                } else {
-                                    Database.favoritesDao().insertAll(wallpaper)
+                            ButtonWithIcon(
+                                icon = if (liked) Icons.Default.Favorite else Icons.Default.FavoriteBorder
+                            ) {
+                                liked = !liked
+                                Query {
+                                    if (!liked) {
+                                        Database.favoritesDao().delete(wallpaper)
+                                    } else {
+                                        Database.favoritesDao().insertAll(wallpaper)
+                                    }
                                 }
                             }
+                        }
+
+                        palette?.let {
+                            PaletteRow(it, Modifier.padding(0.dp, 15.dp))
                         }
                     }
                 }
@@ -171,6 +184,9 @@ fun WallpaperPreview(
     ) {
         originalBitmap = it
         bitmap = BitmapProcessor.processBitmapByPrefs(it)
+        Palette.from(bitmap!!).generate { nP ->
+            palette = nP
+        }
     }
 
     if (showInfoDialog) {
@@ -189,6 +205,9 @@ fun WallpaperPreview(
         ) {
             originalBitmap?.let {
                 bitmap = BitmapProcessor.processBitmapByPrefs(it)
+                Palette.from(bitmap!!).generate { nP ->
+                    palette = nP
+                }
             }
         }
     }
