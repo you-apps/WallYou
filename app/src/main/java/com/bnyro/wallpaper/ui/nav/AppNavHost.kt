@@ -7,10 +7,10 @@ import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
 import com.bnyro.wallpaper.R
+import com.bnyro.wallpaper.ui.models.MainModel
 import com.bnyro.wallpaper.ui.pages.AboutPage
 import com.bnyro.wallpaper.ui.pages.FavoritesPage
 import com.bnyro.wallpaper.ui.pages.SettingsPage
-import com.bnyro.wallpaper.ui.models.MainModel
 import com.bnyro.wallpaper.ui.pages.WallpaperPage
 import com.bnyro.wallpaper.util.ApiHolder
 

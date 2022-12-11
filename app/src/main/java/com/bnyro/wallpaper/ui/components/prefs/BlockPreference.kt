@@ -1,7 +1,5 @@
 package com.bnyro.wallpaper.ui.components.prefs
 
-import android.util.Log
-import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.lazy.LazyRow
 import androidx.compose.foundation.lazy.items
