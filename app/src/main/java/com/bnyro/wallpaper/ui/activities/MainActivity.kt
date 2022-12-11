@@ -1,7 +1,6 @@
 package com.bnyro.wallpaper.ui.activities
 
 import android.os.Bundle
-import android.widget.Toast
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.padding
 import androidx.compose.material.icons.Icons
@@ -39,10 +38,6 @@ class MainActivity : BaseActivity() {
         showContent {
             MainContent()
         }
-
-        viewModel.fetchWallpapers {
-            Toast.makeText(this, it.localizedMessage, Toast.LENGTH_LONG).show()
-        }
     }
 }
 
@@ -60,6 +55,7 @@ private fun MainContent() {
         navController = navController,
         pages = listOf(
             DrawerScreens.Wallhaven,
+            DrawerScreens.Picsum,
             DrawerScreens.Favorites,
             DrawerScreens.Settings,
             DrawerScreens.About

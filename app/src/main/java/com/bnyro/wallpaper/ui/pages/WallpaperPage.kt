@@ -10,6 +10,7 @@ import androidx.compose.material3.CircularProgressIndicator
 import androidx.compose.material3.FloatingActionButton
 import androidx.compose.material3.Icon
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
@@ -29,6 +30,13 @@ fun WallpaperPage(
     val context = LocalContext.current
     var showFilterDialog by remember {
         mutableStateOf(false)
+    }
+
+    LaunchedEffect(Unit) {
+        viewModel.wallpapers = listOf()
+        viewModel.fetchWallpapers {
+            Toast.makeText(context, it.localizedMessage, Toast.LENGTH_LONG).show()
+        }
     }
 
     Box(

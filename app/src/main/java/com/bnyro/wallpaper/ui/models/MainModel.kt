@@ -7,9 +7,10 @@ import androidx.compose.runtime.setValue
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.bnyro.wallpaper.R
-import com.bnyro.wallpaper.api.wh.WhApi
+import com.bnyro.wallpaper.api.Api
 import com.bnyro.wallpaper.constants.ThemeMode
 import com.bnyro.wallpaper.db.obj.Wallpaper
+import com.bnyro.wallpaper.util.ApiHolder
 import com.bnyro.wallpaper.util.Preferences
 import kotlinx.coroutines.launch
 
@@ -21,7 +22,7 @@ class MainModel : ViewModel() {
         )!!.toInt()
     )
 
-    var api = WhApi()
+    var api: Api = ApiHolder.whApi
     var wallpapers by mutableStateOf(
         listOf<Wallpaper>()
     )

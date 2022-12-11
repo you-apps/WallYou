@@ -12,6 +12,7 @@ import com.bnyro.wallpaper.ui.activities.FavoritesPage
 import com.bnyro.wallpaper.ui.activities.SettingsPage
 import com.bnyro.wallpaper.ui.models.MainModel
 import com.bnyro.wallpaper.ui.pages.WallpaperPage
+import com.bnyro.wallpaper.util.ApiHolder
 
 @Composable
 fun AppNavHost(
@@ -26,7 +27,13 @@ fun AppNavHost(
         startDestination = startDestination
     ) {
         composable(DrawerScreens.Wallhaven.route) {
-            viewModel.titleResource = R.string.app_name
+            viewModel.titleResource = R.string.wallhaven
+            viewModel.api = ApiHolder.whApi
+            WallpaperPage(viewModel)
+        }
+        composable(DrawerScreens.Picsum.route) {
+            viewModel.titleResource = R.string.picsum
+            viewModel.api = ApiHolder.psApi
             WallpaperPage(viewModel)
         }
         composable(DrawerScreens.Favorites.route) {
