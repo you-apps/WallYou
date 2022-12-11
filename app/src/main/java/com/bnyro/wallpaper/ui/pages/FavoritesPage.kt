@@ -1,4 +1,4 @@
-package com.bnyro.wallpaper.ui.activities
+package com.bnyro.wallpaper.ui.pages
 
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box

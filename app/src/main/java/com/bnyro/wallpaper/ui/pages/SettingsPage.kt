@@ -1,4 +1,4 @@
-package com.bnyro.wallpaper.ui.activities
+package com.bnyro.wallpaper.ui.pages
 
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Spacer
@@ -14,10 +14,12 @@ import com.bnyro.wallpaper.constants.ThemeMode
 import com.bnyro.wallpaper.ext.formatBinarySize
 import com.bnyro.wallpaper.ext.formatMinutes
 import com.bnyro.wallpaper.ui.components.about.AboutContainer
+import com.bnyro.wallpaper.ui.components.prefs.BlockPreference
 import com.bnyro.wallpaper.ui.components.prefs.CheckboxPref
 import com.bnyro.wallpaper.ui.components.prefs.ListPreference
 import com.bnyro.wallpaper.ui.components.prefs.SettingsCategory
 import com.bnyro.wallpaper.ui.models.MainModel
+import com.bnyro.wallpaper.ui.nav.DrawerScreens
 import com.bnyro.wallpaper.util.Preferences
 import com.bnyro.wallpaper.util.WorkerHelper
 
@@ -103,6 +105,12 @@ fun SettingsPage(
             ) {
                 WorkerHelper.enqueue(context, true)
             }
+            val apis = listOf(DrawerScreens.Wallhaven, DrawerScreens.Picsum)
+            BlockPreference(
+                preferenceKey = Preferences.wallpaperChangerApiKey,
+                entries = apis.map { stringResource(it.titleResource) },
+                values = apis.map { it.route }
+            )
             ListPreference(
                 prefKey = Preferences.wallpaperChangerIntervalKey,
                 title = stringResource(R.string.change_interval),

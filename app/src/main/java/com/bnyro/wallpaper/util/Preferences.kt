@@ -11,6 +11,7 @@ object Preferences {
     const val wallpaperChangerIntervalKey = "wallpaperChangerInterval"
     const val wallpaperChangerTargetKey = "wallpaperChangerTarget"
     const val themeModeKey = "themeModeKey"
+    const val wallpaperChangerApiKey = "wallpaperChangerApi"
 
     const val grayscaleKey = "grayscale"
     const val blurKey = "blur"

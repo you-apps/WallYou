@@ -1,4 +1,4 @@
-package com.bnyro.wallpaper.ui.activities
+package com.bnyro.wallpaper.ui.pages
 
 import android.content.Intent
 import android.net.Uri

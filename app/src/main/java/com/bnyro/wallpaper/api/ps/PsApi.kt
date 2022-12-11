@@ -1,6 +1,5 @@
 package com.bnyro.wallpaper.api.ps
 
-import android.util.Log
 import com.bnyro.wallpaper.api.Api
 import com.bnyro.wallpaper.db.obj.Wallpaper
 import com.bnyro.wallpaper.util.RetrofitBuilder
@@ -14,7 +13,6 @@ class PsApi : Api() {
     private val api = RetrofitBuilder.create(baseUrl, Picsum::class.java)
 
     override suspend fun getWallpapers(page: Int): List<Wallpaper> {
-        Log.e("fetch picsums", "fetch")
         return api.getWallpapers(page).map {
             Wallpaper(
                 imgSrc = it.download_url!!,
@@ -28,5 +26,9 @@ class PsApi : Api() {
                 creationDate = null
             )
         }
+    }
+
+    override suspend fun getRandomWallpaperUrl(): String {
+        return "$baseUrl/1080/1920"
     }
 }
