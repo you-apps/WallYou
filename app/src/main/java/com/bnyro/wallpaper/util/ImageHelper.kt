@@ -4,6 +4,7 @@ import android.content.Context
 import android.graphics.Bitmap
 import androidx.core.graphics.drawable.toBitmap
 import coil.ImageLoader
+import coil.annotation.ExperimentalCoilApi
 import coil.executeBlocking
 import coil.request.ImageRequest
 import kotlinx.coroutines.CoroutineScope
@@ -27,10 +28,16 @@ object ImageHelper {
         }
     }
 
-    fun getBlocking(context: Context, imageURL: String?): Bitmap? {
+    @OptIn(ExperimentalCoilApi::class)
+    fun getBlocking(context: Context, imageURL: String?, forceReload: Boolean = false): Bitmap? {
         val request = buildRequest(context, imageURL).build()
 
-        return ImageLoader(context).executeBlocking(request).drawable?.toBitmap()
+        return ImageLoader(context).apply {
+            if (forceReload) {
+                diskCache?.clear()
+                memoryCache?.clear()
+            }
+        }.executeBlocking(request).drawable?.toBitmap()
     }
 
     private fun buildRequest(context: Context, url: String?): ImageRequest.Builder {

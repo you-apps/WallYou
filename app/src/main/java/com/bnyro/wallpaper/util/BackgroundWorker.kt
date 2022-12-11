@@ -26,7 +26,7 @@ class BackgroundWorker(
                 return@runBlocking
             }
 
-            ImageHelper.getBlocking(applicationContext, url)?.let {
+            ImageHelper.getBlocking(applicationContext, url, true)?.let {
                 WallpaperHelper.setWallpaper(
                     applicationContext,
                     BitmapProcessor.processBitmapByPrefs(it),
