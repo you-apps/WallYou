@@ -58,18 +58,20 @@ fun WallpaperPage(
             )
         }
 
-        FloatingActionButton(
-            modifier = Modifier
-                .padding(20.dp)
-                .align(Alignment.BottomEnd),
-            onClick = {
-                showFilterDialog = true
+        if (viewModel.api.filters.isNotEmpty()) {
+            FloatingActionButton(
+                modifier = Modifier
+                    .padding(20.dp)
+                    .align(Alignment.BottomEnd),
+                onClick = {
+                    showFilterDialog = true
+                }
+            ) {
+                Icon(
+                    imageVector = Icons.Default.FilterList,
+                    contentDescription = null
+                )
             }
-        ) {
-            Icon(
-                imageVector = Icons.Default.FilterList,
-                contentDescription = null
-            )
         }
         if (showFilterDialog) {
             FilterDialog(
