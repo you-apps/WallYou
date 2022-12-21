@@ -1,5 +1,5 @@
 package com.bnyro.wallpaper.ext
 
-fun Query(query: () -> Unit) {
+fun query(query: () -> Unit) {
     Thread(query).start()
 }

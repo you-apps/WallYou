@@ -55,6 +55,10 @@ fun SettingsPage(
                     prefKey = Preferences.cropImagesKey,
                     title = stringResource(R.string.crop_images)
                 )
+                CheckboxPref(
+                    prefKey = Preferences.autoAddToFavoritesKey,
+                    title = stringResource(R.string.auto_add_to_favorites)
+                )
             }
         }
 

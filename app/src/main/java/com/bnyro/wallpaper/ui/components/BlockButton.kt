@@ -27,7 +27,9 @@ fun BlockButton(
         modifier = modifier
             .height(50.dp)
             .clip(RoundedCornerShape(12.dp))
-            .background(if (selected) MaterialTheme.colorScheme.surfaceVariant.copy(0.5f) else MaterialTheme.colorScheme.primaryContainer)
+            .background(
+                if (selected) MaterialTheme.colorScheme.surfaceVariant.copy(0.5f) else MaterialTheme.colorScheme.primaryContainer
+            )
             .clickable(onClick = onClick)
             .padding(horizontal = 15.dp),
         verticalArrangement = Arrangement.Center,

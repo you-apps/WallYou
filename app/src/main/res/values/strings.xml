@@ -50,6 +50,7 @@
 
     <!-- Favorites -->
     <string name="no_favorites">No favorites yet</string>
+    <string name="auto_add_to_favorites">Add to favorites when applying</string>
 
     <!-- About -->
     <string name="version">Version</string>

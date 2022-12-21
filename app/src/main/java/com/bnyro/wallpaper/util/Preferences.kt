@@ -12,7 +12,7 @@ object Preferences {
     const val wallpaperChangerTargetKey = "wallpaperChangerTarget"
     const val themeModeKey = "themeModeKey"
     const val wallpaperChangerApiKey = "wallpaperChangerApi"
-
+    const val autoAddToFavoritesKey = "autoAddToFavorites"
     const val grayscaleKey = "grayscale"
     const val blurKey = "blur"
 

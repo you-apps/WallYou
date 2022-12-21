@@ -42,10 +42,12 @@ import androidx.palette.graphics.Palette
 import com.bnyro.wallpaper.R
 import com.bnyro.wallpaper.db.DatabaseHolder.Companion.Database
 import com.bnyro.wallpaper.db.obj.Wallpaper
-import com.bnyro.wallpaper.ext.Query
+import com.bnyro.wallpaper.ext.awaitQuery
+import com.bnyro.wallpaper.ext.query
 import com.bnyro.wallpaper.util.BitmapProcessor
 import com.bnyro.wallpaper.util.DownloadHelper
 import com.bnyro.wallpaper.util.ImageHelper
+import com.bnyro.wallpaper.util.Preferences
 import com.bnyro.wallpaper.util.WallpaperHelper
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
@@ -86,7 +88,7 @@ fun WallpaperPreview(
     }
 
     LaunchedEffect(true) {
-        Query {
+        query {
             wallpaper.imgSrc.let {
                 liked = Database.favoritesDao().exists(it)
             }
@@ -156,7 +158,7 @@ fun WallpaperPreview(
                                 icon = if (liked) Icons.Default.Favorite else Icons.Default.FavoriteBorder
                             ) {
                                 liked = !liked
-                                Query {
+                                query {
                                     if (!liked) {
                                         Database.favoritesDao().delete(wallpaper)
                                     } else {
@@ -226,6 +228,12 @@ fun WallpaperPreview(
                 showModeSelection = false
             },
             onClick = {
+                if (Preferences.getBoolean(Preferences.autoAddToFavoritesKey, false)) {
+                    liked = true
+                    awaitQuery {
+                        Database.favoritesDao().insertAll(wallpaper)
+                    }
+                }
                 CoroutineScope(Dispatchers.IO).launch {
                     WallpaperHelper.setWallpaper(
                         context.applicationContext,

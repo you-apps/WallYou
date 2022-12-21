@@ -29,7 +29,7 @@ import androidx.compose.ui.unit.dp
 import coil.compose.AsyncImage
 import com.bnyro.wallpaper.db.DatabaseHolder.Companion.Database
 import com.bnyro.wallpaper.db.obj.Wallpaper
-import com.bnyro.wallpaper.ext.Query
+import com.bnyro.wallpaper.ext.query
 
 @Composable
 fun WallpaperGrid(
@@ -62,7 +62,7 @@ fun WallpaperGrid(
             }
 
             LaunchedEffect(true) {
-                Query {
+                query {
                     it.imgSrc.let { liked = Database.favoritesDao().exists(it) }
                 }
             }
@@ -95,7 +95,7 @@ fun WallpaperGrid(
                         if (liked) Icons.Default.Favorite else Icons.Default.FavoriteBorder
                     ) {
                         liked = !liked
-                        Query {
+                        query {
                             if (!liked) {
                                 Database.favoritesDao().delete(it)
                             } else {
