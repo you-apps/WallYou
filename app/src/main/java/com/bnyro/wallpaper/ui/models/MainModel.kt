@@ -30,7 +30,7 @@ class MainModel : ViewModel() {
         R.string.app_name
     )
 
-    private var page: Int = 1
+    var page: Int = 1
 
     fun fetchWallpapers(onException: (Exception) -> Unit) {
         viewModelScope.launch {

@@ -34,6 +34,7 @@ fun WallpaperPage(
 
     LaunchedEffect(Unit) {
         viewModel.wallpapers = listOf()
+        viewModel.page = 1
         viewModel.fetchWallpapers {
             Toast.makeText(context, it.localizedMessage, Toast.LENGTH_LONG).show()
         }
