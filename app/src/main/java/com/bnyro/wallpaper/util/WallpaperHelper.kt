@@ -54,7 +54,7 @@ object WallpaperHelper {
         }.start()
     }
 
-    fun getCroppedBitmap(bitmap: Bitmap, displayMetrics: DisplayMetrics): Bitmap {
+    private fun getCroppedBitmap(bitmap: Bitmap, displayMetrics: DisplayMetrics): Bitmap {
         return Bitmap.createScaledBitmap(
             bitmap,
             displayMetrics.widthPixels,
@@ -63,7 +63,7 @@ object WallpaperHelper {
         )
     }
 
-    fun getResizedBitmap(bitmap: Bitmap, displayMetrics: DisplayMetrics): Bitmap {
+    private fun getResizedBitmap(bitmap: Bitmap, displayMetrics: DisplayMetrics): Bitmap {
         var resizedBitmap = bitmap
         val screenWidth = displayMetrics.widthPixels
         val screenHeight = displayMetrics.heightPixels

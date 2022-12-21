@@ -47,6 +47,9 @@ import com.bnyro.wallpaper.util.BitmapProcessor
 import com.bnyro.wallpaper.util.DownloadHelper
 import com.bnyro.wallpaper.util.ImageHelper
 import com.bnyro.wallpaper.util.WallpaperHelper
+import kotlinx.coroutines.CoroutineScope
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.launch
 
 @OptIn(ExperimentalComposeUiApi::class)
 @Composable
@@ -223,11 +226,14 @@ fun WallpaperPreview(
                 showModeSelection = false
             },
             onClick = {
-                WallpaperHelper.setWallpaper(
-                    context.applicationContext,
-                    bitmap!!,
-                    it
-                )
+                CoroutineScope(Dispatchers.IO).launch {
+                    WallpaperHelper.setWallpaper(
+                        context.applicationContext,
+                        bitmap!!,
+                        it
+                    )
+                }
+                showModeSelection = false
             }
         )
     }
