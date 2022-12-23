@@ -1,2 +1,37 @@
 <?xml version="1.0" encoding="utf-8"?>
-<resources></resources>
+<resources>
+    <string name="favorites">Sık kullanılanlar</string>
+    <string name="settings">Ayarlar</string>
+    <string name="about">Hakkında</string>
+    <string name="info">Bilgi</string>
+    <string name="filter">Filtrele</string>
+    <string name="add">Ekle</string>
+    <string name="author">Yazar</string>
+    <string name="resolution">Çözünürlük</string>
+    <string name="theme_mode">Tema modu</string>
+    <string name="category">Kategori</string>
+    <string name="fileSize">Dosya boyutu</string>
+    <string name="source">Kaynak</string>
+    <string name="creationDate">Oluşturulma tarihi</string>
+    <string name="both">Her ikisi de</string>
+    <string name="home">Ana ekran</string>
+    <string name="blur">Bulanıklaştır</string>
+    <string name="grayscale">Gri tonlamalı</string>
+    <string name="reset">Sıfırla</string>
+    <string name="general">Genel</string>
+    <string name="cache">Önbellek</string>
+    <string name="crop_images">Resimleri kırp</string>
+    <string name="coil_cache">Coil resim önbelleği</string>
+    <string name="wallpaper_changer">Duvar kağıdı değiştirici</string>
+    <string name="change_interval">Değişim aralığı</string>
+    <string name="change_target">Duvar kağıdı hedefi</string>
+    <string name="theme_system">Sistem</string>
+    <string name="theme_light">Açık</string>
+    <string name="theme_dark">Koyu</string>
+    <string name="no_favorites">Henüz sık kullanılan yok</string>
+    <string name="auto_add_to_favorites">Uygularken sık kullanılanlara ekle</string>
+    <string name="lockscreen">Kilit ekranı</string>
+    <string name="license">Lisans</string>
+    <string name="website">Web sitesi</string>
+    <string name="version">Sürüm</string>
+</resources>
