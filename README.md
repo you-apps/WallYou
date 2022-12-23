@@ -51,6 +51,11 @@
 **All contributions are welcome!** \
 If you are a developer and wish to contribute to the app, please **fork** the project and submit a [**pull request**](https://help.github.com/articles/about-pull-requests/).
 
+## Translation
+<a href="https://hosted.weblate.org/projects/you-apps/wall-you/">
+<img src="https://hosted.weblate.org/widgets/you-apps/-/287x66-grey.png" alt="Translation status" />
+</a>
+
 ## License
 
 Wall You is licensed under the [**GNU General Public License**](https://www.gnu.org/licenses/gpl.html): You can use, study and share it as you want.
