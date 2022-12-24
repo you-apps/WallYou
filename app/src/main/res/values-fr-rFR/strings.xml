@@ -1,17 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="app_name" translatable="false">Wall You</string>
     <string name="wallhaven" translatable="false">Wallhaven</string>
-
     <!-- Navigation Drawer -->
     <string name="favorites">Favoris</string>
     <string name="settings">Paramètres</string>
     <string name="about">À propos</string>
-
     <!-- Image Preview -->
     <string name="info">Info</string>
     <string name="filter">Filtre</string>
     <string name="add">Ajouter</string>
-    
     <!-- Info Dialog -->
     <string name="author">Auteur</string>
     <string name="resolution">Résolution</string>
@@ -19,34 +17,30 @@
     <string name="fileSize">Taille du fichier</string>
     <string name="source">Source</string>
     <string name="creationDate">Date de création</string>
-
     <!-- Set wallpaper -->
     <string name="both">L\'un et l\'autre</string>
     <string name="lockscreen">Écran de verrouillage</string>
-    
-        <!-- Preference categories -->
+    <!-- Preference categories -->
     <string name="general">Générale</string>
     <string name="cache">Cache</string>
-
     <!-- Preferences -->
     <string name="crop_images">Recadrer les images</string>
     <string name="coil_cache">Cache d\'image du diaporama</string>
     <string name="wallpaper_changer">Modification du fond d\'écran</string>
     <string name="change_interval">Intervalle de changement</string>
     <string name="change_target">fond d\'écran cible</string>
-
     <!-- Theme -->
     <string name="theme_mode">Thème</string>
     <string name="theme_system">Identique au système</string>
     <string name="theme_light">Clair</string>
     <string name="theme_dark">Sombre</string>
-
     <!-- Favorites -->
     <string name="no_favorites">Aucun favori pour le moment</string>
-
     <!-- About -->
     <string name="version">Version</string>
     <string name="github" translatable="false">GitHub</string>
     <string name="license">Licence</string>
     <string name="website">Site web</string>
+    <string name="home">Accueil</string>
+    <string name="reset">Réinitialiser</string>
 </resources>
