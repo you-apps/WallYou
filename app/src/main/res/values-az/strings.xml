@@ -1,2 +1,37 @@
 <?xml version="1.0" encoding="utf-8"?>
-<resources></resources>
+<resources>
+    <string name="favorites">Sevimlilər</string>
+    <string name="settings">Tənzimləmələr</string>
+    <string name="about">Haqqında</string>
+    <string name="info">Məlumat</string>
+    <string name="filter">Çeşidlə</string>
+    <string name="add">Əlavə et</string>
+    <string name="author">Müəllif</string>
+    <string name="resolution">Görüntü imkanı</string>
+    <string name="category">Kateqoriya</string>
+    <string name="fileSize">Fayl həcmi</string>
+    <string name="source">Mənbə</string>
+    <string name="both">Hər ikisi</string>
+    <string name="home">Ev</string>
+    <string name="lockscreen">Kilid ekranı</string>
+    <string name="blur">Ləkə</string>
+    <string name="grayscale">Boz miqyaslı</string>
+    <string name="reset">Sıfırla</string>
+    <string name="general">Ümumi</string>
+    <string name="cache">Keş</string>
+    <string name="crop_images">Şəkilləri kəs</string>
+    <string name="coil_cache">Halqa şəkil keşi</string>
+    <string name="wallpaper_changer">Divar kağızı dəyişdirici</string>
+    <string name="change_interval">Dəyişiklik intervalı</string>
+    <string name="change_target">Divar kağızı hədəfi</string>
+    <string name="theme_system">Sistem</string>
+    <string name="theme_light">İşıqlı</string>
+    <string name="theme_dark">Qaranlıq</string>
+    <string name="no_favorites">Hələ sevimlilər yoxdur</string>
+    <string name="version">Versiya</string>
+    <string name="license">Lisenziya</string>
+    <string name="website">Veb sayt</string>
+    <string name="creationDate">Yaradılma tarixi</string>
+    <string name="theme_mode">Tema rejimi</string>
+    <string name="auto_add_to_favorites">Tətbiq edərkən sevimlilərə əlavə et</string>
+</resources>
