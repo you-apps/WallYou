@@ -1,2 +1,37 @@
 <?xml version="1.0" encoding="utf-8"?>
-<resources></resources>
+<resources>
+    <string name="about">Om</string>
+    <string name="author">Skaper</string>
+    <string name="fileSize">Filstørrelse</string>
+    <string name="source">Kilde</string>
+    <string name="creationDate">Opprettelsesdato</string>
+    <string name="both">Begge</string>
+    <string name="home">Hjem</string>
+    <string name="lockscreen">Låseskjerm</string>
+    <string name="blur">Tilsløring</string>
+    <string name="grayscale">Gråskala</string>
+    <string name="reset">Tilbakestill</string>
+    <string name="general">Generelt</string>
+    <string name="cache">Hurtiglager</string>
+    <string name="crop_images">Beskjær bilder</string>
+    <string name="wallpaper_changer">Skjermbildeendrer</string>
+    <string name="change_interval">Endringsintervall</string>
+    <string name="change_target">Skjermbildemål</string>
+    <string name="theme_mode">Drakt</string>
+    <string name="theme_system">System</string>
+    <string name="theme_light">Lys</string>
+    <string name="theme_dark">Mørk</string>
+    <string name="no_favorites">Ingen favoritter enda</string>
+    <string name="auto_add_to_favorites">Legg til i favoritter ved bruk</string>
+    <string name="version">Versjon</string>
+    <string name="license">Lisens</string>
+    <string name="coil_cache">Coil-bildehurtiglager</string>
+    <string name="info">Info</string>
+    <string name="website">Nettside</string>
+    <string name="favorites">Favoritter</string>
+    <string name="settings">Innstillinger</string>
+    <string name="filter">Filter</string>
+    <string name="resolution">Oppløsning</string>
+    <string name="add">Legg til</string>
+    <string name="category">Kategori</string>
+</resources>
