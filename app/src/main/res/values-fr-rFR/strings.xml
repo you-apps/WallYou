@@ -21,7 +21,7 @@
     <string name="both">L\'un et l\'autre</string>
     <string name="lockscreen">Écran de verrouillage</string>
     <!-- Preference categories -->
-    <string name="general">Générale</string>
+    <string name="general">Général</string>
     <string name="cache">Cache</string>
     <!-- Preferences -->
     <string name="crop_images">Recadrer les images</string>
