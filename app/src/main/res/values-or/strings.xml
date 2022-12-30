@@ -1,2 +1,37 @@
 <?xml version="1.0" encoding="utf-8"?>
-<resources></resources>
+<resources>
+    <string name="favorites">ପସନ୍ଦ ଗୁଡ଼ିକ</string>
+    <string name="settings">ସେଟିଂସମୂହ</string>
+    <string name="about">ବିଷୟରେ</string>
+    <string name="info">ସୂଚନା</string>
+    <string name="filter">ଫିଲ୍ଟର୍</string>
+    <string name="category">ବର୍ଗ</string>
+    <string name="fileSize">ଫାଇଲ୍ ଆକାର</string>
+    <string name="source">ଉତ୍ସ</string>
+    <string name="creationDate">ସୃଷ୍ଟି ତାରିଖ</string>
+    <string name="lockscreen">ଲକ୍ ସ୍କ୍ରିନ୍</string>
+    <string name="blur">ଝାପ୍ସା କରନ୍ତୁ</string>
+    <string name="grayscale">କଳା ଓ ଧଳା</string>
+    <string name="reset">ପୁନଃସେଟ୍ କରନ୍ତୁ</string>
+    <string name="general">ସାଧାରଣ</string>
+    <string name="cache">କ୍ୟାଚ୍</string>
+    <string name="crop_images">ପ୍ରତିଛବିଗୁଡିକ କ୍ରପ୍ କରନ୍ତୁ</string>
+    <string name="wallpaper_changer">ୱାଲପେପର ଚେଞ୍ଜର</string>
+    <string name="theme_light">ଉଜ୍ଜଳ</string>
+    <string name="theme_dark">ଅନ୍ଧାର</string>
+    <string name="no_favorites">ଏପର୍ଯ୍ୟନ୍ତ କୌଣସି ପସନ୍ଦ ନାହିଁ</string>
+    <string name="auto_add_to_favorites">ଆବେଦନ କରିବା ସମୟରେ ପସନ୍ଦଗୁଡିକରେ ଯୋଡନ୍ତୁ</string>
+    <string name="version">ସଂସ୍କରଣ</string>
+    <string name="license">ଲାଇସେନ୍ସ</string>
+    <string name="website">ୱେବସାଇଟ୍</string>
+    <string name="theme_system">ସିଷ୍ଟମ୍</string>
+    <string name="resolution">ଆକାର</string>
+    <string name="both">ଉଭୟ</string>
+    <string name="home">ଗୃହ</string>
+    <string name="author">ଲେଖକ</string>
+    <string name="add">ଯୋଡ଼ନ୍ତୁ</string>
+    <string name="coil_cache">କୋଇଲ୍ ପ୍ରତିଛବି କ୍ୟାଚ୍</string>
+    <string name="change_target">ୱାଲପେପର ଟାର୍ଗେଟ୍</string>
+    <string name="change_interval">ବ୍ୟବଧାନ ପରିବର୍ତ୍ତନ କରନ୍ତୁ</string>
+    <string name="theme_mode">ଥିମ୍ ସ୍ଥିତି</string>
+</resources>
