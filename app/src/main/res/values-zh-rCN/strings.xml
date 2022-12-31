@@ -1,17 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="app_name" translatable="false">Wall You</string>
     <string name="wallhaven" translatable="false">Wallhaven</string>
-
     <!-- Navigation Drawer -->
     <string name="favorites">收藏夹</string>
     <string name="settings">设置</string>
     <string name="about">关于</string>
-
     <!-- Image Preview -->
     <string name="info">信息</string>
     <string name="filter">过滤器</string>
     <string name="add">添加</string>
-
     <!-- Info Dialog -->
     <string name="author">作者</string>
     <string name="resolution">分辨率</string>
@@ -19,35 +17,33 @@
     <string name="fileSize">文件大小</string>
     <string name="source">来源</string>
     <string name="creationDate">创建日期</string>
-
     <!-- Set wallpaper -->
     <string name="both">桌面和锁屏</string>
     <string name="home">仅桌面</string>
     <string name="lockscreen">仅锁屏</string>
-
     <!-- Preference categories -->
     <string name="general">常规</string>
     <string name="cache">缓存</string>
-
     <!-- Preferences -->
     <string name="crop_images">剪裁图片</string>
     <string name="coil_cache">Coil 图像缓存</string>
     <string name="wallpaper_changer">壁纸更换器</string>
     <string name="change_interval">更换间隔</string>
     <string name="change_target">更换目标</string>
-
     <!-- Theme -->
     <string name="theme_mode">主题模式</string>
     <string name="theme_system">跟随系统</string>
     <string name="theme_light">亮色</string>
     <string name="theme_dark">暗色</string>
-
     <!-- Favorites -->
     <string name="no_favorites">暂无收藏</string>
-
     <!-- About -->
     <string name="version">版本</string>
     <string name="github" translatable="false">GitHub</string>
     <string name="license">许可</string>
     <string name="website">网站</string>
+    <string name="blur">模糊</string>
+    <string name="auto_add_to_favorites">应用时添加到收藏</string>
+    <string name="reset">重设</string>
+    <string name="grayscale">灰度</string>
 </resources>
