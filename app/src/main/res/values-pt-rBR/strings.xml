@@ -1,2 +1,37 @@
 <?xml version="1.0" encoding="utf-8"?>
-<resources></resources>
+<resources>
+    <string name="author">Autor</string>
+    <string name="about">Sobre</string>
+    <string name="info">Info</string>
+    <string name="filter">Filtro</string>
+    <string name="add">Adicionar</string>
+    <string name="resolution">Resolução</string>
+    <string name="category">Categoria</string>
+    <string name="creationDate">Data da criação</string>
+    <string name="general">Geral</string>
+    <string name="license">Licença</string>
+    <string name="theme_light">Claro</string>
+    <string name="theme_dark">Escuro</string>
+    <string name="lockscreen">Tela de bloqueio</string>
+    <string name="blur">Desfoque</string>
+    <string name="grayscale">Escala de cinza</string>
+    <string name="reset">Redefinir</string>
+    <string name="cache">Cache</string>
+    <string name="crop_images">Cortar imagens</string>
+    <string name="coil_cache">Tamanho do cache de imagem</string>
+    <string name="wallpaper_changer">Mudança de papel de parede</string>
+    <string name="change_interval">Intervalo de mudança</string>
+    <string name="change_target">Papel de parede alvo</string>
+    <string name="theme_mode">Modo do tema</string>
+    <string name="theme_system">Sistema</string>
+    <string name="no_favorites">Ainda não há favoritos</string>
+    <string name="auto_add_to_favorites">Adicionar aos favoritos ao aplicar</string>
+    <string name="version">Versão</string>
+    <string name="website">Website</string>
+    <string name="settings">Configurações</string>
+    <string name="source">Fonte</string>
+    <string name="favorites">Favoritos</string>
+    <string name="both">Ambos</string>
+    <string name="home">Inicio</string>
+    <string name="fileSize">Tamanho do arquivo</string>
+</resources>
