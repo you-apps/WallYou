@@ -1,7 +1,8 @@
 <resources>
     <string name="app_name" translatable="false">Wall You</string>
     <string name="wallhaven" translatable="false">Wallhaven</string>
-   <string name="picsum" translatable="false">Picsum</string>
+    <string name="picsum" translatable="false">Picsum</string>
+    <string name="owalls" translatable="false">OWalls</string>
 
     <!-- Navigation Drawer -->
     <string name="favorites">Favorites</string>

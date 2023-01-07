@@ -109,7 +109,7 @@ fun SettingsPage(
             ) {
                 WorkerHelper.enqueue(context, true)
             }
-            val apis = listOf(DrawerScreens.Wallhaven, DrawerScreens.Picsum)
+            val apis = listOf(DrawerScreens.Wallhaven, DrawerScreens.Picsum, DrawerScreens.OWalls)
             BlockPreference(
                 preferenceKey = Preferences.wallpaperChangerApiKey,
                 entries = apis.map { stringResource(it.titleResource) },

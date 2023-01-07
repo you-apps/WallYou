@@ -19,11 +19,7 @@ class PsApi : Api() {
                 author = it.author,
                 resolution = "${it.width}x${it.height}",
                 url = it.url,
-                title = null,
-                category = null,
-                fileSize = null,
-                thumb = it.download_url,
-                creationDate = null
+                thumb = it.download_url
             )
         }
     }

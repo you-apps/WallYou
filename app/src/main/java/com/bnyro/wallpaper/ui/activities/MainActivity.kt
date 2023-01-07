@@ -56,6 +56,7 @@ private fun MainContent() {
         pages = listOf(
             DrawerScreens.Wallhaven,
             DrawerScreens.Picsum,
+            DrawerScreens.OWalls,
             DrawerScreens.Favorites,
             DrawerScreens.Settings,
             DrawerScreens.About
