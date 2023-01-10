@@ -1,2 +1,37 @@
 <?xml version="1.0" encoding="utf-8"?>
-<resources></resources>
+<resources>
+    <string name="license">Licență</string>
+    <string name="author">Autor</string>
+    <string name="about">Despre</string>
+    <string name="info">Informaţii</string>
+    <string name="add">Adăugare</string>
+    <string name="resolution">Rezoluție</string>
+    <string name="category">Categorie</string>
+    <string name="fileSize">Dimensiune fișier</string>
+    <string name="source">Sursă</string>
+    <string name="both">Ambele</string>
+    <string name="home">Acasă</string>
+    <string name="blur">Estompare</string>
+    <string name="grayscale">Tonuri de gri</string>
+    <string name="reset">Resetare</string>
+    <string name="general">General</string>
+    <string name="cache">Cache</string>
+    <string name="crop_images">Decupare imagini</string>
+    <string name="coil_cache">Cache de imagini</string>
+    <string name="wallpaper_changer">Schimbător de fundal</string>
+    <string name="change_target">Imagine de fundal țintă</string>
+    <string name="theme_mode">Mod temă</string>
+    <string name="theme_light">Luminoasă</string>
+    <string name="theme_dark">Întunecată</string>
+    <string name="auto_add_to_favorites">Adăugare la favorite atunci când se aplică</string>
+    <string name="version">Versiune</string>
+    <string name="website">Site web</string>
+    <string name="favorites">Favorite</string>
+    <string name="settings">Setări</string>
+    <string name="filter">Filtru</string>
+    <string name="creationDate">Data creării</string>
+    <string name="lockscreen">Ecran de blocare</string>
+    <string name="change_interval">Interval de schimbare</string>
+    <string name="theme_system">Sistem</string>
+    <string name="no_favorites">Nu există favorite încă</string>
+</resources>
