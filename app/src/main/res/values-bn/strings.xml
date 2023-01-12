@@ -1,6 +1,4 @@
 <resources>
-    <string name="app_name" translatable="false">Wall You</string>
-    <string name="wallhaven" translatable="false">Wallhaven</string>
 
     <!-- Navigation Drawer -->
     <string name="favorites">পছন্দ</string>
@@ -47,7 +45,6 @@
 
     <!-- About -->
     <string name="version">ভার্সন</string>
-    <string name="github" translatable="false">GitHub</string>
     <string name="license">লাইসেন্স</string>
     <string name="website">ওয়েবসাইট</string>
 </resources>
