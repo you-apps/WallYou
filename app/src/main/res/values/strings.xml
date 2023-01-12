@@ -22,12 +22,12 @@
     <string name="source">Source</string>
     <string name="creationDate">Creation date</string>
 
-    <!-- Set wallpaper -->
+    <!-- Set Wallpaper -->
     <string name="both">Both</string>
     <string name="home">Home</string>
     <string name="lockscreen">Lockscreen</string>
 
-    <!-- Image filters -->
+    <!-- Image Filters -->
     <string name="blur">Blur</string>
     <string name="grayscale">Grayscale</string>
     <string name="reset">Reset</string>

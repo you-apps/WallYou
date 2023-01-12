@@ -22,7 +22,7 @@ abstract class Api {
     }
 
     fun getQuery(key: String): String {
-        return getPref(key, filters[key]?.first() ?: "")
+        return getPref(key, filters[key]?.firstOrNull() ?: "")
     }
 
     fun getTags(): List<String> {
