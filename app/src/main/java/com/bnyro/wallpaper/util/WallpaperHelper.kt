@@ -5,9 +5,9 @@ import android.content.Context
 import android.graphics.Bitmap
 import android.os.Build
 import android.util.DisplayMetrics
+import android.util.Log
 import androidx.annotation.RequiresApi
 import com.bnyro.wallpaper.constants.WallpaperMode
-import kotlin.math.absoluteValue
 
 object WallpaperHelper {
     @RequiresApi(Build.VERSION_CODES.N)
@@ -64,41 +64,41 @@ object WallpaperHelper {
     }
 
     private fun getResizedBitmap(bitmap: Bitmap, displayMetrics: DisplayMetrics): Bitmap {
-        var resizedBitmap = bitmap
         val screenWidth = displayMetrics.widthPixels
         val screenHeight = displayMetrics.heightPixels
-        val bitmapWidth = resizedBitmap.width.toFloat()
-        val bitmapHeight = resizedBitmap.height.toFloat()
+        val bitmapWidth = bitmap.width.toFloat()
+        val bitmapHeight = bitmap.height.toFloat()
 
-        val bitmapRatio = (bitmapWidth / bitmapHeight)
-        val screenRatio = (screenWidth / screenHeight)
-        val bitmapNewWidth: Int
-        val bitmapNewHeight: Int
+        val bitmapRatio = bitmapHeight / bitmapWidth
+        val screenRatio = screenHeight / screenWidth
 
-        if (screenRatio > bitmapRatio) {
-            bitmapNewWidth = screenWidth
-            bitmapNewHeight = (bitmapNewWidth / bitmapRatio).toInt()
+        val resizedBitmap = if (screenRatio > bitmapRatio) {
+            getResizedBitmap(bitmap, screenWidth, (screenWidth * bitmapRatio).toInt())
         } else {
-            bitmapNewHeight = screenHeight
-            bitmapNewWidth = (bitmapNewHeight * bitmapRatio).toInt()
+            getResizedBitmap(bitmap, (screenHeight / bitmapRatio).toInt(), screenHeight)
         }
 
-        resizedBitmap = Bitmap.createScaledBitmap(
-            resizedBitmap,
-            bitmapNewWidth,
-            bitmapNewHeight,
-            false
-        )
+        val bitmapGapX = ((bitmap.width - screenWidth) / 2f).toInt()
+        val bitmapGapY = ((bitmap.height - screenHeight) / 2f).toInt()
 
-        val bitmapGapX: Int = ((bitmapNewWidth - screenWidth) / 2.0f).toInt()
-        val bitmapGapY: Int = ((bitmapNewHeight - screenHeight) / 2.0f).toInt()
+        // prevent crashes due to wrong aspect ratio
+        if (bitmapGapX <= 0 || bitmapGapY <= 0) return resizedBitmap
 
         return Bitmap.createBitmap(
             resizedBitmap,
-            bitmapGapX.absoluteValue,
-            bitmapGapY.absoluteValue,
+            bitmapGapX,
+            bitmapGapY,
             screenWidth,
             screenHeight
+        )
+    }
+
+    private fun getResizedBitmap(bitmap: Bitmap, newWidth: Int, newHeight: Int): Bitmap {
+        return Bitmap.createScaledBitmap(
+            bitmap,
+            newWidth,
+            newHeight,
+            false
         )
     }
 }
