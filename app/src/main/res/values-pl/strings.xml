@@ -1,2 +1,34 @@
 <?xml version="1.0" encoding="utf-8"?>
-<resources></resources>
+<resources>
+    <string name="favorites">Ulubione</string>
+    <string name="info">Informacje</string>
+    <string name="filter">Filtr</string>
+    <string name="add">Dodaj</string>
+    <string name="author">Autor</string>
+    <string name="resolution">Rozdzielczość</string>
+    <string name="category">Kategoria</string>
+    <string name="fileSize">Rozmiar pliku</string>
+    <string name="source">Źródło</string>
+    <string name="home">Ekran główny</string>
+    <string name="lockscreen">Ekran blokady</string>
+    <string name="grayscale">Skala szarości</string>
+    <string name="reset">Resetuj</string>
+    <string name="general">Ogólne</string>
+    <string name="cache">Pamięć podręczna</string>
+    <string name="crop_images">Przycinaj zdjęcia</string>
+    <string name="change_interval">Czas pomiędzy zmianą</string>
+    <string name="theme_mode">Motyw</string>
+    <string name="no_favorites">Brak ulubionych</string>
+    <string name="auto_add_to_favorites">Dodaj do ulubionych podczas zastosowywania</string>
+    <string name="version">Wersja</string>
+    <string name="license">Licencja</string>
+    <string name="website">Strona</string>
+    <string name="blur">Rozmycie</string>
+    <string name="theme_dark">Ciemny</string>
+    <string name="creationDate">Data utworzenia</string>
+    <string name="both">Ekran główny i ekran blokady</string>
+    <string name="theme_system">System</string>
+    <string name="settings">Ustawienia</string>
+    <string name="about">O aplikacji</string>
+    <string name="theme_light">Jasny</string>
+</resources>
