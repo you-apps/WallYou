@@ -5,7 +5,6 @@ import android.content.Context
 import android.graphics.Bitmap
 import android.os.Build
 import android.util.DisplayMetrics
-import android.util.Log
 import androidx.annotation.RequiresApi
 import com.bnyro.wallpaper.constants.WallpaperMode
 

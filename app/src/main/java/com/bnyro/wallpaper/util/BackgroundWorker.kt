@@ -3,9 +3,6 @@ package com.bnyro.wallpaper.util
 import android.content.Context
 import androidx.work.Worker
 import androidx.work.WorkerParameters
-import com.bnyro.wallpaper.api.ps.PsApi
-import com.bnyro.wallpaper.api.wh.WhApi
-import com.bnyro.wallpaper.ui.nav.DrawerScreens
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.runBlocking
 
@@ -17,10 +14,7 @@ class BackgroundWorker(
         var success = true
         runBlocking(Dispatchers.IO) {
             val url = try {
-                when (Preferences.getString(Preferences.wallpaperChangerApiKey, "")) {
-                    DrawerScreens.Picsum.route -> PsApi()
-                    else -> WhApi()
-                }.getRandomWallpaperUrl()
+                Preferences.getWallpaperChangerApi().getRandomWallpaperUrl()
             } catch (e: Exception) {
                 success = false
                 return@runBlocking

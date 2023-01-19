@@ -2,7 +2,11 @@ package com.bnyro.wallpaper.util
 
 import android.content.Context
 import android.content.SharedPreferences
+import com.bnyro.wallpaper.api.ow.OwApi
+import com.bnyro.wallpaper.api.ps.PsApi
+import com.bnyro.wallpaper.api.wh.WhApi
 import com.bnyro.wallpaper.constants.WallpaperMode
+import com.bnyro.wallpaper.ui.nav.DrawerScreens
 
 object Preferences {
     const val cropImagesKey = "cropImages"
@@ -34,5 +38,11 @@ object Preferences {
 
     fun edit(action: SharedPreferences.Editor.() -> Unit) {
         preferences.edit().apply(action).apply()
+    }
+
+    fun getWallpaperChangerApi() = when (getString(wallpaperChangerApiKey, "")) {
+        DrawerScreens.Picsum.route -> PsApi()
+        DrawerScreens.OWalls.route -> OwApi()
+        else -> WhApi()
     }
 }
