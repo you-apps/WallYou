@@ -45,10 +45,10 @@ import com.bnyro.wallpaper.db.obj.Wallpaper
 import com.bnyro.wallpaper.ext.awaitQuery
 import com.bnyro.wallpaper.ext.query
 import com.bnyro.wallpaper.util.*
+import java.time.Instant
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
-import java.time.Instant
 
 @OptIn(ExperimentalComposeUiApi::class)
 @Composable

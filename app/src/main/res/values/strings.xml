@@ -26,6 +26,7 @@
     <string name="both">Both</string>
     <string name="home">Home</string>
     <string name="lockscreen">Lockscreen</string>
+    <string name="applying_random">Applying random wallpaper</string>
 
     <!-- Image Filters -->
     <string name="blur">Blur</string>
