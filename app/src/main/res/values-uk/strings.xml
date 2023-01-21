@@ -22,7 +22,7 @@
     <string name="home">Домашній екран</string>
     <string name="lockscreen">Екран блокування</string>
     <!-- Preference categories -->
-    <string name="general">Загальний</string>
+    <string name="general">Загальне</string>
     <string name="cache">Кеш</string>
     <!-- Preferences -->
     <string name="crop_images">Обрізати зображення</string>
