@@ -44,14 +44,11 @@ import com.bnyro.wallpaper.db.DatabaseHolder.Companion.Database
 import com.bnyro.wallpaper.db.obj.Wallpaper
 import com.bnyro.wallpaper.ext.awaitQuery
 import com.bnyro.wallpaper.ext.query
-import com.bnyro.wallpaper.util.BitmapProcessor
-import com.bnyro.wallpaper.util.DownloadHelper
-import com.bnyro.wallpaper.util.ImageHelper
-import com.bnyro.wallpaper.util.Preferences
-import com.bnyro.wallpaper.util.WallpaperHelper
+import com.bnyro.wallpaper.util.*
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
+import java.time.Instant
 
 @OptIn(ExperimentalComposeUiApi::class)
 @Composable
@@ -151,7 +148,9 @@ fun WallpaperPreview(
                             ButtonWithIcon(
                                 icon = Icons.Default.Download
                             ) {
-                                launcher.launch("${wallpaper.title}.png")
+                                val prefix = wallpaper.title ?: wallpaper.category ?: wallpaper.author
+                                val timeStamp = Instant.now().epochSecond
+                                launcher.launch("$prefix-$timeStamp.png")
                             }
 
                             ButtonWithIcon(
