@@ -1,0 +1,56 @@
+<resources>
+    <!-- Navigation Drawer -->
+    <string name="favorites">Favoritos</string>
+    <string name="settings">Ajustes</string>
+    <string name="about">Acerca de</string>
+
+    <!-- Image Preview -->
+    <string name="info">Info</string>
+    <string name="filter">Filtro</string>
+    <string name="add">Agregar</string>
+
+    <!-- Info Dialog -->
+    <string name="author">Autor</string>
+    <string name="resolution">Resolución</string>
+    <string name="category">Categoría</string>
+    <string name="fileSize">Tamaño del archivo</string>
+    <string name="source">Fuente</string>
+    <string name="creationDate">Fecha de creación</string>
+
+    <!-- Set Wallpaper -->
+    <string name="both">Ambos</string>
+    <string name="home">Pantalla de inicio</string>
+    <string name="lockscreen">Pantalla de bloqueo</string>
+
+    <!-- Image Filters -->
+    <string name="blur">Difuminar</string>
+    <string name="grayscale">Escala de grises</string>
+    <string name="reset">Restablecer</string>
+
+    <!-- Preference categories -->
+    <string name="general">General</string>
+    <string name="cache">Caché</string>
+
+    <!-- Preferences -->
+    <string name="crop_images">Recortar imágenes</string>
+    <string name="coil_cache">Caché de imagen de bobina</string>
+    <string name="wallpaper_changer">Cambiador de papel tapiz</string>
+    <string name="change_interval">Intervalo de cambio</string>
+    <string name="change_target">Fondo de pantalla de destino</string>
+
+    <!-- Theme -->
+    <string name="theme_mode">Modo de tema</string>
+    <string name="theme_system">Sistema</string>
+    <string name="theme_light">Claro</string>
+    <string name="theme_dark">Oscuro</string>
+
+    <!-- Favorites -->
+    <string name="no_favorites">No hay favoritos todavía</string>
+    <string name="auto_add_to_favorites">Añadir a favoritos al aplicar</string>
+
+    <!-- About -->
+    <string name="version">Versión</string>
+    <string name="github" translatable="false">GitHub</string>
+    <string name="license">Licencia</string>
+    <string name="website">Sitio web</string>
+</resources>
