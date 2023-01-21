@@ -114,7 +114,9 @@ fun SettingsPage(
                 preferenceKey = Preferences.wallpaperChangerApiKey,
                 entries = apis.map { stringResource(it.titleResource) },
                 values = apis.map { it.route }
-            )
+            ) {
+                WorkerHelper.enqueue(context, true)
+            }
             ListPreference(
                 prefKey = Preferences.wallpaperChangerIntervalKey,
                 title = stringResource(R.string.change_interval),

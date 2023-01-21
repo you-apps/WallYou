@@ -18,7 +18,8 @@ import com.bnyro.wallpaper.util.Preferences
 fun BlockPreference(
     preferenceKey: String,
     entries: List<String>,
-    values: List<String>
+    values: List<String>,
+    onSelectionChange: (Int) -> Unit = {}
 ) {
     var selected by remember {
         mutableStateOf(0)
@@ -39,6 +40,7 @@ fun BlockPreference(
             ) {
                 Preferences.edit { putString(preferenceKey, values[index]) }
                 selected = index
+                onSelectionChange.invoke(selected)
             }
         }
     }
