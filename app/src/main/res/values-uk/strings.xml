@@ -46,4 +46,5 @@
     <string name="blur">Розмиття</string>
     <string name="auto_add_to_favorites">Додавати до списку вибраного під час застосування</string>
     <string name="reset">Скидання</string>
+    <string name="applying_random">Застосувати випадкові шпалери</string>
 </resources>
