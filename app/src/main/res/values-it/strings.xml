@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="change_target">Obiettivo sfondo</string>
+    <string name="coil_cache">Cache immagine Coil</string>
+    <string name="auto_add_to_favorites">Aggiungi ai preferiti quando applichi</string>
+    <string name="filter">Filtra</string>
+    <string name="settings">Impostazioni</string>
+    <string name="no_favorites">Ancora nessun preferito</string>
+    <string name="source">Fonte</string>
+    <string name="category">Categoria</string>
+    <string name="favorites">Preferiti</string>
+    <string name="about">Di più</string>
+    <string name="info">Informazioni</string>
+    <string name="author">Autore</string>
+    <string name="cache">Cache</string>
+    <string name="add">Aggiungi</string>
+    <string name="resolution">Risoluzione</string>
+    <string name="fileSize">Dimensione file</string>
+    <string name="creationDate">Data creazione</string>
+    <string name="reset">Ripristina</string>
+    <string name="home">Schermata home</string>
+    <string name="lockscreen">Blocco schermo</string>
+    <string name="both">Entrambi</string>
+    <string name="theme_system">Sistema</string>
+    <string name="blur">Sfocatura</string>
+    <string name="general">Generale</string>
+    <string name="applying_random">Applicando sfondo casuale</string>
+    <string name="wallpaper_changer">Sorgente cambio sfondo</string>
+    <string name="grayscale">Scala di grigi</string>
+    <string name="crop_images">Ritaglia immagini</string>
+    <string name="change_interval">Cambia intervallo</string>
+    <string name="theme_mode">Modalità tema</string>
+    <string name="theme_light">Chiaro</string>
+    <string name="theme_dark">Scuro</string>
+    <string name="version">Versione</string>
+    <string name="license">Licenza</string>
+    <string name="website">Sito web</string>
+</resources>
