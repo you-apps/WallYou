@@ -46,4 +46,5 @@
     <string name="auto_add_to_favorites">应用时添加到收藏</string>
     <string name="reset">重设</string>
     <string name="grayscale">灰度</string>
+    <string name="applying_random">正在随机应用壁纸</string>
 </resources>

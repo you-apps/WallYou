@@ -34,4 +34,5 @@
     <string name="change_interval">Interval de schimbare</string>
     <string name="theme_system">Sistem</string>
     <string name="no_favorites">Nu există favorite încă</string>
+    <string name="applying_random">Aplicare imagine de fundal aleatorie</string>
 </resources>
