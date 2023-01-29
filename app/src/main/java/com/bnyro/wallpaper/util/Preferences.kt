@@ -19,6 +19,7 @@ object Preferences {
     const val autoAddToFavoritesKey = "autoAddToFavorites"
     const val grayscaleKey = "grayscale"
     const val blurKey = "blur"
+    const val autoChangerLocal = "autoChangerLocal"
 
     const val defaultDiskCacheSize = 128L * 1024 * 1024
     const val defaultWallpaperChangeInterval = 15L

@@ -83,13 +83,15 @@ object WallpaperHelper {
         // prevent crashes due to wrong aspect ratio
         if (bitmapGapX <= 0 || bitmapGapY <= 0) return resizedBitmap
 
-        return Bitmap.createBitmap(
-            resizedBitmap,
-            bitmapGapX,
-            bitmapGapY,
-            screenWidth,
-            screenHeight
-        )
+        return runCatching {
+            Bitmap.createBitmap(
+                resizedBitmap,
+                bitmapGapX,
+                bitmapGapY,
+                screenWidth,
+                screenHeight
+            )
+        }.getOrDefault(resizedBitmap)
     }
 
     private fun getResizedBitmap(bitmap: Bitmap, newWidth: Int, newHeight: Int): Bitmap {

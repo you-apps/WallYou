@@ -1,10 +1,18 @@
 package com.bnyro.wallpaper.ui.pages
 
+import androidx.activity.compose.rememberLauncherForActivityResult
+import androidx.activity.result.contract.ActivityResultContracts
+import androidx.compose.animation.AnimatedVisibility
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.height
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.getValue
+import androidx.compose.runtime.mutableStateOf
+import androidx.compose.runtime.remember
+import androidx.compose.runtime.rememberCoroutineScope
+import androidx.compose.runtime.setValue
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.res.stringResource
@@ -22,12 +30,36 @@ import com.bnyro.wallpaper.ui.models.MainModel
 import com.bnyro.wallpaper.ui.nav.DrawerScreens
 import com.bnyro.wallpaper.util.Preferences
 import com.bnyro.wallpaper.util.WorkerHelper
+import java.io.File
+import java.time.Instant
+import kotlinx.coroutines.launch
 
 @Composable
 fun SettingsPage(
     viewModel: MainModel
 ) {
     val context = LocalContext.current.applicationContext
+    val scope = rememberCoroutineScope()
+
+    val selectFiles = rememberLauncherForActivityResult(
+        contract = ActivityResultContracts.OpenMultipleDocuments()
+    ) {
+        context.filesDir.listFiles().orEmpty().forEach { file ->
+            file.delete()
+        }
+        scope.launch {
+            it.parallelStream().forEach { uri ->
+                context.contentResolver.openInputStream(uri)?.use { inputStream ->
+                    File(context.filesDir, Instant.now().epochSecond.toString()).apply {
+                        createNewFile()
+                        outputStream().use { outputStream ->
+                            inputStream.copyTo(outputStream)
+                        }
+                    }
+                }
+            }
+        }
+    }
 
     Column(
         modifier = Modifier
@@ -109,13 +141,31 @@ fun SettingsPage(
             ) {
                 WorkerHelper.enqueue(context, true)
             }
-            val apis = listOf(DrawerScreens.Wallhaven, DrawerScreens.Picsum, DrawerScreens.OWalls)
-            BlockPreference(
-                preferenceKey = Preferences.wallpaperChangerApiKey,
-                entries = apis.map { stringResource(it.titleResource) },
-                values = apis.map { it.route }
+            var useLocalWallpapers by remember {
+                mutableStateOf(Preferences.getBoolean(Preferences.autoChangerLocal, false))
+            }
+            CheckboxPref(
+                prefKey = Preferences.autoChangerLocal,
+                title = stringResource(R.string.local_walls),
+                summary = stringResource(R.string.local_walls_summary)
             ) {
                 WorkerHelper.enqueue(context, true)
+                useLocalWallpapers = it
+                if (it) selectFiles.launch(arrayOf("image/*"))
+            }
+            Spacer(
+                modifier = Modifier
+                    .height(10.dp)
+            )
+            val apis = listOf(DrawerScreens.Wallhaven, DrawerScreens.Picsum, DrawerScreens.OWalls)
+            AnimatedVisibility(visible = !useLocalWallpapers) {
+                BlockPreference(
+                    preferenceKey = Preferences.wallpaperChangerApiKey,
+                    entries = apis.map { stringResource(it.titleResource) },
+                    values = apis.map { it.route }
+                ) {
+                    WorkerHelper.enqueue(context, true)
+                }
             }
             ListPreference(
                 prefKey = Preferences.wallpaperChangerIntervalKey,

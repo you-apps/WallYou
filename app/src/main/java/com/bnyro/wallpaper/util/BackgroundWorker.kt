@@ -1,6 +1,8 @@
 package com.bnyro.wallpaper.util
 
 import android.content.Context
+import android.graphics.Bitmap
+import android.net.Uri
 import androidx.work.Worker
 import androidx.work.WorkerParameters
 import kotlinx.coroutines.Dispatchers
@@ -11,26 +13,41 @@ class BackgroundWorker(
     workerParameters: WorkerParameters
 ) : Worker(applicationContext, workerParameters) {
     override fun doWork(): Result {
-        var success = true
-        runBlocking(Dispatchers.IO) {
+        val bitmap = if (Preferences.getBoolean(Preferences.autoChangerLocal, false)) {
+            getLocalWallpaper()
+        } else {
+            getOnlineWallpaper()
+        } ?: return Result.failure()
+
+        WallpaperHelper.setWallpaper(
+            applicationContext,
+            BitmapProcessor.processBitmapByPrefs(bitmap),
+            Preferences.getString(
+                Preferences.wallpaperChangerTargetKey,
+                Preferences.defaultWallpaperChangerTarget.toString()
+            )?.toInt() ?: Preferences.defaultWallpaperChangerTarget
+        )
+
+        return Result.success()
+    }
+
+    private fun getOnlineWallpaper(): Bitmap? {
+        return runBlocking(Dispatchers.IO) {
             val url = try {
                 Preferences.getWallpaperChangerApi().getRandomWallpaperUrl()
             } catch (e: Exception) {
-                success = false
-                return@runBlocking
+                return@runBlocking null
             }
 
-            ImageHelper.getBlocking(applicationContext, url, true)?.let {
-                WallpaperHelper.setWallpaper(
-                    applicationContext,
-                    BitmapProcessor.processBitmapByPrefs(it),
-                    Preferences.getString(
-                        Preferences.wallpaperChangerTargetKey,
-                        Preferences.defaultWallpaperChangerTarget.toString()
-                    )?.toInt() ?: Preferences.defaultWallpaperChangerTarget
-                )
-            }
+            return@runBlocking ImageHelper.getBlocking(applicationContext, url, true)
         }
-        return if (success) Result.success() else Result.retry()
+    }
+
+    private fun getLocalWallpaper(): Bitmap? {
+        return runCatching {
+            val wallpaperDir = applicationContext.filesDir
+            val randomFile = wallpaperDir.listFiles().orEmpty().toList().shuffled().firstOrNull() ?: return null
+            ImageHelper.getLocalImage(applicationContext, Uri.fromFile(randomFile))
+        }.getOrNull()
     }
 }

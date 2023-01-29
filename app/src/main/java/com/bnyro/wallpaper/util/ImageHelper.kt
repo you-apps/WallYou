@@ -2,6 +2,8 @@ package com.bnyro.wallpaper.util
 
 import android.content.Context
 import android.graphics.Bitmap
+import android.graphics.BitmapFactory
+import android.net.Uri
 import androidx.core.graphics.drawable.toBitmap
 import coil.ImageLoader
 import coil.annotation.ExperimentalCoilApi
@@ -44,5 +46,12 @@ object ImageHelper {
         return ImageRequest.Builder(context)
             .data(url)
             .allowHardware(false)
+    }
+
+    fun getLocalImage(context: Context, imagePath: Uri): Bitmap? {
+        context.contentResolver.openInputStream(imagePath)?.use {
+            return BitmapFactory.decodeStream(it)
+        }
+        return null
     }
 }

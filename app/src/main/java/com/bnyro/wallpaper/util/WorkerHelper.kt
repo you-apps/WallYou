@@ -25,7 +25,9 @@ object WorkerHelper {
             TimeUnit.MINUTES
         ).setConstraints(
             Constraints.Builder()
-                .setRequiredNetworkType(NetworkType.CONNECTED)
+                .setRequiredNetworkType(
+                    if (Preferences.getBoolean(Preferences.autoChangerLocal, false)) NetworkType.NOT_REQUIRED else NetworkType.CONNECTED
+                )
                 .build()
         ).build()
 
@@ -34,7 +36,7 @@ object WorkerHelper {
             .enqueueUniquePeriodicWork(JOB_NAME, policy, job)
     }
 
-    fun cancel(context: Context) {
+    private fun cancel(context: Context) {
         WorkManager.getInstance(context)
             .cancelUniqueWork(JOB_NAME)
     }

@@ -27,6 +27,8 @@
     <string name="home">Home</string>
     <string name="lockscreen">Lockscreen</string>
     <string name="applying_random">Applying random wallpaper</string>
+    <string name="local_walls">Local wallpapers</string>
+    <string name="local_walls_summary">Use local instead of online wallpapers</string>
 
     <!-- Image Filters -->
     <string name="blur">Blur</string>
