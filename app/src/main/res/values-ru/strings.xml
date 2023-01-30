@@ -5,7 +5,7 @@
     <!-- Navigation Drawer -->
     <string name="favorites">Избранное</string>
     <string name="settings">Настройки</string>
-    <string name="about">О нас</string>
+    <string name="about">Про</string>
     <!-- Image Preview -->
     <string name="info">Информация</string>
     <string name="filter">Фильтр</string>
@@ -19,7 +19,7 @@
     <string name="creationDate">Дата создания</string>
     <!-- Set wallpaper -->
     <string name="both">Оба</string>
-    <string name="home">Домашний экран</string>
+    <string name="home">Главная</string>
     <string name="lockscreen">Экран блокировки</string>
     <!-- Preference categories -->
     <string name="general">Общее</string>
@@ -46,4 +46,7 @@
     <string name="blur">Размытие</string>
     <string name="auto_add_to_favorites">Добавить в избранное при применении</string>
     <string name="reset">Сброс</string>
+    <string name="local_walls">Обои с устройства</string>
+    <string name="local_walls_summary">Использовать обои с устройства вместо обоев из интернета</string>
+    <string name="applying_random">Применять случайные обои</string>
 </resources>
