@@ -1,2 +1,40 @@
 <?xml version="1.0" encoding="utf-8"?>
-<resources></resources>
+<resources>
+    <string name="coil_cache">خبيئة الصور ل‍ Coil</string>
+    <string name="change_target">مكان تغيير الخلفيَّة</string>
+    <string name="theme_mode">السمة</string>
+    <string name="theme_system">النظام</string>
+    <string name="theme_dark">داكن</string>
+    <string name="license">الترخيص</string>
+    <string name="website">الموقع</string>
+    <string name="no_favorites">لا توجد مفضَّلات بعد</string>
+    <string name="auto_add_to_favorites">أضف للمفضَّلات عند التطبيق</string>
+    <string name="version">الإصدار</string>
+    <string name="filter">افرز</string>
+    <string name="grayscale">تدرُّج الرماديِّ</string>
+    <string name="info">معلومات</string>
+    <string name="author">المؤلِّف</string>
+    <string name="source">المصدر</string>
+    <string name="settings">الإعدادات</string>
+    <string name="creationDate">تاريخ الإنشاء</string>
+    <string name="resolution">الدقة</string>
+    <string name="category">الفئة</string>
+    <string name="fileSize">حجم الملفِّ</string>
+    <string name="about">عن</string>
+    <string name="both">كلاهما</string>
+    <string name="home">المنزل</string>
+    <string name="lockscreen">شاشة القفل</string>
+    <string name="applying_random">اختيار صورة خلفيَّة عشوائيَّة</string>
+    <string name="add">أضف</string>
+    <string name="local_walls">الخلفيَّات المحليَّة</string>
+    <string name="local_walls_summary">استخدم خلفيَّات محليَّةً بدلًا من خلفيَّات عبر الشبكة</string>
+    <string name="general">عام</string>
+    <string name="change_interval">مهلة التغيير</string>
+    <string name="reset">أعِد التعيين</string>
+    <string name="theme_light">فاتح</string>
+    <string name="favorites">المفضَّلات</string>
+    <string name="blur">الضبابيَّة</string>
+    <string name="cache">الخبيئة</string>
+    <string name="wallpaper_changer">مغيِّر الخلفيَّة</string>
+    <string name="crop_images">قُصَّ الصور</string>
+</resources>
