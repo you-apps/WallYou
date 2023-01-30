@@ -47,4 +47,6 @@
     <string name="auto_add_to_favorites">Додавати до списку вибраного під час застосування</string>
     <string name="reset">Скидання</string>
     <string name="applying_random">Застосувати випадкові шпалери</string>
+    <string name="local_walls">Шпалери з пристрою</string>
+    <string name="local_walls_summary">Використовувати шпалери з пристрою замість шпалерів з інтернету</string>
 </resources>
