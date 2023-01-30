@@ -11,7 +11,7 @@
     <string name="filter">Filtre</string>
     <string name="add">Ajouter</string>
     <!-- Info Dialog -->
-    <string name="author">Auteur</string>
+    <string name="author">Auteur·e</string>
     <string name="resolution">Résolution</string>
     <string name="category">Catégorie</string>
     <string name="fileSize">Taille du fichier</string>
@@ -46,4 +46,5 @@
     <string name="blur">Flou</string>
     <string name="grayscale">Niveaux de gris</string>
     <string name="auto_add_to_favorites">Ajouter aux favoris lors de l\'application</string>
+    <string name="applying_random">Application d\'un papier peint aléatoire</string>
 </resources>

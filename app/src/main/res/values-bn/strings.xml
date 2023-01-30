@@ -9,7 +9,7 @@
     <string name="filter">ফিল্টার</string>
     <string name="add">যোগ করুন</string>
     <!-- Info Dialog -->
-    <string name="author">ডেভলপার</string>
+    <string name="author">লেখক</string>
     <string name="resolution">রেজুলেশন</string>
     <string name="category">ক্যাটাগরি</string>
     <string name="fileSize">ফাইল সাইজ</string>
@@ -17,7 +17,7 @@
     <string name="creationDate">তৈরীর তারিখ</string>
     <!-- Set wallpaper -->
     <string name="both">দুটোই</string>
-    <string name="home">হোম</string>
+    <string name="home">বাড়ি</string>
     <string name="lockscreen">লকস্ক্রিন</string>
     <!-- Preference categories -->
     <string name="general">সাধারণ</string>

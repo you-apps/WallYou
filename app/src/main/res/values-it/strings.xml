@@ -9,7 +9,7 @@
     <string name="source">Fonte</string>
     <string name="category">Categoria</string>
     <string name="favorites">Preferiti</string>
-    <string name="about">Di più</string>
+    <string name="about">Informazioni</string>
     <string name="info">Informazioni</string>
     <string name="author">Autore</string>
     <string name="cache">Cache</string>
@@ -18,7 +18,7 @@
     <string name="fileSize">Dimensione file</string>
     <string name="creationDate">Data creazione</string>
     <string name="reset">Ripristina</string>
-    <string name="home">Schermata home</string>
+    <string name="home">Pagina principale</string>
     <string name="lockscreen">Blocco schermo</string>
     <string name="both">Entrambi</string>
     <string name="theme_system">Sistema</string>
