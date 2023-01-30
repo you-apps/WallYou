@@ -42,7 +42,7 @@
     <string name="license">Licence</string>
     <string name="website">Site web</string>
     <string name="home">Accueil</string>
-    <string name="reset">Réinitialiser</string>
+    <string name="reset">Réinitialiser à l\'usine</string>
     <string name="blur">Flou</string>
     <string name="grayscale">Niveaux de gris</string>
     <string name="auto_add_to_favorites">Ajouter aux favoris lors de l\'application</string>
