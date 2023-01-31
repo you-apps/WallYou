@@ -35,4 +35,6 @@
     <string name="theme_mode">Tema rejimi</string>
     <string name="auto_add_to_favorites">Tətbiq edərkən sevimlilərə əlavə et</string>
     <string name="applying_random">Təsadüfi divar kağızı tətbiqi</string>
+    <string name="local_walls">Yerli divar kağızları</string>
+    <string name="local_walls_summary">Onlayn divar kağızları əvəzinə yerli istifadə et</string>
 </resources>
