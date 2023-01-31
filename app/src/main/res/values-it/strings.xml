@@ -35,4 +35,6 @@
     <string name="version">Versione</string>
     <string name="license">Licenza</string>
     <string name="website">Sito web</string>
+    <string name="local_walls">Sfondi locali</string>
+    <string name="local_walls_summary">Utilizza sfondi locali anziché in linea</string>
 </resources>
