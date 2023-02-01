@@ -10,10 +10,10 @@
     <string name="fileSize">Dimensiune fișier</string>
     <string name="source">Sursă</string>
     <string name="both">Ambele</string>
-    <string name="home">Ecranul de pornire</string>
+    <string name="home">Acasă</string>
     <string name="blur">Estompare</string>
     <string name="grayscale">Tonuri de gri</string>
-    <string name="reset">Resetare</string>
+    <string name="reset">Resetați</string>
     <string name="general">General</string>
     <string name="cache">Cache</string>
     <string name="crop_images">Decupare imagini</string>
@@ -35,4 +35,6 @@
     <string name="theme_system">Sistem</string>
     <string name="no_favorites">Nu există favorite încă</string>
     <string name="applying_random">Aplicare imagine de fundal aleatorie</string>
+    <string name="local_walls">Imagini de fundal locale</string>
+    <string name="local_walls_summary">Folosiți imagini de fundal locale în loc de online</string>
 </resources>
