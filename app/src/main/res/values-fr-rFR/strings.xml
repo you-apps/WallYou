@@ -47,4 +47,6 @@
     <string name="grayscale">Niveaux de gris</string>
     <string name="auto_add_to_favorites">Ajouter aux favoris lors de l\'application</string>
     <string name="applying_random">Application d\'un papier peint aléatoire</string>
+    <string name="local_walls">Fonds d\'écran locaux</string>
+    <string name="local_walls_summary">Utiliser des fonds d\'écran locaux plutôt qu\'en ligne</string>
 </resources>
