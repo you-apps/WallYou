@@ -25,7 +25,7 @@ class OwApi() : Api() {
         }.toMutableList()
 
     override suspend fun getWallpapers(page: Int): List<Wallpaper> {
-        if (wallpapers.isEmpty()) getAll()
+        if (wallpapers.isEmpty()) loadAll()
         return if (resultsPerPage * 20 > filteredWallpapers.size) {
             filteredWallpapers.toList().subList(
                 filteredWallpapers.size - (filteredWallpapers.size % resultsPerPage),
@@ -36,11 +36,12 @@ class OwApi() : Api() {
         }
     }
 
-    suspend fun getAll() {
+    private suspend fun loadAll() {
         val response = api.getAll().toJsonObject()
         response.fields().forEach { timePair ->
             timePair.value.fields().forEach {
                 wallpapers.add(
+                    0,
                     Wallpaper(
                         imgSrc = it.value.textValue(),
                         thumb = it.value.textValue(),
@@ -52,7 +53,7 @@ class OwApi() : Api() {
     }
 
     override suspend fun getRandomWallpaperUrl(): String? {
-        if (wallpapers.isEmpty()) getAll()
+        if (wallpapers.isEmpty()) loadAll()
         return filteredWallpapers.shuffled().firstOrNull()?.imgSrc
     }
 }
