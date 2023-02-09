@@ -34,4 +34,7 @@
     <string name="both">Ambos</string>
     <string name="home">Inicio</string>
     <string name="fileSize">Tamanho do arquivo</string>
+    <string name="local_walls">Papéis de parede locais</string>
+    <string name="local_walls_summary">Use papéis de parede locais ao invés de online</string>
+    <string name="applying_random">Aplicação de papel de parede aleatória</string>
 </resources>
