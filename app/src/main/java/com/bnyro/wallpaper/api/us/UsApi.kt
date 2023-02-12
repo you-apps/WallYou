@@ -7,7 +7,9 @@ import com.bnyro.wallpaper.util.RetrofitBuilder
 class UsApi() : Api() {
     override val name: String = "Unsplash"
     override val baseUrl: String = "https://unsplash.com"
-    override val filters: Map<String, List<String>> = mapOf()
+    override val filters: Map<String, List<String>> = mapOf(
+        "order_by" to listOf("latest", "oldest", "popular")
+    )
     override val supportsTags: Boolean = true
 
     private val api = RetrofitBuilder.create(baseUrl, Unsplash::class.java)
@@ -16,9 +18,9 @@ class UsApi() : Api() {
         val tags = getTags()
 
         val wallpapers = if (tags.isEmpty()) {
-            api.getWallpapers(page)
+            api.getWallpapers(page, getQuery("order_by"))
         } else {
-            api.searchWallpapers(page, tags.joinToString(" ")).results
+            api.searchWallpapers(page, tags.joinToString(" "), getQuery("order_by")).results
         }
 
         return wallpapers.filter { it.premium != true }.map {
