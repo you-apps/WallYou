@@ -21,7 +21,7 @@ class UsApi() : Api() {
             api.searchWallpapers(page, tags.joinToString(" ")).results
         }
 
-        return wallpapers.map {
+        return wallpapers.filter { it.premium != true }.map {
             Wallpaper(
                 imgSrc = it.links.download ?: it.urls?.raw ?: "",
                 author = it.user?.username,
