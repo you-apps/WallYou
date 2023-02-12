@@ -26,7 +26,9 @@ abstract class Api {
     }
 
     fun getTags(): List<String> {
-        return getPref(this.name + "tags", "sunset,portrait,display").split(",")
+        return getPref(this.name + "tags", "sunset,portrait,display").split(",").filter {
+            it.isNotBlank()
+        }
     }
 
     fun setTags(tags: List<String>) {

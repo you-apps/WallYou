@@ -8,12 +8,20 @@ class UsApi() : Api() {
     override val name: String = "Unsplash"
     override val baseUrl: String = "https://unsplash.com"
     override val filters: Map<String, List<String>> = mapOf()
-    override val supportsTags: Boolean = false
+    override val supportsTags: Boolean = true
 
     private val api = RetrofitBuilder.create(baseUrl, Unsplash::class.java)
 
     override suspend fun getWallpapers(page: Int): List<Wallpaper> {
-        return api.getWallpapers(page).map {
+        val tags = getTags()
+
+        val wallpapers = if (tags.isEmpty()) {
+            api.getWallpapers(page)
+        } else {
+            api.searchWallpapers(page, tags.joinToString(" ")).results
+        }
+
+        return wallpapers.map {
             Wallpaper(
                 imgSrc = it.links.download ?: it.urls?.raw ?: "",
                 author = it.user?.username,

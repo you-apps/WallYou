@@ -102,7 +102,7 @@ fun WallpaperPage(
                 )
             }
 
-            if (viewModel.api.filters.isNotEmpty()) {
+            if (viewModel.api.filters.isNotEmpty() || viewModel.api.supportsTags) {
                 FloatingActionButton(
                     modifier = Modifier
                         .padding(horizontal = 10.dp),
