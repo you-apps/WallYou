@@ -5,7 +5,6 @@ import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.padding
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.Menu
-import androidx.compose.material.icons.filled.Settings
 import androidx.compose.material3.DrawerValue
 import androidx.compose.material3.ExperimentalMaterial3Api
 import androidx.compose.material3.Icon
@@ -53,14 +52,7 @@ private fun MainContent() {
     NavigationDrawer(
         drawerState = drawerState,
         navController = navController,
-        pages = listOf(
-            DrawerScreens.Wallhaven,
-            DrawerScreens.Picsum,
-            DrawerScreens.OWalls,
-            DrawerScreens.Favorites,
-            DrawerScreens.Settings,
-            DrawerScreens.About
-        )
+        pages = DrawerScreens.screens
     ) {
         Scaffold(
             topBar = {

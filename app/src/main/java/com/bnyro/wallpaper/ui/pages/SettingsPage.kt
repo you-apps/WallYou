@@ -161,12 +161,11 @@ fun SettingsPage(
                 modifier = Modifier
                     .height(10.dp)
             )
-            val apis = listOf(DrawerScreens.Wallhaven, DrawerScreens.Picsum, DrawerScreens.OWalls)
             AnimatedVisibility(visible = !useLocalWallpapers) {
                 BlockPreference(
                     preferenceKey = Preferences.wallpaperChangerApiKey,
-                    entries = apis.map { stringResource(it.titleResource) },
-                    values = apis.map { it.route }
+                    entries = DrawerScreens.apiScreens.map { stringResource(it.titleResource) },
+                    values = DrawerScreens.apiScreens.map { it.route }
                 ) {
                     WorkerHelper.enqueue(context, true)
                 }

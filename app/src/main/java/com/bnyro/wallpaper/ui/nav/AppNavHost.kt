@@ -36,6 +36,11 @@ fun AppNavHost(
             viewModel.api = ApiHolder.psApi
             WallpaperPage(viewModel)
         }
+        composable(DrawerScreens.Unsplash.route) {
+            viewModel.titleResource = R.string.unsplash
+            viewModel.api = ApiHolder.usApi
+            WallpaperPage(viewModel)
+        }
         composable(DrawerScreens.OWalls.route) {
             viewModel.titleResource = R.string.owalls
             viewModel.api = ApiHolder.owApi

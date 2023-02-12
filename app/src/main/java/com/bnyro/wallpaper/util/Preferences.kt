@@ -44,6 +44,7 @@ object Preferences {
     fun getWallpaperChangerApi() = when (getString(wallpaperChangerApiKey, "")) {
         DrawerScreens.Picsum.route -> PsApi()
         DrawerScreens.OWalls.route -> OwApi()
+        DrawerScreens.Unsplash.route -> OwApi()
         else -> WhApi()
     }
 }
