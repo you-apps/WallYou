@@ -1,6 +1,7 @@
 package com.bnyro.wallpaper.ui.pages
 
 import androidx.activity.compose.rememberLauncherForActivityResult
+import androidx.activity.result.PickVisualMediaRequest
 import androidx.activity.result.contract.ActivityResultContracts
 import androidx.compose.animation.AnimatedVisibility
 import androidx.compose.foundation.layout.Column
@@ -44,7 +45,7 @@ fun SettingsPage(
     val scope = rememberCoroutineScope()
 
     val selectFiles = rememberLauncherForActivityResult(
-        contract = ActivityResultContracts.OpenMultipleDocuments()
+        contract = ActivityResultContracts.PickMultipleVisualMedia()
     ) {
         context.filesDir.listFiles().orEmpty().forEach { file ->
             file.delete()
@@ -152,10 +153,15 @@ fun SettingsPage(
                 prefKey = Preferences.autoChangerLocal,
                 title = stringResource(R.string.local_walls),
                 summary = stringResource(R.string.local_walls_summary)
-            ) {
+            ) { newValue ->
                 WorkerHelper.enqueue(context, true)
-                useLocalWallpapers = it
-                if (it) selectFiles.launch(arrayOf("image/*"))
+                useLocalWallpapers = newValue
+                if (newValue) {
+                    val request = PickVisualMediaRequest(
+                        ActivityResultContracts.PickVisualMedia.ImageOnly
+                    )
+                    selectFiles.launch(request)
+                }
             }
             Spacer(
                 modifier = Modifier
