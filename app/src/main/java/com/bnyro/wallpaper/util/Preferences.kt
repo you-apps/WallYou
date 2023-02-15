@@ -6,6 +6,7 @@ import com.bnyro.wallpaper.api.ow.OwApi
 import com.bnyro.wallpaper.api.ps.PsApi
 import com.bnyro.wallpaper.api.wh.WhApi
 import com.bnyro.wallpaper.constants.WallpaperMode
+import com.bnyro.wallpaper.enums.WallpaperSource
 import com.bnyro.wallpaper.ui.nav.DrawerScreens
 
 object Preferences {
@@ -19,7 +20,7 @@ object Preferences {
     const val autoAddToFavoritesKey = "autoAddToFavorites"
     const val grayscaleKey = "grayscale"
     const val blurKey = "blur"
-    const val autoChangerLocal = "autoChangerLocal"
+    const val autoChangerSource = "autoChangerSource"
 
     const val defaultDiskCacheSize = 128L * 1024 * 1024
     const val defaultWallpaperChangeInterval = 15L
@@ -37,6 +38,8 @@ object Preferences {
 
     fun getFloat(key: String, defValue: Float) = preferences.getFloat(key, defValue)
 
+    private fun getInt(key: String, defValue: Int) = preferences.getInt(key, defValue)
+
     fun edit(action: SharedPreferences.Editor.() -> Unit) {
         preferences.edit().apply(action).apply()
     }
@@ -46,5 +49,10 @@ object Preferences {
         DrawerScreens.OWalls.route -> OwApi()
         DrawerScreens.Unsplash.route -> OwApi()
         else -> WhApi()
+    }
+
+    fun getChangerSource(): WallpaperSource {
+        val pref = getInt(autoChangerSource, WallpaperSource.ONLINE.value)
+        return WallpaperSource.fromInt(pref)
     }
 }

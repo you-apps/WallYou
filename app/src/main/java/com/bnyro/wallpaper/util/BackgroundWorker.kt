@@ -3,20 +3,23 @@ package com.bnyro.wallpaper.util
 import android.content.Context
 import android.graphics.Bitmap
 import android.net.Uri
-import androidx.work.Worker
+import androidx.work.CoroutineWorker
 import androidx.work.WorkerParameters
+import com.bnyro.wallpaper.db.DatabaseHolder
+import com.bnyro.wallpaper.enums.WallpaperSource
+import com.bnyro.wallpaper.ext.awaitQuery
 import kotlinx.coroutines.Dispatchers
-import kotlinx.coroutines.runBlocking
+import kotlinx.coroutines.withContext
 
 class BackgroundWorker(
     applicationContext: Context,
     workerParameters: WorkerParameters
-) : Worker(applicationContext, workerParameters) {
-    override fun doWork(): Result {
-        val bitmap = if (Preferences.getBoolean(Preferences.autoChangerLocal, false)) {
-            getLocalWallpaper()
-        } else {
-            getOnlineWallpaper()
+) : CoroutineWorker(applicationContext, workerParameters) {
+    override suspend fun doWork(): Result {
+        val bitmap = when (Preferences.getChangerSource()) {
+            WallpaperSource.ONLINE -> getOnlineWallpaper()
+            WallpaperSource.FAVORITES -> getFavoritesWallpaper()
+            WallpaperSource.LOCAL -> getLocalWallpaper()
         } ?: return Result.failure()
 
         WallpaperHelper.setWallpaper(
@@ -31,16 +34,20 @@ class BackgroundWorker(
         return Result.success()
     }
 
-    private fun getOnlineWallpaper(): Bitmap? {
-        return runBlocking(Dispatchers.IO) {
-            val url = try {
+    private suspend fun getOnlineWallpaper(): Bitmap? {
+        return withContext(Dispatchers.IO) {
+            val url = runCatching {
                 Preferences.getWallpaperChangerApi().getRandomWallpaperUrl()
-            } catch (e: Exception) {
-                return@runBlocking null
-            }
-
-            return@runBlocking ImageHelper.getBlocking(applicationContext, url, true)
+            }.getOrNull() ?: return@withContext null
+            ImageHelper.getSuspend(applicationContext, url, true)
         }
+    }
+
+    private suspend fun getFavoritesWallpaper(): Bitmap? {
+        val favoriteUrl = awaitQuery {
+            DatabaseHolder.Database.favoritesDao().getAll()
+        }.random().imgSrc
+        return ImageHelper.getSuspend(applicationContext, favoriteUrl, true)
     }
 
     private fun getLocalWallpaper(): Bitmap? {

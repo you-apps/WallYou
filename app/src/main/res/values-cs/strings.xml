@@ -35,6 +35,4 @@
     <string name="license">Licence</string>
     <string name="website">Web</string>
     <string name="applying_random">Použití náhodné tapety</string>
-    <string name="local_walls">Místní tapety</string>
-    <string name="local_walls_summary">Použít místní tapety namísto online verzí</string>
 </resources>

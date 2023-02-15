@@ -35,6 +35,4 @@
     <string name="theme_system">Sistem</string>
     <string name="no_favorites">Nu există favorite încă</string>
     <string name="applying_random">Aplicare imagine de fundal aleatorie</string>
-    <string name="local_walls">Imagini de fundal locale</string>
-    <string name="local_walls_summary">Folosiți imagini de fundal locale în loc de online</string>
 </resources>

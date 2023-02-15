@@ -46,7 +46,5 @@
     <string name="blur">Размытие</string>
     <string name="auto_add_to_favorites">Добавить в избранное при применении</string>
     <string name="reset">Сброс</string>
-    <string name="local_walls">Обои с устройства</string>
-    <string name="local_walls_summary">Использовать обои с устройства вместо обоев из интернета</string>
     <string name="applying_random">Применять случайные обои</string>
 </resources>

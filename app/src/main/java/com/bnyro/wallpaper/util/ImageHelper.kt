@@ -7,7 +7,6 @@ import android.net.Uri
 import androidx.core.graphics.drawable.toBitmap
 import coil.ImageLoader
 import coil.annotation.ExperimentalCoilApi
-import coil.executeBlocking
 import coil.request.ImageRequest
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
@@ -31,7 +30,7 @@ object ImageHelper {
     }
 
     @OptIn(ExperimentalCoilApi::class)
-    fun getBlocking(context: Context, imageURL: String?, forceReload: Boolean = false): Bitmap? {
+    suspend fun getSuspend(context: Context, imageURL: String?, forceReload: Boolean = false): Bitmap? {
         val request = buildRequest(context, imageURL).build()
 
         return ImageLoader(context).apply {
@@ -39,7 +38,7 @@ object ImageHelper {
                 diskCache?.clear()
                 memoryCache?.clear()
             }
-        }.executeBlocking(request).drawable?.toBitmap()
+        }.execute(request).drawable?.toBitmap()
     }
 
     private fun buildRequest(context: Context, url: String?): ImageRequest.Builder {

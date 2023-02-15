@@ -28,8 +28,6 @@
     <string name="home">Home</string>
     <string name="lockscreen">Lockscreen</string>
     <string name="applying_random">Applying random wallpaper</string>
-    <string name="local_walls">Local wallpapers</string>
-    <string name="local_walls_summary">Use local instead of online wallpapers</string>
 
     <!-- Image Filters -->
     <string name="blur">Blur</string>
@@ -46,6 +44,11 @@
     <string name="wallpaper_changer">Wallpaper changer</string>
     <string name="change_interval">Change interval</string>
     <string name="change_target">Wallpaper target</string>
+    <string name="wallpaper_changer_source">Wallpaper changer source</string>
+
+    <!-- Wallpaper changer source -->
+    <string name="online">Online</string>
+    <string name="local">Local</string>
 
     <!-- Theme -->
     <string name="theme_mode">Theme mode</string>

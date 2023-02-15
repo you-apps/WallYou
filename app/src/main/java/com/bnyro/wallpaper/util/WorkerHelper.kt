@@ -6,6 +6,7 @@ import androidx.work.ExistingPeriodicWorkPolicy
 import androidx.work.NetworkType
 import androidx.work.PeriodicWorkRequestBuilder
 import androidx.work.WorkManager
+import com.bnyro.wallpaper.enums.WallpaperSource
 import java.util.concurrent.TimeUnit
 
 object WorkerHelper {
@@ -17,6 +18,8 @@ object WorkerHelper {
             return
         }
 
+        val networkType = if (Preferences.getChangerSource() == WallpaperSource.LOCAL) NetworkType.NOT_REQUIRED else NetworkType.CONNECTED
+
         val job = PeriodicWorkRequestBuilder<BackgroundWorker>(
             Preferences.getString(
                 Preferences.wallpaperChangerIntervalKey,
@@ -25,9 +28,7 @@ object WorkerHelper {
             TimeUnit.MINUTES
         ).setConstraints(
             Constraints.Builder()
-                .setRequiredNetworkType(
-                    if (Preferences.getBoolean(Preferences.autoChangerLocal, false)) NetworkType.NOT_REQUIRED else NetworkType.CONNECTED
-                )
+                .setRequiredNetworkType(networkType)
                 .build()
         ).build()
 

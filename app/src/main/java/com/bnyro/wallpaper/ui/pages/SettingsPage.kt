@@ -22,6 +22,7 @@ import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.unit.dp
 import com.bnyro.wallpaper.R
 import com.bnyro.wallpaper.constants.ThemeMode
+import com.bnyro.wallpaper.enums.WallpaperSource
 import com.bnyro.wallpaper.ext.formatBinarySize
 import com.bnyro.wallpaper.ext.formatMinutes
 import com.bnyro.wallpaper.ui.components.about.AboutContainer
@@ -146,17 +147,20 @@ fun SettingsPage(
             ) {
                 WorkerHelper.enqueue(context, true)
             }
-            var useLocalWallpapers by remember {
-                mutableStateOf(Preferences.getBoolean(Preferences.autoChangerLocal, false))
+            var autoChangerSource by remember {
+                mutableStateOf(Preferences.getChangerSource())
             }
-            CheckboxPref(
-                prefKey = Preferences.autoChangerLocal,
-                title = stringResource(R.string.local_walls),
-                summary = stringResource(R.string.local_walls_summary)
+            val wallpaperSources = listOf(R.string.online, R.string.favorites, R.string.local)
+            ListPreference(
+                prefKey = Preferences.autoChangerSource,
+                title = stringResource(R.string.wallpaper_changer_source),
+                entries = wallpaperSources.map { stringResource(it) },
+                values = List(wallpaperSources.size) { index -> index.toString() },
+                defaultValue = WallpaperSource.ONLINE.value.toString()
             ) { newValue ->
                 WorkerHelper.enqueue(context, true)
-                useLocalWallpapers = newValue
-                if (newValue) {
+                autoChangerSource = WallpaperSource.fromInt(newValue.toInt())
+                if (autoChangerSource == WallpaperSource.LOCAL) {
                     val request = PickVisualMediaRequest(
                         ActivityResultContracts.PickVisualMedia.ImageOnly
                     )
@@ -167,7 +171,7 @@ fun SettingsPage(
                 modifier = Modifier
                     .height(10.dp)
             )
-            AnimatedVisibility(visible = !useLocalWallpapers) {
+            AnimatedVisibility(visible = autoChangerSource == WallpaperSource.ONLINE) {
                 BlockPreference(
                     preferenceKey = Preferences.wallpaperChangerApiKey,
                     entries = DrawerScreens.apiScreens.map { stringResource(it.titleResource) },

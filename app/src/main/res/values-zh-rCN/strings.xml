@@ -47,6 +47,4 @@
     <string name="reset">重设</string>
     <string name="grayscale">灰度</string>
     <string name="applying_random">正在随机应用壁纸</string>
-    <string name="local_walls">本地壁纸</string>
-    <string name="local_walls_summary">优先使用本地壁纸而非在线壁纸</string>
 </resources>

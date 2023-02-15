@@ -34,7 +34,5 @@
     <string name="change_target">ୱାଲପେପର ଟାର୍ଗେଟ୍</string>
     <string name="change_interval">ବ୍ୟବଧାନ ପରିବର୍ତ୍ତନ କରନ୍ତୁ</string>
     <string name="theme_mode">ଥିମ୍ ସ୍ଥିତି</string>
-    <string name="local_walls_summary">ଅନଲାଇନ୍ ୱାଲପେପର ବଦଳରେ ସ୍ଥାନୀୟ ବ୍ୟବହାର କରନ୍ତୁ</string>
-    <string name="local_walls">ସ୍ଥାନୀୟ ୱାଲପେପର</string>
     <string name="applying_random">ରାଣ୍ଡମ ୱାଲପେପର ପ୍ରୟୋଗ କରୁଛି</string>
 </resources>

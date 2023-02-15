@@ -26,8 +26,6 @@
     <string name="lockscreen">شاشة القفل</string>
     <string name="applying_random">اختيار صورة خلفيَّة عشوائيَّة</string>
     <string name="add">أضف</string>
-    <string name="local_walls">الخلفيَّات المحليَّة</string>
-    <string name="local_walls_summary">استخدم خلفيَّات محليَّةً بدلًا من خلفيَّات عبر الشبكة</string>
     <string name="general">عام</string>
     <string name="change_interval">مهلة التغيير</string>
     <string name="reset">أعِد التعيين</string>

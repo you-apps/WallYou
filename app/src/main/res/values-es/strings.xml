@@ -46,6 +46,4 @@
     <string name="license">Licencia</string>
     <string name="website">Sitio web</string>
     <string name="applying_random">Aplicar un fondo de pantalla al azar</string>
-    <string name="local_walls">Fondos de pantalla locales</string>
-    <string name="local_walls_summary">Use fondos de pantalla locales en lugar de versiones en línea</string>
 </resources>
