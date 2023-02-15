@@ -38,8 +38,6 @@ object Preferences {
 
     fun getFloat(key: String, defValue: Float) = preferences.getFloat(key, defValue)
 
-    private fun getInt(key: String, defValue: Int) = preferences.getInt(key, defValue)
-
     fun edit(action: SharedPreferences.Editor.() -> Unit) {
         preferences.edit().apply(action).apply()
     }
@@ -52,7 +50,7 @@ object Preferences {
     }
 
     fun getChangerSource(): WallpaperSource {
-        val pref = getInt(autoChangerSource, WallpaperSource.ONLINE.value)
-        return WallpaperSource.fromInt(pref)
+        val pref = getString(autoChangerSource, WallpaperSource.ONLINE.value.toString())
+        return WallpaperSource.fromInt(pref?.toInt() ?: 0)
     }
 }

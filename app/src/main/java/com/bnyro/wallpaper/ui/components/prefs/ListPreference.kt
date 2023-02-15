@@ -40,12 +40,11 @@ fun ListPreference(
         summary = summary,
         modifier = Modifier
             .fillMaxWidth()
-            .padding(0.dp, 5.dp)
-            .clip(RoundedCornerShape(20.dp))
+            .clip(RoundedCornerShape(12.dp))
             .clickable {
                 showDialog = true
             }
-            .padding(3.dp, 10.dp)
+            .padding(10.dp)
     )
 
     if (showDialog) {

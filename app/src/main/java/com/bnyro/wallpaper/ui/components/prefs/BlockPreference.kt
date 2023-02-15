@@ -30,7 +30,9 @@ fun BlockPreference(
         if (pref != "") selected = values.indexOf(pref)
     }
 
-    LazyRow {
+    LazyRow(
+        modifier = Modifier.padding(horizontal = 5.dp)
+    ) {
         items(entries) {
             val index = entries.indexOf(it)
             BlockButton(
