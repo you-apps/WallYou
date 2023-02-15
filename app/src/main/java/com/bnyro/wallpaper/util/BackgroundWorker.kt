@@ -46,7 +46,7 @@ class BackgroundWorker(
     private suspend fun getFavoritesWallpaper(): Bitmap? {
         val favoriteUrl = awaitQuery {
             DatabaseHolder.Database.favoritesDao().getAll()
-        }.random().imgSrc
+        }.randomOrNull()?.imgSrc
         return ImageHelper.getSuspend(applicationContext, favoriteUrl, true)
     }
 

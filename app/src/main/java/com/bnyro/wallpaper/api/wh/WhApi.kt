@@ -52,6 +52,6 @@ class WhApi : Api() {
     }
 
     override suspend fun getRandomWallpaperUrl(): String? {
-        return getWallpapers(1).shuffled().firstOrNull()?.imgSrc
+        return getWallpapers(1).randomOrNull()?.imgSrc
     }
 }

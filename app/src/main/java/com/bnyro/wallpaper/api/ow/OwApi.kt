@@ -54,6 +54,6 @@ class OwApi() : Api() {
 
     override suspend fun getRandomWallpaperUrl(): String? {
         if (wallpapers.isEmpty()) loadAll()
-        return filteredWallpapers.shuffled().firstOrNull()?.imgSrc
+        return filteredWallpapers.randomOrNull()?.imgSrc
     }
 }
