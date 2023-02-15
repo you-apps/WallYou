@@ -52,9 +52,8 @@ class BackgroundWorker(
 
     private fun getLocalWallpaper(): Bitmap? {
         return runCatching {
-            val wallpaperDir = applicationContext.filesDir
-            val randomFile = wallpaperDir.listFiles().orEmpty().toList().shuffled().firstOrNull() ?: return null
-            ImageHelper.getLocalImage(applicationContext, Uri.fromFile(randomFile))
+            val wallpaper = LocalWallpaperHelper.getWallpaperFiles(applicationContext).randomOrNull() ?: return null
+            ImageHelper.getLocalImage(applicationContext, Uri.fromFile(wallpaper))
         }.getOrNull()
     }
 }

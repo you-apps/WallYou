@@ -14,7 +14,6 @@ import androidx.compose.runtime.Composable
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
-import androidx.compose.runtime.rememberCoroutineScope
 import androidx.compose.runtime.setValue
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.platform.LocalContext
@@ -32,10 +31,9 @@ import com.bnyro.wallpaper.ui.components.prefs.ListPreference
 import com.bnyro.wallpaper.ui.components.prefs.SettingsCategory
 import com.bnyro.wallpaper.ui.models.MainModel
 import com.bnyro.wallpaper.ui.nav.DrawerScreens
+import com.bnyro.wallpaper.util.LocalWallpaperHelper
 import com.bnyro.wallpaper.util.Preferences
 import com.bnyro.wallpaper.util.WorkerHelper
-import java.io.File
-import java.time.Instant
 import kotlinx.coroutines.launch
 
 @Composable
@@ -43,26 +41,12 @@ fun SettingsPage(
     viewModel: MainModel
 ) {
     val context = LocalContext.current.applicationContext
-    val scope = rememberCoroutineScope()
 
     val selectFiles = rememberLauncherForActivityResult(
         contract = ActivityResultContracts.PickMultipleVisualMedia()
     ) {
-        context.filesDir.listFiles().orEmpty().forEach { file ->
-            file.delete()
-        }
-        scope.launch {
-            it.parallelStream().forEach { uri ->
-                context.contentResolver.openInputStream(uri)?.use { inputStream ->
-                    File(context.filesDir, Instant.now().epochSecond.toString()).apply {
-                        createNewFile()
-                        outputStream().use { outputStream ->
-                            inputStream.copyTo(outputStream)
-                        }
-                    }
-                }
-            }
-        }
+        LocalWallpaperHelper.deleteWallpapers(context)
+        LocalWallpaperHelper.saveWallpapers(context, it)
     }
 
     val scrollState = rememberScrollState()
