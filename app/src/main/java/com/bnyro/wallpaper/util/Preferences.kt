@@ -4,6 +4,7 @@ import android.content.Context
 import android.content.SharedPreferences
 import com.bnyro.wallpaper.api.ow.OwApi
 import com.bnyro.wallpaper.api.ps.PsApi
+import com.bnyro.wallpaper.api.us.UsApi
 import com.bnyro.wallpaper.api.wh.WhApi
 import com.bnyro.wallpaper.constants.WallpaperMode
 import com.bnyro.wallpaper.enums.WallpaperSource
@@ -45,7 +46,7 @@ object Preferences {
     fun getWallpaperChangerApi() = when (getString(wallpaperChangerApiKey, "")) {
         DrawerScreens.Picsum.route -> PsApi()
         DrawerScreens.OWalls.route -> OwApi()
-        DrawerScreens.Unsplash.route -> OwApi()
+        DrawerScreens.Unsplash.route -> UsApi()
         else -> WhApi()
     }
 
