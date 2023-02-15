@@ -18,8 +18,8 @@
     <string name="source">来源</string>
     <string name="creationDate">创建日期</string>
     <!-- Set wallpaper -->
-    <string name="both">桌面和锁屏</string>
-    <string name="home">家庭</string>
+    <string name="both">主页与锁屏</string>
+    <string name="home">主页</string>
     <string name="lockscreen">仅锁屏</string>
     <!-- Preference categories -->
     <string name="general">常规</string>
