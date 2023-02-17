@@ -35,4 +35,7 @@
     <string name="website">Web sitesi</string>
     <string name="version">Sürüm</string>
     <string name="applying_random">Rastgele duvar kağıdı uygula</string>
+    <string name="online">Çevrim içi</string>
+    <string name="local">Yerel</string>
+    <string name="wallpaper_changer_source">Duvar kağıdı değiştirici kaynağı</string>
 </resources>
