@@ -1,2 +1,41 @@
 <?xml version="1.0" encoding="utf-8"?>
-<resources></resources>
+<resources>
+    <string name="author">작가</string>
+    <string name="about">정보</string>
+    <string name="info">정보</string>
+    <string name="filter">필터</string>
+    <string name="add">추가</string>
+    <string name="resolution">해상도</string>
+    <string name="category">카테고리</string>
+    <string name="source">소스</string>
+    <string name="home">홈</string>
+    <string name="both">홈 및 잠금화면</string>
+    <string name="applying_random">랜덤 배경화면 적용</string>
+    <string name="blur">블러</string>
+    <string name="grayscale">그레이스케일</string>
+    <string name="reset">초기화</string>
+    <string name="general">일반</string>
+    <string name="cache">캐시</string>
+    <string name="coil_cache">Coil 이미지 캐시</string>
+    <string name="wallpaper_changer">배경화면 바꾸기</string>
+    <string name="change_interval">교체 간격</string>
+    <string name="change_target">배경화면 대상</string>
+    <string name="wallpaper_changer_source">배경화면 바꾸기 소스</string>
+    <string name="online">온라인</string>
+    <string name="local">로컬</string>
+    <string name="theme_mode">테마 모드</string>
+    <string name="theme_system">시스템 설정 사용</string>
+    <string name="theme_light">라이트</string>
+    <string name="theme_dark">다크</string>
+    <string name="no_favorites">즐겨찾기 없음</string>
+    <string name="auto_add_to_favorites">적용 시 즐겨찾기에 추가</string>
+    <string name="version">버전</string>
+    <string name="license">라이선스</string>
+    <string name="website">웹사이트</string>
+    <string name="favorites">즐겨찾기</string>
+    <string name="lockscreen">잠금화면</string>
+    <string name="crop_images">이미지 자르기</string>
+    <string name="fileSize">파일 크기</string>
+    <string name="creationDate">생성 날짜</string>
+    <string name="settings">설정</string>
+</resources>

@@ -42,4 +42,11 @@
     <string name="github" translatable="false">GitHub</string>
     <string name="license">Lisensi</string>
     <string name="website">Website</string>
+    <string name="auto_add_to_favorites">Tambahkan ke favorit jika saat diterapkan</string>
+    <string name="applying_random">Menerapkan wallpaper acak</string>
+    <string name="blur">Buram</string>
+    <string name="reset">Mengatur ulang</string>
+    <string name="local">Lokal</string>
+    <string name="wallpaper_changer_source">Mengubah sumber wallpaper</string>
+    <string name="online">Menggunakan Jaringan</string>
 </resources>
