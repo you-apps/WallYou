@@ -46,4 +46,7 @@
     <string name="license">Licencia</string>
     <string name="website">Sitio web</string>
     <string name="applying_random">Aplicar un fondo de pantalla al azar</string>
+    <string name="wallpaper_changer_source">Fuente del cambio del fondo de pantalla</string>
+    <string name="online">Conectado</string>
+    <string name="local">Local</string>
 </resources>
