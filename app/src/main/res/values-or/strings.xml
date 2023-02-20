@@ -35,4 +35,7 @@
     <string name="change_interval">ବ୍ୟବଧାନ ପରିବର୍ତ୍ତନ କରନ୍ତୁ</string>
     <string name="theme_mode">ଥିମ୍ ସ୍ଥିତି</string>
     <string name="applying_random">ରାଣ୍ଡମ ୱାଲପେପର ପ୍ରୟୋଗ କରୁଛି</string>
+    <string name="wallpaper_changer_source">ୱାଲପେପର ଚେଞ୍ଜର ଉତ୍ସ</string>
+    <string name="online">ଅନଲାଇନ୍</string>
+    <string name="local">ସ୍ଥାନୀୟ</string>
 </resources>

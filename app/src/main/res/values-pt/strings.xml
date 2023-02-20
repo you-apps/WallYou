@@ -1,2 +1,41 @@
 <?xml version="1.0" encoding="utf-8"?>
-<resources></resources>
+<resources>
+    <string name="blur">Desfoque</string>
+    <string name="change_target">Alvo de papel de parede</string>
+    <string name="favorites">Favoritos</string>
+    <string name="settings">Definições</string>
+    <string name="about">Sobre</string>
+    <string name="info">Info</string>
+    <string name="add">Adicionar</string>
+    <string name="author">Autor</string>
+    <string name="resolution">Resolução</string>
+    <string name="category">Categoria</string>
+    <string name="fileSize">Tamanho do ficheiro</string>
+    <string name="source">Fonte</string>
+    <string name="creationDate">Data de criação</string>
+    <string name="both">Ambos</string>
+    <string name="home">Início</string>
+    <string name="lockscreen">Ecrã de bloqueio</string>
+    <string name="applying_random">Aplicar papel de parede aleatório</string>
+    <string name="filter">Filtro</string>
+    <string name="reset">Reiniciar</string>
+    <string name="general">Geral</string>
+    <string name="cache">Cache</string>
+    <string name="crop_images">Imagens de corte</string>
+    <string name="coil_cache">Cache de imagem da bobina</string>
+    <string name="wallpaper_changer">Mudança de papel de parede</string>
+    <string name="change_interval">Intervalo de mudança</string>
+    <string name="wallpaper_changer_source">Fonte de alteração de papel de parede</string>
+    <string name="online">Online</string>
+    <string name="theme_light">Claro</string>
+    <string name="theme_dark">Escuro</string>
+    <string name="no_favorites">Ainda sem favoritos</string>
+    <string name="auto_add_to_favorites">Adicionar aos favoritos quando aplicar</string>
+    <string name="version">Versão</string>
+    <string name="license">Licença</string>
+    <string name="website">Página Web</string>
+    <string name="local">Local</string>
+    <string name="grayscale">Escala de cinzentos</string>
+    <string name="theme_mode">Modo Tema</string>
+    <string name="theme_system">Sistema</string>
+</resources>
