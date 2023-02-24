@@ -49,6 +49,7 @@
     <!-- Wallpaper changer source -->
     <string name="online">Online</string>
     <string name="local">Local</string>
+    <string name="choose_dir">Choose directory</string>
 
     <!-- Theme -->
     <string name="theme_mode">Theme mode</string>

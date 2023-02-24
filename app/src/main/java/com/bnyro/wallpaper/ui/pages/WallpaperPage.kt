@@ -93,7 +93,7 @@ fun WallpaperPage(
 
                      */
                 onClick = {
-                    selectedWallpaper = viewModel.wallpapers.shuffled().firstOrNull()
+                    selectedWallpaper = viewModel.wallpapers.randomOrNull()
                 }
             ) {
                 Icon(

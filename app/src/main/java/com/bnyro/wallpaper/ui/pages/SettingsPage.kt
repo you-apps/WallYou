@@ -1,15 +1,15 @@
 package com.bnyro.wallpaper.ui.pages
 
 import androidx.activity.compose.rememberLauncherForActivityResult
-import androidx.activity.result.PickVisualMediaRequest
-import androidx.activity.result.contract.ActivityResultContracts
-import androidx.compose.animation.AnimatedVisibility
+import androidx.compose.animation.Crossfade
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.rememberScrollState
 import androidx.compose.foundation.verticalScroll
+import androidx.compose.material3.Button
+import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf
@@ -32,9 +32,9 @@ import com.bnyro.wallpaper.ui.components.prefs.SettingsCategory
 import com.bnyro.wallpaper.ui.models.MainModel
 import com.bnyro.wallpaper.ui.nav.DrawerScreens
 import com.bnyro.wallpaper.util.LocalWallpaperHelper
+import com.bnyro.wallpaper.util.PickFolderContract
 import com.bnyro.wallpaper.util.Preferences
 import com.bnyro.wallpaper.util.WorkerHelper
-import kotlinx.coroutines.launch
 
 @Composable
 fun SettingsPage(
@@ -42,11 +42,9 @@ fun SettingsPage(
 ) {
     val context = LocalContext.current.applicationContext
 
-    val selectFiles = rememberLauncherForActivityResult(
-        contract = ActivityResultContracts.PickMultipleVisualMedia()
-    ) {
-        LocalWallpaperHelper.deleteWallpapers(context)
-        LocalWallpaperHelper.saveWallpapers(context, it)
+    val localWallpaperDirChooser = rememberLauncherForActivityResult(PickFolderContract()) {
+        val uri = it ?: return@rememberLauncherForActivityResult
+        Preferences.edit { putString(Preferences.localWallpaperDirKey, uri.toString()) }
     }
 
     val scrollState = rememberScrollState()
@@ -136,7 +134,7 @@ fun SettingsPage(
             }
             val wallpaperSources = listOf(R.string.online, R.string.favorites, R.string.local)
             ListPreference(
-                prefKey = Preferences.autoChangerSource,
+                prefKey = Preferences.autoChangerSourceKey,
                 title = stringResource(R.string.wallpaper_changer_source),
                 entries = wallpaperSources.map { stringResource(it) },
                 values = List(wallpaperSources.size) { index -> index.toString() },
@@ -144,24 +142,24 @@ fun SettingsPage(
             ) { newValue ->
                 WorkerHelper.enqueue(context, true)
                 autoChangerSource = WallpaperSource.fromInt(newValue.toInt())
-                if (autoChangerSource == WallpaperSource.LOCAL) {
-                    val request = PickVisualMediaRequest(
-                        ActivityResultContracts.PickVisualMedia.ImageOnly
-                    )
-                    selectFiles.launch(request)
-                }
             }
-            Spacer(
-                modifier = Modifier
-                    .height(10.dp)
-            )
-            AnimatedVisibility(visible = autoChangerSource == WallpaperSource.ONLINE) {
-                BlockPreference(
-                    preferenceKey = Preferences.wallpaperChangerApiKey,
-                    entries = DrawerScreens.apiScreens.map { stringResource(it.titleResource) },
-                    values = DrawerScreens.apiScreens.map { it.route }
-                ) {
-                    WorkerHelper.enqueue(context, true)
+            Crossfade(targetState = autoChangerSource) { state ->
+                when (state) {
+                    WallpaperSource.ONLINE -> BlockPreference(
+                        preferenceKey = Preferences.wallpaperChangerApiKey,
+                        entries = DrawerScreens.apiScreens.map { stringResource(it.titleResource) },
+                        values = DrawerScreens.apiScreens.map { it.route }
+                    ) {
+                        WorkerHelper.enqueue(context, true)
+                    }
+                    WallpaperSource.LOCAL -> Button(
+                        onClick = {
+                            localWallpaperDirChooser.launch(LocalWallpaperHelper.getDirectory())
+                        }
+                    ) {
+                        Text(stringResource(R.string.choose_dir))
+                    }
+                    else -> {}
                 }
             }
             ListPreference(

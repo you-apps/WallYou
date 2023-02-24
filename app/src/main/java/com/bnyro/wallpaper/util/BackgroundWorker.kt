@@ -2,7 +2,6 @@ package com.bnyro.wallpaper.util
 
 import android.content.Context
 import android.graphics.Bitmap
-import android.net.Uri
 import androidx.work.CoroutineWorker
 import androidx.work.WorkerParameters
 import com.bnyro.wallpaper.db.DatabaseHolder
@@ -52,8 +51,8 @@ class BackgroundWorker(
 
     private fun getLocalWallpaper(): Bitmap? {
         return runCatching {
-            val wallpaper = LocalWallpaperHelper.getWallpaperFiles(applicationContext).randomOrNull() ?: return null
-            ImageHelper.getLocalImage(applicationContext, Uri.fromFile(wallpaper))
+            val wallpaper = LocalWallpaperHelper.getLocalWalls(applicationContext).randomOrNull() ?: return null
+            ImageHelper.getLocalImage(applicationContext, wallpaper.uri)
         }.getOrNull()
     }
 }

@@ -21,7 +21,8 @@ object Preferences {
     const val autoAddToFavoritesKey = "autoAddToFavorites"
     const val grayscaleKey = "grayscale"
     const val blurKey = "blur"
-    const val autoChangerSource = "autoChangerSource"
+    const val autoChangerSourceKey = "autoChangerSource"
+    const val localWallpaperDirKey = "localWallpaperDir"
 
     const val defaultDiskCacheSize = 128L * 1024 * 1024
     const val defaultWallpaperChangeInterval = 15L
@@ -51,7 +52,7 @@ object Preferences {
     }
 
     fun getChangerSource(): WallpaperSource {
-        val pref = getString(autoChangerSource, WallpaperSource.ONLINE.value.toString())
+        val pref = getString(autoChangerSourceKey, WallpaperSource.ONLINE.value.toString())
         return WallpaperSource.fromInt(pref?.toInt() ?: 0)
     }
 }
