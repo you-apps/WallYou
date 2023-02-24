@@ -35,4 +35,7 @@
     <string name="home">Casa</string>
     <string name="fileSize">Tamanho do arquivo</string>
     <string name="applying_random">Aplicação de papel de parede aleatória</string>
+    <string name="wallpaper_changer_source">Fonte de troca do papel de parede</string>
+    <string name="online">Online</string>
+    <string name="local">Local</string>
 </resources>
