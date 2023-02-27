@@ -44,4 +44,8 @@
     <string name="blur">ঘোলা</string>
     <string name="grayscale">গ্রেস্কেল</string>
     <string name="reset">রিসেট</string>
+    <string name="applying_random">র‌্যান্ডম ওয়ালপেপার অ্যাপ্লাই করা হচ্ছে</string>
+    <string name="wallpaper_changer_source">ওয়ালপেপার পরিবর্তনের উৎস</string>
+    <string name="online">অনলাইন</string>
+    <string name="local">লোকাল</string>
 </resources>

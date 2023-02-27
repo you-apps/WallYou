@@ -18,7 +18,7 @@
     <string name="source">Источник</string>
     <string name="creationDate">Дата создания</string>
     <!-- Set wallpaper -->
-    <string name="both">Оба</string>
+    <string name="both">Оба способа</string>
     <string name="home">Главная</string>
     <string name="lockscreen">Экран блокировки</string>
     <!-- Preference categories -->
@@ -47,4 +47,5 @@
     <string name="auto_add_to_favorites">Добавить в избранное при применении</string>
     <string name="reset">Сброс</string>
     <string name="applying_random">Применять случайные обои</string>
+    <string name="local">Локально</string>
 </resources>
