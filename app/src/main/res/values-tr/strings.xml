@@ -38,4 +38,5 @@
     <string name="online">Çevrim içi</string>
     <string name="local">Yerel</string>
     <string name="wallpaper_changer_source">Duvar kağıdı değiştirici kaynağı</string>
+    <string name="choose_dir">Dizin seç</string>
 </resources>
