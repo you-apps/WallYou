@@ -13,7 +13,7 @@
     <string name="source">Zdroj</string>
     <string name="creationDate">Datum vytvoření</string>
     <string name="both">Oba</string>
-    <string name="home">Domovská obrazovka</string>
+    <string name="home">Domů</string>
     <string name="lockscreen">Zamykací obrazovka</string>
     <string name="blur">Rozmazání</string>
     <string name="grayscale">Stupně šedi</string>
@@ -38,4 +38,5 @@
     <string name="wallpaper_changer_source">Zdroj měniče tapet</string>
     <string name="online">Online</string>
     <string name="local">Místní</string>
+    <string name="choose_dir">Vybrat adresář</string>
 </resources>
