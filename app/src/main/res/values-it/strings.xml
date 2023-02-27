@@ -38,4 +38,5 @@
     <string name="local">Locale</string>
     <string name="online">Online</string>
     <string name="wallpaper_changer_source">Fonte del cambiasfondo</string>
+    <string name="choose_dir">Scegli la cartella</string>
 </resources>
