@@ -38,4 +38,5 @@
     <string name="wallpaper_changer_source">مصدر مغيِّر الخلفية</string>
     <string name="online">عبر الشبكة</string>
     <string name="local">محليٌّ</string>
+    <string name="choose_dir">اختر مجلَّدًا</string>
 </resources>
