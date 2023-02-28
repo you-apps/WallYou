@@ -49,4 +49,6 @@
     <string name="local">Lokal</string>
     <string name="wallpaper_changer_source">Mengubah sumber wallpaper</string>
     <string name="online">Menggunakan Jaringan</string>
+    <string name="choose_dir">Pilih direktori</string>
+    <string name="grayscale">Abu-Abu</string>
 </resources>
