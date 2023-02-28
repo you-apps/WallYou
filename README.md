@@ -46,10 +46,12 @@
 </div>
 
 <!-- ---------- Contribution ---------- -->
-## Contribution
+## Feedback and contributions
+***All contributions are very welcome!***
 
-**All contributions are welcome!** \
-If you are a developer and wish to contribute to the app, please **fork** the project and submit a [**pull request**](https://help.github.com/articles/about-pull-requests/).
+* Feel free to join the [Matrix room](https://matrix.to/#/#you-apps:matrix.org) for discussions about the app.
+* Bug reports and feature requests can be submitted [here](https://github.com/Bnyro/WallYou/issues) (please make sure to fill out all the requested information properly!).
+* If you are a developer and wish to contribute to the app, please **fork** the project and submit a [**pull request**](https://help.github.com/articles/about-pull-requests/).
 
 ## Translation
 <a href="https://hosted.weblate.org/projects/you-apps/wall-you/">
