@@ -35,4 +35,8 @@
     <string name="theme_system">Sistem</string>
     <string name="no_favorites">Nu există favorite încă</string>
     <string name="applying_random">Aplicare imagine de fundal aleatorie</string>
+    <string name="choose_dir">Alegeți directorul</string>
+    <string name="local">Local</string>
+    <string name="wallpaper_changer_source">Sursă pentru schimbarea imaginii de fundal</string>
+    <string name="online">Online</string>
 </resources>
