@@ -50,4 +50,5 @@
     <string name="wallpaper_changer_source">Джерело зміни шпалер</string>
     <string name="online">Онлайн</string>
     <string name="local">Локально</string>
+    <string name="choose_dir">Виберіть каталог</string>
 </resources>

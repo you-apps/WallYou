@@ -38,4 +38,5 @@
     <string name="grayscale">Escala de cinzentos</string>
     <string name="theme_mode">Modo Tema</string>
     <string name="theme_system">Sistema</string>
+    <string name="choose_dir">Escolher directório</string>
 </resources>
