@@ -38,4 +38,5 @@
     <string name="wallpaper_changer_source">Fonte de troca do papel de parede</string>
     <string name="online">Online</string>
     <string name="local">Local</string>
+    <string name="choose_dir">Escolher diretório</string>
 </resources>
