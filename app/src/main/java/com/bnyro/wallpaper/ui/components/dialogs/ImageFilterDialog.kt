@@ -42,8 +42,8 @@ fun ImageFilterDialog(
                 ImageFilterSlider(
                     prefKey = Preferences.blurKey,
                     title = stringResource(R.string.blur),
-                    defValue = 1f,
-                    valueRange = 1f..25f,
+                    defValue = 0f,
+                    valueRange = 0f..25f,
                     onValueChange = {
                         onChange.invoke()
                     }

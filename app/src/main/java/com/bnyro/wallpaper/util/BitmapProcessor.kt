@@ -6,6 +6,7 @@ import com.google.android.renderscript.Toolkit
 object BitmapProcessor {
 
     private fun Bitmap.blur(radius: Int): Bitmap {
+        if (radius == 0) return this
         return Toolkit.blur(this, radius)
     }
 
