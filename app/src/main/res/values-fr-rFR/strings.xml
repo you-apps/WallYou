@@ -11,7 +11,7 @@
     <string name="filter">Filtre</string>
     <string name="add">Ajouter</string>
     <!-- Info Dialog -->
-    <string name="author">Auteur·e</string>
+    <string name="author">Auteur</string>
     <string name="resolution">Résolution</string>
     <string name="category">Catégorie</string>
     <string name="fileSize">Taille du fichier</string>
@@ -47,4 +47,8 @@
     <string name="grayscale">Niveaux de gris</string>
     <string name="auto_add_to_favorites">Ajouter aux favoris lors de l\'application</string>
     <string name="applying_random">Application d\'un papier peint aléatoire</string>
+    <string name="choose_dir">Choisir un répertoire</string>
+    <string name="wallpaper_changer_source">Source du wallpaper</string>
+    <string name="online">En ligne</string>
+    <string name="local">Local</string>
 </resources>

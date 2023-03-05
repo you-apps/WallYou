@@ -5,7 +5,7 @@
     <!-- Navigation Drawer -->
     <string name="favorites">Избранное</string>
     <string name="settings">Настройки</string>
-    <string name="about">О приложении</string>
+    <string name="about">Информация</string>
     <!-- Image Preview -->
     <string name="info">Информация</string>
     <string name="filter">Фильтр</string>
@@ -48,4 +48,7 @@
     <string name="reset">Сброс</string>
     <string name="applying_random">Применять случайные обои</string>
     <string name="local">Локально</string>
+    <string name="choose_dir">Выбрать папку</string>
+    <string name="online">Online</string>
+    <string name="wallpaper_changer_source">Источник обоев</string>
 </resources>
