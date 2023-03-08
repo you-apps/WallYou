@@ -38,4 +38,5 @@
     <string name="local">Yerli</string>
     <string name="wallpaper_changer_source">Divar kağızı dəyişdirici mənbə</string>
     <string name="online">Onlayn</string>
+    <string name="choose_dir">Kataloq seç</string>
 </resources>
