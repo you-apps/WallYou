@@ -2,7 +2,7 @@
 <resources>
     <!-- Navigation Drawer -->
     <string name="favorites">Favoritos</string>
-    <string name="settings">Ajustes</string>
+    <string name="settings">Configuración</string>
     <string name="about">Acerca de</string>
     <!-- Image Preview -->
     <string name="info">Info</string>
@@ -17,7 +17,7 @@
     <string name="creationDate">Fecha de creación</string>
     <!-- Set Wallpaper -->
     <string name="both">Ambos</string>
-    <string name="home">Pantalla de inicio</string>
+    <string name="home">Inicio</string>
     <string name="lockscreen">Pantalla de bloqueo</string>
     <!-- Image Filters -->
     <string name="blur">Difuminar</string>
@@ -49,5 +49,5 @@
     <string name="wallpaper_changer_source">Fuente del cambio del fondo de pantalla</string>
     <string name="online">Conectado</string>
     <string name="local">Local</string>
-    <string name="choose_dir">Escoger un directorio</string>
+    <string name="choose_dir">Seleccionar directorio</string>
 </resources>
