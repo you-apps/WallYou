@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="about">Om</string>
-    <string name="author">Utvilker</string>
+    <string name="author">Utvikler</string>
     <string name="fileSize">Filstørrelse</string>
     <string name="source">Kilde</string>
     <string name="creationDate">Opprettelsesdato</string>
