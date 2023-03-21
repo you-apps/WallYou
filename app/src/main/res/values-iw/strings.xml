@@ -1,2 +1,42 @@
 <?xml version="1.0" encoding="utf-8"?>
-<resources></resources>
+<resources>
+    <string name="general">כללי</string>
+    <string name="about">על אודות</string>
+    <string name="favorites">מועדפים</string>
+    <string name="settings">הגדרות</string>
+    <string name="info">מידע</string>
+    <string name="filter">סינון</string>
+    <string name="add">הוספה</string>
+    <string name="author">יוצר</string>
+    <string name="creationDate">תאריך יצירה</string>
+    <string name="home">בית</string>
+    <string name="blur">טשטוש</string>
+    <string name="change_interval">הפרש בין החלפות</string>
+    <string name="coil_cache">מטמון תמונות Coil</string>
+    <string name="auto_add_to_favorites">הוספה למועדפים בעת ההחלה</string>
+    <string name="no_favorites">אין מועדפים עדיין</string>
+    <string name="theme_light">בהירה</string>
+    <string name="theme_system">מערכת</string>
+    <string name="theme_mode">מצב ערכת עיצוב</string>
+    <string name="choose_dir">בחירת תיקייה</string>
+    <string name="local">מקומי</string>
+    <string name="wallpaper_changer_source">מקור מחליף טפטים</string>
+    <string name="change_target">יעד טפט</string>
+    <string name="resolution">רזולוציה</string>
+    <string name="category">קטגוריה</string>
+    <string name="fileSize">גודל קובץ</string>
+    <string name="both">שניהם</string>
+    <string name="cache">מטמון</string>
+    <string name="applying_random">החלת טפט אקראי</string>
+    <string name="source">מקור</string>
+    <string name="lockscreen">מסך נעילה</string>
+    <string name="grayscale">גווני אפור</string>
+    <string name="reset">איפוס</string>
+    <string name="license">רישיון</string>
+    <string name="version">גרסה</string>
+    <string name="crop_images">חיתוך תמונות</string>
+    <string name="website">אתר</string>
+    <string name="online">מקוון</string>
+    <string name="theme_dark">כהה</string>
+    <string name="wallpaper_changer">מחליף טפטים</string>
+</resources>
