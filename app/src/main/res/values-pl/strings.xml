@@ -9,7 +9,7 @@
     <string name="category">Kategoria</string>
     <string name="fileSize">Rozmiar pliku</string>
     <string name="source">Źródło</string>
-    <string name="home">Ekran główny</string>
+    <string name="home">Dom</string>
     <string name="lockscreen">Ekran blokady</string>
     <string name="grayscale">Skala szarości</string>
     <string name="reset">Resetuj</string>
@@ -26,9 +26,16 @@
     <string name="blur">Rozmycie</string>
     <string name="theme_dark">Ciemny</string>
     <string name="creationDate">Data utworzenia</string>
-    <string name="both">Ekran główny i ekran blokady</string>
+    <string name="both">Oba</string>
     <string name="theme_system">System</string>
     <string name="settings">Ustawienia</string>
-    <string name="about">O aplikacji</string>
+    <string name="about">O programie</string>
     <string name="theme_light">Jasny</string>
+    <string name="wallpaper_changer">Zmieniacz tapet</string>
+    <string name="change_target">Docelowa tapeta</string>
+    <string name="choose_dir">Wybierz katalog</string>
+    <string name="applying_random">Stosowanie losowej tapety</string>
+    <string name="wallpaper_changer_source">Źródło zmieniacza tapet</string>
+    <string name="online">Online</string>
+    <string name="local">Lokalne</string>
 </resources>
