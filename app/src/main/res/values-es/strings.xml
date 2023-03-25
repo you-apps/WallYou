@@ -17,7 +17,7 @@
     <string name="creationDate">Fecha de creación</string>
     <!-- Set Wallpaper -->
     <string name="both">Ambos</string>
-    <string name="home">Inicio</string>
+    <string name="home">Pantalla de inicio</string>
     <string name="lockscreen">Pantalla de bloqueo</string>
     <!-- Image Filters -->
     <string name="blur">Difuminar</string>
@@ -31,9 +31,9 @@
     <string name="coil_cache">Caché de imagen de bobina</string>
     <string name="wallpaper_changer">Cambiador de papel tapiz</string>
     <string name="change_interval">Intervalo de cambio</string>
-    <string name="change_target">Fondo de pantalla de destino</string>
+    <string name="change_target">Establecer fondo de pantalla en...</string>
     <!-- Theme -->
-    <string name="theme_mode">Modo de tema</string>
+    <string name="theme_mode">Tema</string>
     <string name="theme_system">Sistema</string>
     <string name="theme_light">Claro</string>
     <string name="theme_dark">Oscuro</string>
