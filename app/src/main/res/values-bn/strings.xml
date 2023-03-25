@@ -17,7 +17,7 @@
     <string name="creationDate">তৈরীর তারিখ</string>
     <!-- Set wallpaper -->
     <string name="both">দুটোই</string>
-    <string name="home">বাড়ি</string>
+    <string name="home">মূল পর্দা</string>
     <string name="lockscreen">লকস্ক্রিন</string>
     <!-- Preference categories -->
     <string name="general">সাধারণ</string>
@@ -27,7 +27,7 @@
     <string name="coil_cache">ক্যাশের সাইজ</string>
     <string name="wallpaper_changer">ওয়ালপেপার চেঞ্জার</string>
     <string name="change_interval">পরিবর্তনের সময়</string>
-    <string name="change_target">ওয়ালপেপারের টার্গেট</string>
+    <string name="change_target">ওয়ালপেপার সেট করুন...</string>
     <!-- Theme -->
     <string name="theme_mode">থিম</string>
     <string name="theme_system">স্টিস্টেম</string>
@@ -48,4 +48,5 @@
     <string name="wallpaper_changer_source">ওয়ালপেপার পরিবর্তনের উৎস</string>
     <string name="online">অনলাইন</string>
     <string name="local">লোকাল</string>
+    <string name="choose_dir">ডিরেক্টরি নির্বাচন করুন</string>
 </resources>
