@@ -8,13 +8,13 @@
     <string name="add">Ekle</string>
     <string name="author">Geliştirici</string>
     <string name="resolution">Çözünürlük</string>
-    <string name="theme_mode">Tema modu</string>
+    <string name="theme_mode">Tema</string>
     <string name="category">Kategori</string>
     <string name="fileSize">Dosya boyutu</string>
     <string name="source">Kaynak</string>
     <string name="creationDate">Oluşturulma tarihi</string>
     <string name="both">Her ikisi de</string>
-    <string name="home">Ana sayfa</string>
+    <string name="home">Ana ekran</string>
     <string name="blur">Bulanıklaştır</string>
     <string name="grayscale">Gri tonlamalı</string>
     <string name="reset">Sıfırla</string>
@@ -24,7 +24,7 @@
     <string name="coil_cache">Coil resim önbelleği</string>
     <string name="wallpaper_changer">Duvar kağıdı değiştirici</string>
     <string name="change_interval">Değişim aralığı</string>
-    <string name="change_target">Duvar kağıdı hedefi</string>
+    <string name="change_target">Duvar kağıdını ayarla...</string>
     <string name="theme_system">Sistem</string>
     <string name="theme_light">Açık</string>
     <string name="theme_dark">Koyu</string>
