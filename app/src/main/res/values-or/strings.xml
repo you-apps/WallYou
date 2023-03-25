@@ -2,7 +2,7 @@
 <resources>
     <string name="favorites">ପସନ୍ଦ ଗୁଡ଼ିକ</string>
     <string name="settings">ସେଟିଂସମୂହ</string>
-    <string name="about">ବିଷୟରେ</string>
+    <string name="about">ପ୍ରୋଗ୍ରାମ୍ ବିଷୟରେ</string>
     <string name="info">ସୂଚନା</string>
     <string name="filter">ଫିଲ୍ଟର୍</string>
     <string name="category">ବର୍ଗ</string>
@@ -27,15 +27,16 @@
     <string name="theme_system">ସିଷ୍ଟମ୍</string>
     <string name="resolution">ଆକାର</string>
     <string name="both">ଉଭୟ</string>
-    <string name="home">ଘର</string>
+    <string name="home">ମୂଳ ପରଦା |</string>
     <string name="author">ଲେଖକ</string>
     <string name="add">ଯୋଡ଼ନ୍ତୁ</string>
     <string name="coil_cache">କୋଇଲ୍ ପ୍ରତିଛବି କ୍ୟାଚ୍</string>
-    <string name="change_target">ୱାଲପେପର ଟାର୍ଗେଟ୍</string>
+    <string name="change_target">ୱାଲପେପର ସେଟ୍ କରନ୍ତୁ ...</string>
     <string name="change_interval">ବ୍ୟବଧାନ ପରିବର୍ତ୍ତନ କରନ୍ତୁ</string>
-    <string name="theme_mode">ଥିମ୍ ସ୍ଥିତି</string>
+    <string name="theme_mode">ଥିମ୍</string>
     <string name="applying_random">ରାଣ୍ଡମ ୱାଲପେପର ପ୍ରୟୋଗ କରୁଛି</string>
     <string name="wallpaper_changer_source">ୱାଲପେପର ଚେଞ୍ଜର ଉତ୍ସ</string>
     <string name="online">ଅନଲାଇନ୍</string>
     <string name="local">ସ୍ଥାନୀୟ</string>
+    <string name="choose_dir">ଡିରେକ୍ଟୋରୀ ବାଛନ୍ତୁ |</string>
 </resources>

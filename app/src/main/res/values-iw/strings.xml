@@ -9,7 +9,7 @@
     <string name="add">הוספה</string>
     <string name="author">יוצר</string>
     <string name="creationDate">תאריך יצירה</string>
-    <string name="home">בית</string>
+    <string name="home">מסך הבית</string>
     <string name="blur">טשטוש</string>
     <string name="change_interval">הפרש בין החלפות</string>
     <string name="coil_cache">מטמון תמונות Coil</string>
@@ -17,11 +17,11 @@
     <string name="no_favorites">אין מועדפים עדיין</string>
     <string name="theme_light">בהירה</string>
     <string name="theme_system">מערכת</string>
-    <string name="theme_mode">מצב ערכת עיצוב</string>
+    <string name="theme_mode">נושא</string>
     <string name="choose_dir">בחירת תיקייה</string>
     <string name="local">מקומי</string>
     <string name="wallpaper_changer_source">מקור מחליף טפטים</string>
-    <string name="change_target">יעד טפט</string>
+    <string name="change_target">הגדרת טפט על…</string>
     <string name="resolution">רזולוציה</string>
     <string name="category">קטגוריה</string>
     <string name="fileSize">גודל קובץ</string>

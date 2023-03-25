@@ -19,7 +19,7 @@
     <string name="creationDate">Tanggal pembuatan</string>
     <!-- Set wallpaper -->
     <string name="both">Keduanya</string>
-    <string name="home">Beranda</string>
+    <string name="home">Tampilan depan</string>
     <string name="lockscreen">Kunci layar</string>
     <!-- Preference categories -->
     <string name="general">Umum</string>
@@ -29,9 +29,9 @@
     <string name="coil_cache">Cache gambar koil</string>
     <string name="wallpaper_changer">Pengubah wallpaper</string>
     <string name="change_interval">Ubah interval</string>
-    <string name="change_target">Target wallpaper</string>
+    <string name="change_target">Setel wallpaper di ...</string>
     <!-- Theme -->
-    <string name="theme_mode">Mode tema</string>
+    <string name="theme_mode">Tema</string>
     <string name="theme_system">Sistem</string>
     <string name="theme_light">Terang</string>
     <string name="theme_dark">Gelap</string>

@@ -8,7 +8,7 @@
     <string name="resolution">해상도</string>
     <string name="category">카테고리</string>
     <string name="source">소스</string>
-    <string name="home">홈</string>
+    <string name="home">홈 화면</string>
     <string name="both">홈 및 잠금화면</string>
     <string name="applying_random">랜덤 배경화면 적용</string>
     <string name="blur">블러</string>
@@ -19,11 +19,11 @@
     <string name="coil_cache">Coil 이미지 캐시</string>
     <string name="wallpaper_changer">배경화면 바꾸기</string>
     <string name="change_interval">교체 간격</string>
-    <string name="change_target">배경화면 대상</string>
+    <string name="change_target">배경화면 설정 ...</string>
     <string name="wallpaper_changer_source">배경화면 바꾸기 소스</string>
     <string name="online">온라인</string>
     <string name="local">로컬</string>
-    <string name="theme_mode">테마 모드</string>
+    <string name="theme_mode">테마</string>
     <string name="theme_system">시스템 설정 사용</string>
     <string name="theme_light">라이트</string>
     <string name="theme_dark">다크</string>
@@ -38,4 +38,5 @@
     <string name="fileSize">파일 크기</string>
     <string name="creationDate">생성 날짜</string>
     <string name="settings">설정</string>
+    <string name="choose_dir">디렉토리 선택</string>
 </resources>

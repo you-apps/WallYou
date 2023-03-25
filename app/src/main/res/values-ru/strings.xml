@@ -29,7 +29,7 @@
     <string name="coil_cache">Кэш изображений</string>
     <string name="wallpaper_changer">Смена обоев</string>
     <string name="change_interval">Интервал смены обоев</string>
-    <string name="change_target">Поставить обои на ...</string>
+    <string name="change_target">Установить обои на ...</string>
     <!-- Theme -->
     <string name="theme_mode">Тема оформления</string>
     <string name="theme_system">Системная</string>

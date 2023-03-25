@@ -28,7 +28,7 @@
     <string name="coil_cache">Cache d\'image du diaporama</string>
     <string name="wallpaper_changer">Modification du fond d\'écran</string>
     <string name="change_interval">Intervalle de changement</string>
-    <string name="change_target">fond d\'écran cible</string>
+    <string name="change_target">Définir le fond d\'écran sur ...</string>
     <!-- Theme -->
     <string name="theme_mode">Thème</string>
     <string name="theme_system">Identique au système</string>
@@ -41,7 +41,7 @@
     <string name="github" translatable="false">GitHub</string>
     <string name="license">Licence</string>
     <string name="website">Site web</string>
-    <string name="home">Accueil</string>
+    <string name="home">Écran d\'accueil</string>
     <string name="reset">Réinitialiser</string>
     <string name="blur">Flou</string>
     <string name="grayscale">Niveaux de gris</string>

@@ -19,7 +19,7 @@
     <string name="creationDate">Дата створення</string>
     <!-- Set wallpaper -->
     <string name="both">Обидва</string>
-    <string name="home">Головна</string>
+    <string name="home">Головний екран</string>
     <string name="lockscreen">Екран блокування</string>
     <!-- Preference categories -->
     <string name="general">Загальне</string>
@@ -29,9 +29,9 @@
     <string name="coil_cache">Кеш зображень</string>
     <string name="wallpaper_changer">Зміна шпалер</string>
     <string name="change_interval">Інтервал зміни</string>
-    <string name="change_target">Цільові шпалери</string>
+    <string name="change_target">Встановити шпалери на ...</string>
     <!-- Theme -->
-    <string name="theme_mode">Тематичний режим</string>
+    <string name="theme_mode">Тема</string>
     <string name="theme_system">Системна</string>
     <string name="theme_light">Світла</string>
     <string name="theme_dark">Темна</string>

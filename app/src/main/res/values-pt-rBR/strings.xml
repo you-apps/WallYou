@@ -21,8 +21,8 @@
     <string name="coil_cache">Tamanho do cache de imagem</string>
     <string name="wallpaper_changer">Mudança de papel de parede</string>
     <string name="change_interval">Intervalo de mudança</string>
-    <string name="change_target">Papel de parede alvo</string>
-    <string name="theme_mode">Modo do tema</string>
+    <string name="change_target">Definir papel de parede em...</string>
+    <string name="theme_mode">Tema</string>
     <string name="theme_system">Sistema</string>
     <string name="no_favorites">Ainda não há favoritos</string>
     <string name="auto_add_to_favorites">Adicionar aos favoritos ao aplicar</string>
@@ -32,7 +32,7 @@
     <string name="source">Fonte</string>
     <string name="favorites">Favoritos</string>
     <string name="both">Ambos</string>
-    <string name="home">Casa</string>
+    <string name="home">Tela inicial</string>
     <string name="fileSize">Tamanho do arquivo</string>
     <string name="applying_random">Aplicação de papel de parede aleatória</string>
     <string name="wallpaper_changer_source">Fonte de troca do papel de parede</string>
