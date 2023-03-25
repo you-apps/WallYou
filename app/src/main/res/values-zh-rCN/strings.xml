@@ -19,7 +19,7 @@
     <string name="creationDate">创建日期</string>
     <!-- Set wallpaper -->
     <string name="both">二者</string>
-    <string name="home">主页</string>
+    <string name="home">主屏幕</string>
     <string name="lockscreen">仅锁屏</string>
     <!-- Preference categories -->
     <string name="general">常规</string>
@@ -29,9 +29,9 @@
     <string name="coil_cache">Coil 图像缓存</string>
     <string name="wallpaper_changer">壁纸更换器</string>
     <string name="change_interval">更换间隔</string>
-    <string name="change_target">更换目标</string>
+    <string name="change_target">设置壁纸...</string>
     <!-- Theme -->
-    <string name="theme_mode">主题模式</string>
+    <string name="theme_mode">主题</string>
     <string name="theme_system">跟随系统</string>
     <string name="theme_light">亮色</string>
     <string name="theme_dark">暗色</string>
