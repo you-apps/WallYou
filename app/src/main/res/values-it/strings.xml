@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="change_target">Obiettivo sfondo</string>
+    <string name="change_target">Imposta lo sfondo su...</string>
     <string name="coil_cache">Cache immagine Coil</string>
     <string name="auto_add_to_favorites">Aggiungi ai preferiti quando applichi</string>
     <string name="filter">Filtra</string>
@@ -18,7 +18,7 @@
     <string name="fileSize">Dimensione file</string>
     <string name="creationDate">Data creazione</string>
     <string name="reset">Azzera</string>
-    <string name="home">Casa</string>
+    <string name="home">Schermo di casa</string>
     <string name="lockscreen">Blocco schermo</string>
     <string name="both">Entrambi</string>
     <string name="theme_system">Sistema</string>
@@ -29,7 +29,7 @@
     <string name="grayscale">Scala di grigi</string>
     <string name="crop_images">Ritaglia immagini</string>
     <string name="change_interval">Cambia intervallo</string>
-    <string name="theme_mode">Modalità tema</string>
+    <string name="theme_mode">Tema</string>
     <string name="theme_light">Chiaro</string>
     <string name="theme_dark">Scuro</string>
     <string name="version">Versione</string>
