@@ -3,9 +3,9 @@
     <string name="app_name" translatable="false">Wall You</string>
     <string name="wallhaven" translatable="false">Wallhaven</string>
     <!-- Navigation Drawer -->
-    <string name="favorites">Избранное</string>
+    <string name="favorites">Избранные</string>
     <string name="settings">Настройки</string>
-    <string name="about">Информация</string>
+    <string name="about">О приложении</string>
     <!-- Image Preview -->
     <string name="info">Информация</string>
     <string name="filter">Фильтр</string>
@@ -18,21 +18,21 @@
     <string name="source">Источник</string>
     <string name="creationDate">Дата создания</string>
     <!-- Set wallpaper -->
-    <string name="both">Оба способа</string>
-    <string name="home">Главная</string>
+    <string name="both">На оба экрана</string>
+    <string name="home">Главный экран</string>
     <string name="lockscreen">Экран блокировки</string>
     <!-- Preference categories -->
     <string name="general">Общее</string>
-    <string name="cache">Кеш</string>
+    <string name="cache">Кэш</string>
     <!-- Preferences -->
     <string name="crop_images">Обрезать изображение</string>
-    <string name="coil_cache">Кеш изображений</string>
+    <string name="coil_cache">Кэш изображений</string>
     <string name="wallpaper_changer">Смена обоев</string>
-    <string name="change_interval">Интервал изменений</string>
-    <string name="change_target">Целевые обои</string>
+    <string name="change_interval">Интервал смены обоев</string>
+    <string name="change_target">Поставить обои на ...</string>
     <!-- Theme -->
-    <string name="theme_mode">Тематический режим</string>
-    <string name="theme_system">Система</string>
+    <string name="theme_mode">Тема оформления</string>
+    <string name="theme_system">Системная</string>
     <string name="theme_light">Светлая</string>
     <string name="theme_dark">Тёмная</string>
     <!-- Favorites -->
@@ -47,8 +47,8 @@
     <string name="auto_add_to_favorites">Добавить в избранное при применении</string>
     <string name="reset">Сброс</string>
     <string name="applying_random">Применять случайные обои</string>
-    <string name="local">Локально</string>
+    <string name="local">Локальный</string>
     <string name="choose_dir">Выбрать папку</string>
-    <string name="online">Online</string>
+    <string name="online">Онлайн</string>
     <string name="wallpaper_changer_source">Источник обоев</string>
 </resources>
