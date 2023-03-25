@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="blur">Desfoque</string>
-    <string name="change_target">Alvo de papel de parede</string>
+    <string name="change_target">Definir papel de parede em...</string>
     <string name="favorites">Favoritos</string>
     <string name="settings">Definições</string>
     <string name="about">Sobre</string>
@@ -14,7 +14,7 @@
     <string name="source">Fonte</string>
     <string name="creationDate">Data de criação</string>
     <string name="both">Ambos</string>
-    <string name="home">Casa</string>
+    <string name="home">Tela inicial</string>
     <string name="lockscreen">Ecrã de bloqueio</string>
     <string name="applying_random">Aplicar papel de parede aleatório</string>
     <string name="filter">Filtro</string>
@@ -36,7 +36,7 @@
     <string name="website">Página Web</string>
     <string name="local">Local</string>
     <string name="grayscale">Escala de cinzentos</string>
-    <string name="theme_mode">Modo Tema</string>
+    <string name="theme_mode">Tema</string>
     <string name="theme_system">Sistema</string>
     <string name="choose_dir">Escolher directório</string>
 </resources>
