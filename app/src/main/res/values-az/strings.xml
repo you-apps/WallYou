@@ -12,7 +12,7 @@
     <string name="fileSize">Fayl həcmi</string>
     <string name="source">Mənbə</string>
     <string name="both">Hər ikisi</string>
-    <string name="home">Ev</string>
+    <string name="home">Əsas ekran</string>
     <string name="lockscreen">Kilid ekranı</string>
     <string name="blur">Ləkə</string>
     <string name="grayscale">Boz miqyaslı</string>
@@ -23,7 +23,7 @@
     <string name="coil_cache">Halqa şəkil keşi</string>
     <string name="wallpaper_changer">Divar kağızı dəyişdirici</string>
     <string name="change_interval">Dəyişiklik intervalı</string>
-    <string name="change_target">Divar kağızı hədəfi</string>
+    <string name="change_target">Divar kağızı quraşdırın...</string>
     <string name="theme_system">Sistem</string>
     <string name="theme_light">İşıqlı</string>
     <string name="theme_dark">Qaranlıq</string>
@@ -32,7 +32,7 @@
     <string name="license">Lisenziya</string>
     <string name="website">Veb sayt</string>
     <string name="creationDate">Yaradılma tarixi</string>
-    <string name="theme_mode">Tema rejimi</string>
+    <string name="theme_mode">Tema</string>
     <string name="auto_add_to_favorites">Tətbiq edərkən sevimlilərə əlavə et</string>
     <string name="applying_random">Təsadüfi divar kağızı tətbiqi</string>
     <string name="local">Yerli</string>
