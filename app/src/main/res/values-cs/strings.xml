@@ -13,7 +13,7 @@
     <string name="source">Zdroj</string>
     <string name="creationDate">Datum vytvoření</string>
     <string name="both">Oba</string>
-    <string name="home">Domů</string>
+    <string name="home">Domovská obrazovka</string>
     <string name="lockscreen">Zamykací obrazovka</string>
     <string name="blur">Rozmazání</string>
     <string name="grayscale">Stupně šedi</string>
@@ -24,8 +24,8 @@
     <string name="coil_cache">Mezipaměť obrázků</string>
     <string name="wallpaper_changer">Měnič tapet</string>
     <string name="change_interval">Interval změn</string>
-    <string name="change_target">Cíl tapety</string>
-    <string name="theme_mode">Režim motivu</string>
+    <string name="change_target">Nastavit tapetu na...</string>
+    <string name="theme_mode">Motiv</string>
     <string name="theme_system">Systémový</string>
     <string name="theme_light">Světlý</string>
     <string name="theme_dark">Tmavý</string>
