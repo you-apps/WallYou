@@ -1,2 +1,42 @@
 <?xml version="1.0" encoding="utf-8"?>
-<resources></resources>
+<resources>
+    <string name="choose_dir">Выберыце каталог</string>
+    <string name="no_favorites">Выбраных пакуль няма</string>
+    <string name="applying_random">Ужываць выпадковыя шпалеры</string>
+    <string name="settings">Налады</string>
+    <string name="about">Аб праграме</string>
+    <string name="info">Інфармацыя</string>
+    <string name="add">Дадаць</string>
+    <string name="author">Аўтар</string>
+    <string name="resolution">Дазвол</string>
+    <string name="source">Крыніца</string>
+    <string name="creationDate">Дата стварэння</string>
+    <string name="reset">Скід</string>
+    <string name="general">Агульныя</string>
+    <string name="cache">Кэш</string>
+    <string name="crop_images">Абрэзаць выявы</string>
+    <string name="wallpaper_changer">Змена шпалер</string>
+    <string name="change_interval">Інтэрвал змены</string>
+    <string name="wallpaper_changer_source">Крыніца змены шпалер</string>
+    <string name="online">Анлайн</string>
+    <string name="local">Лакальны</string>
+    <string name="coil_cache">Кэш малюнкаў</string>
+    <string name="change_target">Паставіць шпалеры на ...</string>
+    <string name="theme_system">Сістэмная</string>
+    <string name="theme_light">Светлая</string>
+    <string name="theme_dark">Цёмная</string>
+    <string name="theme_mode">Тэма афармлення</string>
+    <string name="favorites">Выбраныя</string>
+    <string name="filter">Фільтр</string>
+    <string name="fileSize">Памер файла</string>
+    <string name="version">Версія</string>
+    <string name="license">Ліцэнзія</string>
+    <string name="website">Вэб-сайт</string>
+    <string name="auto_add_to_favorites">Дадаць у абранае пры ўжыванні</string>
+    <string name="category">Катэгорыя</string>
+    <string name="home">Галоўны экран</string>
+    <string name="lockscreen">Экран блакавання</string>
+    <string name="grayscale">Адценні шэрага</string>
+    <string name="both">На абодва экраны</string>
+    <string name="blur">Размыццё</string>
+</resources>
