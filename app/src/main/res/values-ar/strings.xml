@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="coil_cache">خبيئة الصور ل‍ Coil</string>
-    <string name="change_target">تعيين الخلفية على ...</string>
+    <string name="change_target">مكان تعيين الخلفية ...</string>
     <string name="theme_mode">سمة</string>
     <string name="theme_system">النظام</string>
     <string name="theme_dark">داكن</string>
@@ -22,7 +22,7 @@
     <string name="fileSize">حجم الملفِّ</string>
     <string name="about">عن التطبيق</string>
     <string name="both">كلاهما</string>
-    <string name="home">الشاشة الرئيسية</string>
+    <string name="home">الشاشة الرئيسة</string>
     <string name="lockscreen">شاشة القفل</string>
     <string name="applying_random">اختيار صورة خلفيَّة عشوائيَّة</string>
     <string name="add">أضف</string>

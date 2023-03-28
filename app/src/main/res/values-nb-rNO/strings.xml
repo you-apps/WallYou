@@ -6,7 +6,7 @@
     <string name="source">Kilde</string>
     <string name="creationDate">Opprettelsesdato</string>
     <string name="both">Begge</string>
-    <string name="home">Hjem</string>
+    <string name="home">Startskjermen</string>
     <string name="lockscreen">Låseskjerm</string>
     <string name="blur">Tilsløring</string>
     <string name="grayscale">Gråskala</string>
@@ -16,8 +16,8 @@
     <string name="crop_images">Beskjær bilder</string>
     <string name="wallpaper_changer">Skjermbildeendrer</string>
     <string name="change_interval">Endringsintervall</string>
-    <string name="change_target">Skjermbildemål</string>
-    <string name="theme_mode">Drakt</string>
+    <string name="change_target">Sett tapet på ...</string>
+    <string name="theme_mode">Tema</string>
     <string name="theme_system">System</string>
     <string name="theme_light">Lys</string>
     <string name="theme_dark">Mørk</string>
@@ -34,4 +34,9 @@
     <string name="resolution">Oppløsning</string>
     <string name="add">Legg til</string>
     <string name="category">Kategori</string>
+    <string name="choose_dir">Velg katalog</string>
+    <string name="applying_random">Bruker tilfeldig bakgrunnsbilde</string>
+    <string name="wallpaper_changer_source">Bakgrunnsvekslerkilde</string>
+    <string name="online">På nett</string>
+    <string name="local">Lokalt</string>
 </resources>
