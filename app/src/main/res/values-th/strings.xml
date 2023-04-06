@@ -1,2 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
-<resources></resources>
+<resources>
+    <string name="resolution">ปณิธาน</string>
+    <string name="favorites">รายการโปรด</string>
+    <string name="settings">การตั้งค่า</string>
+    <string name="add">เพิ่ม</string>
+    <string name="author">ผู้เขียน</string>
+    <string name="theme_mode">ธีม</string>
+    <string name="about">เกี่ยวกับ</string>
+    <string name="info">ข้อมูล</string>
+    <string name="filter">ฟิตเตอร์</string>
+</resources>
