@@ -6,7 +6,7 @@
     <string name="about">Acerca de</string>
     <!-- Image Preview -->
     <string name="info">Info</string>
-    <string name="filter">Filtro</string>
+    <string name="filter">Filtrar</string>
     <string name="add">Añadir</string>
     <!-- Info Dialog -->
     <string name="author">Autor</string>
@@ -44,7 +44,7 @@
     <string name="version">Versión</string>
     <string name="github" translatable="false">GitHub</string>
     <string name="license">Licencia</string>
-    <string name="website">Sitio web</string>
+    <string name="website">Página web</string>
     <string name="applying_random">Aplicar un fondo de pantalla al azar</string>
     <string name="wallpaper_changer_source">Fuente del cambio del fondo de pantalla</string>
     <string name="online">Conectado</string>
