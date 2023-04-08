@@ -6,11 +6,11 @@
     <string name="theme_system">النظام</string>
     <string name="theme_dark">داكن</string>
     <string name="license">الترخيص</string>
-    <string name="website">الموقع</string>
+    <string name="website">موقع الإنترنت</string>
     <string name="no_favorites">لا توجد مفضَّلات بعد</string>
     <string name="auto_add_to_favorites">أضف للمفضَّلات عند التطبيق</string>
     <string name="version">الإصدار</string>
-    <string name="filter">افرز</string>
+    <string name="filter">المرشحات</string>
     <string name="grayscale">تدرُّج الرماديِّ</string>
     <string name="info">معلومات</string>
     <string name="author">المؤلِّف</string>
@@ -30,7 +30,7 @@
     <string name="change_interval">مهلة التغيير</string>
     <string name="reset">أعِد التعيين</string>
     <string name="theme_light">فاتح</string>
-    <string name="favorites">المفضَّلات</string>
+    <string name="favorites">المفضَّلة</string>
     <string name="blur">الضبابيَّة</string>
     <string name="cache">الخبيئة</string>
     <string name="wallpaper_changer">مغيِّر الخلفيَّة</string>
