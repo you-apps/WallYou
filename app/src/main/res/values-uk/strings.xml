@@ -41,7 +41,7 @@
     <string name="version">Версія</string>
     <string name="github" translatable="false">GitHub</string>
     <string name="license">Ліцензія</string>
-    <string name="website">Веб-сайт</string>
+    <string name="website">Вебсайт</string>
     <string name="grayscale">Відтінки сірого</string>
     <string name="blur">Розмиття</string>
     <string name="auto_add_to_favorites">Додавати до списку вибраного під час застосування</string>
