@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name" translatable="false">Wall You</string>
+    <string name="wallhaven" translatable="false">Wallhaven</string>
+    <string name="picsum" translatable="false">Picsum</string>
+    <string name="owalls" translatable="false">OWalls</string>
+    <string name="unsplash" translatable="false">Unsplash</string>
+    <!-- Navigation Drawer -->
+    <string name="favorites">Фаворити</string>
+    <string name="settings">Подешавања</string>
+    <string name="about">О</string>
+    <!-- Image Preview -->
+    <string name="info">Информације</string>
+    <string name="filter">Филтер</string>
+    <string name="add">Додај</string>
+    <!-- Info Dialog -->
+    <string name="author">Аутор</string>
+    <string name="resolution">Резолуција</string>
+    <string name="category">Категорија</string>
+    <string name="fileSize">Величина датотеке</string>
+    <string name="source">Извор</string>
+    <string name="creationDate">Датум креирања</string>
+    <!-- Set Wallpaper -->
+    <string name="both">Оба</string>
+    <string name="home">Почетни екран</string>
+    <string name="lockscreen">Закључани екран</string>
+    <string name="applying_random">Примени насумичну позадину</string>
+    <!-- Image Filters -->
+    <string name="blur">Замагли</string>
+    <string name="grayscale">Сиве боје</string>
+    <string name="reset">Ресетуј</string>
+    <!-- Preference categories -->
+    <string name="general">Опште</string>
+    <string name="cache">Кеширање</string>
+    <!-- Preferences -->
+    <string name="crop_images">Исеци слике</string>
+    <string name="coil_cache">Кеширање посебних слика</string>
+    <string name="wallpaper_changer">Мењање позадина</string>
+    <string name="change_interval">Интервал промене</string>
+    <string name="change_target">Постави позадину на ...</string>
+    <string name="wallpaper_changer_source">Извор за мењање позадине</string>
+    <!-- Wallpaper changer source -->
+    <string name="online">Са Интернета</string>
+    <string name="local">Локално</string>
+    <string name="choose_dir">Изаберите директоријум</string>
+    <!-- Theme -->
+    <string name="theme_mode">Тема</string>
+    <string name="theme_system">Системска</string>
+    <string name="theme_light">Светла</string>
+    <string name="theme_dark">Тамна</string>
+    <!-- Favorites -->
+    <string name="no_favorites">Још увек нема фаворита</string>
+    <string name="auto_add_to_favorites">Додај у фаворите приликом примене</string>
+    <!-- About -->
+    <string name="version">Верзија</string>
+    <string name="github" translatable="false">GitHub</string>
+    <string name="license">Лиценца</string>
+    <string name="website">Сајт</string>
+</resources>
