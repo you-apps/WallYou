@@ -22,7 +22,7 @@
     <string name="home">Главный экран</string>
     <string name="lockscreen">Экран блокировки</string>
     <!-- Preference categories -->
-    <string name="general">Общее</string>
+    <string name="general">Основные</string>
     <string name="cache">Кэш</string>
     <!-- Preferences -->
     <string name="crop_images">Обрезать изображение</string>
