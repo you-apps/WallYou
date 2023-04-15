@@ -2,7 +2,7 @@
 <resources>
     <!-- Navigation Drawer -->
     <string name="favorites">Favoritos</string>
-    <string name="settings">Configuración</string>
+    <string name="settings">Ajustes</string>
     <string name="about">Acerca de</string>
     <!-- Image Preview -->
     <string name="info">Info</string>
