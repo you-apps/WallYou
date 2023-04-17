@@ -37,6 +37,6 @@
     <string name="home">Галоўны экран</string>
     <string name="lockscreen">Экран блакавання</string>
     <string name="grayscale">Адценні шэрага</string>
-    <string name="both">На абодва экраны</string>
+    <string name="both">У абодва размяшчэнні</string>
     <string name="blur">Размыццё</string>
 </resources>
