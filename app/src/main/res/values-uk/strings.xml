@@ -5,7 +5,7 @@
     <!-- Navigation Drawer -->
     <string name="favorites">Вибране</string>
     <string name="settings">Налаштування</string>
-    <string name="about">Про застосунок</string>
+    <string name="about">Про програму</string>
     <!-- Image Preview -->
     <string name="info">Інформація</string>
     <string name="filter">Фільтр</string>
