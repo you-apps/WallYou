@@ -5,7 +5,7 @@
     <!-- Navigation Drawer -->
     <string name="favorites">Избранные</string>
     <string name="settings">Настройки</string>
-    <string name="about">О приложении</string>
+    <string name="about">О программе</string>
     <!-- Image Preview -->
     <string name="info">Информация</string>
     <string name="filter">Фильтр</string>
