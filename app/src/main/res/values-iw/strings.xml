@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="general">כללי</string>
-    <string name="about">על אודות</string>
+    <string name="about">על היישומון</string>
     <string name="favorites">מועדפים</string>
     <string name="settings">הגדרות</string>
     <string name="info">מידע</string>
