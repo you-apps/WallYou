@@ -4,7 +4,7 @@
     <string name="settings">Tənzimləmələr</string>
     <string name="about">Haqqında</string>
     <string name="info">Məlumat</string>
-    <string name="filter">Çeşidlə</string>
+    <string name="filter">Filtr</string>
     <string name="add">Əlavə et</string>
     <string name="author">Müəllif</string>
     <string name="resolution">Görüntü imkanı</string>
@@ -30,7 +30,7 @@
     <string name="no_favorites">Hələ sevimlilər yoxdur</string>
     <string name="version">Versiya</string>
     <string name="license">Lisenziya</string>
-    <string name="website">Veb sayt</string>
+    <string name="website">Veb Sayt</string>
     <string name="creationDate">Yaradılma tarixi</string>
     <string name="theme_mode">Tema</string>
     <string name="auto_add_to_favorites">Tətbiq edərkən sevimlilərə əlavə et</string>
