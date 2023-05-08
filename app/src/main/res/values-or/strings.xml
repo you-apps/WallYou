@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="favorites">ପସନ୍ଦ ଗୁଡିକ</string>
-    <string name="settings">ସେଟିଂସମୂହ</string>
-    <string name="about">ପ୍ରୋଗ୍ରାମ୍ ବିଷୟରେ</string>
+    <string name="settings">ସେଟିଂ</string>
+    <string name="about">ଵିଷୟରେ</string>
     <string name="info">ସୂଚନା</string>
     <string name="filter">ଫିଲ୍ଟର୍</string>
     <string name="category">ବର୍ଗ</string>
