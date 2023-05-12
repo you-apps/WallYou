@@ -14,11 +14,11 @@
     <string name="source">Fonte</string>
     <string name="creationDate">Data de criação</string>
     <string name="both">Ambos</string>
-    <string name="home">Tela inicial</string>
+    <string name="home">Ecrã inicial</string>
     <string name="lockscreen">Ecrã de bloqueio</string>
     <string name="applying_random">Aplicar papel de parede aleatório</string>
     <string name="filter">Filtro</string>
-    <string name="reset">Reiniciar</string>
+    <string name="reset">Repor</string>
     <string name="general">Geral</string>
     <string name="cache">Cache</string>
     <string name="crop_images">Imagens de corte</string>
