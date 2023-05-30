@@ -2,4 +2,6 @@
 <resources>
     <string name="favorites">पसंदीदा</string>
     <string name="settings">समायोजन</string>
+    <string name="theme_light">रोशनी</string>
+    <string name="theme_dark">अँधेरा</string>
 </resources>
