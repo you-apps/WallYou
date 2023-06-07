@@ -20,7 +20,9 @@ object WorkerHelper {
 
         val networkType = if (
             Preferences.getChangerSource() == WallpaperSource.LOCAL
-        ) NetworkType.NOT_REQUIRED else NetworkType.CONNECTED
+        ) {
+            NetworkType.NOT_REQUIRED
+        } else NetworkType.CONNECTED
 
         val job = PeriodicWorkRequestBuilder<BackgroundWorker>(
             Preferences.getString(
