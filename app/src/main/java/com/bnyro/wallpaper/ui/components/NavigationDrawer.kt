@@ -1,5 +1,6 @@
 package com.bnyro.wallpaper.ui.components
 
+import android.os.Bundle
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.ColumnScope
 import androidx.compose.foundation.layout.Row
@@ -24,6 +25,7 @@ import androidx.compose.material3.Surface
 import androidx.compose.material3.Text
 import androidx.compose.material3.contentColorFor
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
@@ -40,6 +42,7 @@ import androidx.compose.ui.unit.Dp
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import androidx.navigation.NavController
+import androidx.navigation.NavDestination
 import com.bnyro.wallpaper.R
 import com.bnyro.wallpaper.ui.nav.DrawerScreens
 import kotlinx.coroutines.launch
@@ -56,6 +59,12 @@ fun NavigationDrawer(
 
     var selectedItem by remember {
         mutableStateOf<DrawerScreens>(DrawerScreens.Wallhaven)
+    }
+
+    LaunchedEffect(Unit) {
+        navController.addOnDestinationChangedListener { _, destination, _ ->
+            pages.firstOrNull { it.route == destination.route }?.let { selectedItem = it }
+        }
     }
 
     ModalNavigationDrawer(
