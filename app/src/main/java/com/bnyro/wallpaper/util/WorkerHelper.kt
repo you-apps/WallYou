@@ -12,13 +12,15 @@ import java.util.concurrent.TimeUnit
 object WorkerHelper {
     private const val JOB_NAME = "WallpaperChanger"
 
-    fun enqueue(context: Context, verbose: Boolean = false) {
+    fun enqueue(context: Context, forceUpdate: Boolean = false) {
         if (!Preferences.getBoolean(Preferences.wallpaperChangerKey, false)) {
             cancel(context)
             return
         }
 
-        val networkType = if (Preferences.getChangerSource() == WallpaperSource.LOCAL) NetworkType.NOT_REQUIRED else NetworkType.CONNECTED
+        val networkType = if (
+            Preferences.getChangerSource() == WallpaperSource.LOCAL
+        ) NetworkType.NOT_REQUIRED else NetworkType.CONNECTED
 
         val job = PeriodicWorkRequestBuilder<BackgroundWorker>(
             Preferences.getString(
@@ -32,7 +34,7 @@ object WorkerHelper {
                 .build()
         ).build()
 
-        val policy = if (verbose) ExistingPeriodicWorkPolicy.REPLACE else ExistingPeriodicWorkPolicy.KEEP
+        val policy = if (forceUpdate) ExistingPeriodicWorkPolicy.UPDATE else ExistingPeriodicWorkPolicy.KEEP
         WorkManager.getInstance(context)
             .enqueueUniquePeriodicWork(JOB_NAME, policy, job)
     }
