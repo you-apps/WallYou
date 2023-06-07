@@ -48,7 +48,7 @@ class WhApi : Api() {
                 author = null,
                 creationDate = it.created_at
             )
-        } ?: listOf()
+        }.orEmpty()
     }
 
     override suspend fun getRandomWallpaperUrl(): String? {

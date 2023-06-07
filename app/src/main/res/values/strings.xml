@@ -5,6 +5,7 @@
     <string name="picsum" translatable="false">Picsum</string>
     <string name="owalls" translatable="false">OWalls</string>
     <string name="unsplash" translatable="false">Unsplash</string>
+    <string name="miwalls" translatable="false">Mi Carousel</string>
     <!-- Navigation Drawer -->
     <string name="favorites">Favorites</string>
     <string name="settings">Settings</string>

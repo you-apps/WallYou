@@ -5,6 +5,7 @@ import androidx.compose.material.icons.filled.Air
 import androidx.compose.material.icons.filled.Favorite
 import androidx.compose.material.icons.filled.Info
 import androidx.compose.material.icons.filled.Landscape
+import androidx.compose.material.icons.filled.PhotoAlbum
 import androidx.compose.material.icons.filled.Pix
 import androidx.compose.material.icons.filled.Settings
 import androidx.compose.material.icons.filled.WaterDrop
@@ -23,12 +24,13 @@ sealed class DrawerScreens(
     object Unsplash : DrawerScreens(R.string.unsplash, "us", Icons.Default.WaterDrop)
 
     object OWalls : DrawerScreens(R.string.owalls, "ow", Icons.Default.Air)
+    object MiWalls : DrawerScreens(R.string.miwalls, "mi", Icons.Default.PhotoAlbum)
     object Favorites : DrawerScreens(R.string.favorites, "favorites", Icons.Default.Favorite, true)
     object Settings : DrawerScreens(R.string.settings, "settings", Icons.Default.Settings, true)
     object About : DrawerScreens(R.string.about, "about", Icons.Default.Info)
 
     companion object {
-        val apiScreens = listOf(Wallhaven, Unsplash, OWalls, Picsum)
+        val apiScreens = listOf(Wallhaven, Unsplash, OWalls, Picsum, MiWalls)
         val screens = listOf(*apiScreens.toTypedArray(), Favorites, Settings, About)
     }
 }

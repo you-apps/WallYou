@@ -46,6 +46,11 @@ fun AppNavHost(
             viewModel.api = ApiHolder.owApi
             WallpaperPage(viewModel)
         }
+        composable(DrawerScreens.MiWalls.route) {
+            viewModel.titleResource = R.string.miwalls
+            viewModel.api = ApiHolder.miApi
+            WallpaperPage(viewModel)
+        }
         composable(DrawerScreens.Favorites.route) {
             viewModel.titleResource = R.string.favorites
             FavoritesPage()

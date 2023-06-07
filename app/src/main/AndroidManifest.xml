@@ -7,6 +7,7 @@
     <uses-permission android:name="android.permission.SET_WALLPAPER_HINTS" />
     <uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED" />
 
+    <!-- Clear text traffic required in order to use Mi Walls -->
     <application
         android:name=".App"
         android:allowBackup="true"
@@ -17,6 +18,7 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.WallYou"
+        android:usesCleartextTraffic="true"
         tools:targetApi="31">
 
         <activity

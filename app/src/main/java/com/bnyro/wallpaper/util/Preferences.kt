@@ -2,6 +2,7 @@ package com.bnyro.wallpaper.util
 
 import android.content.Context
 import android.content.SharedPreferences
+import com.bnyro.wallpaper.api.mi.MiApi
 import com.bnyro.wallpaper.api.ow.OwApi
 import com.bnyro.wallpaper.api.ps.PsApi
 import com.bnyro.wallpaper.api.us.UsApi
@@ -48,6 +49,7 @@ object Preferences {
         DrawerScreens.Picsum.route -> PsApi()
         DrawerScreens.OWalls.route -> OwApi()
         DrawerScreens.Unsplash.route -> UsApi()
+        DrawerScreens.MiWalls.route -> MiApi()
         else -> WhApi()
     }
 
