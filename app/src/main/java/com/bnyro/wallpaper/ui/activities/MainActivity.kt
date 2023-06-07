@@ -14,6 +14,7 @@ import androidx.compose.material3.Text
 import androidx.compose.material3.TopAppBar
 import androidx.compose.material3.rememberDrawerState
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.runtime.rememberCoroutineScope
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.res.stringResource
@@ -27,6 +28,7 @@ import com.bnyro.wallpaper.ui.models.MainModel
 import com.bnyro.wallpaper.ui.nav.AppNavHost
 import com.bnyro.wallpaper.ui.nav.DrawerScreens
 import com.bnyro.wallpaper.ui.theme.WallYouTheme
+import com.bnyro.wallpaper.util.Preferences
 import kotlinx.coroutines.launch
 
 class MainActivity : BaseActivity() {
@@ -45,14 +47,26 @@ class MainActivity : BaseActivity() {
 private fun MainContent() {
     val viewModel: MainModel = viewModel()
     val navController = rememberNavController()
+    val scope = rememberCoroutineScope()
 
     val drawerState = rememberDrawerState(DrawerValue.Closed)
-    val scope = rememberCoroutineScope()
+    val pages = DrawerScreens.screens
+
+    // navigate to the last tab opened tab
+    LaunchedEffect(navController) {
+        val lastSelectedTab = Preferences.getString(Preferences.startTabKey, "")
+        val initialPage = pages.firstOrNull { it.route == lastSelectedTab }
+        initialPage?.route?.let { navController.navigate(it) }
+        navController.addOnDestinationChangedListener { _, destination, _ ->
+            if (!DrawerScreens.apiScreens.any { it.route == destination.route }) return@addOnDestinationChangedListener
+            Preferences.edit { putString(Preferences.startTabKey, destination.route) }
+        }
+    }
 
     NavigationDrawer(
         drawerState = drawerState,
         navController = navController,
-        pages = DrawerScreens.screens
+        pages = pages
     ) {
         Scaffold(
             topBar = {

@@ -1,6 +1,5 @@
 package com.bnyro.wallpaper.ui.components
 
-import android.os.Bundle
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.ColumnScope
 import androidx.compose.foundation.layout.Row
@@ -42,9 +41,9 @@ import androidx.compose.ui.unit.Dp
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import androidx.navigation.NavController
-import androidx.navigation.NavDestination
 import com.bnyro.wallpaper.R
 import com.bnyro.wallpaper.ui.nav.DrawerScreens
+import com.bnyro.wallpaper.util.Preferences
 import kotlinx.coroutines.launch
 
 @OptIn(ExperimentalMaterial3Api::class)
@@ -58,7 +57,8 @@ fun NavigationDrawer(
     val scope = rememberCoroutineScope()
 
     var selectedItem by remember {
-        mutableStateOf<DrawerScreens>(DrawerScreens.Wallhaven)
+        val initialPage = pages.firstOrNull { navController.currentDestination?.route == it.route }
+        mutableStateOf(initialPage ?: DrawerScreens.Wallhaven)
     }
 
     LaunchedEffect(Unit) {

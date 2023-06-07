@@ -24,6 +24,7 @@ object Preferences {
     const val blurKey = "blur"
     const val autoChangerSourceKey = "autoChangerSource"
     const val localWallpaperDirKey = "localWallpaperDir"
+    const val startTabKey = "startTab"
 
     const val defaultDiskCacheSize = 128L * 1024 * 1024
     const val defaultWallpaperChangeInterval = 15L
