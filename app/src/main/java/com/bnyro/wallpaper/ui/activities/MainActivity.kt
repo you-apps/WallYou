@@ -56,7 +56,7 @@ private fun MainContent() {
     LaunchedEffect(navController) {
         val lastSelectedTab = Preferences.getString(Preferences.startTabKey, "")
         val initialPage = pages.firstOrNull { it.route == lastSelectedTab }
-        initialPage?.route?.let { navController.navigate(it) }
+        initialPage?.route?.runCatching { navController.navigate(this) }
         navController.addOnDestinationChangedListener { _, destination, _ ->
             if (!DrawerScreens.apiScreens.any { it.route == destination.route }) return@addOnDestinationChangedListener
             Preferences.edit { putString(Preferences.startTabKey, destination.route) }
