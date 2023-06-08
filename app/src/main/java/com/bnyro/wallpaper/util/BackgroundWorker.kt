@@ -21,13 +21,15 @@ class BackgroundWorker(
             WallpaperSource.LOCAL -> getLocalWallpaper()
         } ?: return Result.failure()
 
+        val wallpaperMode = Preferences.getString(
+            Preferences.wallpaperChangerTargetKey,
+            Preferences.defaultWallpaperChangerTarget.toString()
+        )?.toInt() ?: Preferences.defaultWallpaperChangerTarget
+
         WallpaperHelper.setWallpaper(
             applicationContext,
             BitmapProcessor.processBitmapByPrefs(bitmap),
-            Preferences.getString(
-                Preferences.wallpaperChangerTargetKey,
-                Preferences.defaultWallpaperChangerTarget.toString()
-            )?.toInt() ?: Preferences.defaultWallpaperChangerTarget
+            wallpaperMode
         )
 
         return Result.success()
@@ -37,7 +39,7 @@ class BackgroundWorker(
         return withContext(Dispatchers.IO) {
             val url = runCatching {
                 Preferences.getWallpaperChangerApi().getRandomWallpaperUrl()
-            }.getOrNull() ?: return@withContext null
+            }.getOrElse { return@withContext null }
             ImageHelper.getSuspend(applicationContext, url, true)
         }
     }

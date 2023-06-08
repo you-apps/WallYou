@@ -11,15 +11,11 @@ import com.bnyro.wallpaper.constants.WallpaperMode
 object WallpaperHelper {
     @RequiresApi(Build.VERSION_CODES.N)
     private fun setWallpaperUp(context: Context, imageBitmap: Bitmap, mode: Int) {
-        val screenWidth = context.resources.displayMetrics.widthPixels
-        val screenHeight = context.resources.displayMetrics.heightPixels
-
+        val metrics = context.resources.displayMetrics
         val wallpaperManager = WallpaperManager.getInstance(context)
-
-        wallpaperManager.suggestDesiredDimensions(screenWidth, screenHeight)
+        wallpaperManager.suggestDesiredDimensions(metrics.widthPixels, metrics.heightPixels)
 
         if (!wallpaperManager.isWallpaperSupported) return
-
         wallpaperManager.setBitmap(imageBitmap, null, true, mode)
     }
 
@@ -30,12 +26,11 @@ object WallpaperHelper {
 
     fun setWallpaper(context: Context, bitmap: Bitmap, mode: Int) {
         Thread {
-            val resizedBitmap = if (
-                Preferences.getBoolean(
-                    Preferences.cropImagesKey,
-                    false
-                )
-            ) {
+            val cropImages = Preferences.getBoolean(
+                Preferences.cropImagesKey,
+                false
+            )
+            val resizedBitmap = if (cropImages) {
                 getCroppedBitmap(bitmap, context.resources.displayMetrics)
             } else {
                 getResizedBitmap(bitmap, context.resources.displayMetrics)
