@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="author">작가</string>
-    <string name="about">정보</string>
+    <string name="author">제작자</string>
+    <string name="about">앱 정보</string>
     <string name="info">정보</string>
     <string name="filter">필터</string>
     <string name="add">추가</string>
