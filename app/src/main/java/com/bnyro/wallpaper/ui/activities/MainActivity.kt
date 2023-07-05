@@ -34,7 +34,6 @@ import kotlinx.coroutines.launch
 class MainActivity : BaseActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        val viewModel: MainModel = ViewModelProvider(this).get()
 
         showContent {
             MainContent()
