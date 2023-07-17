@@ -8,7 +8,7 @@
     <!-- Navigation Drawer -->
     <string name="favorites">Фаворити</string>
     <string name="settings">Подешавања</string>
-    <string name="about">О</string>
+    <string name="about">О апликацији</string>
     <!-- Image Preview -->
     <string name="info">Информације</string>
     <string name="filter">Филтер</string>
