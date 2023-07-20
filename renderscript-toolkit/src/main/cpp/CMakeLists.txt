@@ -116,3 +116,6 @@ target_link_libraries(# Specifies the target library.
 
 include(AndroidNdkModules)
 android_ndk_import_module_cpufeatures()
+
+# Needed for reproducible builds via F-Droid
+add_link_options(LINKER:--build-id=none)
