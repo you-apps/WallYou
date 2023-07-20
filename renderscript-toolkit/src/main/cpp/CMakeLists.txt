@@ -23,6 +23,9 @@ cmake_minimum_required(VERSION 3.10.2)
 
 project("RenderScript Toolkit")
 
+# Needed for reproducible builds via F-Droid
+add_link_options(LINKER:--build-id=none)
+
 set(can_use_assembler TRUE)
 enable_language(ASM)
 add_definitions(-v -DANDROID -DOC_ARM_ASM)
@@ -116,6 +119,3 @@ target_link_libraries(# Specifies the target library.
 
 include(AndroidNdkModules)
 android_ndk_import_module_cpufeatures()
-
-# Needed for reproducible builds via F-Droid
-add_link_options(LINKER:--build-id=none)
