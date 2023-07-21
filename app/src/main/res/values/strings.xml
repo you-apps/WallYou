@@ -6,6 +6,7 @@
     <string name="owalls" translatable="false">OWalls</string>
     <string name="unsplash" translatable="false">Unsplash</string>
     <string name="miwalls" translatable="false">Mi Carousel</string>
+    <string name="bing_daily" translatable="false">Bing daily</string>
     <!-- Navigation Drawer -->
     <string name="favorites">Favorites</string>
     <string name="settings">Settings</string>

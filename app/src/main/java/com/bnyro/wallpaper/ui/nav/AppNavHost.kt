@@ -51,6 +51,11 @@ fun AppNavHost(
             viewModel.api = ApiHolder.miApi
             WallpaperPage(viewModel)
         }
+        composable(DrawerScreens.BingDaily.route) {
+            viewModel.titleResource = R.string.bing_daily
+            viewModel.api = ApiHolder.biApi
+            WallpaperPage(viewModel)
+        }
         composable(DrawerScreens.Favorites.route) {
             viewModel.titleResource = R.string.favorites
             FavoritesPage()
