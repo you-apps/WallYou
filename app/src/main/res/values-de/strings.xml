@@ -1,2 +1,42 @@
 <?xml version="1.0" encoding="utf-8"?>
-<resources></resources>
+<resources>
+    <string name="crop_images">Bilder zuschneiden</string>
+    <string name="category">Kategorie</string>
+    <string name="source">Quelle</string>
+    <string name="creationDate">Erstellungsdatum</string>
+    <string name="lockscreen">Sperrbildschirm</string>
+    <string name="applying_random">Zufälliges Hintergrundbild wird angewendet</string>
+    <string name="wallpaper_changer">Hintergrundbildwechsler</string>
+    <string name="change_target">Hintergrundbild anwenden auf ...</string>
+    <string name="coil_cache">Bildzwischenspeicher</string>
+    <string name="local">Lokal</string>
+    <string name="choose_dir">Pfad auswählen</string>
+    <string name="theme_mode">Theme</string>
+    <string name="theme_dark">Dunkel</string>
+    <string name="no_favorites">Bisher keine Favoriten</string>
+    <string name="auto_add_to_favorites">Beim Anwenden zu Favoriten hinzufügen</string>
+    <string name="filter">Filter</string>
+    <string name="add">Hinzufügen</string>
+    <string name="version">Version</string>
+    <string name="license">Lizenz</string>
+    <string name="website">Website</string>
+    <string name="favorites">Favoriten</string>
+    <string name="author">Autor</string>
+    <string name="settings">Einstellungen</string>
+    <string name="about">Über</string>
+    <string name="info">Info</string>
+    <string name="resolution">Auflösung</string>
+    <string name="fileSize">Dateigröße</string>
+    <string name="both">Beide</string>
+    <string name="cache">Zwischenspeicher</string>
+    <string name="home">Startbildschirm</string>
+    <string name="reset">Zurücksetzen</string>
+    <string name="blur">Weichzeichnen</string>
+    <string name="change_interval">Intervall ändern</string>
+    <string name="grayscale">Graustufen</string>
+    <string name="general">Allgemein</string>
+    <string name="wallpaper_changer_source">Hintergrundbildwechslerquelle</string>
+    <string name="online">Online</string>
+    <string name="theme_system">System</string>
+    <string name="theme_light">Hell</string>
+</resources>
