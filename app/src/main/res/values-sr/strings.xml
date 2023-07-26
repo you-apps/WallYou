@@ -37,7 +37,6 @@
     <string name="coil_cache">Кеширање посебних слика</string>
     <string name="wallpaper_changer">Мењање позадина</string>
     <string name="change_interval">Интервал промене</string>
-    <string name="change_target">Постави позадину на ...</string>
     <string name="wallpaper_changer_source">Извор за мењање позадине</string>
     <!-- Wallpaper changer source -->
     <string name="online">Са Интернета</string>

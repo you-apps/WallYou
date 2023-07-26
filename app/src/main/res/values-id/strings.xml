@@ -29,7 +29,6 @@
     <string name="coil_cache">Cache gambar koil</string>
     <string name="wallpaper_changer">Pengubah wallpaper</string>
     <string name="change_interval">Ubah interval</string>
-    <string name="change_target">Setel wallpaper di ...</string>
     <!-- Theme -->
     <string name="theme_mode">Tema</string>
     <string name="theme_system">Sistem</string>

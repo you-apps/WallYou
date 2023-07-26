@@ -19,7 +19,7 @@ object WorkerHelper {
         }
 
         val networkType = if (
-            Preferences.getChangerSource() == WallpaperSource.LOCAL
+            Preferences.getWallpaperConfigs().any { it.source != WallpaperSource.LOCAL }
         ) {
             NetworkType.NOT_REQUIRED
         } else NetworkType.CONNECTED

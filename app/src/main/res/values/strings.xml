@@ -39,8 +39,9 @@
     <string name="coil_cache">Coil image cache</string>
     <string name="wallpaper_changer">Wallpaper changer</string>
     <string name="change_interval">Change interval</string>
-    <string name="change_target">Set wallpaper on ...</string>
     <string name="wallpaper_changer_source">Wallpaper changer source</string>
+    <string name="combine_wallpaper_changers">Combined wallpaper changer</string>
+    <string name="combine_wallpaper_changers_summary">Use the same wallpaper for home and lockscreen.</string>
     <!-- Wallpaper changer source -->
     <string name="online">Online</string>
     <string name="local">Local</string>

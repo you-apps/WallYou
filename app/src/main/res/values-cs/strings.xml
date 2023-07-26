@@ -24,7 +24,6 @@
     <string name="coil_cache">Mezipaměť obrázků</string>
     <string name="wallpaper_changer">Měnič tapet</string>
     <string name="change_interval">Interval změn</string>
-    <string name="change_target">Nastavit tapetu na...</string>
     <string name="theme_mode">Motiv</string>
     <string name="theme_system">Systémový</string>
     <string name="theme_light">Světlý</string>

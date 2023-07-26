@@ -6,7 +6,7 @@ import android.graphics.Bitmap
 import android.os.Build
 import android.util.DisplayMetrics
 import androidx.annotation.RequiresApi
-import com.bnyro.wallpaper.constants.WallpaperMode
+import com.bnyro.wallpaper.enums.WallpaperTarget
 
 object WallpaperHelper {
     @RequiresApi(Build.VERSION_CODES.N)
@@ -24,7 +24,7 @@ object WallpaperHelper {
         wallpaperManager.setBitmap(imageBitmap)
     }
 
-    fun setWallpaper(context: Context, bitmap: Bitmap, mode: Int) {
+    fun setWallpaper(context: Context, bitmap: Bitmap, mode: WallpaperTarget) {
         Thread {
             val cropImages = Preferences.getBoolean(
                 Preferences.cropImagesKey,
@@ -36,10 +36,10 @@ object WallpaperHelper {
                 getResizedBitmap(bitmap, context.resources.displayMetrics)
             }
             if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.N) {
-                if (mode in listOf(WallpaperMode.BOTH, WallpaperMode.HOME)) {
+                if (mode in listOf(WallpaperTarget.BOTH, WallpaperTarget.HOME)) {
                     setWallpaperUp(context, resizedBitmap, WallpaperManager.FLAG_SYSTEM)
                 }
-                if (mode in listOf(WallpaperMode.BOTH, WallpaperMode.LOCK)) {
+                if (mode in listOf(WallpaperTarget.BOTH, WallpaperTarget.LOCK)) {
                     setWallpaperUp(context, resizedBitmap, WallpaperManager.FLAG_LOCK)
                 }
             } else {

@@ -5,6 +5,7 @@ import android.graphics.Bitmap
 import androidx.work.CoroutineWorker
 import androidx.work.WorkerParameters
 import com.bnyro.wallpaper.db.DatabaseHolder
+import com.bnyro.wallpaper.enums.WallpaperConfig
 import com.bnyro.wallpaper.enums.WallpaperSource
 import com.bnyro.wallpaper.ext.awaitQuery
 import kotlinx.coroutines.Dispatchers
@@ -15,30 +16,32 @@ class BackgroundWorker(
     workerParameters: WorkerParameters
 ) : CoroutineWorker(applicationContext, workerParameters) {
     override suspend fun doWork(): Result {
-        val bitmap = when (Preferences.getChangerSource()) {
-            WallpaperSource.ONLINE -> getOnlineWallpaper()
-            WallpaperSource.FAVORITES -> getFavoritesWallpaper()
-            WallpaperSource.LOCAL -> getLocalWallpaper()
-        } ?: return Result.failure()
-
-        val wallpaperMode = Preferences.getString(
-            Preferences.wallpaperChangerTargetKey,
-            Preferences.defaultWallpaperChangerTarget.toString()
-        )?.toInt() ?: Preferences.defaultWallpaperChangerTarget
-
-        WallpaperHelper.setWallpaper(
-            applicationContext,
-            BitmapProcessor.processBitmapByPrefs(bitmap),
-            wallpaperMode
-        )
+        Preferences.getWallpaperConfigs().forEach {
+            runWallpaperChanger(it)
+        }
 
         return Result.success()
     }
 
-    private suspend fun getOnlineWallpaper(): Bitmap? {
+    private suspend fun runWallpaperChanger(config: WallpaperConfig) {
+        val bitmap = when (config.source) {
+            WallpaperSource.ONLINE -> getOnlineWallpaper(config)
+            WallpaperSource.FAVORITES -> getFavoritesWallpaper()
+            WallpaperSource.LOCAL -> getLocalWallpaper(config)
+            else -> return
+        } ?: return
+
+        WallpaperHelper.setWallpaper(
+            applicationContext,
+            BitmapProcessor.processBitmapByPrefs(bitmap),
+            config.target
+        )
+    }
+
+    private suspend fun getOnlineWallpaper(config: WallpaperConfig): Bitmap? {
         return withContext(Dispatchers.IO) {
             val url = runCatching {
-                Preferences.getWallpaperChangerApi().getRandomWallpaperUrl()
+                Preferences.getApiByRoute(config.apiRoute.orEmpty()).getRandomWallpaperUrl()
             }.getOrElse { return@withContext null }
             ImageHelper.getSuspend(applicationContext, url, true)
         }
@@ -51,9 +54,10 @@ class BackgroundWorker(
         return ImageHelper.getSuspend(applicationContext, favoriteUrl, true)
     }
 
-    private fun getLocalWallpaper(): Bitmap? {
+    private fun getLocalWallpaper(config: WallpaperConfig): Bitmap? {
         return runCatching {
-            val wallpaper = LocalWallpaperHelper.getLocalWalls(applicationContext).randomOrNull() ?: return null
+            val wallpaper = LocalWallpaperHelper.getLocalWalls(applicationContext, config)
+                .randomOrNull() ?: return null
             ImageHelper.getLocalImage(applicationContext, wallpaper.uri)
         }.getOrNull()
     }

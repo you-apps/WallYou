@@ -21,7 +21,6 @@
     <string name="coil_cache">Tamanho do cache de imagem</string>
     <string name="wallpaper_changer">Mudança de papel de parede</string>
     <string name="change_interval">Intervalo de mudança</string>
-    <string name="change_target">Definir papel de parede em...</string>
     <string name="theme_mode">Tema</string>
     <string name="theme_system">Sistema</string>
     <string name="no_favorites">Ainda não há favoritos</string>

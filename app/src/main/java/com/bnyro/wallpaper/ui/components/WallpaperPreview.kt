@@ -42,6 +42,7 @@ import androidx.palette.graphics.Palette
 import com.bnyro.wallpaper.R
 import com.bnyro.wallpaper.db.DatabaseHolder.Companion.Database
 import com.bnyro.wallpaper.db.obj.Wallpaper
+import com.bnyro.wallpaper.enums.WallpaperTarget
 import com.bnyro.wallpaper.ext.awaitQuery
 import com.bnyro.wallpaper.ext.query
 import com.bnyro.wallpaper.util.*
@@ -50,7 +51,6 @@ import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 
-@OptIn(ExperimentalComposeUiApi::class)
 @Composable
 fun WallpaperPreview(
     wallpaper: Wallpaper,
@@ -226,7 +226,7 @@ fun WallpaperPreview(
             onDismissRequest = {
                 showModeSelection = false
             },
-            onClick = {
+            onClick = { index ->
                 if (Preferences.getBoolean(Preferences.autoAddToFavoritesKey, false)) {
                     liked = true
                     awaitQuery {
@@ -237,7 +237,7 @@ fun WallpaperPreview(
                     WallpaperHelper.setWallpaper(
                         context.applicationContext,
                         bitmap!!,
-                        it
+                        WallpaperTarget.values()[index]
                     )
                 }
                 showModeSelection = false

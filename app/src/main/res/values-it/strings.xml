@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="change_target">Imposta lo sfondo su...</string>
     <string name="coil_cache">Cache immagine Coil</string>
     <string name="auto_add_to_favorites">Aggiungi ai preferiti quando applichi</string>
     <string name="filter">Filtra</string>

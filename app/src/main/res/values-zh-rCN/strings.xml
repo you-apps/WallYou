@@ -29,7 +29,6 @@
     <string name="coil_cache">Coil 图像缓存</string>
     <string name="wallpaper_changer">壁纸更换器</string>
     <string name="change_interval">更换间隔</string>
-    <string name="change_target">设置壁纸...</string>
     <!-- Theme -->
     <string name="theme_mode">主题</string>
     <string name="theme_system">跟随系统</string>

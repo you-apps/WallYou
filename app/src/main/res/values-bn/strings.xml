@@ -27,7 +27,6 @@
     <string name="coil_cache">ক্যাশের সাইজ</string>
     <string name="wallpaper_changer">ওয়ালপেপার চেঞ্জার</string>
     <string name="change_interval">পরিবর্তনের সময়</string>
-    <string name="change_target">ওয়ালপেপার সেট করুন...</string>
     <!-- Theme -->
     <string name="theme_mode">থিম</string>
     <string name="theme_system">স্টিস্টেম</string>

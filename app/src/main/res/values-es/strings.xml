@@ -31,7 +31,6 @@
     <string name="coil_cache">Caché de imagen de bobina</string>
     <string name="wallpaper_changer">Cambiador de papel tapiz</string>
     <string name="change_interval">Intervalo de cambio</string>
-    <string name="change_target">Establecer fondo de pantalla en...</string>
     <!-- Theme -->
     <string name="theme_mode">Tema</string>
     <string name="theme_system">Sistema</string>

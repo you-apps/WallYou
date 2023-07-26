@@ -32,7 +32,6 @@
     <string name="about">O aplikacji</string>
     <string name="theme_light">Jasny</string>
     <string name="wallpaper_changer">Zmieniacz tapet</string>
-    <string name="change_target">Ustaw tapetę na...</string>
     <string name="choose_dir">Wybierz katalog</string>
     <string name="applying_random">Stosowanie losowej tapety</string>
     <string name="wallpaper_changer_source">Źródło zmieniacza tapet</string>

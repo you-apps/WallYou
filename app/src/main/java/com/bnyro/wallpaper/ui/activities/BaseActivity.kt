@@ -10,7 +10,7 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.lifecycle.ViewModelProvider
 import androidx.lifecycle.get
-import com.bnyro.wallpaper.constants.ThemeMode
+import com.bnyro.wallpaper.enums.ThemeMode
 import com.bnyro.wallpaper.ui.models.MainModel
 import com.bnyro.wallpaper.ui.theme.WallYouTheme
 

@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="coil_cache">خبيئة الصور ل‍ Coil</string>
-    <string name="change_target">مكان تعيين الخلفية ...</string>
     <string name="theme_mode">سمة</string>
     <string name="theme_system">النظام</string>
     <string name="theme_dark">داكن</string>

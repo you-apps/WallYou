@@ -17,7 +17,7 @@ import com.bnyro.wallpaper.util.Preferences
 
 @Composable
 fun ListPreference(
-    prefKey: String,
+    prefKey: String?,
     title: String,
     entries: List<String>,
     values: List<String>,
@@ -28,11 +28,11 @@ fun ListPreference(
         mutableStateOf(false)
     }
 
-    val indexOfCurrent = values.indexOf(Preferences.getString(prefKey, defaultValue))
+    val currentValue = prefKey?.let {
+        Preferences.getString(it, defaultValue)
+    } ?: defaultValue
     var summary by remember {
-        mutableStateOf(
-            if (indexOfCurrent != -1) entries[indexOfCurrent] else null
-        )
+        mutableStateOf(entries.getOrNull(values.indexOf(currentValue)))
     }
 
     PreferenceItem(
@@ -55,7 +55,7 @@ fun ListPreference(
             },
             onClick = {
                 summary = entries[it]
-                Preferences.edit {
+                if (prefKey != null) Preferences.edit {
                     putString(prefKey, values[it])
                 }
                 onChange.invoke(values[it])

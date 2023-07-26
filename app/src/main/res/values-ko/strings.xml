@@ -19,7 +19,6 @@
     <string name="coil_cache">Coil 이미지 캐시</string>
     <string name="wallpaper_changer">배경화면 바꾸기</string>
     <string name="change_interval">교체 간격</string>
-    <string name="change_target">배경화면 설정 ...</string>
     <string name="wallpaper_changer_source">배경화면 바꾸기 소스</string>
     <string name="online">온라인</string>
     <string name="local">로컬</string>

@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="blur">Desfoque</string>
-    <string name="change_target">Definir papel de parede em...</string>
     <string name="favorites">Favoritos</string>
     <string name="settings">Definições</string>
     <string name="about">Sobre</string>

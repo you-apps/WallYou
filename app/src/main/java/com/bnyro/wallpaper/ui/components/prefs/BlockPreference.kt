@@ -6,7 +6,7 @@ import androidx.compose.foundation.lazy.items
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.runtime.getValue
-import androidx.compose.runtime.mutableStateOf
+import androidx.compose.runtime.mutableIntStateOf
 import androidx.compose.runtime.remember
 import androidx.compose.runtime.setValue
 import androidx.compose.ui.Modifier
@@ -16,18 +16,20 @@ import com.bnyro.wallpaper.util.Preferences
 
 @Composable
 fun BlockPreference(
-    preferenceKey: String,
+    preferenceKey: String?,
     entries: List<String>,
     values: List<String>,
+    defaultSelection: Int = 0,
     onSelectionChange: (Int) -> Unit = {}
 ) {
     var selected by remember {
-        mutableStateOf(0)
+        mutableIntStateOf(defaultSelection)
     }
 
     LaunchedEffect(Unit) {
+        if (preferenceKey == null) return@LaunchedEffect
         val pref = Preferences.getString(preferenceKey, "")
-        if (pref != "") selected = values.indexOf(pref)
+        if (pref.orEmpty().isNotEmpty()) selected = values.indexOf(pref)
     }
 
     LazyRow(
