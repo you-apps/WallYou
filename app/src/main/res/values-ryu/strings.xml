@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name" translatable="false">Wall You</string>
+    <string name="wallhaven" translatable="false">Wallhaven</string>
+    <string name="picsum" translatable="false">Picsum</string>
+    <string name="owalls" translatable="false">OWalls</string>
+    <string name="unsplash" translatable="false">Unsplash</string>
+    <string name="miwalls" translatable="false">Mi Carousel</string>
+    <string name="bing_daily" translatable="false">Bing daily</string>
+    <!-- Navigation Drawer -->
+    <string name="favorites">うきーがいー</string>
+    <string name="settings">しってい</string>
+    <string name="about">しょうさい</string>
+    <!-- Image Preview -->
+    <string name="info">じょうほう</string>
+    <string name="filter">フィルター</string>
+    <string name="add">ちいが</string>
+    <!-- Info Dialog -->
+    <string name="author">さくしゃ</string>
+    <string name="resolution">かいぞうどぅ</string>
+    <string name="category">カテゴリー</string>
+    <string name="fileSize">ファイルサイズ</string>
+    <string name="source">ソース</string>
+    <string name="creationDate">さくさいび</string>
+    <!-- Set Wallpaper -->
+    <string name="both">りょうほう</string>
+    <string name="home">ホームぬみん</string>
+    <string name="lockscreen">ロックぬみん</string>
+    <string name="applying_random">ランダムやるかびがんーじてぃきよう</string>
+    <!-- Image Filters -->
+    <string name="blur">ぶかし</string>
+    <string name="grayscale">ふぇーいるスケール</string>
+    <string name="reset">リセット</string>
+    <!-- Preference categories -->
+    <string name="general">いちぱん</string>
+    <string name="cache">キャッシュ</string>
+    <!-- Preferences -->
+    <string name="crop_images">やしぬぞうぬトリミング</string>
+    <string name="coil_cache">コイルぬぞうキャッシュ</string>
+    <string name="wallpaper_changer">かびがみチェンジャー</string>
+    <string name="change_interval">へんかんかんかく</string>
+    <string name="wallpaper_changer_source">かびがみチェンジャーぬソース</string>
+    <string name="combine_wallpaper_changers">ふくごうかびがみチェンジャー</string>
+    <string name="combine_wallpaper_changers_summary">ホームぬみんとぅロックぬみぬんかいいぬかびがんーじしーようさびーん。</string>
+    <!-- Wallpaper changer source -->
+    <string name="online">オンライン</string>
+    <string name="local">ローカル</string>
+    <string name="choose_dir">ディレクトリしんたく</string>
+    <!-- Theme -->
+    <string name="theme_mode">テーマ</string>
+    <string name="theme_system">システム</string>
+    <string name="theme_light">ライト</string>
+    <string name="theme_dark">ダーク</string>
+    <!-- Favorites -->
+    <string name="no_favorites">なーらうきーにいりんかえーぬーんあいびらん</string>
+    <string name="auto_add_to_favorites">かびがんーじへいるしーんするとぅちにうきーにいりんかいちちが</string>
+    <!-- About -->
+    <string name="version">バージョン</string>
+    <string name="github" translatable="false">GitHub</string>
+    <string name="license">ライセンス</string>
+    <string name="website">Webサイト</string>
+</resources>
