@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name" translatable="false">Wall You</string>
+    <string name="wallhaven" translatable="false">Wallhaven</string>
+    <string name="picsum" translatable="false">Picsum</string>
+    <string name="owalls" translatable="false">OWalls</string>
+    <string name="unsplash" translatable="false">Unsplash</string>
+    <string name="miwalls" translatable="false">Mi Carousel</string>
+    <string name="bing_daily" translatable="false">Bing daily</string>
+    <!-- Navigation Drawer -->
+    <string name="favorites">お気に入り</string>
+    <string name="settings">設定</string>
+    <string name="about">詳細</string>
+    <!-- Image Preview -->
+    <string name="info">情報</string>
+    <string name="filter">フィルター</string>
+    <string name="add">追加</string>
+    <!-- Info Dialog -->
+    <string name="author">作者</string>
+    <string name="resolution">解像度</string>
+    <string name="category">カテゴリー</string>
+    <string name="fileSize">ファイルサイズ</string>
+    <string name="source">ソース</string>
+    <string name="creationDate">作成日</string>
+    <!-- Set Wallpaper -->
+    <string name="both">両方</string>
+    <string name="home">ホーム画面</string>
+    <string name="lockscreen">ロック画面</string>
+    <string name="applying_random">ランダムな壁紙を適用</string>
+    <!-- Image Filters -->
+    <string name="blur">ぼかし</string>
+    <string name="grayscale">グレースケール</string>
+    <string name="reset">リセット</string>
+    <!-- Preference categories -->
+    <string name="general">一般</string>
+    <string name="cache">キャッシュ</string>
+    <!-- Preferences -->
+    <string name="crop_images">画像のトリミング</string>
+    <string name="coil_cache">コイル画像キャッシュ</string>
+    <string name="wallpaper_changer">壁紙チェンジャー</string>
+    <string name="change_interval">変更間隔</string>
+    <string name="wallpaper_changer_source">壁紙チェンジャーのソース</string>
+    <string name="combine_wallpaper_changers">複合壁紙チェンジャー</string>
+    <string name="combine_wallpaper_changers_summary">ホーム画面とロック画面に同じ壁紙を使用します。</string>
+    <!-- Wallpaper changer source -->
+    <string name="online">オンライン</string>
+    <string name="local">ローカル</string>
+    <string name="choose_dir">ディレクトリを選択</string>
+    <!-- Theme -->
+    <string name="theme_mode">テーマ</string>
+    <string name="theme_system">システム</string>
+    <string name="theme_light">ライト</string>
+    <string name="theme_dark">ダーク</string>
+    <!-- Favorites -->
+    <string name="no_favorites">まだお気に入りには何もありません</string>
+    <string name="auto_add_to_favorites">壁紙を変更する時にお気に入りに追加</string>
+    <!-- About -->
+    <string name="version">バージョン</string>
+    <string name="github" translatable="false">GitHub</string>
+    <string name="license">ライセンス</string>
+    <string name="website">Webサイト</string>
+</resources>
