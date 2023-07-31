@@ -40,7 +40,7 @@
     <string name="wallpaper_changer">壁紙チェンジャー</string>
     <string name="change_interval">変更間隔</string>
     <string name="wallpaper_changer_source">壁紙チェンジャーのソース</string>
-    <string name="combine_wallpaper_changers">壁紙チェンジャーのソース</string>
+    <string name="combine_wallpaper_changers">複合壁紙チェンジャー</string>
     <string name="combine_wallpaper_changers_summary">ホーム画面とロック画面に同じ壁紙を使用します。</string>
     <!-- Wallpaper changer source -->
     <string name="online">オンライン</string>
