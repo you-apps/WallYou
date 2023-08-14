@@ -10,7 +10,6 @@ import androidx.compose.foundation.layout.padding
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.FilterList
 import androidx.compose.material.icons.filled.Shuffle
-import androidx.compose.material3.CircularProgressIndicator
 import androidx.compose.material3.FloatingActionButton
 import androidx.compose.material3.Icon
 import androidx.compose.runtime.Composable
@@ -24,6 +23,7 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.unit.dp
 import com.bnyro.wallpaper.db.obj.Wallpaper
+import com.bnyro.wallpaper.ui.components.ShimmerGrid
 import com.bnyro.wallpaper.ui.components.WallpaperGrid
 import com.bnyro.wallpaper.ui.components.WallpaperPreview
 import com.bnyro.wallpaper.ui.components.dialogs.FilterDialog
@@ -64,10 +64,7 @@ fun WallpaperPage(
                 }
             }
         } else {
-            CircularProgressIndicator(
-                modifier = Modifier
-                    .align(Alignment.Center)
-            )
+            ShimmerGrid()
         }
 
         Row(
@@ -79,19 +76,19 @@ fun WallpaperPage(
             FloatingActionButton(
                 modifier = Modifier
                     .padding(horizontal = 10.dp),
-                    /*.combinedClickable(
-                        onLongClick = {
-                            Toast.makeText(context, R.string.applying_random, Toast.LENGTH_SHORT).show()
-                            CoroutineScope(Dispatchers.IO).launch {
-                                val wallpaperUrl = viewModel.api.getRandomWallpaperUrl()
-                                ImageHelper.urlToBitmap(this, wallpaperUrl, context) {
-                                    WallpaperHelper.setWallpaper(context, it, WallpaperMode.BOTH)
-                                }
+                /*.combinedClickable(
+                    onLongClick = {
+                        Toast.makeText(context, R.string.applying_random, Toast.LENGTH_SHORT).show()
+                        CoroutineScope(Dispatchers.IO).launch {
+                            val wallpaperUrl = viewModel.api.getRandomWallpaperUrl()
+                            ImageHelper.urlToBitmap(this, wallpaperUrl, context) {
+                                WallpaperHelper.setWallpaper(context, it, WallpaperMode.BOTH)
                             }
                         }
-                    ),
+                    }
+                ),
 
-                     */
+                 */
                 onClick = {
                     selectedWallpaper = viewModel.wallpapers.randomOrNull()
                 }
