@@ -58,7 +58,7 @@ fun WallpaperChangerPref(config: WallpaperConfig, onChange: (WallpaperConfig) ->
         WorkerHelper.enqueue(context, true)
     }
 
-    Crossfade(targetState = wallpaperSource) { state ->
+    Crossfade(targetState = wallpaperSource, label = "wallpaper_source") { state ->
         when (state) {
             WallpaperSource.ONLINE -> {
                 var currentIndex by remember {
