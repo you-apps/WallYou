@@ -143,6 +143,7 @@ fun SettingsPage(
                 val availableTargets = if (newState) listOf(WallpaperTarget.BOTH)
                 else listOf(WallpaperTarget.HOME, WallpaperTarget.LOCK)
                 wallpaperConfigs.addAll(availableTargets.map { WallpaperConfig(it) })
+                Preferences.setWallpaperConfigs(wallpaperConfigs)
             }
             wallpaperConfigs.forEachIndexed { index, wallpaperConfig ->
                 Spacer(modifier = Modifier.height(10.dp))
