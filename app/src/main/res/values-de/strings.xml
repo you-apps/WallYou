@@ -7,7 +7,6 @@
     <string name="lockscreen">Sperrbildschirm</string>
     <string name="applying_random">Zufälliges Hintergrundbild wird angewendet</string>
     <string name="wallpaper_changer">Hintergrundbildwechsler</string>
-    <string name="change_target">Hintergrundbild anwenden auf ...</string>
     <string name="coil_cache">Bildzwischenspeicher</string>
     <string name="local">Lokal</string>
     <string name="choose_dir">Pfad auswählen</string>
