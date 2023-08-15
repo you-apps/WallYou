@@ -1,3 +1,5 @@
+Important: The signature the app is signed with changed with the update to v5.0, therefore please uninstall the app first before installing the new version if upgrading to that version.
+
 <i>Wall You</i> is a Wallpaper App built with <a href='https://m3.material.io/'>Material Design 3 (You)</a>. The app uses the Wallhaven API at the moment which unfortunately is non-free.
 
 <br><b>Features:</b>
