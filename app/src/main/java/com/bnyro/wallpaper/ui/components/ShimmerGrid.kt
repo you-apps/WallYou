@@ -1,8 +1,9 @@
 package com.bnyro.wallpaper.ui.components
 
+import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
-import androidx.compose.foundation.layout.height
-import androidx.compose.foundation.layout.padding
+import androidx.compose.foundation.layout.PaddingValues
+import androidx.compose.foundation.layout.aspectRatio
 import androidx.compose.foundation.lazy.grid.GridCells
 import androidx.compose.foundation.lazy.grid.LazyVerticalGrid
 import androidx.compose.foundation.shape.RoundedCornerShape
@@ -15,13 +16,15 @@ import com.bnyro.wallpaper.util.shimmer
 @Composable
 fun ShimmerGrid() {
     LazyVerticalGrid(
-        columns = GridCells.Fixed(2)
+        columns = GridCells.Adaptive(180.dp),
+        verticalArrangement = Arrangement.spacedBy(16.dp),
+        horizontalArrangement = Arrangement.spacedBy(16.dp),
+        contentPadding = PaddingValues(8.dp)
     ) {
         items(10) {
             Box(
                 modifier = Modifier
-                    .height(300.dp)
-                    .padding(5.dp)
+                    .aspectRatio(9 / 16f)
                     .clip(RoundedCornerShape(10.dp))
                     .shimmer(600f)
             )

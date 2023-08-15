@@ -1,9 +1,11 @@
 package com.bnyro.wallpaper.ui.components
 
 import androidx.compose.foundation.clickable
+import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
+import androidx.compose.foundation.layout.PaddingValues
+import androidx.compose.foundation.layout.aspectRatio
 import androidx.compose.foundation.layout.fillMaxWidth
-import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.lazy.grid.GridCells
 import androidx.compose.foundation.lazy.grid.LazyVerticalGrid
@@ -49,8 +51,11 @@ fun WallpaperGrid(
     val shape = RoundedCornerShape(10.dp)
 
     LazyVerticalGrid(
-        columns = GridCells.Fixed(2),
-        state = listState
+        columns = GridCells.Adaptive(180.dp),
+        state = listState,
+        verticalArrangement = Arrangement.spacedBy(16.dp),
+        horizontalArrangement = Arrangement.spacedBy(16.dp),
+        contentPadding = PaddingValues(8.dp)
     ) {
         items(wallpapers) {
             var showFullscreen by remember {
@@ -69,16 +74,13 @@ fun WallpaperGrid(
 
             ElevatedCard(
                 modifier = Modifier
-                    .height(300.dp)
-                    .padding(5.dp)
+                    .aspectRatio(9 / 16f)
                     .clip(shape)
                     .clickable {
                         showFullscreen = true
                     }
             ) {
-                Box(
-                    modifier = Modifier.padding(10.dp)
-                ) {
+                Box {
                     AsyncImage(
                         model = it.thumb,
                         contentDescription = null,
