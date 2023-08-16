@@ -56,6 +56,11 @@ fun AppNavHost(
             viewModel.api = ApiHolder.biApi
             WallpaperPage(viewModel)
         }
+        composable(DrawerScreens.Reddit.route) {
+            viewModel.titleResource = R.string.reddit
+            viewModel.api = ApiHolder.reApi
+            WallpaperPage(viewModel)
+        }
         composable(DrawerScreens.Favorites.route) {
             viewModel.titleResource = R.string.favorites
             FavoritesPage()

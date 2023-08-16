@@ -3,6 +3,7 @@ package com.bnyro.wallpaper.ui.nav
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.Air
 import androidx.compose.material.icons.filled.Favorite
+import androidx.compose.material.icons.filled.Forum
 import androidx.compose.material.icons.filled.Info
 import androidx.compose.material.icons.filled.Landscape
 import androidx.compose.material.icons.filled.Nightlight
@@ -27,12 +28,13 @@ sealed class DrawerScreens(
     object OWalls : DrawerScreens(R.string.owalls, "ow", Icons.Default.Air)
     object MiWalls : DrawerScreens(R.string.miwalls, "mi", Icons.Default.PhotoAlbum)
     object BingDaily : DrawerScreens(R.string.bing_daily, "bi", Icons.Default.Nightlight)
+    object Reddit : DrawerScreens(R.string.reddit, "redd", Icons.Default.Forum)
     object Favorites : DrawerScreens(R.string.favorites, "favorites", Icons.Default.Favorite, true)
     object Settings : DrawerScreens(R.string.settings, "settings", Icons.Default.Settings, true)
     object About : DrawerScreens(R.string.about, "about", Icons.Default.Info)
 
     companion object {
-        val apiScreens = listOf(Wallhaven, Unsplash, OWalls, Picsum, MiWalls, BingDaily)
+        val apiScreens = listOf(Wallhaven, Unsplash, OWalls, Picsum, MiWalls, BingDaily, Reddit)
         val screens = listOf(*apiScreens.toTypedArray(), Favorites, Settings, About)
     }
 }
