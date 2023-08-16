@@ -59,4 +59,5 @@
     <string name="github" translatable="false">GitHub</string>
     <string name="license">License</string>
     <string name="website">Website</string>
+    <string name="reddit">Reddit</string>
 </resources>
