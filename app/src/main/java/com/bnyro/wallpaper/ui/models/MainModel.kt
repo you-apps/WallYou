@@ -13,7 +13,9 @@ import com.bnyro.wallpaper.enums.ThemeMode
 import com.bnyro.wallpaper.db.obj.Wallpaper
 import com.bnyro.wallpaper.util.ApiHolder
 import com.bnyro.wallpaper.util.Preferences
+import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
+import kotlinx.coroutines.withContext
 
 class MainModel : ViewModel() {
     private val themeModeIndex = Preferences.getString(
@@ -33,7 +35,9 @@ class MainModel : ViewModel() {
     fun fetchWallpapers(onException: (Exception) -> Unit) {
         viewModelScope.launch {
             try {
-                wallpapers = wallpapers + api.getWallpapers(page)
+                wallpapers += withContext(Dispatchers.IO) {
+                    api.getWallpapers(page)
+                }
                 page += 1
             } catch (e: Exception) {
                 Log.e(this.javaClass.name, e.toString())
