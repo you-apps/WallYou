@@ -71,7 +71,7 @@ fun WallpaperGrid(
 
             LaunchedEffect(true) {
                 query {
-                    it.imgSrc.let { liked = Database.favoritesDao().exists(it) }
+                    it.imgSrc.let { src -> liked = Database.favoritesDao().exists(src) }
                 }
             }
 

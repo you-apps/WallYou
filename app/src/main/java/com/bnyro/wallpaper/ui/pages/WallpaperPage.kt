@@ -1,7 +1,6 @@
 package com.bnyro.wallpaper.ui.pages
 
 import android.widget.Toast
-import androidx.compose.foundation.ExperimentalFoundationApi
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Row
@@ -29,7 +28,6 @@ import com.bnyro.wallpaper.ui.components.WallpaperPreview
 import com.bnyro.wallpaper.ui.components.dialogs.FilterDialog
 import com.bnyro.wallpaper.ui.models.MainModel
 
-@OptIn(ExperimentalFoundationApi::class)
 @Composable
 fun WallpaperPage(
     viewModel: MainModel
@@ -76,19 +74,6 @@ fun WallpaperPage(
             FloatingActionButton(
                 modifier = Modifier
                     .padding(horizontal = 10.dp),
-                /*.combinedClickable(
-                    onLongClick = {
-                        Toast.makeText(context, R.string.applying_random, Toast.LENGTH_SHORT).show()
-                        CoroutineScope(Dispatchers.IO).launch {
-                            val wallpaperUrl = viewModel.api.getRandomWallpaperUrl()
-                            ImageHelper.urlToBitmap(this, wallpaperUrl, context) {
-                                WallpaperHelper.setWallpaper(context, it, WallpaperMode.BOTH)
-                            }
-                        }
-                    }
-                ),
-
-                 */
                 onClick = {
                     selectedWallpaper = viewModel.wallpapers.randomOrNull()
                 }
