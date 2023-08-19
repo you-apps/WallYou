@@ -22,6 +22,7 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.unit.dp
+import com.bnyro.wallpaper.api.CommunityApi
 import com.bnyro.wallpaper.db.obj.Wallpaper
 import com.bnyro.wallpaper.ui.components.ShimmerGrid
 import com.bnyro.wallpaper.ui.components.WallpaperGrid
@@ -99,7 +100,10 @@ fun WallpaperPage(
                 )
             }
 
-            if (viewModel.api.filters.isNotEmpty() || viewModel.api.supportsTags) {
+            if (viewModel.api.filters.isNotEmpty() ||
+                viewModel.api.supportsTags ||
+                viewModel.api is CommunityApi
+            ) {
                 FloatingActionButton(
                     modifier = Modifier
                         .padding(horizontal = 10.dp),

@@ -7,8 +7,6 @@ import com.bnyro.wallpaper.util.RetrofitBuilder
 class BiApi() : Api() {
     override val name: String = "Bing"
     override val baseUrl: String = "https://www.bing.com"
-    override val filters: Map<String, List<String>> = mapOf()
-    override val supportsTags: Boolean = false
 
     val api = RetrofitBuilder.create(baseUrl, Bing::class.java)
 

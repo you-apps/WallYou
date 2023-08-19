@@ -31,7 +31,6 @@ class MiApi : Api() {
             "News"
         )
     )
-    override val supportsTags = false
 
     private val api = RetrofitBuilder.create(baseUrl, Carousel::class.java)
 
