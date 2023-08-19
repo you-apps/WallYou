@@ -61,6 +61,11 @@ fun AppNavHost(
             viewModel.api = ApiHolder.reApi
             WallpaperPage(viewModel)
         }
+        composable(DrawerScreens.Lemmy.route) {
+            viewModel.titleResource = R.string.lemmy
+            viewModel.api = ApiHolder.leApi
+            WallpaperPage(viewModel)
+        }
         composable(DrawerScreens.Favorites.route) {
             viewModel.titleResource = R.string.favorites
             FavoritesPage()
