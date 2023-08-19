@@ -7,8 +7,6 @@ import com.bnyro.wallpaper.util.RetrofitBuilder
 class PsApi : Api() {
     override val name: String = "Picsum"
     override val baseUrl: String = "https://picsum.photos"
-    override val filters: Map<String, List<String>> = mapOf()
-    override val supportsTags: Boolean = false
 
     private val api = RetrofitBuilder.create(baseUrl, Picsum::class.java)
 
