@@ -7,6 +7,8 @@
     <string name="unsplash" translatable="false">Unsplash</string>
     <string name="miwalls" translatable="false">Mi Carousel</string>
     <string name="bing_daily" translatable="false">Bing daily</string>
+    <string name="reddit" translatable="false">Reddit</string>
+    <string name="lemmy" translatable="false">Lemmy</string>
     <!-- Navigation Drawer -->
     <string name="favorites">Favorites</string>
     <string name="settings">Settings</string>
@@ -60,5 +62,4 @@
     <string name="github" translatable="false">GitHub</string>
     <string name="license">License</string>
     <string name="website">Website</string>
-    <string name="reddit">Reddit</string>
 </resources>
