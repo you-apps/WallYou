@@ -3,13 +3,7 @@ package com.bnyro.wallpaper.util
 import android.content.Context
 import android.content.SharedPreferences
 import android.util.Log
-import com.bnyro.wallpaper.api.bi.BiApi
-import com.bnyro.wallpaper.api.le.LeApi
-import com.bnyro.wallpaper.api.ow.OwApi
-import com.bnyro.wallpaper.api.ps.PsApi
-import com.bnyro.wallpaper.api.re.ReApi
-import com.bnyro.wallpaper.api.us.UsApi
-import com.bnyro.wallpaper.api.wh.WhApi
+import com.bnyro.wallpaper.App
 import com.bnyro.wallpaper.enums.WallpaperConfig
 import com.bnyro.wallpaper.enums.WallpaperTarget
 import com.bnyro.wallpaper.ui.nav.DrawerScreens
@@ -53,13 +47,13 @@ object Preferences {
     }
 
     fun getApiByRoute(route: String) = when (route) {
-        DrawerScreens.Picsum.route -> PsApi()
-        DrawerScreens.OWalls.route -> OwApi()
-        DrawerScreens.Unsplash.route -> UsApi()
-        DrawerScreens.BingDaily.route -> BiApi()
-        DrawerScreens.Reddit.route -> ReApi()
-        DrawerScreens.Lemmy.route -> LeApi()
-        else -> WhApi()
+        DrawerScreens.Picsum.route -> App.psApi
+        DrawerScreens.OWalls.route -> App.owApi
+        DrawerScreens.Unsplash.route -> App.usApi
+        DrawerScreens.BingDaily.route -> App.biApi
+        DrawerScreens.Reddit.route -> App.reApi
+        DrawerScreens.Lemmy.route -> App.leApi
+        else -> App.whApi
     }
 
     fun setWallpaperConfigs(configs: List<WallpaperConfig>) {

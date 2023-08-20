@@ -10,17 +10,27 @@ class ReApi : CommunityApi() {
 
     val api = RetrofitBuilder.create(baseUrl, Reddit::class.java)
 
-    override val defaultCommunityName: String = "r/wallpaper"
+    override val defaultCommunityName = "r/wallpaper"
 
     private val sort = "top" // TODO: move to filter dialog by overriding [tags]
     private val time = "week" // TODO: move to filter dialog by overriding [tags]
     private val imageRegex = Regex("^.+\\.(jpg|jpeg|png|webp)\$")
 
-    override suspend fun getWallpapers(page: Int): List<Wallpaper> {
-        if (page != 1) return emptyList() // TODO: Pagination
+    private var nextPageAfter: String? = null
 
+    override suspend fun getWallpapers(page: Int): List<Wallpaper> {
+        // happens when there's no next page available
+        if (page != 1 && nextPageAfter == null) return emptyList()
+
+        // reset the after query if starting from the beginning
+        if (page == 1) nextPageAfter = null
         val communityName = getCommunityName().replaceFirst("r/", "")
-        return api.getRedditData(communityName, sort, time).data?.children?.filter {
+
+        val response = api.getRedditData(communityName, sort, time, nextPageAfter)
+        // needed in order to load the next page
+        nextPageAfter = response.data?.after
+
+        return response.data?.children?.filter {
             it.childdata.url?.matches(imageRegex) == true
         }?.map {
             with(it.childdata) {
