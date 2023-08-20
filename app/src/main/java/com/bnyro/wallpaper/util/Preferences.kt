@@ -23,6 +23,7 @@ object Preferences {
     const val grayscaleKey = "grayscale"
     const val blurKey = "blur"
     const val startTabKey = "startTab"
+    const val showColorPalette = "showColorPalette"
 
     const val wallpaperChangerKey = "wallpaperChanger"
     const val wallpaperChangerIntervalKey = "wallpaperChangerInterval"

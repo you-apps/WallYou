@@ -37,6 +37,7 @@
     <!-- Preference categories -->
     <string name="general">General</string>
     <string name="cache">Cache</string>
+    <string name="wallpaper_preview">Wallpaper preview</string>
     <!-- Preferences -->
     <string name="crop_images">Crop images</string>
     <string name="coil_cache">Coil image cache</string>
@@ -45,6 +46,7 @@
     <string name="wallpaper_changer_source">Wallpaper changer source</string>
     <string name="combine_wallpaper_changers">Combined wallpaper changer</string>
     <string name="combine_wallpaper_changers_summary">Use the same wallpaper for home and lockscreen.</string>
+    <string name="color_palette">Show color palette</string>
     <!-- Wallpaper changer source -->
     <string name="online">Online</string>
     <string name="local">Local</string>

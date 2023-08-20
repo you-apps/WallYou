@@ -30,7 +30,6 @@ import androidx.compose.runtime.remember
 import androidx.compose.runtime.rememberCoroutineScope
 import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
-import androidx.compose.ui.ExperimentalComposeUiApi
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
 import androidx.compose.ui.platform.LocalContext
@@ -82,6 +81,12 @@ fun WallpaperPreview(
 
     var palette by remember {
         mutableStateOf<Palette?>(null)
+    }
+
+    fun generateColorPalette() {
+        if (Preferences.getBoolean(Preferences.showColorPalette, true)) {
+            Palette.from(bitmap!!).generate { nP -> palette = nP }
+        }
     }
 
     LaunchedEffect(true) {
@@ -188,9 +193,7 @@ fun WallpaperPreview(
     ) {
         originalBitmap = it
         bitmap = BitmapProcessor.processBitmapByPrefs(it)
-        Palette.from(bitmap!!).generate { nP ->
-            palette = nP
-        }
+        generateColorPalette()
     }
 
     if (showInfoDialog) {
@@ -209,9 +212,7 @@ fun WallpaperPreview(
         ) {
             originalBitmap?.let {
                 bitmap = BitmapProcessor.processBitmapByPrefs(it)
-                Palette.from(bitmap!!).generate { nP ->
-                    palette = nP
-                }
+                generateColorPalette()
             }
         }
     }

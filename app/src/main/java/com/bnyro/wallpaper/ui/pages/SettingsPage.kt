@@ -95,6 +95,19 @@ fun SettingsPage(
             }
         }
 
+        AboutContainer {
+            Column {
+                SettingsCategory(
+                    title = stringResource(R.string.wallpaper_preview)
+                )
+                CheckboxPref(
+                    prefKey = Preferences.showColorPalette,
+                    title = stringResource(R.string.color_palette),
+                    defaultValue = true
+                )
+            }
+        }
+
         val changeIntervals = listOf(
             15L,
             30L,
