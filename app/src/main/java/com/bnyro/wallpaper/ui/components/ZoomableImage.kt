@@ -1,12 +1,14 @@
 package com.bnyro.wallpaper.ui.components
 
 import android.graphics.Bitmap
+import androidx.compose.foundation.ExperimentalFoundationApi
+import androidx.compose.foundation.gestures.detectTapGestures
 import androidx.compose.foundation.gestures.detectTransformGestures
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.getValue
-import androidx.compose.runtime.mutableStateOf
+import androidx.compose.runtime.mutableFloatStateOf
 import androidx.compose.runtime.remember
 import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
@@ -26,16 +28,22 @@ fun ZoomableImage(
     bitmap: Bitmap?,
     colorFilter: ColorFilter = ColorFilter.colorMatrix(ColorMatrix()),
     minScale: Float = 1f,
-    maxScale: Float = 3f
+    maxScale: Float = 3f,
+    onDoubleClick: () -> Unit = {},
+    onLongPress: () -> Unit = {}
 ) {
-    var scale by remember { mutableStateOf(1f) }
-    var offsetX by remember { mutableStateOf(0f) }
-    var offsetY by remember { mutableStateOf(0f) }
+    var scale by remember { mutableFloatStateOf(1f) }
+    var offsetX by remember { mutableFloatStateOf(0f) }
+    var offsetY by remember { mutableFloatStateOf(0f) }
     Box(
         modifier = Modifier
             .clip(RectangleShape) // Clip the box content
             .fillMaxSize() // Give the size you want...
             .pointerInput(Unit) {
+                detectTapGestures(
+                    onDoubleTap = { onDoubleClick() },
+                    onLongPress = { onLongPress() },
+                )
                 detectTransformGestures { _, pan, zoom, _ ->
                     scale = maxOf(minScale, minOf(scale * zoom, maxScale))
                     val maxX = (size.width * (scale - 1)) / 2

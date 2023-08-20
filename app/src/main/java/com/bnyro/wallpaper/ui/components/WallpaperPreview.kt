@@ -3,6 +3,7 @@ package com.bnyro.wallpaper.ui.components
 import android.graphics.Bitmap
 import androidx.activity.compose.rememberLauncherForActivityResult
 import androidx.activity.result.contract.ActivityResultContracts
+import androidx.compose.animation.AnimatedVisibility
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
@@ -57,10 +58,14 @@ fun WallpaperPreview(
 ) {
     val context = LocalContext.current
 
-    var originalBitmap: Bitmap? = null
+    var originalBitmap: Bitmap? = remember { null }
 
     var bitmap by remember {
         mutableStateOf<Bitmap?>(null)
+    }
+
+    var showBottomOptions by remember {
+        mutableStateOf(true)
     }
 
     var showModeSelection by remember {
@@ -114,66 +119,77 @@ fun WallpaperPreview(
         ) {
             if (bitmap != null) {
                 ZoomableImage(
-                    bitmap = bitmap
+                    bitmap = bitmap,
+                    onDoubleClick = {
+                        showBottomOptions = !showBottomOptions
+                    },
+                    onLongPress = {
+                        showBottomOptions = !showBottomOptions
+                    }
                 )
-                ElevatedCard(
+                AnimatedVisibility(
+                    visible = showBottomOptions,
                     modifier = Modifier
-                        .fillMaxWidth()
                         .padding(50.dp, 40.dp)
                         .align(Alignment.BottomCenter)
-                        .clip(RoundedCornerShape(50.dp))
                 ) {
-                    Column(
-                        modifier = Modifier.padding(20.dp)
+                    ElevatedCard(
+                        modifier = Modifier
+                            .fillMaxWidth()
+                            .clip(RoundedCornerShape(50.dp))
                     ) {
-                        Row(
-                            horizontalArrangement = Arrangement.SpaceEvenly,
-                            modifier = Modifier
-                                .fillMaxWidth()
+                        Column(
+                            modifier = Modifier.padding(20.dp)
                         ) {
-                            ButtonWithIcon(
-                                icon = Icons.Default.Info
+                            Row(
+                                horizontalArrangement = Arrangement.SpaceEvenly,
+                                modifier = Modifier
+                                    .fillMaxWidth()
                             ) {
-                                showInfoDialog = true
-                            }
+                                ButtonWithIcon(
+                                    icon = Icons.Default.Info
+                                ) {
+                                    showInfoDialog = true
+                                }
 
-                            ButtonWithIcon(
-                                icon = Icons.Default.DarkMode
-                            ) {
-                                showFilterDialog = true
-                            }
+                                ButtonWithIcon(
+                                    icon = Icons.Default.DarkMode
+                                ) {
+                                    showFilterDialog = true
+                                }
 
-                            ButtonWithIcon(
-                                icon = Icons.Default.Wallpaper
-                            ) {
-                                if (bitmap == null) return@ButtonWithIcon
-                                showModeSelection = true
-                            }
+                                ButtonWithIcon(
+                                    icon = Icons.Default.Wallpaper
+                                ) {
+                                    if (bitmap == null) return@ButtonWithIcon
+                                    showModeSelection = true
+                                }
 
-                            ButtonWithIcon(
-                                icon = Icons.Default.Download
-                            ) {
-                                val prefix = wallpaper.title ?: wallpaper.category ?: wallpaper.author
-                                val timeStamp = Instant.now().epochSecond
-                                launcher.launch("$prefix-$timeStamp.png")
-                            }
+                                ButtonWithIcon(
+                                    icon = Icons.Default.Download
+                                ) {
+                                    val prefix = wallpaper.title ?: wallpaper.category ?: wallpaper.author
+                                    val timeStamp = Instant.now().epochSecond
+                                    launcher.launch("$prefix-$timeStamp.png")
+                                }
 
-                            ButtonWithIcon(
-                                icon = if (liked) Icons.Default.Favorite else Icons.Default.FavoriteBorder
-                            ) {
-                                liked = !liked
-                                query {
-                                    if (!liked) {
-                                        Database.favoritesDao().delete(wallpaper)
-                                    } else {
-                                        Database.favoritesDao().insertAll(wallpaper)
+                                ButtonWithIcon(
+                                    icon = if (liked) Icons.Default.Favorite else Icons.Default.FavoriteBorder
+                                ) {
+                                    liked = !liked
+                                    query {
+                                        if (!liked) {
+                                            Database.favoritesDao().delete(wallpaper)
+                                        } else {
+                                            Database.favoritesDao().insertAll(wallpaper)
+                                        }
                                     }
                                 }
                             }
-                        }
 
-                        palette?.let {
-                            PaletteRow(it, Modifier.padding(0.dp, 15.dp))
+                            palette?.let {
+                                PaletteRow(it, Modifier.padding(0.dp, 15.dp))
+                            }
                         }
                     }
                 }
