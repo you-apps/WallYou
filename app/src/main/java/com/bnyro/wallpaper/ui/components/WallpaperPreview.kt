@@ -45,6 +45,8 @@ import com.bnyro.wallpaper.db.obj.Wallpaper
 import com.bnyro.wallpaper.enums.WallpaperTarget
 import com.bnyro.wallpaper.ext.awaitQuery
 import com.bnyro.wallpaper.ext.query
+import com.bnyro.wallpaper.ui.components.dialogs.ImageFilterDialog
+import com.bnyro.wallpaper.ui.components.dialogs.ListDialog
 import com.bnyro.wallpaper.util.*
 import java.time.Instant
 import kotlinx.coroutines.CoroutineScope
@@ -147,26 +149,30 @@ fun WallpaperPreview(
                                     .fillMaxWidth()
                             ) {
                                 ButtonWithIcon(
-                                    icon = Icons.Default.Info
+                                    icon = Icons.Default.Info,
+                                    tooltip = stringResource(R.string.info)
                                 ) {
                                     showInfoDialog = true
                                 }
 
                                 ButtonWithIcon(
-                                    icon = Icons.Default.DarkMode
+                                    icon = Icons.Default.DarkMode,
+                                    tooltip = stringResource(R.string.filter)
                                 ) {
                                     showFilterDialog = true
                                 }
 
                                 ButtonWithIcon(
-                                    icon = Icons.Default.Wallpaper
+                                    icon = Icons.Default.Wallpaper,
+                                    tooltip = stringResource(R.string.set_wallpaper)
                                 ) {
                                     if (bitmap == null) return@ButtonWithIcon
                                     showModeSelection = true
                                 }
 
                                 ButtonWithIcon(
-                                    icon = Icons.Default.Download
+                                    icon = Icons.Default.Download,
+                                    tooltip = stringResource(R.string.download)
                                 ) {
                                     val prefix = wallpaper.title ?: wallpaper.category ?: wallpaper.author
                                     val timeStamp = Instant.now().epochSecond
@@ -174,7 +180,8 @@ fun WallpaperPreview(
                                 }
 
                                 ButtonWithIcon(
-                                    icon = if (liked) Icons.Default.Favorite else Icons.Default.FavoriteBorder
+                                    icon = if (liked) Icons.Default.Favorite else Icons.Default.FavoriteBorder,
+                                    tooltip = stringResource(R.string.add_to_favorites)
                                 ) {
                                     liked = !liked
                                     query {
@@ -235,6 +242,7 @@ fun WallpaperPreview(
 
     if (showModeSelection) {
         ListDialog(
+            title = stringResource(R.string.set_wallpaper),
             items = listOf(
                 stringResource(R.string.both),
                 stringResource(R.string.home),

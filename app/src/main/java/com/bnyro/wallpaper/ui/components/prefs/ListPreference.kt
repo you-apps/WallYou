@@ -12,7 +12,7 @@ import androidx.compose.runtime.setValue
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
 import androidx.compose.ui.unit.dp
-import com.bnyro.wallpaper.ui.components.ListDialog
+import com.bnyro.wallpaper.ui.components.dialogs.ListDialog
 import com.bnyro.wallpaper.util.Preferences
 
 @Composable

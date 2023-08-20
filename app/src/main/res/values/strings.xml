@@ -18,6 +18,9 @@
     <string name="filter">Filter</string>
     <string name="add">Add</string>
     <string name="community_name">Community name</string>
+    <string name="set_wallpaper">Set wallpaper</string>
+    <string name="download">Download</string>
+    <string name="add_to_favorites">Add to favorites</string>
     <!-- Info Dialog -->
     <string name="author">Author</string>
     <string name="resolution">Resolution</string>
