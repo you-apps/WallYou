@@ -4,8 +4,10 @@ import android.content.Context
 import android.content.SharedPreferences
 import android.util.Log
 import com.bnyro.wallpaper.api.bi.BiApi
+import com.bnyro.wallpaper.api.le.LeApi
 import com.bnyro.wallpaper.api.ow.OwApi
 import com.bnyro.wallpaper.api.ps.PsApi
+import com.bnyro.wallpaper.api.re.ReApi
 import com.bnyro.wallpaper.api.us.UsApi
 import com.bnyro.wallpaper.api.wh.WhApi
 import com.bnyro.wallpaper.enums.WallpaperConfig
@@ -55,6 +57,8 @@ object Preferences {
         DrawerScreens.OWalls.route -> OwApi()
         DrawerScreens.Unsplash.route -> UsApi()
         DrawerScreens.BingDaily.route -> BiApi()
+        DrawerScreens.Reddit.route -> ReApi()
+        DrawerScreens.Lemmy.route -> LeApi()
         else -> WhApi()
     }
 
