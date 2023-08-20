@@ -1,7 +1,6 @@
 package com.bnyro.wallpaper.ui.components
 
 import android.graphics.Bitmap
-import androidx.compose.foundation.ExperimentalFoundationApi
 import androidx.compose.foundation.gestures.detectTapGestures
 import androidx.compose.foundation.gestures.detectTransformGestures
 import androidx.compose.foundation.layout.Box
@@ -42,7 +41,7 @@ fun ZoomableImage(
             .pointerInput(Unit) {
                 detectTapGestures(
                     onDoubleTap = { onDoubleClick() },
-                    onLongPress = { onLongPress() },
+                    onLongPress = { onLongPress() }
                 )
                 detectTransformGestures { _, pan, zoom, _ ->
                     scale = maxOf(minScale, minOf(scale * zoom, maxScale))

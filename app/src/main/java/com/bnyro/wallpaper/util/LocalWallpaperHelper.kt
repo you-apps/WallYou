@@ -1,7 +1,6 @@
 package com.bnyro.wallpaper.util
 
 import android.content.Context
-import android.net.Uri
 import androidx.core.net.toUri
 import androidx.documentfile.provider.DocumentFile
 import com.bnyro.wallpaper.enums.WallpaperConfig

@@ -55,8 +55,10 @@ fun ListPreference(
             },
             onClick = {
                 summary = entries[it]
-                if (prefKey != null) Preferences.edit {
-                    putString(prefKey, values[it])
+                if (prefKey != null) {
+                    Preferences.edit {
+                        putString(prefKey, values[it])
+                    }
                 }
                 onChange.invoke(values[it])
                 showDialog = false

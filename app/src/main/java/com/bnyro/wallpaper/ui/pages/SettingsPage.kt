@@ -153,8 +153,11 @@ fun SettingsPage(
                 defaultValue = true
             ) { newState ->
                 wallpaperConfigs.clear()
-                val availableTargets = if (newState) listOf(WallpaperTarget.BOTH)
-                else listOf(WallpaperTarget.HOME, WallpaperTarget.LOCK)
+                val availableTargets = if (newState) {
+                    listOf(WallpaperTarget.BOTH)
+                } else {
+                    listOf(WallpaperTarget.HOME, WallpaperTarget.LOCK)
+                }
                 wallpaperConfigs.addAll(availableTargets.map { WallpaperConfig(it) })
                 Preferences.setWallpaperConfigs(wallpaperConfigs)
             }

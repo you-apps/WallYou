@@ -71,7 +71,8 @@ object Preferences {
         return try {
             mapper.readValue(
                 prefString,
-                object : TypeReference<List<WallpaperConfig>>() {})
+                object : TypeReference<List<WallpaperConfig>>() {}
+            )
         } catch (e: Exception) {
             Log.e(this.javaClass.name, e.toString())
             listOf(WallpaperConfig(WallpaperTarget.BOTH))

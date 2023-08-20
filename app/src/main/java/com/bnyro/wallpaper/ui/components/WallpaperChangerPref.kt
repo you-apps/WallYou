@@ -62,7 +62,9 @@ fun WallpaperChangerPref(config: WallpaperConfig, onChange: (WallpaperConfig) ->
         when (state) {
             WallpaperSource.ONLINE -> {
                 var currentIndex by remember {
-                    mutableIntStateOf(DrawerScreens.apiScreens.indexOfFirst { it.route == config.apiRoute })
+                    mutableIntStateOf(
+                        DrawerScreens.apiScreens.indexOfFirst { it.route == config.apiRoute }
+                    )
                 }
                 BlockPreference(
                     preferenceKey = null,

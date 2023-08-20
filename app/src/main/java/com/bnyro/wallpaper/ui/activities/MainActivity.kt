@@ -19,8 +19,6 @@ import androidx.compose.runtime.rememberCoroutineScope
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.tooling.preview.Preview
-import androidx.lifecycle.ViewModelProvider
-import androidx.lifecycle.get
 import androidx.lifecycle.viewmodel.compose.viewModel
 import androidx.navigation.compose.rememberNavController
 import com.bnyro.wallpaper.ui.components.NavigationDrawer
@@ -57,7 +55,12 @@ private fun MainContent() {
         val initialPage = pages.firstOrNull { it.route == lastSelectedTab }
         initialPage?.route?.runCatching { navController.navigate(this) }
         navController.addOnDestinationChangedListener { _, destination, _ ->
-            if (!DrawerScreens.apiScreens.any { it.route == destination.route }) return@addOnDestinationChangedListener
+            if (!DrawerScreens.apiScreens.any {
+                    it.route == destination.route
+                }
+            ) {
+                return@addOnDestinationChangedListener
+            }
             Preferences.edit { putString(Preferences.startTabKey, destination.route) }
         }
     }

@@ -30,7 +30,11 @@ object ImageHelper {
     }
 
     @OptIn(ExperimentalCoilApi::class)
-    suspend fun getSuspend(context: Context, imageURL: String?, forceReload: Boolean = false): Bitmap? {
+    suspend fun getSuspend(
+        context: Context,
+        imageURL: String?,
+        forceReload: Boolean = false
+    ): Bitmap? {
         val request = buildRequest(context, imageURL).build()
 
         return ImageLoader(context).apply {

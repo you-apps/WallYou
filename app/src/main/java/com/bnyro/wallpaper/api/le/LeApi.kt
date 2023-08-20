@@ -22,7 +22,7 @@ class LeApi : CommunityApi() {
                 title = it.post.name,
                 url = it.post.postUrl,
                 author = it.creator.name,
-                creationDate = it.post.published,
+                creationDate = it.post.published
             )
         }
     }
