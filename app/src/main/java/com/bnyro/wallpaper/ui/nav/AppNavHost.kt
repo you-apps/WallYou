@@ -2,6 +2,7 @@ package com.bnyro.wallpaper.ui.nav
 
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.res.stringResource
 import androidx.navigation.NavHostController
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
@@ -12,7 +13,7 @@ import com.bnyro.wallpaper.ui.pages.AboutPage
 import com.bnyro.wallpaper.ui.pages.FavoritesPage
 import com.bnyro.wallpaper.ui.pages.SettingsPage
 import com.bnyro.wallpaper.ui.pages.WallpaperPage
-import com.bnyro.wallpaper.util.ApiHolder
+import com.bnyro.wallpaper.util.Preferences
 
 @Composable
 fun AppNavHost(
@@ -26,40 +27,12 @@ fun AppNavHost(
         navController = navController,
         startDestination = startDestination
     ) {
-        composable(DrawerScreens.Wallhaven.route) {
-            viewModel.titleResource = R.string.wallhaven
-            viewModel.api = ApiHolder.whApi
-            WallpaperPage(viewModel)
-        }
-        composable(DrawerScreens.Picsum.route) {
-            viewModel.titleResource = R.string.picsum
-            viewModel.api = ApiHolder.psApi
-            WallpaperPage(viewModel)
-        }
-        composable(DrawerScreens.Unsplash.route) {
-            viewModel.titleResource = R.string.unsplash
-            viewModel.api = ApiHolder.usApi
-            WallpaperPage(viewModel)
-        }
-        composable(DrawerScreens.OWalls.route) {
-            viewModel.titleResource = R.string.owalls
-            viewModel.api = ApiHolder.owApi
-            WallpaperPage(viewModel)
-        }
-        composable(DrawerScreens.BingDaily.route) {
-            viewModel.titleResource = R.string.bing_daily
-            viewModel.api = ApiHolder.biApi
-            WallpaperPage(viewModel)
-        }
-        composable(DrawerScreens.Reddit.route) {
-            viewModel.titleResource = R.string.reddit
-            viewModel.api = ApiHolder.reApi
-            WallpaperPage(viewModel)
-        }
-        composable(DrawerScreens.Lemmy.route) {
-            viewModel.titleResource = R.string.lemmy
-            viewModel.api = ApiHolder.leApi
-            WallpaperPage(viewModel)
+        DrawerScreens.apiScreens.forEach { screen ->
+            composable(screen.route) {
+                viewModel.titleResource = screen.titleResource
+                viewModel.api = Preferences.getApiByRoute(screen.route)
+                WallpaperPage(viewModel)
+            }
         }
         composable(DrawerScreens.Favorites.route) {
             viewModel.titleResource = R.string.favorites

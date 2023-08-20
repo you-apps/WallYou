@@ -11,7 +11,7 @@ import com.bnyro.wallpaper.R
 import com.bnyro.wallpaper.api.Api
 import com.bnyro.wallpaper.enums.ThemeMode
 import com.bnyro.wallpaper.db.obj.Wallpaper
-import com.bnyro.wallpaper.util.ApiHolder
+import com.bnyro.wallpaper.ui.nav.DrawerScreens
 import com.bnyro.wallpaper.util.Preferences
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
@@ -24,7 +24,7 @@ class MainModel : ViewModel() {
     ).toInt()
     var themeMode by mutableStateOf(ThemeMode.values()[themeModeIndex])
 
-    var api: Api = ApiHolder.whApi
+    var api: Api = Preferences.getApiByRoute(DrawerScreens.apiScreens.first().route)
     var wallpapers by mutableStateOf(
         listOf<Wallpaper>()
     )
