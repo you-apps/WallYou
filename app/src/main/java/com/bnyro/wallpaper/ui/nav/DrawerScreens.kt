@@ -28,7 +28,6 @@ sealed class DrawerScreens(
     object Unsplash : DrawerScreens(R.string.unsplash, "us", Icons.Default.WaterDrop)
 
     object OWalls : DrawerScreens(R.string.owalls, "ow", Icons.Default.Air)
-    object MiWalls : DrawerScreens(R.string.miwalls, "mi", Icons.Default.PhotoAlbum)
     object BingDaily : DrawerScreens(R.string.bing_daily, "bi", Icons.Default.Nightlight)
     object Reddit : DrawerScreens(R.string.reddit, "redd", Icons.Default.Forum)
     object Lemmy : DrawerScreens(R.string.lemmy, "le", Icons.Default.Book)
@@ -37,7 +36,7 @@ sealed class DrawerScreens(
     object About : DrawerScreens(R.string.about, "about", Icons.Default.Info)
 
     companion object {
-        val apiScreens = listOf(Wallhaven, Unsplash, OWalls, Picsum, MiWalls, BingDaily, Reddit, Lemmy)
+        val apiScreens = listOf(Wallhaven, Unsplash, OWalls, Picsum, BingDaily, Reddit, Lemmy)
         val screens = listOf(*apiScreens.toTypedArray(), Favorites, Settings, About)
     }
 }

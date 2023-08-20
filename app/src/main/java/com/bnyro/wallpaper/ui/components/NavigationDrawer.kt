@@ -43,7 +43,6 @@ import androidx.compose.ui.unit.sp
 import androidx.navigation.NavController
 import com.bnyro.wallpaper.R
 import com.bnyro.wallpaper.ui.nav.DrawerScreens
-import com.bnyro.wallpaper.util.Preferences
 import kotlinx.coroutines.launch
 
 @OptIn(ExperimentalMaterial3Api::class)

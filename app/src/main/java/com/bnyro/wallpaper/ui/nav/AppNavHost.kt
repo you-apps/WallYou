@@ -46,11 +46,6 @@ fun AppNavHost(
             viewModel.api = ApiHolder.owApi
             WallpaperPage(viewModel)
         }
-        composable(DrawerScreens.MiWalls.route) {
-            viewModel.titleResource = R.string.miwalls
-            viewModel.api = ApiHolder.miApi
-            WallpaperPage(viewModel)
-        }
         composable(DrawerScreens.BingDaily.route) {
             viewModel.titleResource = R.string.bing_daily
             viewModel.api = ApiHolder.biApi
