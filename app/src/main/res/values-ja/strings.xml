@@ -5,8 +5,9 @@
     <string name="picsum" translatable="false">Picsum</string>
     <string name="owalls" translatable="false">OWalls</string>
     <string name="unsplash" translatable="false">Unsplash</string>
-    <string name="miwalls" translatable="false">Mi Carousel</string>
     <string name="bing_daily" translatable="false">Bing daily</string>
+    <string name="reddit" translatable="false">Reddit</string>
+    <string name="lemmy" translatable="false">Lemmy</string>
     <!-- Navigation Drawer -->
     <string name="favorites">お気に入り</string>
     <string name="settings">設定</string>
@@ -15,6 +16,10 @@
     <string name="info">情報</string>
     <string name="filter">フィルター</string>
     <string name="add">追加</string>
+    <string name="community_name">コミュニティ名</string>
+    <string name="set_wallpaper">壁紙を設定</string>
+    <string name="download">ダウンロード</string>
+    <string name="add_to_favorites">お気に入りに追加</string>
     <!-- Info Dialog -->
     <string name="author">作者</string>
     <string name="resolution">解像度</string>
@@ -34,6 +39,7 @@
     <!-- Preference categories -->
     <string name="general">一般</string>
     <string name="cache">キャッシュ</string>
+    <string name="wallpaper_preview">壁紙のプレビュー</string>
     <!-- Preferences -->
     <string name="crop_images">画像のトリミング</string>
     <string name="coil_cache">コイル画像キャッシュ</string>
@@ -42,6 +48,7 @@
     <string name="wallpaper_changer_source">壁紙チェンジャーのソース</string>
     <string name="combine_wallpaper_changers">複合壁紙チェンジャー</string>
     <string name="combine_wallpaper_changers_summary">ホーム画面とロック画面に同じ壁紙を使用します。</string>
+    <string name="color_palette">カラーパレットを表示</string>
     <!-- Wallpaper changer source -->
     <string name="online">オンライン</string>
     <string name="local">ローカル</string>
