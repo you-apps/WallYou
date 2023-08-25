@@ -5,8 +5,9 @@
     <string name="picsum" translatable="false">Picsum</string>
     <string name="owalls" translatable="false">OWalls</string>
     <string name="unsplash" translatable="false">Unsplash</string>
-    <string name="miwalls" translatable="false">Mi Carousel</string>
     <string name="bing_daily" translatable="false">Bing daily</string>
+    <string name="reddit" translatable="false">Reddit</string>
+    <string name="lemmy" translatable="false">Lemmy</string>
     <!-- Navigation Drawer -->
     <string name="favorites">うきーがいー</string>
     <string name="settings">しってい</string>
@@ -15,6 +16,10 @@
     <string name="info">じょうほう</string>
     <string name="filter">フィルター</string>
     <string name="add">ちいが</string>
+    <string name="community_name">コミュニティめい</string>
+    <string name="set_wallpaper">かべがみをせってい</string>
+    <string name="download">ダウンロード</string>
+    <string name="add_to_favorites">おきにいりについか</string>
     <!-- Info Dialog -->
     <string name="author">さくしゃ</string>
     <string name="resolution">かいぞうどぅ</string>
@@ -34,6 +39,7 @@
     <!-- Preference categories -->
     <string name="general">いちぱん</string>
     <string name="cache">キャッシュ</string>
+    <string name="wallpaper_preview">かべがみのプレビュー</string>
     <!-- Preferences -->
     <string name="crop_images">やしぬぞうぬトリミング</string>
     <string name="coil_cache">コイルぬぞうキャッシュ</string>
@@ -42,6 +48,7 @@
     <string name="wallpaper_changer_source">かびがみチェンジャーぬソース</string>
     <string name="combine_wallpaper_changers">ふくごうかびがみチェンジャー</string>
     <string name="combine_wallpaper_changers_summary">ホームぬみんとぅロックぬみぬんかいいぬかびがんーじしーようさびーん。</string>
+    <string name="color_palette">カラーパレットをひょうじ</string>
     <!-- Wallpaper changer source -->
     <string name="online">オンライン</string>
     <string name="local">ローカル</string>
