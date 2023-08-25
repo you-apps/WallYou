@@ -17,9 +17,9 @@
     <string name="filter">フィルター</string>
     <string name="add">ちいが</string>
     <string name="community_name">コミュニティめい</string>
-    <string name="set_wallpaper">かべがみをせってい</string>
+    <string name="set_wallpaper">かびがんーじしってい</string>
     <string name="download">ダウンロード</string>
-    <string name="add_to_favorites">おきにいりについか</string>
+    <string name="add_to_favorites">うきーがいーんかいちちが</string>
     <!-- Info Dialog -->
     <string name="author">さくしゃ</string>
     <string name="resolution">かいぞうどぅ</string>
@@ -39,7 +39,7 @@
     <!-- Preference categories -->
     <string name="general">いちぱん</string>
     <string name="cache">キャッシュ</string>
-    <string name="wallpaper_preview">かべがみのプレビュー</string>
+    <string name="wallpaper_preview">かびがんーじぬプレビュー</string>
     <!-- Preferences -->
     <string name="crop_images">やしぬぞうぬトリミング</string>
     <string name="coil_cache">コイルぬぞうキャッシュ</string>
@@ -48,7 +48,7 @@
     <string name="wallpaper_changer_source">かびがみチェンジャーぬソース</string>
     <string name="combine_wallpaper_changers">ふくごうかびがみチェンジャー</string>
     <string name="combine_wallpaper_changers_summary">ホームぬみんとぅロックぬみぬんかいいぬかびがんーじしーようさびーん。</string>
-    <string name="color_palette">カラーパレットをひょうじ</string>
+    <string name="color_palette">カラーパレットひょうじ</string>
     <!-- Wallpaper changer source -->
     <string name="online">オンライン</string>
     <string name="local">ローカル</string>
