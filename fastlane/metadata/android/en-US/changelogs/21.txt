@@ -1,0 +1,10 @@
+Important: The signing keys for this release have changed, hence you must reinstall the app and can't update it directly.
+
+What's new:
+* Add Reddit support by @SuhasDissa
+* feat: support for lemmy by @Bnyro
+* Improve wallpaper grid layout on large screens by @SuhasDissa
+* Make the wallpaper grid favourite button more visible by @SuhasDissa
+* feat: option to select custom subreddit by @Bnyro
+* feat: disable color palette in image preview by @Bnyro
+* plus more features and bug fixes
