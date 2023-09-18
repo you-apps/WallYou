@@ -7,13 +7,40 @@ import com.bnyro.wallpaper.util.RetrofitBuilder
 class LeApi : CommunityApi() {
     override val name: String = "Lemmy"
     override val baseUrl: String = "https://lemmy.ml"
+    override val filters: Map<String, List<String>> = mapOf(
+        "sort" to listOf(
+            "Active",
+            "Hot",
+            "New",
+            "Old",
+            "TopDay",
+            "TopWeek",
+            "TopMonth",
+            "TopYear",
+            "TopAll",
+            "MostComments",
+            "NewComments",
+            "TopHour",
+            "TopSixHour",
+            "TopTwelveHour",
+            "TopThreeMonths",
+            "TopSixMonths",
+            "TopNineMonths"
+        ),
+        "type" to listOf("All", "Local")
+    )
 
     override val defaultCommunityName: String = "apocalypticart@feddit.de"
 
     private val api = RetrofitBuilder.create(baseUrl, Lemmy::class.java)
 
     override suspend fun getWallpapers(page: Int): List<Wallpaper> {
-        return api.getWallpapers(page, getCommunityName()).posts.filter {
+        return api.getWallpapers(
+            page = page,
+            communityName = getCommunityName(),
+            sort = getQuery("sort"),
+            type = getQuery("type")
+        ).posts.filter {
             !it.post.thumbnailUrl.isNullOrEmpty()
         }.map {
             Wallpaper(
