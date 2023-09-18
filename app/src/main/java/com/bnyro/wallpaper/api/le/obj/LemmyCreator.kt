@@ -7,9 +7,9 @@ import com.fasterxml.jackson.annotation.JsonProperty
 data class LemmyCreator(
     @JsonProperty("actor_id") val actorId: String = "",
     @JsonProperty("admin") val admin: Boolean = false,
-    @JsonProperty("avatar") val avatar: String = "",
+    @JsonProperty("avatar") val avatar: String? = null,
     @JsonProperty("banned") val banned: Boolean = false,
-    @JsonProperty("banner") val banner: String = "",
+    @JsonProperty("banner") val banner: String? = null,
     @JsonProperty("bot_account") val botAccount: Boolean = false,
     @JsonProperty("deleted") val deleted: Boolean = false,
     @JsonProperty("id") val id: Int = 0,
