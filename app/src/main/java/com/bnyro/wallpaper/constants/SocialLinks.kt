@@ -1,4 +1,4 @@
-package com.you-apps.wallpaper.constants
+package com.bnyro.wallpaper.constants
 
 object SocialLinks {
     const val REPO_GITHUB = "https://github.com/you-apps/wallyou"
