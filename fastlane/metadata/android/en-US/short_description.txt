@@ -1,1 +1,1 @@
-Wallpaper app built with Material Design 3 (You)
+Privacy focused wallpaper app build with MD3
