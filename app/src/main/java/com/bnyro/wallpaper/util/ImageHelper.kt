@@ -88,9 +88,9 @@ object ImageHelper {
     }
 
     fun getLocalImage(context: Context, imagePath: Uri): Bitmap? {
-        return context.contentResolver.openInputStream(imagePath)?.use { stream ->
-            val exifInterface = ExifInterface(stream)
-            val bitmap = exifInterface.thumbnailBitmap ?: return null
+        return context.contentResolver.openFileDescriptor(imagePath, "r")?.use {
+            val bitmap = BitmapFactory.decodeFileDescriptor(it.fileDescriptor) ?: return null
+            val exifInterface = ExifInterface(it.fileDescriptor) // This will change fileDescriptor position
             rotateBitmap(bitmap, exifInterface)
         }
     }
