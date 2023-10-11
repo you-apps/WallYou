@@ -6,7 +6,7 @@
     <string name="owalls" translatable="false">OWalls</string>
     <string name="unsplash" translatable="false">Unsplash</string>
     <!-- Navigation Drawer -->
-    <string name="favorites">Фаворити</string>
+    <string name="favorites">Омиљено</string>
     <string name="settings">Подешавања</string>
     <string name="about">О апликацији</string>
     <!-- Image Preview -->
@@ -17,9 +17,9 @@
     <string name="author">Аутор</string>
     <string name="resolution">Резолуција</string>
     <string name="category">Категорија</string>
-    <string name="fileSize">Величина датотеке</string>
+    <string name="fileSize">Величина фајла</string>
     <string name="source">Извор</string>
-    <string name="creationDate">Датум креирања</string>
+    <string name="creationDate">Датум прављења</string>
     <!-- Set Wallpaper -->
     <string name="both">Оба</string>
     <string name="home">Почетни екран</string>
@@ -31,25 +31,25 @@
     <string name="reset">Ресетуј</string>
     <!-- Preference categories -->
     <string name="general">Опште</string>
-    <string name="cache">Кеширање</string>
+    <string name="cache">Кеш</string>
     <!-- Preferences -->
     <string name="crop_images">Исеци слике</string>
-    <string name="coil_cache">Кеширање посебних слика</string>
+    <string name="coil_cache">Кеш посебних слика</string>
     <string name="wallpaper_changer">Мењање позадина</string>
     <string name="change_interval">Интервал промене</string>
     <string name="wallpaper_changer_source">Извор за мењање позадине</string>
     <!-- Wallpaper changer source -->
-    <string name="online">Са Интернета</string>
+    <string name="online">Са интернета</string>
     <string name="local">Локално</string>
     <string name="choose_dir">Избор фолдера</string>
     <!-- Theme -->
     <string name="theme_mode">Тема</string>
-    <string name="theme_system">Системска</string>
+    <string name="theme_system">Системски</string>
     <string name="theme_light">Светла</string>
     <string name="theme_dark">Тамна</string>
     <!-- Favorites -->
     <string name="no_favorites">Још увек нема фаворита</string>
-    <string name="auto_add_to_favorites">Додај у фаворите приликом примене</string>
+    <string name="auto_add_to_favorites">Додај у омиљено приликом примене</string>
     <!-- About -->
     <string name="version">Верзија</string>
     <string name="github" translatable="false">GitHub</string>
