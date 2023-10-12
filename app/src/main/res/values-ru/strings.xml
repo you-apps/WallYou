@@ -25,7 +25,7 @@
     <string name="general">Основные</string>
     <string name="cache">Кэш</string>
     <!-- Preferences -->
-    <string name="crop_images">Обрезать изображение</string>
+    <string name="crop_images">Обрезать изображения</string>
     <string name="coil_cache">Кэш изображений</string>
     <string name="wallpaper_changer">Смена обоев</string>
     <string name="change_interval">Интервал смены обоев</string>
@@ -43,11 +43,19 @@
     <string name="website">Веб-сайт</string>
     <string name="grayscale">Оттенки серого</string>
     <string name="blur">Размытие</string>
-    <string name="auto_add_to_favorites">Добавить в избранное при применении</string>
+    <string name="auto_add_to_favorites">Добавлять в избранное при применении</string>
     <string name="reset">Сброс</string>
     <string name="applying_random">Применять случайные обои</string>
     <string name="local">Приложение</string>
     <string name="choose_dir">Выбрать папку</string>
     <string name="online">Онлайн</string>
     <string name="wallpaper_changer_source">Источник обоев</string>
+    <string name="color_palette">Показать палитру</string>
+    <string name="add_to_favorites">Добавить в избранное</string>
+    <string name="community_name">Название сообщества</string>
+    <string name="set_wallpaper">Установить обои</string>
+    <string name="wallpaper_preview">Предпросмотр обоев</string>
+    <string name="combine_wallpaper_changers">Одинаковые обои</string>
+    <string name="download">Скачать</string>
+    <string name="combine_wallpaper_changers_summary">Использовать одинаковые обои на главном экране и на экране блокировки.</string>
 </resources>
