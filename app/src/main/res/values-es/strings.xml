@@ -49,4 +49,12 @@
     <string name="online">Conectado</string>
     <string name="local">Local</string>
     <string name="choose_dir">Seleccionar directorio</string>
+    <string name="color_palette">Mostrar la paleta de colores</string>
+    <string name="add_to_favorites">Añadir a favoritos</string>
+    <string name="community_name">Nombre de la comunidad</string>
+    <string name="set_wallpaper">Establecer un fondo de pantalla</string>
+    <string name="wallpaper_preview">Vista previa del fondo de pantalla</string>
+    <string name="combine_wallpaper_changers">Combinar el fondo de pantalla</string>
+    <string name="download">Descargar</string>
+    <string name="combine_wallpaper_changers_summary">Utiliza el mismo fondo de pantalla para la pantalla de inicio y la pantalla de bloqueo.</string>
 </resources>
