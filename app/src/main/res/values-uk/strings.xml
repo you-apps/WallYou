@@ -3,7 +3,7 @@
     <string name="app_name" translatable="false">Wall You</string>
     <string name="wallhaven" translatable="false">Wallhaven</string>
     <!-- Navigation Drawer -->
-    <string name="favorites">Вибране</string>
+    <string name="favorites">Обране</string>
     <string name="settings">Налаштування</string>
     <string name="about">Про застосунок</string>
     <!-- Image Preview -->
@@ -35,7 +35,7 @@
     <string name="theme_light">Світла</string>
     <string name="theme_dark">Темна</string>
     <!-- Favorites -->
-    <string name="no_favorites">Вибраних ще немає</string>
+    <string name="no_favorites">Обраних ще немає</string>
     <!-- About -->
     <string name="version">Версія</string>
     <string name="github" translatable="false">GitHub</string>
@@ -43,11 +43,19 @@
     <string name="website">Вебсайт</string>
     <string name="grayscale">Відтінки сірого</string>
     <string name="blur">Розмиття</string>
-    <string name="auto_add_to_favorites">Додавати до списку вибраного під час застосування</string>
+    <string name="auto_add_to_favorites">Додавати до списку обраних під час застосування</string>
     <string name="reset">Скидання</string>
     <string name="applying_random">Застосувати випадкові шпалери</string>
     <string name="wallpaper_changer_source">Джерело зміни шпалер</string>
     <string name="online">Онлайн</string>
     <string name="local">Локально</string>
     <string name="choose_dir">Виберіть каталог</string>
+    <string name="color_palette">Показати палітру кольорів</string>
+    <string name="add_to_favorites">Додати до обраних</string>
+    <string name="community_name">Назва спільноти</string>
+    <string name="set_wallpaper">Встановити шпалери</string>
+    <string name="wallpaper_preview">Попередній перегляд шпалер</string>
+    <string name="combine_wallpaper_changers">Комбінована зміна шпалер</string>
+    <string name="download">Завантажити</string>
+    <string name="combine_wallpaper_changers_summary">Використовуйте однакові шпалери для головного екрана та екрана блокування.</string>
 </resources>
