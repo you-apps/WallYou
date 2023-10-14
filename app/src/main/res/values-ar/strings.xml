@@ -38,4 +38,12 @@
     <string name="online">عبر الشبكة</string>
     <string name="local">محليٌّ</string>
     <string name="choose_dir">اختر مجلَّدًا</string>
+    <string name="color_palette">إظهار لوحة الألوان</string>
+    <string name="add_to_favorites">إضافة إلى المفضلة</string>
+    <string name="community_name">اسم المجتمع</string>
+    <string name="set_wallpaper">تعيين الخلفية</string>
+    <string name="wallpaper_preview">عرض الخلفية</string>
+    <string name="combine_wallpaper_changers">مغير الخلفية المدمج</string>
+    <string name="download">تنزيل</string>
+    <string name="combine_wallpaper_changers_summary">استخدم نفس الخلفية لشاشة الرئيسية و شاشة القفل.</string>
 </resources>
