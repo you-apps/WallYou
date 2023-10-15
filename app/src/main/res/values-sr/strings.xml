@@ -41,7 +41,7 @@
     <!-- Wallpaper changer source -->
     <string name="online">Са Интернета</string>
     <string name="local">Локално</string>
-    <string name="choose_dir">Изаберите директоријум</string>
+    <string name="choose_dir">Избор фолдера</string>
     <!-- Theme -->
     <string name="theme_mode">Тема</string>
     <string name="theme_system">Системска</string>
@@ -54,5 +54,13 @@
     <string name="version">Верзија</string>
     <string name="github" translatable="false">GitHub</string>
     <string name="license">Лиценца</string>
-    <string name="website">Сајт</string>
+    <string name="website">Веб-сајт</string>
+    <string name="color_palette">Прикажи палету боја</string>
+    <string name="add_to_favorites">Додај у омиљено</string>
+    <string name="community_name">Назив заједнице</string>
+    <string name="set_wallpaper">Постави позадину</string>
+    <string name="wallpaper_preview">Преглед позадине</string>
+    <string name="combine_wallpaper_changers">Комбиновани мењач позадине</string>
+    <string name="download">Преузми</string>
+    <string name="combine_wallpaper_changers_summary">Користите исту позадину за почетни екран и закључани екран.</string>
 </resources>

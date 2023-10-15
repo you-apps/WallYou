@@ -38,4 +38,12 @@
     <string name="online">Online</string>
     <string name="local">Místní</string>
     <string name="choose_dir">Vybrat adresář</string>
+    <string name="color_palette">Zobrazit barevnou paletu</string>
+    <string name="add_to_favorites">Přidat do oblíbených</string>
+    <string name="community_name">Název komunity</string>
+    <string name="set_wallpaper">Nastavit pozadí</string>
+    <string name="wallpaper_preview">Náhled pozadí</string>
+    <string name="combine_wallpaper_changers">Kombinovaná změna pozadí</string>
+    <string name="download">Stáhnout</string>
+    <string name="combine_wallpaper_changers_summary">Použít stejné pozadí pro domovskou a zamykací obrazovku.</string>
 </resources>

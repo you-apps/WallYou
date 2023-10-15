@@ -38,4 +38,12 @@
     <string name="wallpaper_changer_source">Bakgrunnsvekslerkilde</string>
     <string name="online">På nett</string>
     <string name="local">Lokalt</string>
+    <string name="color_palette">Vis fargepalett</string>
+    <string name="add_to_favorites">Legg til i favoritter</string>
+    <string name="community_name">Gemenskapsnavn</string>
+    <string name="set_wallpaper">Sett bakgrunnsbilde</string>
+    <string name="wallpaper_preview">Bakgrunnsbildeforhåndsvisning</string>
+    <string name="combine_wallpaper_changers">Kombinert bakgrunnsbildeendrer</string>
+    <string name="download">Last ned</string>
+    <string name="combine_wallpaper_changers_summary">Bruk det samme bakgrunnsbildet på hjemme- og låseskjerm.</string>
 </resources>
