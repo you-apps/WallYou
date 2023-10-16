@@ -50,4 +50,12 @@
     <string name="online">Menggunakan Jaringan</string>
     <string name="choose_dir">Pilih direktori</string>
     <string name="grayscale">Abu-Abu</string>
+    <string name="color_palette">Tampilkan palet warna</string>
+    <string name="add_to_favorites">Tambahkan ke favorit</string>
+    <string name="community_name">Nama komunitas</string>
+    <string name="set_wallpaper">Atur wallpaper</string>
+    <string name="wallpaper_preview">Pratinjau wallpaper</string>
+    <string name="combine_wallpaper_changers">Pengubah wallpaper tergabung</string>
+    <string name="download">Unduh</string>
+    <string name="combine_wallpaper_changers_summary">Gunakan wallpaper yang sama untuk beranda dan layar kunci.</string>
 </resources>

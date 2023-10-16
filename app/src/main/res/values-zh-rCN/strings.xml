@@ -50,4 +50,12 @@
     <string name="online">在线</string>
     <string name="local">本地</string>
     <string name="choose_dir">选择目录</string>
+    <string name="color_palette">显示色调板</string>
+    <string name="add_to_favorites">添加到收藏夹</string>
+    <string name="community_name">社区名称</string>
+    <string name="set_wallpaper">设置壁纸</string>
+    <string name="wallpaper_preview">壁纸预览</string>
+    <string name="combine_wallpaper_changers">合并更换壁纸</string>
+    <string name="download">下载</string>
+    <string name="combine_wallpaper_changers_summary">为主屏幕和锁定屏幕使用相同壁纸。</string>
 </resources>

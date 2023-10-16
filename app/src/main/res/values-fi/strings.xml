@@ -1,2 +1,49 @@
 <?xml version="1.0" encoding="utf-8"?>
-<resources></resources>
+<resources>
+    <string name="wallpaper_changer_source">Taustakuvan vaihtajan lähde</string>
+    <string name="theme_light">Vaalea</string>
+    <string name="color_palette">Näytä väripaletti</string>
+    <string name="no_favorites">Ei vielä suosikkeja</string>
+    <string name="applying_random">Toteutaan satunnainen taustakuva</string>
+    <string name="filter">Suodatin</string>
+    <string name="crop_images">Rajaa kuvat</string>
+    <string name="reset">Nollaa</string>
+    <string name="lockscreen">Lukitusnäyttö</string>
+    <string name="both">Molemmat</string>
+    <string name="blur">Sumenna</string>
+    <string name="cache">Välimuisti</string>
+    <string name="theme_dark">Tumma</string>
+    <string name="coil_cache">Kuvakierteen välimuisti</string>
+    <string name="website">Verkkosivusto</string>
+    <string name="add_to_favorites">Lisää suosikkeihin</string>
+    <string name="info">Tiedot</string>
+    <string name="community_name">Yhteisön nimi</string>
+    <string name="set_wallpaper">Aseta taustakuva</string>
+    <string name="online">Verkko</string>
+    <string name="theme_system">Järjestelmä</string>
+    <string name="wallpaper_changer">Taustakuvan vaihtaja</string>
+    <string name="creationDate">Luontipäivä</string>
+    <string name="version">Versio</string>
+    <string name="change_interval">Vaihtoväli</string>
+    <string name="wallpaper_preview">Taustakuvan esikatselu</string>
+    <string name="choose_dir">Valitse kansio</string>
+    <string name="combine_wallpaper_changers">Yhdistetty taustakuvan vaihtaja</string>
+    <string name="fileSize">Tiedostokoko</string>
+    <string name="download">Lataa</string>
+    <string name="license">Lisenssi</string>
+    <string name="about">Tietoja</string>
+    <string name="local">Paikallinen</string>
+    <string name="favorites">Suosikit</string>
+    <string name="home">Kotinäyttö</string>
+    <string name="general">Yleiset</string>
+    <string name="combine_wallpaper_changers_summary">Käytä samaa taustakuvaa koti- ja lukitusnäytölle.</string>
+    <string name="grayscale">Harmaasävy</string>
+    <string name="settings">Asetukset</string>
+    <string name="author">Tekijä</string>
+    <string name="category">Luokka</string>
+    <string name="source">Lähde</string>
+    <string name="resolution">Resoluutio</string>
+    <string name="add">Lisää</string>
+    <string name="theme_mode">Teema</string>
+    <string name="auto_add_to_favorites">Lisää suosikkeihin toteuttamisen yhteydessä</string>
+</resources>

@@ -38,4 +38,12 @@
     <string name="online">מקוון</string>
     <string name="theme_dark">כהה</string>
     <string name="wallpaper_changer">מחליף טפטים</string>
+    <string name="color_palette">הצגת לוח צבעים</string>
+    <string name="add_to_favorites">הוספה למועדפים</string>
+    <string name="community_name">שם הקהילה</string>
+    <string name="set_wallpaper">הגדרת טפט</string>
+    <string name="wallpaper_preview">תצוגה מקדימה של טפט</string>
+    <string name="combine_wallpaper_changers">מחליף תמונות רקע משולב</string>
+    <string name="download">הורדה</string>
+    <string name="combine_wallpaper_changers_summary">להשתמש באותו הטפט למסכי הבית והנעילה.</string>
 </resources>

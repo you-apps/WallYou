@@ -26,7 +26,7 @@
     <string name="no_favorites">Ainda não há favoritos</string>
     <string name="auto_add_to_favorites">Adicionar aos favoritos ao aplicar</string>
     <string name="version">Versão</string>
-    <string name="website">Website</string>
+    <string name="website">Site</string>
     <string name="settings">Configurações</string>
     <string name="source">Fonte</string>
     <string name="favorites">Favoritos</string>
@@ -38,4 +38,12 @@
     <string name="online">Online</string>
     <string name="local">Local</string>
     <string name="choose_dir">Escolher diretório</string>
+    <string name="color_palette">Exibir paleta de cores</string>
+    <string name="add_to_favorites">Adicionar aos favoritos</string>
+    <string name="community_name">Nome da comunidade</string>
+    <string name="set_wallpaper">Definir papel de parede</string>
+    <string name="wallpaper_preview">Prévia do papel de parede</string>
+    <string name="combine_wallpaper_changers">Alterador de papel de parede combinado</string>
+    <string name="download">Baixar</string>
+    <string name="combine_wallpaper_changers_summary">Use o mesmo papel de parede na tela inicial e tela de bloqueio.</string>
 </resources>
