@@ -11,6 +11,8 @@ import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.sizeIn
 import androidx.compose.foundation.layout.width
 import androidx.compose.foundation.layout.windowInsetsPadding
+import androidx.compose.foundation.rememberScrollState
+import androidx.compose.foundation.verticalScroll
 import androidx.compose.material3.Divider
 import androidx.compose.material3.DrawerDefaults
 import androidx.compose.material3.DrawerState
@@ -69,7 +71,13 @@ fun NavigationDrawer(
     ModalNavigationDrawer(
         drawerState = drawerState,
         drawerContent = {
-            ModalDrawerSheet {
+            val scrollState = rememberScrollState()
+
+            ModalDrawerSheet(
+                modifier = Modifier
+                    .fillMaxHeight()
+                    .verticalScroll(scrollState),
+            ) {
                 Spacer(Modifier.height(20.dp))
                 Row(
                     verticalAlignment = Alignment.CenterVertically
