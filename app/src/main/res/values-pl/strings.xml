@@ -38,4 +38,12 @@
     <string name="online">Online</string>
     <string name="local">Lokalne</string>
     <string name="coil_cache">Pamięć podręczna obrazu</string>
+    <string name="color_palette">Pokaż paletę kolorów</string>
+    <string name="add_to_favorites">Dodaj do ulubionych</string>
+    <string name="community_name">Nazwa społeczności</string>
+    <string name="set_wallpaper">Ustaw tapetę</string>
+    <string name="wallpaper_preview">Podgląd tapety</string>
+    <string name="combine_wallpaper_changers">Połączony zmieniacz tapet</string>
+    <string name="download">Pobierz</string>
+    <string name="combine_wallpaper_changers_summary">Użyj tej samej tapety na ekranie głównym i ekranie blokady.</string>
 </resources>
