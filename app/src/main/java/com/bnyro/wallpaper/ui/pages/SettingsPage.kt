@@ -1,13 +1,20 @@
 package com.bnyro.wallpaper.ui.pages
 
+import androidx.activity.compose.rememberLauncherForActivityResult
+import androidx.activity.result.contract.ActivityResultContracts
 import androidx.compose.foundation.layout.Column
+import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.height
+import androidx.compose.foundation.layout.width
 import androidx.compose.foundation.rememberScrollState
 import androidx.compose.foundation.verticalScroll
+import androidx.compose.material3.Button
+import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.remember
+import androidx.compose.runtime.rememberCoroutineScope
 import androidx.compose.runtime.toMutableStateList
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.platform.LocalContext
@@ -25,8 +32,11 @@ import com.bnyro.wallpaper.ui.components.prefs.CheckboxPref
 import com.bnyro.wallpaper.ui.components.prefs.ListPreference
 import com.bnyro.wallpaper.ui.components.prefs.SettingsCategory
 import com.bnyro.wallpaper.ui.models.MainModel
+import com.bnyro.wallpaper.util.BackupHelper
 import com.bnyro.wallpaper.util.Preferences
 import com.bnyro.wallpaper.util.WorkerHelper
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.launch
 
 @Composable
 fun SettingsPage(
@@ -36,6 +46,20 @@ fun SettingsPage(
     val wallpaperConfigs = remember {
         Preferences.getWallpaperConfigs().toMutableStateList()
     }
+    val scope = rememberCoroutineScope()
+
+    val createFavoritesBackup =
+        rememberLauncherForActivityResult(ActivityResultContracts.CreateDocument(BackupHelper.JSON_MIME)) {
+            scope.launch(Dispatchers.IO) {
+                BackupHelper.backupFavorites(it ?: return@launch, context)
+            }
+        }
+    val restoreFavoritesBackup =
+        rememberLauncherForActivityResult(ActivityResultContracts.OpenDocument()) {
+            scope.launch(Dispatchers.IO) {
+                BackupHelper.restoreFavorites(it ?: return@launch, context)
+            }
+        }
 
     val scrollState = rememberScrollState()
     Column(
@@ -166,6 +190,30 @@ fun SettingsPage(
                 WallpaperChangerPref(wallpaperConfig) {
                     wallpaperConfigs[index] = wallpaperConfig
                     Preferences.setWallpaperConfigs(wallpaperConfigs)
+                }
+            }
+        }
+
+        AboutContainer {
+            SettingsCategory(
+                title = stringResource(R.string.import_export)
+            )
+            Spacer(modifier = Modifier.height(6.dp))
+            Row {
+                Button(
+                    onClick = {
+                        restoreFavoritesBackup.launch(arrayOf(BackupHelper.JSON_MIME))
+                    }
+                ) {
+                    Text(stringResource(R.string.import_favorites))
+                }
+                Spacer(modifier = Modifier.width(6.dp))
+                Button(
+                    onClick = {
+                        createFavoritesBackup.launch("wall_you_favorites_backup.json")
+                    }
+                ) {
+                    Text(stringResource(R.string.export_favorites))
                 }
             }
         }
