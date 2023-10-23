@@ -47,12 +47,11 @@ private fun MainContent() {
     val scope = rememberCoroutineScope()
 
     val drawerState = rememberDrawerState(DrawerValue.Closed)
-    val pages = DrawerScreens.screens
 
     // navigate to the last tab opened tab
     LaunchedEffect(navController) {
         val lastSelectedTab = Preferences.getString(Preferences.startTabKey, "")
-        val initialPage = pages.firstOrNull { it.route == lastSelectedTab }
+        val initialPage = DrawerScreens.screens.firstOrNull { it.route == lastSelectedTab }
         initialPage?.route?.runCatching { navController.navigate(this) }
         navController.addOnDestinationChangedListener { _, destination, _ ->
             if (!DrawerScreens.apiScreens.any {
@@ -68,7 +67,8 @@ private fun MainContent() {
     NavigationDrawer(
         drawerState = drawerState,
         navController = navController,
-        pages = pages
+        viewModel = viewModel,
+        pages = DrawerScreens.screens
     ) {
         Scaffold(
             topBar = {

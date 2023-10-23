@@ -27,11 +27,7 @@ import androidx.compose.material3.Text
 import androidx.compose.material3.contentColorFor
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.LaunchedEffect
-import androidx.compose.runtime.getValue
-import androidx.compose.runtime.mutableStateOf
-import androidx.compose.runtime.remember
 import androidx.compose.runtime.rememberCoroutineScope
-import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
@@ -44,6 +40,7 @@ import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import androidx.navigation.NavController
 import com.bnyro.wallpaper.R
+import com.bnyro.wallpaper.ui.models.MainModel
 import com.bnyro.wallpaper.ui.nav.DrawerScreens
 import kotlinx.coroutines.launch
 
@@ -53,18 +50,19 @@ fun NavigationDrawer(
     drawerState: DrawerState,
     pages: List<DrawerScreens>,
     navController: NavController,
+    viewModel: MainModel,
     content: @Composable () -> Unit
 ) {
     val scope = rememberCoroutineScope()
 
-    var selectedItem by remember {
-        val initialPage = pages.firstOrNull { navController.currentDestination?.route == it.route }
-        mutableStateOf(initialPage ?: DrawerScreens.Wallhaven)
-    }
-
     LaunchedEffect(Unit) {
         navController.addOnDestinationChangedListener { _, destination, _ ->
-            pages.firstOrNull { it.route == destination.route }?.let { selectedItem = it }
+            pages.firstOrNull { it.route == destination.route }?.let {
+                viewModel.currentDestination = it
+            }
+        }
+        pages.firstOrNull { navController.currentDestination?.route == it.route }?.let {
+            viewModel.currentDestination = it
         }
     }
 
@@ -90,8 +88,8 @@ fun NavigationDrawer(
                     )
                 }
                 Spacer(Modifier.height(20.dp))
-                pages.forEach {
-                    if (it.divideBefore) {
+                pages.forEach { screen ->
+                    if (screen.divideBefore) {
                         Divider(
                             modifier = Modifier
                                 .padding(25.dp, 15.dp)
@@ -100,18 +98,18 @@ fun NavigationDrawer(
                     }
                     NavigationDrawerItem(
                         icon = {
-                            Icon(it.icon, null)
+                            Icon(screen.icon, null)
                         },
                         label = {
-                            Text(stringResource(it.titleResource))
+                            Text(stringResource(screen.titleResource))
                         },
-                        selected = it == selectedItem,
+                        selected = screen == viewModel.currentDestination,
                         onClick = {
                             scope.launch {
                                 drawerState.close()
-                                navController.navigate(it.route)
+                                navController.navigate(screen.route)
                             }
-                            selectedItem = it
+                            viewModel.currentDestination = screen
                         },
                         modifier = Modifier
                             .padding(NavigationDrawerItemDefaults.ItemPadding)

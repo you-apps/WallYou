@@ -34,7 +34,7 @@ sealed class DrawerScreens(
     object About : DrawerScreens(R.string.about, "about", Icons.Default.Info)
 
     companion object {
-        val apiScreens = listOf(Wallhaven, Unsplash, OWalls, Picsum, BingDaily, Reddit, Lemmy)
-        val screens = listOf(*apiScreens.toTypedArray(), Favorites, Settings, About)
+        val apiScreens by lazy { listOf(Wallhaven, Unsplash, OWalls, Picsum, BingDaily, Reddit, Lemmy) }
+        val screens by lazy { listOf(*apiScreens.toTypedArray(), Favorites, Settings, About) }
     }
 }

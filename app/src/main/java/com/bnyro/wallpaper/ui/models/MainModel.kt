@@ -24,7 +24,9 @@ class MainModel : ViewModel() {
     ).toInt()
     var themeMode by mutableStateOf(ThemeMode.values()[themeModeIndex])
 
-    var api: Api = Preferences.getApiByRoute(DrawerScreens.apiScreens.first().route)
+    var currentDestination: DrawerScreens by mutableStateOf(DrawerScreens.Wallhaven)
+    var api = Preferences.getApiByRoute(DrawerScreens.Wallhaven.route)
+
     var wallpapers by mutableStateOf(
         listOf<Wallpaper>()
     )
