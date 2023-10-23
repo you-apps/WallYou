@@ -19,6 +19,8 @@ import androidx.compose.runtime.rememberCoroutineScope
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.tooling.preview.Preview
+import androidx.lifecycle.ViewModelProvider
+import androidx.lifecycle.get
 import androidx.lifecycle.viewmodel.compose.viewModel
 import androidx.navigation.compose.rememberNavController
 import com.bnyro.wallpaper.ui.components.NavigationDrawer
@@ -33,34 +35,38 @@ class MainActivity : BaseActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
+        val viewModel: MainModel = ViewModelProvider(this).get()
+
         showContent {
-            MainContent()
+            MainContent(viewModel)
         }
     }
 }
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
-private fun MainContent() {
-    val viewModel: MainModel = viewModel()
+private fun MainContent(
+    viewModel: MainModel
+) {
     val navController = rememberNavController()
     val scope = rememberCoroutineScope()
 
     val drawerState = rememberDrawerState(DrawerValue.Closed)
 
     // navigate to the last tab opened tab
-    LaunchedEffect(navController) {
-        val lastSelectedTab = Preferences.getString(Preferences.startTabKey, "")
-        val initialPage = DrawerScreens.screens.firstOrNull { it.route == lastSelectedTab }
+    LaunchedEffect(viewModel) {
+        val initialPage = if (viewModel.currentDestination in DrawerScreens.apiScreens) {
+            val lastSelectedTab = Preferences.getString(Preferences.startTabKey, "")
+            DrawerScreens.screens.firstOrNull { it.route == lastSelectedTab }
+        } else {
+            viewModel.currentDestination
+        }
         initialPage?.route?.runCatching { navController.navigate(this) }
+
         navController.addOnDestinationChangedListener { _, destination, _ ->
-            if (!DrawerScreens.apiScreens.any {
-                    it.route == destination.route
-                }
-            ) {
-                return@addOnDestinationChangedListener
+            if (DrawerScreens.apiScreens.any { it.route == destination.route }) {
+                Preferences.edit { putString(Preferences.startTabKey, destination.route) }
             }
-            Preferences.edit { putString(Preferences.startTabKey, destination.route) }
         }
     }
 
@@ -110,6 +116,6 @@ private fun MainContent() {
 @Composable
 fun DefaultPreview() {
     WallYouTheme {
-        MainContent()
+        MainContent(viewModel())
     }
 }
