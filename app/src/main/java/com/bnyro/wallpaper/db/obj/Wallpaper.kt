@@ -6,7 +6,7 @@ import androidx.room.PrimaryKey
 
 @Entity(tableName = "favorites")
 data class Wallpaper(
-    @PrimaryKey val imgSrc: String,
+    @PrimaryKey val imgSrc: String = "",
     @ColumnInfo val title: String? = null,
     @ColumnInfo val url: String? = null,
     @ColumnInfo var author: String? = null,
