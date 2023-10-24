@@ -65,5 +65,5 @@
     <string name="version">バージョン</string>
     <string name="github" translatable="false">GitHub</string>
     <string name="license">ライセンス</string>
-    <string name="website">Webサイト</string>
+    <string name="website">ウェブサイト</string>
 </resources>
