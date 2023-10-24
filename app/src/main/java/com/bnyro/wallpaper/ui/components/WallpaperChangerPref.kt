@@ -10,7 +10,6 @@ import androidx.compose.runtime.mutableIntStateOf
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
 import androidx.compose.runtime.setValue
-import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.res.stringResource
 import com.bnyro.wallpaper.R
 import com.bnyro.wallpaper.enums.WallpaperConfig
@@ -22,12 +21,9 @@ import com.bnyro.wallpaper.ui.components.prefs.SettingsCategory
 import com.bnyro.wallpaper.ui.nav.DrawerScreens
 import com.bnyro.wallpaper.util.LocalWallpaperHelper
 import com.bnyro.wallpaper.util.PickFolderContract
-import com.bnyro.wallpaper.util.WorkerHelper
 
 @Composable
 fun WallpaperChangerPref(config: WallpaperConfig, onChange: (WallpaperConfig) -> Unit) {
-    val context = LocalContext.current
-
     val localWallpaperDirChooser = rememberLauncherForActivityResult(PickFolderContract()) {
         val uri = it ?: return@rememberLauncherForActivityResult
         config.localFolderUri = uri.toString()
@@ -55,7 +51,6 @@ fun WallpaperChangerPref(config: WallpaperConfig, onChange: (WallpaperConfig) ->
         config.source = WallpaperSource.fromInt(newValue.toInt())
         wallpaperSource = config.source
         onChange(config)
-        WorkerHelper.enqueue(context, true)
     }
 
     Crossfade(targetState = wallpaperSource, label = "wallpaper_source") { state ->
@@ -75,7 +70,6 @@ fun WallpaperChangerPref(config: WallpaperConfig, onChange: (WallpaperConfig) ->
                     config.apiRoute = DrawerScreens.apiScreens[index].route
                     currentIndex = index
                     onChange(config)
-                    WorkerHelper.enqueue(context, true)
                 }
             }
 

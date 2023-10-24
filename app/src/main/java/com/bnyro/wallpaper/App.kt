@@ -20,7 +20,7 @@ class App : Application(), ImageLoaderFactory {
 
         Preferences.init(this)
 
-        DatabaseHolder().create(this)
+        DatabaseHolder.create(this)
     }
 
     override fun newImageLoader(): ImageLoader {

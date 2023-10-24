@@ -40,7 +40,7 @@ import androidx.compose.ui.window.Dialog
 import androidx.compose.ui.window.DialogProperties
 import androidx.palette.graphics.Palette
 import com.bnyro.wallpaper.R
-import com.bnyro.wallpaper.db.DatabaseHolder.Companion.Database
+import com.bnyro.wallpaper.db.DatabaseHolder.Database
 import com.bnyro.wallpaper.db.obj.Wallpaper
 import com.bnyro.wallpaper.enums.WallpaperTarget
 import com.bnyro.wallpaper.ext.awaitQuery

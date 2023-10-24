@@ -24,7 +24,7 @@ import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import com.bnyro.wallpaper.R
-import com.bnyro.wallpaper.db.DatabaseHolder.Companion.Database
+import com.bnyro.wallpaper.db.DatabaseHolder.Database
 import com.bnyro.wallpaper.db.obj.Wallpaper
 import com.bnyro.wallpaper.ext.query
 import com.bnyro.wallpaper.ui.components.WallpaperGrid

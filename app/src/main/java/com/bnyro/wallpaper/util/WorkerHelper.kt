@@ -12,39 +12,52 @@ import java.util.concurrent.TimeUnit
 object WorkerHelper {
     private const val JOB_NAME = "WallpaperChanger"
 
+    private fun getWorkerConstraints(): Constraints {
+        val wallpaperConfigs = Preferences.getWallpaperConfigs()
+        // only require internet when the source is not local
+        val networkType = if (wallpaperConfigs.any { it.source != WallpaperSource.LOCAL }) {
+            NetworkType.CONNECTED
+        } else {
+            NetworkType.NOT_REQUIRED
+        }
+
+        return Constraints.Builder()
+            .setRequiredNetworkType(networkType)
+            .build()
+    }
+
     fun enqueue(context: Context, forceUpdate: Boolean = false) {
         if (!Preferences.getBoolean(Preferences.wallpaperChangerKey, false)) {
-            cancel(context)
+            WorkManager.getInstance(context)
+                .cancelUniqueWork(JOB_NAME)
             return
         }
 
-        val networkType = if (
-            Preferences.getWallpaperConfigs().any { it.source != WallpaperSource.LOCAL }
-        ) {
-            NetworkType.NOT_REQUIRED
-        } else {
-            NetworkType.CONNECTED
-        }
 
+        val repeatIntervalMinutes = Preferences.getString(
+            Preferences.wallpaperChangerIntervalKey,
+            Preferences.defaultWallpaperChangeInterval.toString()
+        ).toLong()
         val job = PeriodicWorkRequestBuilder<BackgroundWorker>(
-            Preferences.getString(
-                Preferences.wallpaperChangerIntervalKey,
-                Preferences.defaultWallpaperChangeInterval.toString()
-            )?.toLong() ?: Preferences.defaultWallpaperChangeInterval,
+            repeatIntervalMinutes,
             TimeUnit.MINUTES
-        ).setConstraints(
-            Constraints.Builder()
-                .setRequiredNetworkType(networkType)
-                .build()
-        ).build()
+        )
+            .setConstraints(getWorkerConstraints())
+            .build()
 
         val policy = if (forceUpdate) ExistingPeriodicWorkPolicy.UPDATE else ExistingPeriodicWorkPolicy.KEEP
         WorkManager.getInstance(context)
             .enqueueUniquePeriodicWork(JOB_NAME, policy, job)
     }
 
-    private fun cancel(context: Context) {
+    /**
+    fun enqueueTestWorker(context: Context) {
+        val job = OneTimeWorkRequestBuilder<BackgroundWorker>()
+            .setConstraints(getWorkerConstraints())
+            .build()
+
         WorkManager.getInstance(context)
-            .cancelUniqueWork(JOB_NAME)
+            .enqueue(job)
     }
+    **/
 }
