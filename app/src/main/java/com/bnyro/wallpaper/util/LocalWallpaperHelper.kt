@@ -7,9 +7,7 @@ import com.bnyro.wallpaper.enums.WallpaperConfig
 
 object LocalWallpaperHelper {
     fun getLocalWalls(context: Context, config: WallpaperConfig): List<DocumentFile> {
-        val directory = getDirectory(config) ?: return emptyList()
+        val directory = config.localFolderUri?.toUri() ?: return emptyList()
         return DocumentFile.fromTreeUri(context, directory)?.listFiles().orEmpty().toList()
     }
-
-    fun getDirectory(config: WallpaperConfig) = config.localFolderUri?.toUri()
 }

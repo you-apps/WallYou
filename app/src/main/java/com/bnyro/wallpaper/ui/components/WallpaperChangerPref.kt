@@ -2,15 +2,25 @@ package com.bnyro.wallpaper.ui.components
 
 import androidx.activity.compose.rememberLauncherForActivityResult
 import androidx.compose.animation.Crossfade
+import androidx.compose.foundation.layout.Row
+import androidx.compose.foundation.layout.Spacer
+import androidx.compose.foundation.layout.width
 import androidx.compose.material3.Button
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableIntStateOf
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
 import androidx.compose.runtime.setValue
+import androidx.compose.ui.Alignment
+import androidx.compose.ui.Modifier
+import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.res.stringResource
+import androidx.compose.ui.unit.dp
+import androidx.core.net.toUri
+import androidx.documentfile.provider.DocumentFile
 import com.bnyro.wallpaper.R
 import com.bnyro.wallpaper.enums.WallpaperConfig
 import com.bnyro.wallpaper.enums.WallpaperSource
@@ -24,9 +34,27 @@ import com.bnyro.wallpaper.util.PickFolderContract
 
 @Composable
 fun WallpaperChangerPref(config: WallpaperConfig, onChange: (WallpaperConfig) -> Unit) {
+    val context = LocalContext.current
+
+    var selectedDirectoryName by remember {
+        mutableStateOf<String?>(null)
+    }
+
+    fun updateSelectedDirectoryName() {
+        val uri = config.localFolderUri?.toUri() ?: return
+        DocumentFile.fromTreeUri(context, uri)?.let { file ->
+            selectedDirectoryName = file.name
+        }
+    }
+
+    LaunchedEffect(Unit) {
+        updateSelectedDirectoryName()
+    }
+
     val localWallpaperDirChooser = rememberLauncherForActivityResult(PickFolderContract()) {
         val uri = it ?: return@rememberLauncherForActivityResult
         config.localFolderUri = uri.toString()
+        updateSelectedDirectoryName()
         onChange(config)
     }
 
@@ -73,13 +101,20 @@ fun WallpaperChangerPref(config: WallpaperConfig, onChange: (WallpaperConfig) ->
                 }
             }
 
-            WallpaperSource.LOCAL -> Button(
-                onClick = {
-                    val currentFolder = LocalWallpaperHelper.getDirectory(config)
-                    localWallpaperDirChooser.launch(currentFolder)
-                }
+            WallpaperSource.LOCAL -> Row(
+                verticalAlignment = Alignment.CenterVertically
             ) {
-                Text(stringResource(R.string.choose_dir))
+                Button(
+                    onClick = {
+                        localWallpaperDirChooser.launch(config.localFolderUri?.toUri())
+                    }
+                ) {
+                    Text(stringResource(R.string.choose_dir))
+                }
+                selectedDirectoryName?.let { selectedDirectoryName ->
+                    Spacer(modifier = Modifier.width(12.dp))
+                    Text("${stringResource(R.string.current_directory)}: $selectedDirectoryName")
+                }
             }
 
             else -> Unit

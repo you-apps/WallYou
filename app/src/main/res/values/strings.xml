@@ -53,6 +53,7 @@
     <string name="import_favorites">Import favorites</string>
     <string name="export_favorites">Export favorites</string>
     <string name="success">Success!</string>
+    <string name="current_directory">Current</string>
     <!-- Wallpaper changer source -->
     <string name="online">Online</string>
     <string name="local">Local</string>
