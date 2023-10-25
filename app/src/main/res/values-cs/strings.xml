@@ -46,4 +46,9 @@
     <string name="combine_wallpaper_changers">Kombinovaná změna pozadí</string>
     <string name="download">Stáhnout</string>
     <string name="combine_wallpaper_changers_summary">Použít stejné pozadí pro domovskou a zamykací obrazovku.</string>
+    <string name="import_export">Import a export</string>
+    <string name="success">Úspěch!</string>
+    <string name="current_directory">Aktuální</string>
+    <string name="export_favorites">Exportovat oblíbené</string>
+    <string name="import_favorites">Importovat oblíbené</string>
 </resources>
