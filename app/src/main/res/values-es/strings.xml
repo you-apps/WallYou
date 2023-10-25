@@ -57,4 +57,9 @@
     <string name="combine_wallpaper_changers">Combinar el fondo de pantalla</string>
     <string name="download">Descargar</string>
     <string name="combine_wallpaper_changers_summary">Utiliza el mismo fondo de pantalla para la pantalla de inicio y la pantalla de bloqueo.</string>
+    <string name="import_export">Importación y exportación</string>
+    <string name="success">¡Éxitoso!</string>
+    <string name="current_directory">Actual</string>
+    <string name="export_favorites">Exportar los favoritos</string>
+    <string name="import_favorites">Importar los favoritos</string>
 </resources>
