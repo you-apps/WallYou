@@ -58,4 +58,9 @@
     <string name="combine_wallpaper_changers">Комбінована зміна шпалер</string>
     <string name="download">Завантажити</string>
     <string name="combine_wallpaper_changers_summary">Використовуйте однакові шпалери для головного екрана та екрана блокування.</string>
+    <string name="import_export">Імпорт та експорт</string>
+    <string name="success">Успішно!</string>
+    <string name="current_directory">Поточна</string>
+    <string name="export_favorites">Експортувати обране</string>
+    <string name="import_favorites">Імпортувати обране</string>
 </resources>
