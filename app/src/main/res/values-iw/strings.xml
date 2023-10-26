@@ -46,4 +46,9 @@
     <string name="combine_wallpaper_changers">מחליף תמונות רקע משולב</string>
     <string name="download">הורדה</string>
     <string name="combine_wallpaper_changers_summary">להשתמש באותו הטפט למסכי הבית והנעילה.</string>
+    <string name="import_export">ייבוא וייצוא</string>
+    <string name="success">הצליח!</string>
+    <string name="current_directory">נוכחי</string>
+    <string name="export_favorites">ייצוא מועדפים</string>
+    <string name="import_favorites">ייבוא מועדפים</string>
 </resources>
