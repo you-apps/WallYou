@@ -59,7 +59,8 @@
     <string name="download">Скачать</string>
     <string name="combine_wallpaper_changers_summary">Использовать одинаковые обои на главном экране и на экране блокировки.</string>
     <string name="import_export">Импорт и экспорт</string>
-    <string name="success">Успех!</string>
-    <string name="export_favorites">Экспортировать избранные</string>
-    <string name="import_favorites">Импортировать избранные</string>
+    <string name="success">Успешно!</string>
+    <string name="export_favorites">Экспортировать избранное</string>
+    <string name="import_favorites">Импортировать избранное</string>
+    <string name="current_directory">Текущая</string>
 </resources>
