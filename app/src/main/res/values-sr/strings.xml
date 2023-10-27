@@ -63,4 +63,9 @@
     <string name="combine_wallpaper_changers">Комбиновани мењач позадине</string>
     <string name="download">Преузми</string>
     <string name="combine_wallpaper_changers_summary">Користите исту позадину за почетни екран и закључани екран.</string>
+    <string name="import_export">Увоз и извоз</string>
+    <string name="success">Успешно!</string>
+    <string name="current_directory">Тренутни</string>
+    <string name="export_favorites">Извези омиљене</string>
+    <string name="import_favorites">Увези омиљене</string>
 </resources>
