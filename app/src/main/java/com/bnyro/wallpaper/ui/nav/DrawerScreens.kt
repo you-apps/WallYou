@@ -29,12 +29,13 @@ sealed class DrawerScreens(
     object BingDaily : DrawerScreens(R.string.bing_daily, "bi", Icons.Default.Nightlight)
     object Reddit : DrawerScreens(R.string.reddit, "redd", Icons.Default.Forum)
     object Lemmy : DrawerScreens(R.string.lemmy, "le", Icons.Default.Book)
+    object Pixel : DrawerScreens(R.string.pixel, "px", Icons.Default.Pix)
     object Favorites : DrawerScreens(R.string.favorites, "favorites", Icons.Default.Favorite, true)
     object Settings : DrawerScreens(R.string.settings, "settings", Icons.Default.Settings, true)
     object About : DrawerScreens(R.string.about, "about", Icons.Default.Info)
 
     companion object {
-        val apiScreens by lazy { listOf(Wallhaven, Unsplash, OWalls, Picsum, BingDaily, Reddit, Lemmy) }
+        val apiScreens by lazy { listOf(Wallhaven, Unsplash, OWalls, Picsum, BingDaily, Reddit, Lemmy, Pixel) }
         val screens by lazy { listOf(*apiScreens.toTypedArray(), Favorites, Settings, About) }
     }
 }
