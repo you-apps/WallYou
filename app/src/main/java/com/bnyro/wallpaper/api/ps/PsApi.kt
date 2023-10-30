@@ -16,8 +16,7 @@ class PsApi : Api() {
                 imgSrc = it.download_url!!,
                 author = it.author,
                 resolution = "${it.width}x${it.height}",
-                url = it.url,
-                thumb = it.download_url
+                url = it.url
             )
         }
     }
