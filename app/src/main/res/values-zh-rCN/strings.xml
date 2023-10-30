@@ -58,4 +58,9 @@
     <string name="combine_wallpaper_changers">合并更换壁纸</string>
     <string name="download">下载</string>
     <string name="combine_wallpaper_changers_summary">为主屏幕和锁定屏幕使用相同壁纸。</string>
+    <string name="import_export">导入 &amp; 导出</string>
+    <string name="success">成功！</string>
+    <string name="current_directory">当前</string>
+    <string name="export_favorites">导出收藏夹</string>
+    <string name="import_favorites">导入收藏夹</string>
 </resources>
