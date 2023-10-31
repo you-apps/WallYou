@@ -85,7 +85,7 @@ fun WallpaperGrid(
             ) {
                 Box {
                     AsyncImage(
-                        model = it.thumb,
+                        model = it.thumb ?: it.imgSrc,
                         contentDescription = null,
                         contentScale = ContentScale.Crop,
                         modifier = Modifier

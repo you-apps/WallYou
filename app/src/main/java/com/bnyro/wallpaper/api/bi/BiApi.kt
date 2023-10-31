@@ -21,7 +21,6 @@ class BiApi() : Api() {
                 title = it.title,
                 url = "$baseUrl${it.quiz}",
                 resolution = "1920x1080",
-                thumb = imgUrl,
                 // creation date doesn't contain any dividers by default
                 creationDate = it.startDate
                     ?.replaceRange(6, 6, "-")

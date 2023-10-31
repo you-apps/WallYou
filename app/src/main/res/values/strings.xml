@@ -8,6 +8,7 @@
     <string name="bing_daily" translatable="false">Bing daily</string>
     <string name="reddit" translatable="false">Reddit</string>
     <string name="lemmy" translatable="false">Lemmy</string>
+    <string name="pixel" translatable="false">Google Pixel</string>
     <!-- Navigation Drawer -->
     <string name="favorites">Favorites</string>
     <string name="settings">Settings</string>

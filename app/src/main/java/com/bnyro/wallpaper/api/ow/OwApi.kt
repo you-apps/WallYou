@@ -43,7 +43,6 @@ class OwApi() : Api() {
                     0,
                     Wallpaper(
                         imgSrc = it.value.textValue(),
-                        thumb = it.value.textValue(),
                         category = it.key
                     )
                 )

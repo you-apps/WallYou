@@ -53,6 +53,7 @@ object Preferences {
         DrawerScreens.BingDaily.route -> App.biApi
         DrawerScreens.Reddit.route -> App.reApi
         DrawerScreens.Lemmy.route -> App.leApi
+        DrawerScreens.Pixel.route -> App.pxApi
         else -> App.whApi
     }
 
