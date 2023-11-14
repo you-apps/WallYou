@@ -5,7 +5,7 @@
     <string name="source">Quelle</string>
     <string name="creationDate">Erstellungsdatum</string>
     <string name="lockscreen">Sperrbildschirm</string>
-    <string name="applying_random">Zufälliges Hintergrundbild wird angewendet</string>
+    <string name="applying_random">Zufälliges Hintergrundbild anwenden</string>
     <string name="wallpaper_changer">Hintergrundbildwechsler</string>
     <string name="coil_cache">Bildzwischenspeicher</string>
     <string name="local">Lokal</string>
@@ -38,4 +38,17 @@
     <string name="online">Online</string>
     <string name="theme_system">System</string>
     <string name="theme_light">Hell</string>
+    <string name="color_palette">Zeige Farbpalette</string>
+    <string name="import_export">Import &amp; Export</string>
+    <string name="add_to_favorites">Zu Favoriten hinzufügen</string>
+    <string name="community_name">Community Name</string>
+    <string name="set_wallpaper">Hintergrundbild festlegen</string>
+    <string name="success">Erfolgreich!</string>
+    <string name="current_directory">Aktuell</string>
+    <string name="export_favorites">Favoriten exportieren</string>
+    <string name="import_favorites">Favoriten importieren</string>
+    <string name="wallpaper_preview">Hintergrund Vorschau</string>
+    <string name="combine_wallpaper_changers">Kombinierter Hintergrundwechsler</string>
+    <string name="download">Herunterladen</string>
+    <string name="combine_wallpaper_changers_summary">Verwende den gleichen Hintergrund für Start- und Sperrbildschirm.</string>
 </resources>
