@@ -67,7 +67,7 @@ fun WallpaperChangerPref(config: WallpaperConfig, onChange: (WallpaperConfig) ->
             }
         )
     )
-    val wallpaperSources = listOf(R.string.online, R.string.favorites, R.string.local)
+    val wallpaperSources = listOf(R.string.online, R.string.favorites, R.string.local, R.string.none)
     var wallpaperSource by remember { mutableStateOf(config.source) }
     ListPreference(
         prefKey = null,
