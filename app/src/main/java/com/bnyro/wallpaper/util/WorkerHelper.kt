@@ -33,7 +33,6 @@ object WorkerHelper {
             return
         }
 
-
         val repeatIntervalMinutes = Preferences.getString(
             Preferences.wallpaperChangerIntervalKey,
             Preferences.defaultWallpaperChangeInterval.toString()
@@ -49,15 +48,4 @@ object WorkerHelper {
         WorkManager.getInstance(context)
             .enqueueUniquePeriodicWork(JOB_NAME, policy, job)
     }
-
-    /**
-    fun enqueueTestWorker(context: Context) {
-        val job = OneTimeWorkRequestBuilder<BackgroundWorker>()
-            .setConstraints(getWorkerConstraints())
-            .build()
-
-        WorkManager.getInstance(context)
-            .enqueue(job)
-    }
-    **/
 }
