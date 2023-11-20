@@ -33,6 +33,7 @@
     <string name="home">Home screen</string>
     <string name="lockscreen">Lockscreen</string>
     <string name="applying_random">Applying random wallpaper</string>
+    <string name="random_wallpaper">Random wallpaper</string>
     <!-- Image Filters -->
     <string name="blur">Blur</string>
     <string name="grayscale">Grayscale</string>
