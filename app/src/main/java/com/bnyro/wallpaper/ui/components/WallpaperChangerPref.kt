@@ -74,9 +74,9 @@ fun WallpaperChangerPref(config: WallpaperConfig, onChange: (WallpaperConfig) ->
         title = stringResource(R.string.wallpaper_changer_source),
         entries = wallpaperSources.map { stringResource(it) },
         values = List(wallpaperSources.size) { index -> index.toString() },
-        defaultValue = wallpaperSource.value.toString()
+        defaultValue = wallpaperSource.ordinal.toString()
     ) { newValue ->
-        config.source = WallpaperSource.fromInt(newValue.toInt())
+        config.source = WallpaperSource.values()[newValue.toInt()]
         wallpaperSource = config.source
         onChange(config)
     }
