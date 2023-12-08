@@ -2,19 +2,28 @@ package com.bnyro.wallpaper.ui.components
 
 import androidx.activity.compose.rememberLauncherForActivityResult
 import androidx.compose.animation.Crossfade
+import androidx.compose.foundation.layout.Arrangement
+import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.Spacer
+import androidx.compose.foundation.layout.fillMaxWidth
+import androidx.compose.foundation.layout.height
+import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.width
+import androidx.compose.foundation.lazy.LazyColumn
+import androidx.compose.foundation.lazy.items
+import androidx.compose.material.icons.Icons
+import androidx.compose.material.icons.filled.Delete
 import androidx.compose.material3.Button
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.runtime.getValue
-import androidx.compose.runtime.mutableIntStateOf
 import androidx.compose.runtime.mutableStateListOf
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
 import androidx.compose.runtime.setValue
+import androidx.compose.runtime.toMutableStateList
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.platform.LocalContext
@@ -36,25 +45,15 @@ import com.bnyro.wallpaper.util.PickFolderContract
 fun WallpaperChangerPref(config: WallpaperConfig, onChange: (WallpaperConfig) -> Unit) {
     val context = LocalContext.current
 
-    var selectedDirectoryName by remember {
-        mutableStateOf<String?>(null)
-    }
-
-    fun updateSelectedDirectoryName() {
-        val uri = config.localFolderUri?.toUri() ?: return
-        DocumentFile.fromTreeUri(context, uri)?.let { file ->
-            selectedDirectoryName = file.name
-        }
-    }
-
-    LaunchedEffect(Unit) {
-        updateSelectedDirectoryName()
+    val localFolderUris = remember {
+        config.localFolderUris.toMutableStateList()
     }
 
     val localWallpaperDirChooser = rememberLauncherForActivityResult(PickFolderContract()) {
         val uri = it ?: return@rememberLauncherForActivityResult
-        config.localFolderUri = uri.toString()
-        updateSelectedDirectoryName()
+
+        config.localFolderUris += uri.toString()
+        localFolderUris.add(uri.toString())
         onChange(config)
     }
 
@@ -85,7 +84,7 @@ fun WallpaperChangerPref(config: WallpaperConfig, onChange: (WallpaperConfig) ->
         when (state) {
             WallpaperSource.ONLINE -> {
                 var currentSelections = remember {
-                    config.apiRoute?.split(",").orEmpty().map { route ->
+                    config.selectedApiRoutes.map { route ->
                         DrawerScreens.apiScreens.indexOfFirst { it.route == route }
                     }
                 }
@@ -95,26 +94,49 @@ fun WallpaperChangerPref(config: WallpaperConfig, onChange: (WallpaperConfig) ->
                     values = DrawerScreens.apiScreens.map { it.route },
                     defaultSelections = currentSelections
                 ) { selections ->
-                    config.apiRoute =
-                        selections.joinToString(",") { DrawerScreens.apiScreens[it].route }
+                    config.selectedApiRoutes = selections.map { DrawerScreens.apiScreens[it].route }
                     currentSelections = selections
                     onChange(config)
                 }
             }
 
-            WallpaperSource.LOCAL -> Row(
-                verticalAlignment = Alignment.CenterVertically
+            WallpaperSource.LOCAL -> Column(
+                modifier = Modifier.fillMaxWidth()
             ) {
+                SettingsCategory(title = stringResource(R.string.directories))
+
+                localFolderUris.forEach {
+                    var selectedDirectoryName by remember {
+                        mutableStateOf("")
+                    }
+
+                    LaunchedEffect(it) {
+                        DocumentFile.fromTreeUri(context, it.toUri())?.let { file ->
+                            selectedDirectoryName = file.name ?: it
+                        }
+                    }
+
+                    Spacer(modifier = Modifier.width(12.dp))
+                    Row(
+                        modifier = Modifier.padding(start = 10.dp),
+                        verticalAlignment = Alignment.CenterVertically
+                    ) {
+                        Text(selectedDirectoryName)
+                        Spacer(modifier = Modifier.weight(1f))
+                        ButtonWithIcon(icon = Icons.Default.Delete) {
+                            config.localFolderUris -= it
+                            localFolderUris.remove(it)
+                            onChange(config)
+                        }
+                    }
+                }
+
                 Button(
                     onClick = {
-                        localWallpaperDirChooser.launch(config.localFolderUri?.toUri())
+                        localWallpaperDirChooser.launch(null)
                     }
                 ) {
                     Text(stringResource(R.string.choose_dir))
-                }
-                selectedDirectoryName?.let { selectedDirectoryName ->
-                    Spacer(modifier = Modifier.width(12.dp))
-                    Text("${stringResource(R.string.current_directory)}: $selectedDirectoryName")
                 }
             }
 

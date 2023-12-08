@@ -39,7 +39,7 @@ class BackgroundWorker(
     }
 
     private suspend fun getOnlineWallpaper(config: WallpaperConfig): Bitmap? {
-        val source = config.apiRoute?.split(",")?.randomOrNull() ?: return null
+        val source = config.selectedApiRoutes.ifEmpty { return null }.random()
 
         return withContext(Dispatchers.IO) {
             val url = runCatching {

@@ -60,7 +60,8 @@
     <!-- Wallpaper changer source -->
     <string name="online">Online</string>
     <string name="local">Local</string>
-    <string name="choose_dir">Choose directory</string>
+    <string name="choose_dir">Add directory</string>
+    <string name="directories">Directories</string>
     <!-- Theme -->
     <string name="theme_mode">Theme</string>
     <string name="theme_system">System</string>
