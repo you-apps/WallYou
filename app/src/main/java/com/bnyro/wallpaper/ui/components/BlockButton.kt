@@ -1,5 +1,6 @@
 package com.bnyro.wallpaper.ui.components
 
+import android.util.Log
 import androidx.compose.foundation.background
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Arrangement
@@ -23,12 +24,13 @@ fun BlockButton(
     selected: Boolean,
     onClick: () -> Unit
 ) {
+    Log.e(text, selected.toString())
     Column(
         modifier = modifier
             .height(50.dp)
             .clip(RoundedCornerShape(12.dp))
             .background(
-                if (selected) {
+                if (!selected) {
                     MaterialTheme.colorScheme.surfaceVariant.copy(
                         0.5f
                     )
@@ -46,7 +48,7 @@ fun BlockButton(
             style = MaterialTheme.typography.labelLarge.copy(
                 textAlign = TextAlign.Center
             ),
-            color = if (selected) MaterialTheme.colorScheme.onSurface else MaterialTheme.colorScheme.inverseSurface
+            color = if (!selected) MaterialTheme.colorScheme.onSurface else MaterialTheme.colorScheme.inverseSurface
         )
     }
 }

@@ -11,6 +11,7 @@ import androidx.compose.runtime.Composable
 import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableIntStateOf
+import androidx.compose.runtime.mutableStateListOf
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
 import androidx.compose.runtime.setValue
@@ -25,11 +26,10 @@ import com.bnyro.wallpaper.R
 import com.bnyro.wallpaper.enums.WallpaperConfig
 import com.bnyro.wallpaper.enums.WallpaperSource
 import com.bnyro.wallpaper.enums.WallpaperTarget
-import com.bnyro.wallpaper.ui.components.prefs.BlockPreference
+import com.bnyro.wallpaper.ui.components.prefs.MultiSelectionBlockPreference
 import com.bnyro.wallpaper.ui.components.prefs.ListPreference
 import com.bnyro.wallpaper.ui.components.prefs.SettingsCategory
 import com.bnyro.wallpaper.ui.nav.DrawerScreens
-import com.bnyro.wallpaper.util.LocalWallpaperHelper
 import com.bnyro.wallpaper.util.PickFolderContract
 
 @Composable
@@ -84,19 +84,20 @@ fun WallpaperChangerPref(config: WallpaperConfig, onChange: (WallpaperConfig) ->
     Crossfade(targetState = wallpaperSource, label = "wallpaper_source") { state ->
         when (state) {
             WallpaperSource.ONLINE -> {
-                var currentIndex by remember {
-                    mutableIntStateOf(
-                        DrawerScreens.apiScreens.indexOfFirst { it.route == config.apiRoute }
-                    )
+                var currentSelections = remember {
+                    config.apiRoute?.split(",").orEmpty().map { route ->
+                        DrawerScreens.apiScreens.indexOfFirst { it.route == route }
+                    }
                 }
-                BlockPreference(
+                MultiSelectionBlockPreference(
                     preferenceKey = null,
                     entries = DrawerScreens.apiScreens.map { stringResource(it.titleResource) },
                     values = DrawerScreens.apiScreens.map { it.route },
-                    defaultSelection = currentIndex
-                ) { index ->
-                    config.apiRoute = DrawerScreens.apiScreens[index].route
-                    currentIndex = index
+                    defaultSelections = currentSelections
+                ) { selections ->
+                    config.apiRoute =
+                        selections.joinToString(",") { DrawerScreens.apiScreens[it].route }
+                    currentSelections = selections
                     onChange(config)
                 }
             }

@@ -2,48 +2,42 @@ package com.bnyro.wallpaper.ui.components.prefs
 
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.lazy.LazyRow
-import androidx.compose.foundation.lazy.items
+import androidx.compose.foundation.lazy.itemsIndexed
 import androidx.compose.runtime.Composable
-import androidx.compose.runtime.LaunchedEffect
-import androidx.compose.runtime.getValue
-import androidx.compose.runtime.mutableIntStateOf
 import androidx.compose.runtime.remember
-import androidx.compose.runtime.setValue
+import androidx.compose.runtime.toMutableStateList
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
 import com.bnyro.wallpaper.ui.components.BlockButton
 import com.bnyro.wallpaper.util.Preferences
 
 @Composable
-fun BlockPreference(
+fun MultiSelectionBlockPreference(
     preferenceKey: String?,
     entries: List<String>,
     values: List<String>,
-    defaultSelection: Int = 0,
-    onSelectionChange: (Int) -> Unit = {}
+    defaultSelections: List<Int> = listOf(0),
+    onSelectionChange: (List<Int>) -> Unit = {}
 ) {
-    var selected by remember {
-        mutableIntStateOf(defaultSelection)
-    }
-
-    LaunchedEffect(Unit) {
-        if (preferenceKey == null) return@LaunchedEffect
-        val pref = Preferences.getString(preferenceKey, "")
-        if (pref.orEmpty().isNotEmpty()) selected = values.indexOf(pref)
+    val selected = remember {
+        val pref = preferenceKey?.let { Preferences.getString(it, "").split(",") }
+        val sel = if (!pref.isNullOrEmpty()) pref.map { values.indexOf(it) } else defaultSelections
+        sel.toMutableStateList()
     }
 
     LazyRow(
         modifier = Modifier.padding(horizontal = 5.dp)
     ) {
-        items(entries) {
-            val index = entries.indexOf(it)
+        itemsIndexed(entries) { index, it ->
             BlockButton(
                 modifier = Modifier.padding(2.dp, 0.dp),
                 text = it,
-                selected = index != selected
+                selected = selected.contains(index)
             ) {
-                Preferences.edit { putString(preferenceKey, values[index]) }
-                selected = index
+                if (selected.contains(index)) selected.remove(index) else selected.add(index)
+                if (preferenceKey != null) Preferences.edit {
+                    putString(preferenceKey, values.joinToString(","))
+                }
                 onSelectionChange.invoke(selected)
             }
         }
