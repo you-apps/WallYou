@@ -25,7 +25,7 @@
     <string name="general">Umum</string>
     <string name="cache">Cache</string>
     <!-- Preferences -->
-    <string name="crop_images">Pangkas gambar</string>
+    <string name="crop">Pangkas gambar</string>
     <string name="coil_cache">Cache gambar koil</string>
     <string name="wallpaper_changer">Pengubah wallpaper</string>
     <string name="change_interval">Ubah interval</string>

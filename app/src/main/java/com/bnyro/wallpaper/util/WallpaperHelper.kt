@@ -4,9 +4,10 @@ import android.app.WallpaperManager
 import android.content.Context
 import android.graphics.Bitmap
 import android.os.Build
-import android.util.DisplayMetrics
 import androidx.annotation.RequiresApi
+import com.bnyro.wallpaper.enums.ResizeMethod
 import com.bnyro.wallpaper.enums.WallpaperTarget
+import kotlin.math.absoluteValue
 
 object WallpaperHelper {
     @RequiresApi(Build.VERSION_CODES.N)
@@ -26,15 +27,12 @@ object WallpaperHelper {
 
     fun setWallpaper(context: Context, bitmap: Bitmap, mode: WallpaperTarget) {
         Thread {
-            val cropImages = Preferences.getBoolean(
-                Preferences.cropImagesKey,
-                false
-            )
-            val resizedBitmap = if (cropImages) {
-                getCroppedBitmap(bitmap, context.resources.displayMetrics)
-            } else {
-                getResizedBitmap(bitmap, context.resources.displayMetrics)
-            }
+            val resizeMethod = Preferences.getString(
+                Preferences.resizeMethodKey,
+                ResizeMethod.ZOOM.name
+            ).let { ResizeMethod.valueOf(it) }
+            val resizedBitmap = processBitmapByResizeMethod(context, bitmap, resizeMethod)
+
             if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.N) {
                 if (mode in listOf(WallpaperTarget.BOTH, WallpaperTarget.HOME)) {
                     setWallpaperUp(context, resizedBitmap, WallpaperManager.FLAG_SYSTEM)
@@ -48,35 +46,34 @@ object WallpaperHelper {
         }.start()
     }
 
-    private fun getCroppedBitmap(bitmap: Bitmap, displayMetrics: DisplayMetrics): Bitmap {
-        return Bitmap.createScaledBitmap(
-            bitmap,
-            displayMetrics.widthPixels,
-            displayMetrics.heightPixels,
-            true
-        )
+    private fun processBitmapByResizeMethod(context: Context, bitmap: Bitmap, resizeMethod: ResizeMethod): Bitmap {
+        val metrics = context.resources.displayMetrics
+
+        return when (resizeMethod) {
+            ResizeMethod.CROP -> getResizedBitmap(bitmap, metrics.widthPixels, metrics.heightPixels)
+            ResizeMethod.ZOOM -> getZoomedBitmap(bitmap, metrics.widthPixels, metrics.heightPixels)
+            ResizeMethod.FIT_WIDTH -> getBitmapFitWidth(bitmap, metrics.widthPixels)
+            ResizeMethod.FIT_HEIGHT -> getBitmapFitHeight(bitmap, metrics.heightPixels)
+            ResizeMethod.NONE -> bitmap
+        }
     }
 
-    private fun getResizedBitmap(bitmap: Bitmap, displayMetrics: DisplayMetrics): Bitmap {
-        val screenWidth = displayMetrics.widthPixels
-        val screenHeight = displayMetrics.heightPixels
-        val bitmapWidth = bitmap.width.toFloat()
-        val bitmapHeight = bitmap.height.toFloat()
+    private fun getResizedBitmap(bitmap: Bitmap, width: Int, height: Int, filter: Boolean = true): Bitmap {
+        return Bitmap.createScaledBitmap(bitmap, width, height, filter)
+    }
 
-        val bitmapRatio = bitmapHeight / bitmapWidth
-        val screenRatio = screenHeight / screenWidth
+    private fun getZoomedBitmap(bitmap: Bitmap, screenWidth: Int, screenHeight: Int): Bitmap {
+        val bitmapRatio = bitmap.height.toFloat() / bitmap.width.toFloat()
+        val screenRatio = screenHeight.toFloat() / screenWidth.toFloat()
 
         val resizedBitmap = if (screenRatio > bitmapRatio) {
-            getResizedBitmap(bitmap, screenWidth, (screenWidth * bitmapRatio).toInt())
+            getResizedBitmap(bitmap, screenWidth, (screenWidth * bitmapRatio).toInt(), false)
         } else {
-            getResizedBitmap(bitmap, (screenHeight / bitmapRatio).toInt(), screenHeight)
+            getResizedBitmap(bitmap, (screenHeight / bitmapRatio).toInt(), screenHeight, false)
         }
 
-        val bitmapGapX = ((bitmap.width - screenWidth) / 2f).toInt()
-        val bitmapGapY = ((bitmap.height - screenHeight) / 2f).toInt()
-
-        // prevent crashes due to wrong aspect ratio
-        if (bitmapGapX <= 0 || bitmapGapY <= 0) return resizedBitmap
+        val bitmapGapX = ((resizedBitmap.width - screenWidth) / 2).absoluteValue
+        val bitmapGapY = ((resizedBitmap.height - screenHeight) / 2).absoluteValue
 
         return runCatching {
             Bitmap.createBitmap(
@@ -89,12 +86,15 @@ object WallpaperHelper {
         }.getOrDefault(resizedBitmap)
     }
 
-    private fun getResizedBitmap(bitmap: Bitmap, newWidth: Int, newHeight: Int): Bitmap {
-        return Bitmap.createScaledBitmap(
-            bitmap,
-            newWidth,
-            newHeight,
-            false
-        )
+    private fun getBitmapFitWidth(bitmap: Bitmap, width: Int): Bitmap {
+        val heightRatio = width.toFloat() / bitmap.width.toFloat()
+
+        return getResizedBitmap(bitmap, width, (bitmap.height * heightRatio).toInt())
+    }
+
+    private fun getBitmapFitHeight(bitmap: Bitmap, height: Int): Bitmap {
+        val widthRatio = height.toFloat() / bitmap.height.toFloat()
+
+        return getResizedBitmap(bitmap, (bitmap.width * widthRatio).toInt(), height)
     }
 }

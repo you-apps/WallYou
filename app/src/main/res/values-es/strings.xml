@@ -27,7 +27,7 @@
     <string name="general">General</string>
     <string name="cache">Caché</string>
     <!-- Preferences -->
-    <string name="crop_images">Recortar imágenes</string>
+    <string name="crop">Recortar imágenes</string>
     <string name="coil_cache">Caché de imagen de bobina</string>
     <string name="wallpaper_changer">Cambiador de papel tapiz</string>
     <string name="change_interval">Intervalo de cambio</string>

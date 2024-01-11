@@ -20,7 +20,7 @@
     <string name="reset">Obnovit</string>
     <string name="general">Obecné</string>
     <string name="cache">Mezipaměť</string>
-    <string name="crop_images">Oříznout obrázky</string>
+    <string name="crop">Oříznout obrázky</string>
     <string name="coil_cache">Mezipaměť obrázků</string>
     <string name="wallpaper_changer">Měnič tapet</string>
     <string name="change_interval">Interval změn</string>

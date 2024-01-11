@@ -25,7 +25,7 @@
     <string name="general">常规</string>
     <string name="cache">缓存</string>
     <!-- Preferences -->
-    <string name="crop_images">剪裁图片</string>
+    <string name="crop">剪裁图片</string>
     <string name="coil_cache">Coil 图像缓存</string>
     <string name="wallpaper_changer">壁纸更换器</string>
     <string name="change_interval">更换间隔</string>

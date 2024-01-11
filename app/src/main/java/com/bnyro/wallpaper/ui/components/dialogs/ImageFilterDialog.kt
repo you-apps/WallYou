@@ -7,9 +7,11 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.res.stringResource
 import com.bnyro.wallpaper.R
+import com.bnyro.wallpaper.enums.ResizeMethod
 import com.bnyro.wallpaper.ui.components.DialogButton
 import com.bnyro.wallpaper.ui.components.ImageFilterSlider
 import com.bnyro.wallpaper.ui.components.prefs.CheckboxPref
+import com.bnyro.wallpaper.ui.components.prefs.ListPreference
 import com.bnyro.wallpaper.util.Preferences
 
 @Composable
@@ -25,6 +27,7 @@ fun ImageFilterDialog(
             ) {
                 Preferences.edit { putFloat(Preferences.blurKey, 1f) }
                 Preferences.edit { putBoolean(Preferences.grayscaleKey, false) }
+                Preferences.edit { putString(Preferences.resizeMethodKey, ResizeMethod.NONE.name) }
                 onChange.invoke()
                 onDismissRequest.invoke()
             }
@@ -56,6 +59,14 @@ fun ImageFilterDialog(
                 ) {
                     onChange.invoke()
                 }
+                val resizeMethods = listOf(R.string.none, R.string.crop, R.string.zoom, R.string.fit_width, R.string.fit_height)
+                ListPreference(
+                    prefKey = Preferences.resizeMethodKey,
+                    title = stringResource(R.string.resize_method),
+                    entries = resizeMethods.map { stringResource(it) },
+                    values = ResizeMethod.values().map { it.name },
+                    defaultValue = ResizeMethod.ZOOM.name
+                )
             }
         }
     )

@@ -33,7 +33,7 @@
     <string name="website">웹사이트</string>
     <string name="favorites">즐겨찾기</string>
     <string name="lockscreen">잠금화면</string>
-    <string name="crop_images">이미지 자르기</string>
+    <string name="crop">이미지 자르기</string>
     <string name="fileSize">파일 크기</string>
     <string name="creationDate">생성 날짜</string>
     <string name="settings">설정</string>

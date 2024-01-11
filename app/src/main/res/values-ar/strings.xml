@@ -33,7 +33,7 @@
     <string name="blur">الضبابيَّة</string>
     <string name="cache">الخبيئة</string>
     <string name="wallpaper_changer">مغيِّر الخلفيَّة</string>
-    <string name="crop_images">قُصَّ الصور</string>
+    <string name="crop">قُصَّ الصور</string>
     <string name="wallpaper_changer_source">مصدر مغيِّر الخلفية</string>
     <string name="online">عبر الشبكة</string>
     <string name="local">محليٌّ</string>

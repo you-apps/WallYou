@@ -49,6 +49,7 @@ fun ListPreference(
 
     if (showDialog) {
         ListDialog(
+            title = title,
             items = entries,
             onDismissRequest = {
                 showDialog = false

@@ -11,7 +11,7 @@ import com.fasterxml.jackson.core.type.TypeReference
 import com.fasterxml.jackson.databind.ObjectMapper
 
 object Preferences {
-    const val cropImagesKey = "cropImages"
+    const val resizeMethodKey = "resizeMethod"
     const val diskCacheKey = "diskCache"
     const val themeModeKey = "themeModeKey"
     const val autoAddToFavoritesKey = "autoAddToFavorites"

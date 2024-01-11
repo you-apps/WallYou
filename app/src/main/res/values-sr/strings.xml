@@ -33,7 +33,7 @@
     <string name="general">Опште</string>
     <string name="cache">Кеш</string>
     <!-- Preferences -->
-    <string name="crop_images">Исеци слике</string>
+    <string name="crop">Исеци слике</string>
     <string name="coil_cache">Кеш посебних слика</string>
     <string name="wallpaper_changer">Мењање позадина</string>
     <string name="change_interval">Интервал промене</string>
