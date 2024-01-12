@@ -47,6 +47,7 @@ fun CheckboxPref(
         verticalAlignment = Alignment.CenterVertically
     ) {
         PreferenceItem(
+            modifier = Modifier.weight(1f),
             title = title,
             summary = summary
         )
