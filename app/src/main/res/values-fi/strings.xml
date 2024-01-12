@@ -6,7 +6,7 @@
     <string name="no_favorites">Ei vielä suosikkeja</string>
     <string name="applying_random">Toteutaan satunnainen taustakuva</string>
     <string name="filter">Suodatin</string>
-    <string name="crop_images">Rajaa kuvat</string>
+    <string name="crop">Rajaa kuvat</string>
     <string name="reset">Nollaa</string>
     <string name="lockscreen">Lukitusnäyttö</string>
     <string name="both">Molemmat</string>

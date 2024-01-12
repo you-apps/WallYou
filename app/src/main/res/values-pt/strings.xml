@@ -20,7 +20,7 @@
     <string name="reset">Repor</string>
     <string name="general">Geral</string>
     <string name="cache">Cache</string>
-    <string name="crop_images">Imagens de corte</string>
+    <string name="crop">Imagens de corte</string>
     <string name="coil_cache">Cache de imagem da bobina</string>
     <string name="wallpaper_changer">Mudança de papel de parede</string>
     <string name="change_interval">Intervalo de mudança</string>

@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="crop_images">Bilder zuschneiden</string>
+    <string name="crop">Bilder zuschneiden</string>
     <string name="category">Kategorie</string>
     <string name="source">Quelle</string>
     <string name="creationDate">Erstellungsdatum</string>

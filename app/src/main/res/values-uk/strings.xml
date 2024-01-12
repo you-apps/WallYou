@@ -25,7 +25,7 @@
     <string name="general">Загальне</string>
     <string name="cache">Кеш</string>
     <!-- Preferences -->
-    <string name="crop_images">Обрізати зображення</string>
+    <string name="crop">Обрізати зображення</string>
     <string name="coil_cache">Кеш зображень</string>
     <string name="wallpaper_changer">Зміна шпалер</string>
     <string name="change_interval">Інтервал зміни</string>

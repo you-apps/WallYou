@@ -41,7 +41,7 @@
     <string name="cache">キャッシュ</string>
     <string name="wallpaper_preview">壁紙のプレビュー</string>
     <!-- Preferences -->
-    <string name="crop_images">画像のトリミング</string>
+    <string name="crop">画像のトリミング</string>
     <string name="coil_cache">コイル画像キャッシュ</string>
     <string name="wallpaper_changer">壁紙チェンジャー</string>
     <string name="change_interval">変更間隔</string>

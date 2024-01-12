@@ -24,7 +24,7 @@
     <string name="general">Général</string>
     <string name="cache">Cache</string>
     <!-- Preferences -->
-    <string name="crop_images">Recadrer les images</string>
+    <string name="crop">Recadrer les images</string>
     <string name="coil_cache">Cache d\'image du diaporama</string>
     <string name="wallpaper_changer">Modification du fond d\'écran</string>
     <string name="change_interval">Intervalle de changement</string>

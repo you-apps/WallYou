@@ -20,7 +20,7 @@
     <string name="reset">Sıfırla</string>
     <string name="general">Genel</string>
     <string name="cache">Önbellek</string>
-    <string name="crop_images">Resimleri kırp</string>
+    <string name="crop">Resimleri kırp</string>
     <string name="coil_cache">Coil resim önbelleği</string>
     <string name="wallpaper_changer">Duvar kağıdı değiştirici</string>
     <string name="change_interval">Değişim aralığı</string>

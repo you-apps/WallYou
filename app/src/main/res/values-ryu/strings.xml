@@ -41,7 +41,7 @@
     <string name="cache">キャッシュ</string>
     <string name="wallpaper_preview">かびがんーじぬプレビュー</string>
     <!-- Preferences -->
-    <string name="crop_images">やしぬぞうぬトリミング</string>
+    <string name="crop">やしぬぞうぬトリミング</string>
     <string name="coil_cache">コイルぬぞうキャッシュ</string>
     <string name="wallpaper_changer">かびがみチェンジャー</string>
     <string name="change_interval">へんかんかんかく</string>

@@ -15,7 +15,7 @@
     <string name="reset">Resetowanie</string>
     <string name="general">Główne</string>
     <string name="cache">Pamięć podręczna</string>
-    <string name="crop_images">Przycinaj zdjęcia</string>
+    <string name="crop">Przycinaj zdjęcia</string>
     <string name="change_interval">Czas pomiędzy zmianą</string>
     <string name="theme_mode">Motyw</string>
     <string name="no_favorites">Nie ma jeszcze ulubionych</string>

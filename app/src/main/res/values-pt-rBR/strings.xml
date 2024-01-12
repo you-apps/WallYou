@@ -17,7 +17,7 @@
     <string name="grayscale">Escala de cinza</string>
     <string name="reset">Redefinir</string>
     <string name="cache">Cache</string>
-    <string name="crop_images">Cortar imagens</string>
+    <string name="crop">Cortar imagens</string>
     <string name="coil_cache">Tamanho do cache de imagem</string>
     <string name="wallpaper_changer">Mudança de papel de parede</string>
     <string name="change_interval">Intervalo de mudança</string>

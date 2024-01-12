@@ -26,7 +26,7 @@
     <string name="applying_random">Applicando sfondo casuale</string>
     <string name="wallpaper_changer">Sorgente cambio sfondo</string>
     <string name="grayscale">Scala di grigi</string>
-    <string name="crop_images">Ritaglia immagini</string>
+    <string name="crop">Ritaglia immagini</string>
     <string name="change_interval">Cambia intervallo</string>
     <string name="theme_mode">Tema</string>
     <string name="theme_light">Chiaro</string>

@@ -16,7 +16,7 @@
     <string name="reset">Resetați</string>
     <string name="general">General</string>
     <string name="cache">Cache</string>
-    <string name="crop_images">Decupare imagini</string>
+    <string name="crop">Decupare imagini</string>
     <string name="coil_cache">Cache de imagini</string>
     <string name="wallpaper_changer">Schimbare fundal</string>
     <string name="theme_mode">Temă</string>

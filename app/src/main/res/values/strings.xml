@@ -43,7 +43,11 @@
     <string name="cache">Cache</string>
     <string name="wallpaper_preview">Wallpaper preview</string>
     <!-- Preferences -->
-    <string name="crop_images">Crop images</string>
+    <string name="resize_method">Resize method</string>
+    <string name="crop">Crop</string>
+    <string name="zoom">Zoom (keeps aspect ratio)</string>
+    <string name="fit_height">Fit height</string>
+    <string name="fit_width">Fit width</string>
     <string name="coil_cache">Coil image cache</string>
     <string name="wallpaper_changer">Wallpaper changer</string>
     <string name="change_interval">Change interval</string>

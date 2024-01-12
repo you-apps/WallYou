@@ -23,7 +23,7 @@
     <string name="general">সাধারণ</string>
     <string name="cache">ক্যাশ</string>
     <!-- Preferences -->
-    <string name="crop_images">ক্রপ করুন</string>
+    <string name="crop">ক্রপ করুন</string>
     <string name="coil_cache">ক্যাশের সাইজ</string>
     <string name="wallpaper_changer">ওয়ালপেপার চেঞ্জার</string>
     <string name="change_interval">পরিবর্তনের সময়</string>

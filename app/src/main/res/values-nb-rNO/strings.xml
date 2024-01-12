@@ -13,7 +13,7 @@
     <string name="reset">Tilbakestill</string>
     <string name="general">Generelt</string>
     <string name="cache">Hurtiglager</string>
-    <string name="crop_images">Beskjær bilder</string>
+    <string name="crop">Beskjær bilder</string>
     <string name="wallpaper_changer">Skjermbildeendrer</string>
     <string name="change_interval">Endringsintervall</string>
     <string name="theme_mode">Tema</string>
