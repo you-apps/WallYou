@@ -6,6 +6,7 @@ import android.content.res.Resources
 import android.graphics.Bitmap
 import android.os.Build
 import android.util.DisplayMetrics
+import android.util.Log
 import android.view.WindowManager
 import androidx.annotation.RequiresApi
 import com.bnyro.wallpaper.enums.ResizeMethod
@@ -81,25 +82,20 @@ object WallpaperHelper {
     private fun getZoomedBitmap(bitmap: Bitmap, screenWidth: Int, screenHeight: Int): Bitmap {
         val bitmapRatio = bitmap.height.toFloat() / bitmap.width.toFloat()
         val screenRatio = screenHeight.toFloat() / screenWidth.toFloat()
+        val scaleRatio = (bitmapRatio / screenRatio)
 
-        val resizedBitmap = if (screenRatio > bitmapRatio) {
-            getResizedBitmap(bitmap, screenWidth, (screenWidth * bitmapRatio).toInt(), false)
+        var (newWidth, newHeight) = bitmap.width to bitmap.height
+        if (bitmapRatio > screenRatio) {
+            newHeight = (scaleRatio * bitmap.height).toInt()
         } else {
-            getResizedBitmap(bitmap, (screenHeight / bitmapRatio).toInt(), screenHeight, false)
+            newWidth = (scaleRatio * bitmap.width).toInt()
         }
 
-        val bitmapGapX = ((resizedBitmap.width - screenWidth) / 2).absoluteValue
-        val bitmapGapY = ((resizedBitmap.height - screenHeight) / 2).absoluteValue
+        val gapX = (bitmap.width - newWidth) / 2
+        val gapY = (bitmap.height - newHeight) / 2
+        val centeredBitmap = Bitmap.createBitmap(bitmap, gapX, gapY, newWidth, newHeight)
 
-        return runCatching {
-            Bitmap.createBitmap(
-                resizedBitmap,
-                bitmapGapX,
-                bitmapGapY,
-                screenWidth,
-                screenHeight
-            )
-        }.getOrDefault(resizedBitmap)
+        return getResizedBitmap(centeredBitmap, screenWidth, screenHeight)
     }
 
     private fun getBitmapFitWidth(bitmap: Bitmap, width: Int): Bitmap {
