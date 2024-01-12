@@ -2,8 +2,11 @@ package com.bnyro.wallpaper.util
 
 import android.app.WallpaperManager
 import android.content.Context
+import android.content.res.Resources
 import android.graphics.Bitmap
 import android.os.Build
+import android.util.DisplayMetrics
+import android.view.WindowManager
 import androidx.annotation.RequiresApi
 import com.bnyro.wallpaper.enums.ResizeMethod
 import com.bnyro.wallpaper.enums.WallpaperTarget
@@ -12,9 +15,9 @@ import kotlin.math.absoluteValue
 object WallpaperHelper {
     @RequiresApi(Build.VERSION_CODES.N)
     private fun setWallpaperUp(context: Context, imageBitmap: Bitmap, mode: Int) {
-        val metrics = context.resources.displayMetrics
+        val (width, height) = getMetrics(context)
         val wallpaperManager = WallpaperManager.getInstance(context)
-        wallpaperManager.suggestDesiredDimensions(metrics.widthPixels, metrics.heightPixels)
+        wallpaperManager.suggestDesiredDimensions(width, height)
 
         if (!wallpaperManager.isWallpaperSupported) return
         wallpaperManager.setBitmap(imageBitmap, null, true, mode)
@@ -46,14 +49,27 @@ object WallpaperHelper {
         }.start()
     }
 
+    private fun getMetrics(context: Context): Pair<Int, Int> {
+        val windowManager = context.getSystemService(Context.WINDOW_SERVICE) as WindowManager
+
+        return if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.R) {
+            windowManager.currentWindowMetrics.bounds.let { it.width() to it.height() }
+        } else {
+            val metrics = DisplayMetrics()
+            @Suppress("DEPRECATION")
+            windowManager.defaultDisplay.getMetrics(metrics)
+            metrics.widthPixels to metrics.heightPixels
+        }
+    }
+
     private fun processBitmapByResizeMethod(context: Context, bitmap: Bitmap, resizeMethod: ResizeMethod): Bitmap {
-        val metrics = context.resources.displayMetrics
+        val (width, height) = getMetrics(context)
 
         return when (resizeMethod) {
-            ResizeMethod.CROP -> getResizedBitmap(bitmap, metrics.widthPixels, metrics.heightPixels)
-            ResizeMethod.ZOOM -> getZoomedBitmap(bitmap, metrics.widthPixels, metrics.heightPixels)
-            ResizeMethod.FIT_WIDTH -> getBitmapFitWidth(bitmap, metrics.widthPixels)
-            ResizeMethod.FIT_HEIGHT -> getBitmapFitHeight(bitmap, metrics.heightPixels)
+            ResizeMethod.CROP -> getResizedBitmap(bitmap, width, height)
+            ResizeMethod.ZOOM -> getZoomedBitmap(bitmap, width, height)
+            ResizeMethod.FIT_WIDTH -> getBitmapFitWidth(bitmap, width)
+            ResizeMethod.FIT_HEIGHT -> getBitmapFitHeight(bitmap, height)
             ResizeMethod.NONE -> bitmap
         }
     }
