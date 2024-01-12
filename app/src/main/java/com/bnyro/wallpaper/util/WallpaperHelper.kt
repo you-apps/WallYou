@@ -2,16 +2,13 @@ package com.bnyro.wallpaper.util
 
 import android.app.WallpaperManager
 import android.content.Context
-import android.content.res.Resources
 import android.graphics.Bitmap
 import android.os.Build
 import android.util.DisplayMetrics
-import android.util.Log
 import android.view.WindowManager
 import androidx.annotation.RequiresApi
 import com.bnyro.wallpaper.enums.ResizeMethod
 import com.bnyro.wallpaper.enums.WallpaperTarget
-import kotlin.math.absoluteValue
 
 object WallpaperHelper {
     @RequiresApi(Build.VERSION_CODES.N)
@@ -29,23 +26,22 @@ object WallpaperHelper {
         wallpaperManager.setBitmap(imageBitmap)
     }
 
-    fun setWallpaper(context: Context, bitmap: Bitmap, mode: WallpaperTarget) {
+    fun setWallpaper(context: Context, src: Bitmap, mode: WallpaperTarget) {
         Thread {
-            val resizeMethod = Preferences.getString(
-                Preferences.resizeMethodKey,
-                ResizeMethod.ZOOM.name
-            ).let { ResizeMethod.valueOf(it) }
-            val resizedBitmap = processBitmapByResizeMethod(context, bitmap, resizeMethod)
+            var bitmap = resizeBitmapByPreference(context, src)
+            if (Preferences.getBoolean(Preferences.invertBitmapBySystemThemeKey, false)) {
+                bitmap = invertBitmapIfNeeded(context, bitmap)
+            }
 
             if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.N) {
                 if (mode in listOf(WallpaperTarget.BOTH, WallpaperTarget.HOME)) {
-                    setWallpaperUp(context, resizedBitmap, WallpaperManager.FLAG_SYSTEM)
+                    setWallpaperUp(context, bitmap, WallpaperManager.FLAG_SYSTEM)
                 }
                 if (mode in listOf(WallpaperTarget.BOTH, WallpaperTarget.LOCK)) {
-                    setWallpaperUp(context, resizedBitmap, WallpaperManager.FLAG_LOCK)
+                    setWallpaperUp(context, bitmap, WallpaperManager.FLAG_LOCK)
                 }
             } else {
-                setWallpaperLegacy(context, resizedBitmap)
+                setWallpaperLegacy(context, bitmap)
             }
         }.start()
     }
@@ -63,7 +59,12 @@ object WallpaperHelper {
         }
     }
 
-    private fun processBitmapByResizeMethod(context: Context, bitmap: Bitmap, resizeMethod: ResizeMethod): Bitmap {
+    private fun resizeBitmapByPreference(context: Context, bitmap: Bitmap): Bitmap {
+        val resizeMethod = Preferences.getString(
+            Preferences.resizeMethodKey,
+            ResizeMethod.ZOOM.name
+        ).let { ResizeMethod.valueOf(it) }
+
         val (width, height) = getMetrics(context)
 
         return when (resizeMethod) {
@@ -75,7 +76,12 @@ object WallpaperHelper {
         }
     }
 
-    private fun getResizedBitmap(bitmap: Bitmap, width: Int, height: Int, filter: Boolean = true): Bitmap {
+    private fun getResizedBitmap(
+        bitmap: Bitmap,
+        width: Int,
+        height: Int,
+        filter: Boolean = true
+    ): Bitmap {
         return Bitmap.createScaledBitmap(bitmap, width, height, filter)
     }
 
@@ -108,5 +114,16 @@ object WallpaperHelper {
         val widthRatio = height.toFloat() / bitmap.height.toFloat()
 
         return getResizedBitmap(bitmap, (bitmap.width * widthRatio).toInt(), height)
+    }
+
+    private fun invertBitmapIfNeeded(context: Context, bitmap: Bitmap): Bitmap {
+        val bitmapBrightness = BitmapProcessor.calculateBrightnessEstimate(bitmap, 20)
+        val isDarkMode = ThemeHelper.isNightMode(context)
+
+        return when {
+            isDarkMode && bitmapBrightness > 127 -> BitmapProcessor.invert(bitmap)
+            !isDarkMode && bitmapBrightness < 127 -> BitmapProcessor.invert(bitmap)
+            else -> bitmap
+        }
     }
 }

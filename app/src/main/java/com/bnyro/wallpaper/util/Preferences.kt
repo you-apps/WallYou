@@ -19,6 +19,8 @@ object Preferences {
     const val blurKey = "blur"
     const val startTabKey = "startTab"
     const val showColorPalette = "showColorPalette"
+    const val invertBitmapBySystemThemeKey = "invertBitmapBySystemTheme"
+    const val contrastKey = "contrast"
 
     const val wallpaperChangerKey = "wallpaperChanger"
     const val wallpaperChangerIntervalKey = "wallpaperChangerInterval"

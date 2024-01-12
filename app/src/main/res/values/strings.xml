@@ -37,6 +37,7 @@
     <!-- Image Filters -->
     <string name="blur">Blur</string>
     <string name="grayscale">Grayscale</string>
+    <string name="contrast">Contrast</string>
     <string name="reset">Reset</string>
     <!-- Preference categories -->
     <string name="general">General</string>
@@ -61,6 +62,8 @@
     <string name="success">Success!</string>
     <string name="current_directory">Current</string>
     <string name="none">None</string>
+    <string name="invert_wallpaper_by_theme">Invert wallpaper by theme</string>
+    <string name="invert_wallpaper_by_theme_summary">Invert the wallpaper to be dark on dark themes and light on light themes.</string>
     <!-- Wallpaper changer source -->
     <string name="online">Online</string>
     <string name="local">Local</string>

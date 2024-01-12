@@ -53,6 +53,15 @@ fun ImageFilterDialog(
                         onChange.invoke()
                     }
                 )
+                ImageFilterSlider(
+                    prefKey = Preferences.contrastKey,
+                    title = stringResource(R.string.contrast),
+                    defValue = 1f,
+                    valueRange = 0f..10f,
+                    onValueChange = {
+                        onChange.invoke()
+                    }
+                )
                 CheckboxPref(
                     prefKey = Preferences.grayscaleKey,
                     title = stringResource(R.string.grayscale)
@@ -66,6 +75,11 @@ fun ImageFilterDialog(
                     entries = resizeMethods.map { stringResource(it) },
                     values = ResizeMethod.values().map { it.name },
                     defaultValue = ResizeMethod.ZOOM.name
+                )
+                CheckboxPref(
+                    prefKey = Preferences.invertBitmapBySystemThemeKey,
+                    title = stringResource(R.string.invert_wallpaper_by_theme),
+                    summary = stringResource(R.string.invert_wallpaper_by_theme_summary)
                 )
             }
         }

@@ -46,7 +46,7 @@ fun SliderWithLabel(
                 labelWidth = labelMinWidth + 8.dp // Since we use a padding of 4.dp on either sides of the SliderLabel, we need to account for this in our calculation
             )
 
-            val endValueText = value.toInt().toString()
+            val endValueText = "%.2f".format(value)
 
             if (showLabel) {
                 SliderLabel(
