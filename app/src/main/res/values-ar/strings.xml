@@ -51,4 +51,14 @@
     <string name="current_directory">الحالي</string>
     <string name="export_favorites">تصدير المفضلة</string>
     <string name="import_favorites">استيراد المفضلة</string>
+    <string name="contrast">التباين</string>
+    <string name="fit_height">ارتفاع ملائم</string>
+    <string name="resize_method">طريقة تغيير الحجم</string>
+    <string name="invert_wallpaper_by_theme">عكس الخلفية حسب الموضوع</string>
+    <string name="invert_wallpaper_by_theme_summary">اقلب خلفية الشاشة لتكون داكنة على السمات الداكنة وفاتحة على السمات الفاتحة.</string>
+    <string name="directories">المجلدات</string>
+    <string name="random_wallpaper">خلفية عشوائية</string>
+    <string name="zoom">التكبير (يحافظ على نسبة العرض إلى الارتفاع)</string>
+    <string name="fit_width">العرض المناسب</string>
+    <string name="none">لاشيء</string>
 </resources>
