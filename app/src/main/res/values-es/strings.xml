@@ -62,4 +62,14 @@
     <string name="current_directory">Actual</string>
     <string name="export_favorites">Exportar los favoritos</string>
     <string name="import_favorites">Importar los favoritos</string>
+    <string name="resize_method">Redimensionamiento</string>
+    <string name="contrast">Contraste</string>
+    <string name="invert_wallpaper_by_theme">Invertir fondo de pantalla por tema</string>
+    <string name="invert_wallpaper_by_theme_summary">Invierte el fondo de pantalla para que sea oscuro en temas oscuros y claro en temas claros.</string>
+    <string name="directories">Directorios</string>
+    <string name="random_wallpaper">Fondo de pantalla aleatorio</string>
+    <string name="none">Ninguno</string>
+    <string name="zoom">Zoom (mantiene el aspecto)</string>
+    <string name="fit_height">Ajustar la altura</string>
+    <string name="fit_width">Ajustar el ancho</string>
 </resources>
