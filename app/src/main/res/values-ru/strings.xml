@@ -63,4 +63,14 @@
     <string name="export_favorites">Экспортировать избранное</string>
     <string name="import_favorites">Импортировать избранное</string>
     <string name="current_directory">Текущая</string>
+    <string name="random_wallpaper">Случайные обои</string>
+    <string name="contrast">Контраст</string>
+    <string name="resize_method">Метод</string>
+    <string name="invert_wallpaper_by_theme">Инверсия обоев по теме</string>
+    <string name="fit_width">Подогнать по ширине</string>
+    <string name="fit_height">Подогнать по высоте</string>
+    <string name="zoom">Увеличить (соотношение сторон не изменится)</string>
+    <string name="none">Ничего не делать</string>
+    <string name="directories">Пути</string>
+    <string name="invert_wallpaper_by_theme_summary">Инвертировать цвета обоев так, чтобы они были тёмными при тёмной теме и светлыми при светлой теме.</string>
 </resources>
