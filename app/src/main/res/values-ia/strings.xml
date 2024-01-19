@@ -52,4 +52,13 @@
     <string name="theme_system">Systema</string>
     <string name="no_favorites">Necun favoritos ancora</string>
     <string name="auto_add_to_favorites">Adder al favoritos al applicar</string>
+    <string name="contrast">Contrasto</string>
+    <string name="fit_height">Adjustar le altor</string>
+    <string name="fit_width">Adjustar le largor</string>
+    <string name="resize_method">Methodo de redimension</string>
+    <string name="zoom">Zoom (mantene le proportion de imagine)</string>
+    <string name="combine_wallpaper_changers">Combinar le fundo de schermo</string>
+    <string name="invert_wallpaper_by_theme_summary">Inverter le fundo de schermo a esser obscur in themas obscur e clar in themas clar.</string>
+    <string name="invert_wallpaper_by_theme">Inverter fundo de schermo per thema</string>
+    <string name="crop">Taliar le imagines</string>
 </resources>
