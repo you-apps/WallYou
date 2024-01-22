@@ -66,4 +66,11 @@
     <string name="none">无</string>
     <string name="random_wallpaper">随机壁纸</string>
     <string name="directories">目录</string>
+    <string name="contrast">对比度</string>
+    <string name="resize_method">调整尺寸方法</string>
+    <string name="zoom">缩放（保持纵横比）</string>
+    <string name="fit_height">适合高度</string>
+    <string name="fit_width">适合宽度</string>
+    <string name="invert_wallpaper_by_theme">按主题反转壁纸</string>
+    <string name="invert_wallpaper_by_theme_summary">处于深色或浅色主题时将壁纸反转为同样的颜色。</string>
 </resources>
