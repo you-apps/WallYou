@@ -161,11 +161,6 @@ fun SettingsPage(
             ) {
                 WorkerHelper.enqueue(context, true)
             }
-        }
-        AboutContainer {
-            SettingsCategory(
-                title = stringResource(R.string.wallpaper_changer)
-            )
             CheckboxPref(
                 prefKey = Preferences.combineWallpaperChangers,
                 title = stringResource(R.string.combine_wallpaper_changers),

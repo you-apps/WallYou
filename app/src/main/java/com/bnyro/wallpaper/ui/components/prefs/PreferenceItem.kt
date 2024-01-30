@@ -22,8 +22,12 @@ fun PreferenceItem(
     ) {
         Text(title)
         if (summary != null) {
-            Spacer(Modifier.height(2.dp))
-            Text(summary, fontSize = 12.sp)
+            Spacer(Modifier.height(4.dp))
+            Text(
+                text = summary,
+                fontSize = 12.sp,
+                lineHeight = 16.sp
+            )
         }
     }
 }
