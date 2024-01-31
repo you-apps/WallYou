@@ -25,7 +25,7 @@
     <string name="general">Основные</string>
     <string name="cache">Кэш</string>
     <!-- Preferences -->
-    <string name="crop">Обрезать изображения</string>
+    <string name="crop">Обрезать</string>
     <string name="coil_cache">Кэш изображений</string>
     <string name="wallpaper_changer">Смена обоев</string>
     <string name="change_interval">Интервал смены обоев</string>
@@ -63,4 +63,14 @@
     <string name="export_favorites">Экспортировать избранное</string>
     <string name="import_favorites">Импортировать избранное</string>
     <string name="current_directory">Текущая</string>
+    <string name="random_wallpaper">Случайные обои</string>
+    <string name="contrast">Контрастность</string>
+    <string name="resize_method">Метод масштабирования</string>
+    <string name="invert_wallpaper_by_theme">Инверсия обоев по теме</string>
+    <string name="fit_width">Подогнать по ширине</string>
+    <string name="fit_height">Подогнать по высоте</string>
+    <string name="zoom">Увеличить (с сохранением соотношения сторон)</string>
+    <string name="none">Ничего не делать</string>
+    <string name="directories">Пути</string>
+    <string name="invert_wallpaper_by_theme_summary">Инвертировать цвета обоев так, чтобы они были тёмными при тёмной теме и светлыми при светлой.</string>
 </resources>

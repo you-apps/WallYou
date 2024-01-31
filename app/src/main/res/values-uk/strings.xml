@@ -63,4 +63,14 @@
     <string name="current_directory">Поточна</string>
     <string name="export_favorites">Експортувати обране</string>
     <string name="import_favorites">Імпортувати обране</string>
+    <string name="directories">Каталоги</string>
+    <string name="random_wallpaper">Випадкові шпалери</string>
+    <string name="contrast">Контраст</string>
+    <string name="resize_method">Метод зміни розміру</string>
+    <string name="zoom">Масштабування (зберігає співвідношення сторін)</string>
+    <string name="fit_height">Регулювання висоти</string>
+    <string name="fit_width">Регулювання ширини</string>
+    <string name="none">Нічого</string>
+    <string name="invert_wallpaper_by_theme">Інвертувати шпалери за темою</string>
+    <string name="invert_wallpaper_by_theme_summary">Інвертуйте шпалери, щоб на темних темах вони були темними, а на світлих — світлими.</string>
 </resources>

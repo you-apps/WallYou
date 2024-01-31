@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="favorites">Lemmikud</string>
+    <string name="settings">Seadistused</string>
+    <string name="filter">Filter</string>
+    <string name="add">Lisa</string>
+    <string name="community_name">Kogukonna nimi</string>
+    <string name="set_wallpaper">Seadista taustapilt</string>
+    <string name="download">Laadi alla</string>
+    <string name="add_to_favorites">Lisa lemmikute hulka</string>
+    <string name="author">Autor</string>
+    <string name="resolution">Resolutsioon</string>
+    <string name="category">Kategooria</string>
+    <string name="fileSize">Faili suurus</string>
+    <string name="about">Rakenduse teave</string>
+    <string name="info">Teave</string>
+</resources>
