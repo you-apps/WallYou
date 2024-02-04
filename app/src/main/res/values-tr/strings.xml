@@ -37,7 +37,7 @@
     <string name="online">Çevrim içi</string>
     <string name="local">Yerel</string>
     <string name="wallpaper_changer_source">Duvar kağıdı değiştirici kaynağı</string>
-    <string name="choose_dir">Dizin seç</string>
+    <string name="choose_dir">Dizin ekle</string>
     <string name="color_palette">Renk paletini göster</string>
     <string name="import_export">İçe ve dışa aktar</string>
     <string name="add_to_favorites">Sık kullanılanlara ekle</string>
@@ -51,4 +51,14 @@
     <string name="combine_wallpaper_changers">Birleşik duvar kağıdı değiştirici</string>
     <string name="download">İndir</string>
     <string name="combine_wallpaper_changers_summary">Ana ekran ve kilit ekranı için aynı duvar kağıdını kullanın.</string>
+    <string name="fit_width">Genişliğe sığdır</string>
+    <string name="invert_wallpaper_by_theme">Duvar kağıdı rengini temaya göre değiştir</string>
+    <string name="contrast">Karşıtlık</string>
+    <string name="resize_method">Yeniden boyutlandırma yöntemi</string>
+    <string name="directories">Dizinler</string>
+    <string name="random_wallpaper">Rastgele duvar kağıdı</string>
+    <string name="zoom">Yakınlaştır (en boy oranını korur)</string>
+    <string name="fit_height">Yüksekliğe sığdır</string>
+    <string name="none">Hiçbiri</string>
+    <string name="invert_wallpaper_by_theme_summary">Duvar kağıdını koyu temalarda koyu, açık temalarda açık olacak şekilde değiştir.</string>
 </resources>
