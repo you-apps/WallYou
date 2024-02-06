@@ -25,9 +25,13 @@ fun ImageFilterDialog(
             DialogButton(
                 stringResource(R.string.reset)
             ) {
-                Preferences.edit { putFloat(Preferences.blurKey, 1f) }
-                Preferences.edit { putBoolean(Preferences.grayscaleKey, false) }
-                Preferences.edit { putString(Preferences.resizeMethodKey, ResizeMethod.NONE.name) }
+                Preferences.edit {
+                    putFloat(Preferences.blurKey, 1f)
+                    putFloat(Preferences.contrastKey, 1f)
+                    putString(Preferences.resizeMethodKey, ResizeMethod.CROP.name)
+                    putBoolean(Preferences.grayscaleKey, false)
+                    putBoolean(Preferences.invertBitmapBySystemThemeKey, false)
+                }
                 onChange.invoke()
                 onDismissRequest.invoke()
             }

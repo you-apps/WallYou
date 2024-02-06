@@ -25,11 +25,11 @@ object BitmapProcessor {
         val contrast = Preferences.getFloat(Preferences.contrastKey, 1f)
         val grayScale = Preferences.getBoolean(Preferences.grayscaleKey, false)
 
-        var bitmap = bitmap.blur(blurRadius)
-        bitmap = changeBitmapContrast(bitmap, contrast)
-        if (grayScale) bitmap = bitmap.grayScale()
+        var bm = bitmap.blur(blurRadius)
+        bm = changeBitmapContrast(bm, contrast)
+        if (grayScale) bm = bm.grayScale()
 
-        return bitmap
+        return bm
     }
 
     private fun changeBitmapContrast(bitmap: Bitmap, contrast: Float): Bitmap {
