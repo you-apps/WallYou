@@ -9,6 +9,8 @@ import android.view.WindowManager
 import androidx.annotation.RequiresApi
 import com.bnyro.wallpaper.enums.ResizeMethod
 import com.bnyro.wallpaper.enums.WallpaperTarget
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.withContext
 
 object WallpaperHelper {
     @RequiresApi(Build.VERSION_CODES.N)
@@ -26,24 +28,28 @@ object WallpaperHelper {
         wallpaperManager.setBitmap(imageBitmap)
     }
 
-    fun setWallpaper(context: Context, src: Bitmap, mode: WallpaperTarget) {
-        Thread {
-            var bitmap = resizeBitmapByPreference(context, src)
+    suspend fun setWallpaperWithFilters(context: Context, src: Bitmap, mode: WallpaperTarget) {
+        withContext(Dispatchers.IO) {
+            var bitmap = BitmapProcessor.processBitmapByPrefs(src)
+            bitmap = resizeBitmapByPreference(context, bitmap = bitmap)
             if (Preferences.getBoolean(Preferences.invertBitmapBySystemThemeKey, false)) {
                 bitmap = invertBitmapIfNeeded(context, bitmap)
             }
+            setWallpaper(context, bitmap, mode)
+        }
+    }
 
-            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.N) {
-                if (mode in listOf(WallpaperTarget.BOTH, WallpaperTarget.HOME)) {
-                    setWallpaperUp(context, bitmap, WallpaperManager.FLAG_SYSTEM)
-                }
-                if (mode in listOf(WallpaperTarget.BOTH, WallpaperTarget.LOCK)) {
-                    setWallpaperUp(context, bitmap, WallpaperManager.FLAG_LOCK)
-                }
-            } else {
-                setWallpaperLegacy(context, bitmap)
+    fun setWallpaper(context: Context, bitmap: Bitmap, mode: WallpaperTarget) {
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.N) {
+            if (mode in listOf(WallpaperTarget.BOTH, WallpaperTarget.HOME)) {
+                setWallpaperUp(context, bitmap, WallpaperManager.FLAG_SYSTEM)
             }
-        }.start()
+            if (mode in listOf(WallpaperTarget.BOTH, WallpaperTarget.LOCK)) {
+                setWallpaperUp(context, bitmap, WallpaperManager.FLAG_LOCK)
+            }
+        } else {
+            setWallpaperLegacy(context, bitmap)
+        }
     }
 
     private fun getMetrics(context: Context): Pair<Int, Int> {

@@ -28,6 +28,7 @@ import com.bnyro.wallpaper.db.DatabaseHolder.Database
 import com.bnyro.wallpaper.db.obj.Wallpaper
 import com.bnyro.wallpaper.ext.query
 import com.bnyro.wallpaper.ui.components.WallpaperGrid
+import com.bnyro.wallpaper.ui.components.WallpaperPageView
 
 @Composable
 fun FavoritesPage() {
@@ -39,6 +40,8 @@ fun FavoritesPage() {
             mutableStateOf(listOf<Wallpaper>())
         }
 
+        var selectedIndex by remember { mutableStateOf<Int?>(null) }
+
         LaunchedEffect(true) {
             query {
                 favorites = Database.favoritesDao().getAll()
@@ -47,8 +50,16 @@ fun FavoritesPage() {
 
         if (favorites.isNotEmpty()) {
             WallpaperGrid(
-                wallpapers = favorites
+                wallpapers = favorites,
+                onClickWallpaper = {
+                    selectedIndex = it
+                }
             )
+            selectedIndex?.let {
+                WallpaperPageView(initialPage = it, wallpapers = favorites) {
+                    selectedIndex = null
+                }
+            }
         } else {
             Box(
                 modifier = Modifier.fillMaxSize()
