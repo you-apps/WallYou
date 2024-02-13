@@ -12,6 +12,8 @@ import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
+import androidx.compose.foundation.shape.RoundedCornerShape
+import androidx.compose.material3.MaterialTheme
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.runtime.MutableState
@@ -23,7 +25,7 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.alpha
 import androidx.compose.ui.draw.blur
-import androidx.compose.ui.graphics.Brush
+import androidx.compose.ui.draw.clip
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.input.pointer.pointerInput
 import androidx.compose.ui.layout.ContentScale
@@ -119,18 +121,12 @@ fun WallpaperView(
             Column(
                 Modifier
                     .fillMaxWidth()
-                    .background(
-                        Brush.verticalGradient(
-                            colors = listOf(Color.Black, Color.Transparent)
-                        )
-                    )
                     .align(Alignment.TopCenter)
             ) {
                 AnimatedVisibility(
                     visible = showUi
                 ) {
                     WallpaperViewTopBar(
-                        modifier = Modifier.padding(top = 30.dp),
                         onClickBack = onClickBack,
                         onClickInfo = {
                             showInfoSheet = true
@@ -142,18 +138,18 @@ fun WallpaperView(
             Column(
                 Modifier
                     .fillMaxWidth()
-                    .background(
-                        Brush.verticalGradient(
-                            colors = listOf(Color.Transparent, Color.Black)
-                        )
-                    )
-                    .align(Alignment.BottomCenter)
+                    .align(Alignment.BottomCenter),
+                horizontalAlignment = Alignment.CenterHorizontally
             ) {
                 AnimatedVisibility(
                     visible = showUi
                 ) {
                     BottomBar(
-                        modifier = Modifier.padding(top = 30.dp),
+                        modifier = Modifier
+                            .padding(bottom = 30.dp)
+                            .clip(RoundedCornerShape(16.dp))
+                            .background(MaterialTheme.colorScheme.primaryContainer),
+                        contentColor = MaterialTheme.colorScheme.onPrimaryContainer,
                         onClickEdit = {
                             showEditView = true
                         },
