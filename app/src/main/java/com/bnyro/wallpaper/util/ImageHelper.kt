@@ -9,7 +9,9 @@ import androidx.core.graphics.drawable.toBitmap
 import androidx.exifinterface.media.ExifInterface
 import coil.ImageLoader
 import coil.annotation.ExperimentalCoilApi
+import coil.imageLoader
 import coil.request.ImageRequest
+import coil.request.SuccessResult
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
@@ -27,8 +29,23 @@ object ImageHelper {
                     onSuccess(it.toBitmap())
                 }
                 .build()
-            ImageLoader(context).enqueue(request)
+            context.imageLoader.enqueue(request)
         }
+    }
+
+    suspend fun urlToBitmap(
+        imageURL: String?,
+        context: Context
+    ): Bitmap? {
+        val request = ImageRequest.Builder(context)
+            .data(imageURL)
+            .build()
+        val result = context.imageLoader.execute(request)
+
+        if (result is SuccessResult) {
+            return result.drawable.toBitmap()
+        }
+        return null
     }
 
     @OptIn(ExperimentalCoilApi::class)

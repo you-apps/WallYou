@@ -28,6 +28,7 @@ fun SliderWithLabel(
     valueRange: ClosedFloatingPointRange<Float>,
     steps: Int = 0,
     labelMinWidth: Dp = 42.dp,
+    onValueChangeFinished: () -> Unit = {},
     onValueChange: (Float) -> Unit
 ) {
     var showLabel by remember {
@@ -69,6 +70,7 @@ fun SliderWithLabel(
                 modifier = Modifier.fillMaxWidth(),
                 onValueChangeFinished = {
                     showLabel = false
+                    onValueChangeFinished.invoke()
                 }
             )
         }

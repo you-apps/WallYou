@@ -23,12 +23,12 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.unit.dp
 import com.bnyro.wallpaper.api.CommunityApi
-import com.bnyro.wallpaper.db.obj.Wallpaper
 import com.bnyro.wallpaper.ui.components.ShimmerGrid
 import com.bnyro.wallpaper.ui.components.WallpaperGrid
-import com.bnyro.wallpaper.ui.components.WallpaperPreview
+import com.bnyro.wallpaper.ui.components.WallpaperPageView
 import com.bnyro.wallpaper.ui.components.dialogs.FilterDialog
 import com.bnyro.wallpaper.ui.models.MainModel
+import kotlin.random.Random
 
 @Composable
 fun WallpaperPage(
@@ -39,9 +39,7 @@ fun WallpaperPage(
         mutableStateOf(false)
     }
 
-    var selectedWallpaper by remember {
-        mutableStateOf<Wallpaper?>(null)
-    }
+    var selectedIndex by remember { mutableStateOf<Int?>(null) }
 
     var fetchedWallpapers by rememberSaveable {
         mutableStateOf(false)
@@ -64,10 +62,18 @@ fun WallpaperPage(
     ) {
         if (viewModel.wallpapers.isNotEmpty()) {
             WallpaperGrid(
-                wallpapers = viewModel.wallpapers
+                wallpapers = viewModel.wallpapers,
+                onClickWallpaper = {
+                    selectedIndex = it
+                }
             ) {
                 viewModel.fetchWallpapers {
                     Toast.makeText(context, it.localizedMessage, Toast.LENGTH_LONG).show()
+                }
+            }
+            selectedIndex?.let {
+                WallpaperPageView(initialPage = it, wallpapers = viewModel.wallpapers) {
+                    selectedIndex = null
                 }
             }
         } else {
@@ -84,7 +90,8 @@ fun WallpaperPage(
                 modifier = Modifier
                     .padding(horizontal = 10.dp),
                 onClick = {
-                    selectedWallpaper = viewModel.wallpapers.randomOrNull()
+                    selectedIndex =
+                        if (viewModel.wallpapers.isNotEmpty()) Random.nextInt(viewModel.wallpapers.size) else null
                 }
             ) {
                 Icon(
@@ -123,12 +130,6 @@ fun WallpaperPage(
                         Toast.makeText(context, it.localizedMessage, Toast.LENGTH_SHORT).show()
                     }
                 }
-            }
-        }
-
-        selectedWallpaper?.let {
-            WallpaperPreview(it) {
-                selectedWallpaper = null
             }
         }
     }

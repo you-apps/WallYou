@@ -31,9 +31,9 @@ class BackgroundWorker(
             else -> return
         } ?: return
 
-        WallpaperHelper.setWallpaper(
+        WallpaperHelper.setWallpaperWithFilters(
             applicationContext,
-            BitmapProcessor.processBitmapByPrefs(bitmap),
+            bitmap,
             config.target
         )
     }

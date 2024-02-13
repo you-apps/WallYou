@@ -82,4 +82,23 @@
     <string name="github" translatable="false">GitHub</string>
     <string name="license">License</string>
     <string name="website">Website</string>
+    <string name="set_with">Set With...</string>
+    <string name="set_as">Set As</string>
+    <string name="wallpaper">Wallpaper</string>
+    <string name="apply">Apply</string>
+    <string name="preview_invert_effect">Preview Invert Effect</string>
+    <string name="colors">Colors</string>
+    <string name="details">Details</string>
+    <string name="label">Label</string>
+    <string name="file_size">File Size</string>
+    <string name="error">Error</string>
+    <string name="done">Done</string>
+    <string name="save">Save</string>
+    <string name="edit">Edit</string>
+    <string name="favorite">Favourite</string>
+    <string name="go_back">Go Back</string>
+    <string name="image_info">Image Info</string>
+    <string name="saving_wallpaper">Saving Wallpaper</string>
+    <string name="applying_wallpaper">Applying Wallpaper</string>
+    <string name="dismiss">Dismiss</string>
 </resources>

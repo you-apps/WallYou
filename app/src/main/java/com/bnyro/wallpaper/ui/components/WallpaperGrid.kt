@@ -10,7 +10,7 @@ import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.lazy.grid.GridCells
 import androidx.compose.foundation.lazy.grid.LazyVerticalGrid
-import androidx.compose.foundation.lazy.grid.items
+import androidx.compose.foundation.lazy.grid.itemsIndexed
 import androidx.compose.foundation.lazy.grid.rememberLazyGridState
 import androidx.compose.foundation.shape.CircleShape
 import androidx.compose.foundation.shape.RoundedCornerShape
@@ -39,6 +39,7 @@ import com.bnyro.wallpaper.ext.query
 @Composable
 fun WallpaperGrid(
     wallpapers: List<Wallpaper>,
+    onClickWallpaper: (Int) -> Unit,
     onScrollEnd: () -> Unit = {}
 ) {
     val listState = rememberLazyGridState()
@@ -60,18 +61,14 @@ fun WallpaperGrid(
         horizontalArrangement = Arrangement.spacedBy(16.dp),
         contentPadding = PaddingValues(8.dp)
     ) {
-        items(wallpapers) {
-            var showFullscreen by remember {
-                mutableStateOf(false)
-            }
-
+        itemsIndexed(wallpapers) { index, wallpaper ->
             var liked by remember {
                 mutableStateOf(false)
             }
 
             LaunchedEffect(true) {
                 query {
-                    it.imgSrc.let { src -> liked = Database.favoritesDao().exists(src) }
+                    wallpaper.imgSrc.let { src -> liked = Database.favoritesDao().exists(src) }
                 }
             }
 
@@ -80,12 +77,12 @@ fun WallpaperGrid(
                     .aspectRatio(9 / 16f)
                     .clip(shape)
                     .clickable {
-                        showFullscreen = true
+                        onClickWallpaper(index)
                     }
             ) {
                 Box {
                     AsyncImage(
-                        model = it.thumb ?: it.imgSrc,
+                        model = wallpaper.thumb ?: wallpaper.imgSrc,
                         contentDescription = null,
                         contentScale = ContentScale.Crop,
                         modifier = Modifier
@@ -106,21 +103,13 @@ fun WallpaperGrid(
                             liked = !liked
                             query {
                                 if (!liked) {
-                                    Database.favoritesDao().delete(it)
+                                    Database.favoritesDao().delete(wallpaper)
                                 } else {
-                                    Database.favoritesDao().insertAll(it)
+                                    Database.favoritesDao().insertAll(wallpaper)
                                 }
                             }
                         }
                     }
-                }
-            }
-
-            if (showFullscreen) {
-                WallpaperPreview(
-                    wallpaper = it
-                ) {
-                    showFullscreen = false
                 }
             }
         }
