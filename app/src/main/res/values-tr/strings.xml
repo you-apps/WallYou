@@ -61,4 +61,23 @@
     <string name="fit_height">Yüksekliğe sığdır</string>
     <string name="none">Hiçbiri</string>
     <string name="invert_wallpaper_by_theme_summary">Duvar kağıdını koyu temalarda koyu, açık temalarda açık olacak şekilde değiştir.</string>
+    <string name="wallpaper">Duvar Kağıdı</string>
+    <string name="apply">Uygula</string>
+    <string name="preview_invert_effect">Değiştirme Efektini Ön İzle</string>
+    <string name="file_size">Dosya Boyutu</string>
+    <string name="favorite">Sık Kullanılan</string>
+    <string name="go_back">Geri Dön</string>
+    <string name="image_info">Resim Bilgileri</string>
+    <string name="saving_wallpaper">Duvar Kağıdı Kaydediliyor</string>
+    <string name="applying_wallpaper">Duvar Kağıdı Uygulanıyor</string>
+    <string name="dismiss">Kapat</string>
+    <string name="set_with">Şununla Ayarla...</string>
+    <string name="set_as">Ayarla</string>
+    <string name="details">Ayrıntılar</string>
+    <string name="colors">Renkler</string>
+    <string name="label">Etiket</string>
+    <string name="error">Hata</string>
+    <string name="done">Bitti</string>
+    <string name="save">Kaydet</string>
+    <string name="edit">Düzenle</string>
 </resources>
