@@ -61,4 +61,14 @@
     <string name="version">Versioon</string>
     <string name="license">Litsents</string>
     <string name="website">Veebisait</string>
+    <string name="go_back">Mine tagasi</string>
+    <string name="image_info">Pildi teave</string>
+    <string name="edit">Muuda</string>
+    <string name="favorite">Lemmik</string>
+    <string name="save">Salvesta</string>
+    <string name="done">Valmis</string>
+    <string name="file_size">Faili suurus</string>
+    <string name="error">Viga</string>
+    <string name="colors">Värvid</string>
+    <string name="details">Üksikasjad</string>
 </resources>
