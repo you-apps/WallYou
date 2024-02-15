@@ -73,4 +73,23 @@
     <string name="none">Ничего не делать</string>
     <string name="directories">Пути</string>
     <string name="invert_wallpaper_by_theme_summary">Инвертировать цвета обоев так, чтобы они были тёмными при тёмной теме и светлыми при светлой.</string>
+    <string name="set_with">Установить с...</string>
+    <string name="wallpaper">Обои</string>
+    <string name="apply">Применить</string>
+    <string name="done">Готово</string>
+    <string name="save">Сохранить</string>
+    <string name="dismiss">Отклонить</string>
+    <string name="set_as">Установить как</string>
+    <string name="preview_invert_effect">Предпросмотр инверсии</string>
+    <string name="colors">Цвета</string>
+    <string name="details">Подробности</string>
+    <string name="label">Метка</string>
+    <string name="file_size">Размер файла</string>
+    <string name="error">Ошибка</string>
+    <string name="edit">Редактировать</string>
+    <string name="favorite">Добавить в избранное</string>
+    <string name="go_back">Назад</string>
+    <string name="image_info">Об изображении</string>
+    <string name="saving_wallpaper">Сохранение обоев</string>
+    <string name="applying_wallpaper">Применение обоев</string>
 </resources>
