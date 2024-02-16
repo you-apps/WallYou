@@ -61,4 +61,20 @@
     <string name="zoom">التكبير (يحافظ على نسبة العرض إلى الارتفاع)</string>
     <string name="fit_width">العرض المناسب</string>
     <string name="none">لاشيء</string>
+    <string name="set_with">تعيين بواسطة...</string>
+    <string name="set_as">تعيين كـ</string>
+    <string name="wallpaper">الخلفية</string>
+    <string name="apply">تطبيق</string>
+    <string name="preview_invert_effect">معاينة التأثير المعكوس</string>
+    <string name="colors">الألوان</string>
+    <string name="details">التفاصيل</string>
+    <string name="label">التسمية</string>
+    <string name="file_size">حجم الملف</string>
+    <string name="error">خطأ</string>
+    <string name="done">إنتهى</string>
+    <string name="save">حفظ</string>
+    <string name="edit">تعديل</string>
+    <string name="favorite">المفضلة</string>
+    <string name="go_back">الرجوع للخلف</string>
+    <string name="image_info">معلومات الصورة</string>
 </resources>
