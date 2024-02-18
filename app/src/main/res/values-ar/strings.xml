@@ -77,4 +77,7 @@
     <string name="favorite">المفضلة</string>
     <string name="go_back">الرجوع للخلف</string>
     <string name="image_info">معلومات الصورة</string>
+    <string name="saving_wallpaper">حفظ ورق الحائط</string>
+    <string name="applying_wallpaper">تطبيق الخلفية</string>
+    <string name="dismiss">رفض</string>
 </resources>
