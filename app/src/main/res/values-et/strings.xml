@@ -71,4 +71,13 @@
     <string name="error">Viga</string>
     <string name="colors">Värvid</string>
     <string name="details">Üksikasjad</string>
+    <string name="set_with">Seadista kasutades...</string>
+    <string name="set_as">Seadista kui</string>
+    <string name="wallpaper">Taustapilt</string>
+    <string name="apply">Rakenda</string>
+    <string name="preview_invert_effect">Vaata, kuidas värvide pööramine toimib</string>
+    <string name="label">Silt</string>
+    <string name="saving_wallpaper">Salvestame taustapilti</string>
+    <string name="applying_wallpaper">Seadistame taustapilti</string>
+    <string name="dismiss">Katkesta</string>
 </resources>
