@@ -73,4 +73,6 @@
     <string name="none">Нічого</string>
     <string name="invert_wallpaper_by_theme">Інвертувати шпалери за темою</string>
     <string name="invert_wallpaper_by_theme_summary">Інвертуйте шпалери, щоб на темних темах вони були темними, а на світлих — світлими.</string>
+    <string name="wallpaper">Шпалера</string>
+    <string name="apply">Застосувати</string>
 </resources>
