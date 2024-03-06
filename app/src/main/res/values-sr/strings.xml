@@ -78,4 +78,23 @@
     <string name="fit_height">Уклопи висину</string>
     <string name="zoom">Увеличај (задржава размеру)</string>
     <string name="invert_wallpaper_by_theme">Инверзија боја позадине према теми</string>
+    <string name="apply">Примени</string>
+    <string name="preview_invert_effect">Прегледај ефекат инверзије</string>
+    <string name="colors">Боје</string>
+    <string name="details">Детаљи</string>
+    <string name="image_info">Информације о слици</string>
+    <string name="label">Ознака</string>
+    <string name="file_size">Величина фајла</string>
+    <string name="done">Готово</string>
+    <string name="error">Грешка</string>
+    <string name="save">Сачувај</string>
+    <string name="edit">Измени</string>
+    <string name="go_back">Иди назад</string>
+    <string name="saving_wallpaper">Чување позадине</string>
+    <string name="favorite">Омиљено</string>
+    <string name="applying_wallpaper">Примењивање позадине</string>
+    <string name="dismiss">Одбаци</string>
+    <string name="set_as">Постави као</string>
+    <string name="wallpaper">Позадина</string>
+    <string name="set_with">Постави помоћу...</string>
 </resources>
