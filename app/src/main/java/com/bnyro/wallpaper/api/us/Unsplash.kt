@@ -20,5 +20,7 @@ interface Unsplash {
     ): UsSearch
 
     @GET("/napi/photos/random")
-    suspend fun getRandom(): UsImage
+    suspend fun getRandom(
+        @Query("query") query: String
+    ): UsImage
 }

@@ -16,11 +16,13 @@ class UsApi() : Api() {
 
     override suspend fun getWallpapers(page: Int): List<Wallpaper> {
         val tags = getTags()
+        val sortOrder = getQuery("order_by")
 
         val wallpapers = if (tags.isEmpty()) {
-            api.getWallpapers(page, getQuery("order_by"))
+            api.getWallpapers(page, sortOrder)
         } else {
-            api.searchWallpapers(page, tags.joinToString(" "), getQuery("order_by")).results
+            val tagString = tags.joinToString(" ")
+            api.searchWallpapers(page, tagString, sortOrder).results
         }
 
         return wallpapers.filter { it.premium != true }.map {
@@ -36,7 +38,9 @@ class UsApi() : Api() {
     }
 
     override suspend fun getRandomWallpaperUrl(): String? {
-        return api.getRandom().let {
+        val tagString = getTags().joinToString(" ")
+
+        return api.getRandom(tagString).let {
             it.links.download ?: it.urls?.raw ?: it.urls?.full
         }
     }
