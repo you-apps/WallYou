@@ -13,7 +13,6 @@ dependencyResolutionManagement {
     }
 }
 rootProject.name = "Wall You"
-include ':app'
+include(":app")
 
-include 'renderscript-toolkit'
-project(':renderscript-toolkit').projectDir = new File(settingsDir, './renderscript-toolkit')
+include(":renderscript-toolkit")
