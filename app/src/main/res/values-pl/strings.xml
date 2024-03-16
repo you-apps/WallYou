@@ -61,4 +61,19 @@
     <string name="zoom">Wypełnij (z zachowaniem proporcji)</string>
     <string name="fit_height">Dopasuj wysokość</string>
     <string name="fit_width">Dopasuj szerokość</string>
+    <string name="save">Zapisz</string>
+    <string name="wallpaper">Tapeta</string>
+    <string name="apply">Zastosuj</string>
+    <string name="colors">Kolory</string>
+    <string name="details">Szczegóły</string>
+    <string name="label">Etykieta</string>
+    <string name="file_size">Rozmiar pliku</string>
+    <string name="error">Błąd</string>
+    <string name="done">Gotowe</string>
+    <string name="edit">Edytuj</string>
+    <string name="favorite">Ulubione</string>
+    <string name="image_info">Informacje o obrazie</string>
+    <string name="saving_wallpaper">Zapisywanie tapety</string>
+    <string name="applying_wallpaper">Stosowanie tapety</string>
+    <string name="dismiss">Odrzuć</string>
 </resources>
