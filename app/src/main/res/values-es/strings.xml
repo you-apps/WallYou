@@ -72,4 +72,23 @@
     <string name="zoom">Zoom (mantiene el aspecto)</string>
     <string name="fit_height">Ajustar la altura</string>
     <string name="fit_width">Ajustar el ancho</string>
+    <string name="set_with">Configúrelo con...</string>
+    <string name="set_as">Establecer como</string>
+    <string name="wallpaper">Fondo de pantalla</string>
+    <string name="apply">Aplicar</string>
+    <string name="preview_invert_effect">Vista previa del efecto Invertir</string>
+    <string name="colors">Colores</string>
+    <string name="details">Detalles</string>
+    <string name="label">Etiqueta</string>
+    <string name="file_size">Tamaño del archivo</string>
+    <string name="error">Error</string>
+    <string name="done">Hecho</string>
+    <string name="save">Guardar</string>
+    <string name="edit">Editar</string>
+    <string name="favorite">Favorito</string>
+    <string name="go_back">Atrás</string>
+    <string name="image_info">Información de la imagen</string>
+    <string name="saving_wallpaper">Guardar fondo de pantalla</string>
+    <string name="applying_wallpaper">Aplicar el fondo de pantalla</string>
+    <string name="dismiss">Descartar</string>
 </resources>

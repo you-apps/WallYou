@@ -61,4 +61,23 @@
     <string name="resize_method">Způsob změny velikosti</string>
     <string name="invert_wallpaper_by_theme">Invertovat tapetu podle motivu</string>
     <string name="fit_width">Vyplnit šířku</string>
+    <string name="set_with">Nastavit pomocí...</string>
+    <string name="set_as">Nastavit jako</string>
+    <string name="wallpaper">Tapeta</string>
+    <string name="apply">Použít</string>
+    <string name="favorite">Oblíbené</string>
+    <string name="dismiss">Zavřít</string>
+    <string name="preview_invert_effect">Náhled efektu inverze</string>
+    <string name="colors">Barvy</string>
+    <string name="details">Podrobnosti</string>
+    <string name="label">Štítek</string>
+    <string name="file_size">Velikost souboru</string>
+    <string name="error">Chyba</string>
+    <string name="done">Hotovo</string>
+    <string name="save">Uložit</string>
+    <string name="edit">Upravit</string>
+    <string name="go_back">Přejít zpět</string>
+    <string name="image_info">Informace o obrázku</string>
+    <string name="saving_wallpaper">Ukládání tapety</string>
+    <string name="applying_wallpaper">Nastavování tapety</string>
 </resources>

@@ -73,4 +73,23 @@
     <string name="none">Нічого</string>
     <string name="invert_wallpaper_by_theme">Інвертувати шпалери за темою</string>
     <string name="invert_wallpaper_by_theme_summary">Інвертуйте шпалери, щоб на темних темах вони були темними, а на світлих — світлими.</string>
+    <string name="wallpaper">Шпалера</string>
+    <string name="apply">Застосувати</string>
+    <string name="set_with">Встановити з...</string>
+    <string name="set_as">Встановити як</string>
+    <string name="preview_invert_effect">Передперегляд ефекта інверсії</string>
+    <string name="file_size">Розмір файла</string>
+    <string name="error">Помилка</string>
+    <string name="done">Готово</string>
+    <string name="colors">Кольори</string>
+    <string name="details">Подробиці</string>
+    <string name="label">Мітка</string>
+    <string name="save">Зберегти</string>
+    <string name="edit">Редагувати</string>
+    <string name="favorite">Улюблені</string>
+    <string name="go_back">Назад</string>
+    <string name="image_info">Інформація про зображення</string>
+    <string name="saving_wallpaper">Збереження шпалер</string>
+    <string name="applying_wallpaper">Застосування шпалер</string>
+    <string name="dismiss">Відхилити</string>
 </resources>

@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="choose_dir">Выберыце каталог</string>
+    <string name="choose_dir">Дадаць каталог</string>
     <string name="no_favorites">Выбраных пакуль няма</string>
     <string name="applying_random">Ужываць выпадковыя шпалеры</string>
     <string name="settings">Налады</string>
@@ -46,4 +46,34 @@
     <string name="combine_wallpaper_changers">Камбінаваная змена шпалер</string>
     <string name="download">Спампаваць</string>
     <string name="combine_wallpaper_changers_summary">Выкарыстоўвайце аднолькавыя шпалеры для галоўнага экрана і экрана блакіроўкі.</string>
+    <string name="random_wallpaper">Выпадковыя шпалеры</string>
+    <string name="contrast">Кантраст</string>
+    <string name="fit_height">Рэгуляванне вышыні</string>
+    <string name="invert_wallpaper_by_theme_summary">Перавярніце шпалеры, каб яны былі цёмнымі на цёмных тэмах і светлымі на светлых тэмах.</string>
+    <string name="set_as">Ўсталяваць як</string>
+    <string name="apply">Ужыць</string>
+    <string name="file_size">Памер файла</string>
+    <string name="edit">Рэдагаваць</string>
+    <string name="directories">Каталогі</string>
+    <string name="import_favorites">Імпарт абранага</string>
+    <string name="import_export">Імпарт і экспарт</string>
+    <string name="export_favorites">Экспарт абранага</string>
+    <string name="success">Паспяхова!</string>
+    <string name="none">Няма</string>
+    <string name="resize_method">Метад змены памеру</string>
+    <string name="zoom">Маштабаванне (захоўвае суадносіны бакоў)</string>
+    <string name="fit_width">Рэгуляванне шырыні</string>
+    <string name="invert_wallpaper_by_theme">Інвертаваць шпалеры па тэмах</string>
+    <string name="wallpaper">Шпалер</string>
+    <string name="preview_invert_effect">Папярэдні прагляд інвертаванага эфекту</string>
+    <string name="colors">Колеры</string>
+    <string name="details">Звесткі</string>
+    <string name="label">Назва</string>
+    <string name="error">Памылка</string>
+    <string name="done">Гатова</string>
+    <string name="save">Захаваць</string>
+    <string name="image_info">Інфармацыя аб выяве</string>
+    <string name="saving_wallpaper">Захаванне шпалер</string>
+    <string name="applying_wallpaper">Ўстаноўка шпалер</string>
+    <string name="dismiss">Адхіліць</string>
 </resources>

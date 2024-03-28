@@ -73,4 +73,23 @@
     <string name="fit_width">适合宽度</string>
     <string name="invert_wallpaper_by_theme">按主题反转壁纸</string>
     <string name="invert_wallpaper_by_theme_summary">处于深色或浅色主题时将壁纸反转为同样的颜色。</string>
+    <string name="set_with">使用其他应用设定...</string>
+    <string name="set_as">设置为</string>
+    <string name="wallpaper">壁纸</string>
+    <string name="apply">应用</string>
+    <string name="preview_invert_effect">预览反转效果</string>
+    <string name="colors">色彩</string>
+    <string name="details">细节</string>
+    <string name="label">标签</string>
+    <string name="file_size">文件大小</string>
+    <string name="error">错误</string>
+    <string name="done">已完成</string>
+    <string name="save">保存</string>
+    <string name="edit">编辑</string>
+    <string name="favorite">收藏</string>
+    <string name="go_back">返回</string>
+    <string name="image_info">图像信息</string>
+    <string name="saving_wallpaper">正在保存壁纸</string>
+    <string name="applying_wallpaper">正在应用壁纸</string>
+    <string name="dismiss">解除</string>
 </resources>

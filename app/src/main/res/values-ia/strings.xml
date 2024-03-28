@@ -61,4 +61,23 @@
     <string name="invert_wallpaper_by_theme_summary">Inverter le fundo de schermo a esser obscur in themas obscur e clar in themas clar.</string>
     <string name="invert_wallpaper_by_theme">Inverter fundo de schermo per thema</string>
     <string name="crop">Taliar le imagines</string>
+    <string name="set_as">Definir como</string>
+    <string name="wallpaper">Fundo de schermo</string>
+    <string name="details">Detalios</string>
+    <string name="label">Etiquetta</string>
+    <string name="file_size">Dimension del file</string>
+    <string name="error">Error</string>
+    <string name="set_with">Definir con...</string>
+    <string name="apply">Applicar</string>
+    <string name="colors">Colores</string>
+    <string name="done">Preste</string>
+    <string name="save">Salveguardar</string>
+    <string name="edit">Modificar</string>
+    <string name="go_back">Retornar</string>
+    <string name="image_info">Info de imagine</string>
+    <string name="saving_wallpaper">Salveguardante le fundo de schermo</string>
+    <string name="applying_wallpaper">Applicante le fundo de schermo</string>
+    <string name="dismiss">Dimitter</string>
+    <string name="preview_invert_effect">Previsualisar effecto de inverter</string>
+    <string name="favorite">Favorito</string>
 </resources>
