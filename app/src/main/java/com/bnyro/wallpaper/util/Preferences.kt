@@ -29,7 +29,7 @@ object Preferences {
     const val combineWallpaperChangers = "combineWallpaperChangers"
 
     const val defaultDiskCacheSize = 128L * 1024 * 1024
-    const val defaultWallpaperChangeInterval = 15L
+    const val defaultWallpaperChangeInterval = 12L * 60
 
     private const val prefFile = "preferences"
     private lateinit var preferences: SharedPreferences
