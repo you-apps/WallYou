@@ -24,6 +24,7 @@ object Preferences {
 
     const val wallpaperChangerKey = "wallpaperChanger"
     const val wallpaperChangerIntervalKey = "wallpaperChangerInterval"
+    const val wallpaperChangerNetworkTypeKey = "wallpaperChangerNetworkType"
     private const val wallpaperChangerConfigKey = "wallpaperChangerConfig"
     const val combineWallpaperChangers = "combineWallpaperChangers"
 

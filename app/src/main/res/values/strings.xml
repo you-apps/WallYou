@@ -64,6 +64,12 @@
     <string name="none">None</string>
     <string name="invert_wallpaper_by_theme">Invert wallpaper by theme</string>
     <string name="invert_wallpaper_by_theme_summary">Invert the wallpaper to be dark on dark themes and light on light themes.</string>
+    <!-- Network constraints -->
+    <string name="network_type">Network type</string>
+    <string name="all_networks">All networks</string>
+    <string name="unmetered">Unmetered</string>
+    <string name="metered">Metered</string>
+    <string name="not_roaming">Not roaming</string>
     <!-- Wallpaper changer source -->
     <string name="online">Online</string>
     <string name="local">Local</string>

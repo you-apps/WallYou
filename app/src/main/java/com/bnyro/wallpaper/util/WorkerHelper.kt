@@ -16,7 +16,8 @@ object WorkerHelper {
         val wallpaperConfigs = Preferences.getWallpaperConfigs()
         // only require internet when the source is not local
         val networkType = if (wallpaperConfigs.any { it.source != WallpaperSource.LOCAL }) {
-            NetworkType.CONNECTED
+            val pref = Preferences.getString(Preferences.wallpaperChangerNetworkTypeKey, NetworkType.CONNECTED.name)
+            NetworkType.valueOf(pref)
         } else {
             NetworkType.NOT_REQUIRED
         }

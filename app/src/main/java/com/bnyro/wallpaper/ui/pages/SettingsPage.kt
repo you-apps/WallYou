@@ -20,6 +20,7 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.unit.dp
+import androidx.work.NetworkType
 import com.bnyro.wallpaper.R
 import com.bnyro.wallpaper.enums.ThemeMode
 import com.bnyro.wallpaper.enums.WallpaperConfig
@@ -138,6 +139,13 @@ fun SettingsPage(
             1440L
         )
 
+        val networkTypes = listOf(
+            R.string.all_networks to NetworkType.CONNECTED,
+            R.string.unmetered to NetworkType.UNMETERED,
+            R.string.metered to NetworkType.METERED,
+            R.string.not_roaming to NetworkType.NOT_ROAMING,
+        )
+
         AboutContainer {
             SettingsCategory(
                 title = stringResource(R.string.wallpaper_changer)
@@ -149,6 +157,15 @@ fun SettingsPage(
             CheckboxPref(
                 prefKey = Preferences.wallpaperChangerKey,
                 title = stringResource(R.string.wallpaper_changer)
+            ) {
+                WorkerHelper.enqueue(context, true)
+            }
+            ListPreference(
+                prefKey = Preferences.wallpaperChangerNetworkTypeKey,
+                title = stringResource(R.string.network_type),
+                entries = networkTypes.map { stringResource(id = it.first) },
+                values = networkTypes.map { it.second.name },
+                defaultValue = NetworkType.CONNECTED.name
             ) {
                 WorkerHelper.enqueue(context, true)
             }
