@@ -35,7 +35,7 @@ fun AppNavHost(
         }
         composable(DrawerScreens.Favorites.route) {
             viewModel.titleResource = R.string.favorites
-            FavoritesPage()
+            FavoritesPage(viewModel)
         }
         composable(DrawerScreens.Settings.route) {
             viewModel.titleResource = R.string.settings

@@ -12,7 +12,7 @@ import androidx.compose.material.icons.filled.HeartBroken
 import androidx.compose.material3.Icon
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
-import androidx.compose.runtime.LaunchedEffect
+import androidx.compose.runtime.collectAsState
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
@@ -24,29 +24,19 @@ import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import com.bnyro.wallpaper.R
-import com.bnyro.wallpaper.db.DatabaseHolder.Database
-import com.bnyro.wallpaper.db.obj.Wallpaper
-import com.bnyro.wallpaper.ext.query
 import com.bnyro.wallpaper.ui.components.WallpaperGrid
 import com.bnyro.wallpaper.ui.components.WallpaperPageView
+import com.bnyro.wallpaper.ui.models.MainModel
 
 @Composable
-fun FavoritesPage() {
+fun FavoritesPage(viewModel: MainModel) {
     Column(
         modifier = Modifier
             .fillMaxSize()
     ) {
-        var favorites by remember {
-            mutableStateOf(listOf<Wallpaper>())
-        }
+        val favorites by viewModel.favWallpapers.collectAsState()
 
         var selectedIndex by remember { mutableStateOf<Int?>(null) }
-
-        LaunchedEffect(true) {
-            query {
-                favorites = Database.favoritesDao().getAll()
-            }
-        }
 
         if (favorites.isNotEmpty()) {
             WallpaperGrid(

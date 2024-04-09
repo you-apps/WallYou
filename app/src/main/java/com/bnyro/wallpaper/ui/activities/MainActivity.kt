@@ -1,6 +1,7 @@
 package com.bnyro.wallpaper.ui.activities
 
 import android.os.Bundle
+import androidx.activity.enableEdgeToEdge
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.padding
 import androidx.compose.material.icons.Icons
@@ -36,7 +37,7 @@ class MainActivity : BaseActivity() {
         super.onCreate(savedInstanceState)
 
         val viewModel: MainModel = ViewModelProvider(this).get()
-
+        enableEdgeToEdge()
         showContent {
             MainContent(viewModel)
         }

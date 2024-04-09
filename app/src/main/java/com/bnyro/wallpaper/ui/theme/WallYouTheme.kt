@@ -11,7 +11,6 @@ import androidx.compose.material3.lightColorScheme
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.SideEffect
 import androidx.compose.ui.graphics.Color
-import androidx.compose.ui.graphics.toArgb
 import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.platform.LocalView
 import androidx.core.view.WindowCompat
@@ -47,6 +46,7 @@ fun WallYouTheme(
             val context = LocalContext.current
             if (darkTheme) dynamicDarkColorScheme(context) else dynamicLightColorScheme(context)
         }
+
         darkTheme -> DarkColorScheme
         else -> LightColorScheme
     }
@@ -55,8 +55,6 @@ fun WallYouTheme(
         SideEffect {
             val activity = view.context as Activity
             if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
-                activity.window.navigationBarColor = colorScheme.background.toArgb()
-                activity.window.statusBarColor = colorScheme.background.toArgb()
                 WindowCompat.getInsetsController(
                     activity.window,
                     view

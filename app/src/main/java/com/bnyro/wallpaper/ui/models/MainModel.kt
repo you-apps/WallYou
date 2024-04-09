@@ -8,12 +8,15 @@ import androidx.compose.runtime.setValue
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.bnyro.wallpaper.R
-import com.bnyro.wallpaper.api.Api
+import com.bnyro.wallpaper.db.DatabaseHolder
 import com.bnyro.wallpaper.db.obj.Wallpaper
 import com.bnyro.wallpaper.enums.ThemeMode
 import com.bnyro.wallpaper.ui.nav.DrawerScreens
 import com.bnyro.wallpaper.util.Preferences
 import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.flow.SharingStarted
+import kotlinx.coroutines.flow.StateFlow
+import kotlinx.coroutines.flow.stateIn
 import kotlinx.coroutines.launch
 import kotlinx.coroutines.withContext
 
@@ -30,6 +33,14 @@ class MainModel : ViewModel() {
     var wallpapers by mutableStateOf(
         listOf<Wallpaper>()
     )
+
+    val favWallpapers: StateFlow<List<Wallpaper>> =
+        DatabaseHolder.Database.favoritesDao().getAllFlow().stateIn(
+            scope = viewModelScope,
+            started = SharingStarted.WhileSubscribed(5000L),
+            initialValue = listOf()
+        )
+
     var titleResource by mutableIntStateOf(R.string.app_name)
 
     var page: Int = 1

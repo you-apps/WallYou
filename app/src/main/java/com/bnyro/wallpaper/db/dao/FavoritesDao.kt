@@ -6,11 +6,15 @@ import androidx.room.Insert
 import androidx.room.OnConflictStrategy
 import androidx.room.Query
 import com.bnyro.wallpaper.db.obj.Wallpaper
+import kotlinx.coroutines.flow.Flow
 
 @Dao
 interface FavoritesDao {
     @Query("SELECT * FROM favorites")
     fun getAll(): List<Wallpaper>
+
+    @Query("SELECT * FROM favorites")
+    fun getAllFlow(): Flow<List<Wallpaper>>
 
     @Query("SELECT * FROM favorites WHERE imgSrc LIKE :imgSrc")
     fun findBySrc(imgSrc: String): Wallpaper
