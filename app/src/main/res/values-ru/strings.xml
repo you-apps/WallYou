@@ -84,7 +84,6 @@
     <string name="colors">Цвета</string>
     <string name="details">Подробности</string>
     <string name="label">Метка</string>
-    <string name="file_size">Размер файла</string>
     <string name="error">Ошибка</string>
     <string name="edit">Редактировать</string>
     <string name="favorite">Добавить в избранное</string>

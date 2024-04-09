@@ -7,13 +7,16 @@ import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
 import androidx.compose.material.icons.Icons
-import androidx.compose.material.icons.rounded.Image
-import androidx.compose.material.icons.rounded.Label
-import androidx.compose.material.icons.rounded.Storage
+import androidx.compose.material.icons.filled.AccessTime
+import androidx.compose.material.icons.filled.Category
+import androidx.compose.material.icons.filled.Image
+import androidx.compose.material.icons.filled.Label
+import androidx.compose.material.icons.filled.Person
+import androidx.compose.material.icons.filled.PhotoSizeSelectLarge
+import androidx.compose.material.icons.filled.Storage
+import androidx.compose.material.icons.filled.Web
 import androidx.compose.material3.Divider
 import androidx.compose.material3.ExperimentalMaterial3Api
-import androidx.compose.material3.Icon
-import androidx.compose.material3.ListItem
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.ModalBottomSheet
 import androidx.compose.material3.Text
@@ -25,11 +28,14 @@ import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.unit.dp
 import com.bnyro.wallpaper.R
 import com.bnyro.wallpaper.db.obj.Wallpaper
+import com.bnyro.wallpaper.ui.components.WallpaperInfoItem
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
 fun WallpaperInfoSheet(onDismissRequest: () -> Unit, wallpaper: Wallpaper) {
+    val context = LocalContext.current
     val state = rememberModalBottomSheetState(skipPartiallyExpanded = true)
+
     ModalBottomSheet(onDismissRequest, sheetState = state) {
         Column(Modifier.padding(horizontal = 16.dp, vertical = 8.dp)) {
             Text(
@@ -48,45 +54,27 @@ fun WallpaperInfoSheet(onDismissRequest: () -> Unit, wallpaper: Wallpaper) {
                 style = MaterialTheme.typography.titleLarge
             )
             wallpaper.title?.let {
-                ListItem(
-                    headlineContent = { Text(text = stringResource(R.string.label)) },
-                    leadingContent = {
-                        Icon(
-                            imageVector = Icons.Rounded.Label,
-                            contentDescription = null
-                        )
-                    },
-                    supportingContent = {
-                        Text(text = it)
-                    })
+                WallpaperInfoItem(Icons.Default.Label, R.string.label, it)
+            }
+            wallpaper.author?.let {
+                WallpaperInfoItem(Icons.Default.Person, R.string.author, it)
+            }
+            wallpaper.category?.let {
+                WallpaperInfoItem(Icons.Default.Category, R.string.category, it)
             }
             wallpaper.resolution?.let {
-                ListItem(
-                    headlineContent = { Text(text = stringResource(id = R.string.resolution)) },
-                    leadingContent = {
-                        Icon(
-                            imageVector = Icons.Rounded.Image,
-                            contentDescription = null
-                        )
-                    },
-                    supportingContent = {
-                        Text(text = it)
-                    })
+                WallpaperInfoItem(Icons.Default.PhotoSizeSelectLarge, R.string.resolution, it)
             }
             wallpaper.fileSize?.let {
-                val context = LocalContext.current
-                ListItem(
-                    headlineContent = { Text(text = stringResource(R.string.file_size)) },
-                    leadingContent = {
-                        Icon(
-                            imageVector = Icons.Rounded.Storage,
-                            contentDescription = null
-                        )
-                    },
-                    supportingContent = {
-                        Text(text = Formatter.formatFileSize(context, it))
-                    })
+                WallpaperInfoItem(Icons.Default.Storage, R.string.fileSize, Formatter.formatFileSize(context, it))
             }
+            wallpaper.creationDate?.let {
+                WallpaperInfoItem(Icons.Default.AccessTime, R.string.creationDate, it)
+            }
+            wallpaper.url?.let {
+                WallpaperInfoItem(Icons.Default.Web, R.string.source, it, true)
+            }
+            WallpaperInfoItem(Icons.Default.Image, R.string.image_url, wallpaper.imgSrc, true)
         }
     }
 }

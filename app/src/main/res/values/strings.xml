@@ -28,6 +28,7 @@
     <string name="fileSize">File size</string>
     <string name="source">Source</string>
     <string name="creationDate">Creation date</string>
+    <string name="image_url">Image URL</string>
     <!-- Set Wallpaper -->
     <string name="both">Both</string>
     <string name="home">Home screen</string>
@@ -96,7 +97,6 @@
     <string name="colors">Colors</string>
     <string name="details">Details</string>
     <string name="label">Label</string>
-    <string name="file_size">File Size</string>
     <string name="error">Error</string>
     <string name="done">Done</string>
     <string name="save">Save</string>

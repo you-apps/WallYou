@@ -71,7 +71,6 @@
     <string name="colors">Barvy</string>
     <string name="details">Podrobnosti</string>
     <string name="label">Štítek</string>
-    <string name="file_size">Velikost souboru</string>
     <string name="error">Chyba</string>
     <string name="done">Hotovo</string>
     <string name="save">Uložit</string>
