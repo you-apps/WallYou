@@ -91,4 +91,10 @@
     <string name="saving_wallpaper">正在保存壁纸</string>
     <string name="applying_wallpaper">正在应用壁纸</string>
     <string name="dismiss">解除</string>
+    <string name="image_url">图像 URL</string>
+    <string name="unmetered">非计费网络</string>
+    <string name="metered">计费网络</string>
+    <string name="network_type">网络类型</string>
+    <string name="all_networks">所有网络</string>
+    <string name="not_roaming">非漫游网络</string>
 </resources>
