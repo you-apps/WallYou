@@ -79,4 +79,10 @@
     <string name="image_info">Informace o obrázku</string>
     <string name="saving_wallpaper">Ukládání tapety</string>
     <string name="applying_wallpaper">Nastavování tapety</string>
+    <string name="image_url">Adresa obrázku</string>
+    <string name="network_type">Typ sítě</string>
+    <string name="all_networks">Všechny sítě</string>
+    <string name="unmetered">Neměřené</string>
+    <string name="metered">Měřené</string>
+    <string name="not_roaming">Bez roamingu</string>
 </resources>
