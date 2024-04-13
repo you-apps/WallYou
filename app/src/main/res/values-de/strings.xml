@@ -80,4 +80,8 @@
     <string name="saving_wallpaper">Bildschirmhintergrund abspeichern</string>
     <string name="applying_wallpaper">Bildschirmhintergrund anwenden</string>
     <string name="dismiss">Verwerfen</string>
+    <string name="network_type">Netzwerktyp</string>
+    <string name="image_url">Bild-URL</string>
+    <string name="all_networks">Alle Netzwerke</string>
+    <string name="not_roaming">Kein Roaming</string>
 </resources>
