@@ -51,4 +51,13 @@
     <string name="current_directory">נוכחי</string>
     <string name="export_favorites">ייצוא מועדפים</string>
     <string name="import_favorites">ייבוא מועדפים</string>
+    <string name="zoom">תקריב (שמירה על יחס גובה־רוחב)</string>
+    <string name="fit_height">התאמה לגובה</string>
+    <string name="fit_width">התאמה לרוחב</string>
+    <string name="image_url">כתובת תמונה</string>
+    <string name="resize_method">שיטת שינוי גודל</string>
+    <string name="contrast">ניגודיות</string>
+    <string name="invert_wallpaper_by_theme">היפוך צבעי תמונת הרקע לפי ערכת העיצוב</string>
+    <string name="random_wallpaper">תמונת רקע אקראית</string>
+    <string name="none">ללא</string>
 </resources>
