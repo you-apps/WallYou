@@ -96,4 +96,10 @@
     <string name="set_as">Постави као</string>
     <string name="wallpaper">Позадина</string>
     <string name="set_with">Постави помоћу...</string>
+    <string name="all_networks">Све мреже</string>
+    <string name="unmetered">Без ограничења</string>
+    <string name="metered">Са ограничењем</string>
+    <string name="network_type">Тип мреже</string>
+    <string name="image_url">URL слике</string>
+    <string name="not_roaming">Ван роминга</string>
 </resources>
