@@ -91,4 +91,10 @@
     <string name="colors">Warna</string>
     <string name="done">Selesai</string>
     <string name="save">Simpan</string>
+    <string name="image_url">URL gambar</string>
+    <string name="network_type">Jenis jaringan</string>
+    <string name="unmetered">Tidak diukur</string>
+    <string name="not_roaming">Tidak roaming</string>
+    <string name="all_networks">Semua jaringan</string>
+    <string name="metered">Diukur</string>
 </resources>
