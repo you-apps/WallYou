@@ -91,4 +91,10 @@
     <string name="image_info">Об изображении</string>
     <string name="saving_wallpaper">Сохранение обоев</string>
     <string name="applying_wallpaper">Применение обоев</string>
+    <string name="not_roaming">Не в роуминге</string>
+    <string name="network_type">Тип подключения</string>
+    <string name="unmetered">Безлимитное</string>
+    <string name="metered">Лимитированное</string>
+    <string name="image_url">Ссылка на изображение</string>
+    <string name="all_networks">Любое</string>
 </resources>
