@@ -91,4 +91,10 @@
     <string name="saving_wallpaper">Збереження шпалер</string>
     <string name="applying_wallpaper">Застосування шпалер</string>
     <string name="dismiss">Відхилити</string>
+    <string name="network_type">Тип мережі</string>
+    <string name="unmetered">Безлімітний</string>
+    <string name="metered">Обмежений</string>
+    <string name="not_roaming">Не в роумінгу</string>
+    <string name="image_url">URL зображення</string>
+    <string name="all_networks">Всі мережі</string>
 </resources>
