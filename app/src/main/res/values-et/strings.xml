@@ -79,4 +79,10 @@
     <string name="saving_wallpaper">Salvestame taustapilti</string>
     <string name="applying_wallpaper">Seadistame taustapilti</string>
     <string name="dismiss">Katkesta</string>
+    <string name="network_type">Võrgu tüüp</string>
+    <string name="metered">Andmemahu piiranguga võrgud</string>
+    <string name="image_url">Pildi url</string>
+    <string name="all_networks">Kõik võrgud</string>
+    <string name="unmetered">Andmemahu piiranguta võrgud</string>
+    <string name="not_roaming">Ära kasuta rändluses</string>
 </resources>
