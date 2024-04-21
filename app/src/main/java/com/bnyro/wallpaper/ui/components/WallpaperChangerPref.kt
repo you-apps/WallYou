@@ -35,6 +35,7 @@ import com.bnyro.wallpaper.R
 import com.bnyro.wallpaper.enums.WallpaperConfig
 import com.bnyro.wallpaper.enums.WallpaperSource
 import com.bnyro.wallpaper.enums.WallpaperTarget
+import com.bnyro.wallpaper.ui.components.prefs.CheckboxPref
 import com.bnyro.wallpaper.ui.components.prefs.MultiSelectionBlockPreference
 import com.bnyro.wallpaper.ui.components.prefs.ListPreference
 import com.bnyro.wallpaper.ui.components.prefs.SettingsCategory
@@ -142,5 +143,18 @@ fun WallpaperChangerPref(config: WallpaperConfig, onChange: (WallpaperConfig) ->
 
             else -> Unit
         }
+    }
+
+    var applyImageFilters by remember {
+        mutableStateOf(config.applyImageFilters)
+    }
+    CheckboxPref(
+        prefKey = null,
+        title = stringResource(id = R.string.apply_image_filters),
+        defaultValue = applyImageFilters
+    ) { newValue ->
+        config.applyImageFilters = newValue
+        applyImageFilters = newValue
+        onChange(config)
     }
 }

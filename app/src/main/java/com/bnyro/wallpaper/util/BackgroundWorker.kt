@@ -31,11 +31,19 @@ class BackgroundWorker(
             else -> return
         } ?: return
 
-        WallpaperHelper.setWallpaperWithFilters(
-            applicationContext,
-            bitmap,
-            config.target
-        )
+        if (config.applyImageFilters) {
+            WallpaperHelper.setWallpaperWithFilters(
+                applicationContext,
+                bitmap,
+                config.target
+            )
+        } else {
+            WallpaperHelper.setWallpaperWithoutFilters(
+                applicationContext,
+                bitmap,
+                config.target
+            )
+        }
     }
 
     private suspend fun getOnlineWallpaper(config: WallpaperConfig): Bitmap? {

@@ -19,7 +19,7 @@ import com.bnyro.wallpaper.util.Preferences
 
 @Composable
 fun CheckboxPref(
-    prefKey: String,
+    prefKey: String? = null,
     title: String,
     summary: String? = null,
     defaultValue: Boolean = false,
@@ -27,10 +27,16 @@ fun CheckboxPref(
 ) {
     var checked by remember {
         mutableStateOf(
-            Preferences.getBoolean(prefKey, defaultValue)
+            prefKey?.let { Preferences.getBoolean(it, defaultValue) } ?: defaultValue
         )
     }
     val interactionSource = remember { MutableInteractionSource() }
+
+    fun onChange(newValue: Boolean) {
+        checked = newValue
+        if (prefKey != null) Preferences.edit { putBoolean(prefKey, checked) }
+        onCheckedChange.invoke(checked)
+    }
 
     Row(
         modifier = Modifier
@@ -40,8 +46,7 @@ fun CheckboxPref(
                 interactionSource = interactionSource,
                 indication = null
             ) {
-                checked = !checked
-                Preferences.edit { putBoolean(prefKey, checked) }
+                onChange(!checked)
             },
         horizontalArrangement = Arrangement.SpaceBetween,
         verticalAlignment = Alignment.CenterVertically
@@ -53,11 +58,7 @@ fun CheckboxPref(
         )
         Checkbox(
             checked = checked,
-            onCheckedChange = {
-                checked = it
-                Preferences.edit { putBoolean(prefKey, it) }
-                onCheckedChange.invoke(it)
-            }
+            onCheckedChange = ::onChange
         )
     }
 }

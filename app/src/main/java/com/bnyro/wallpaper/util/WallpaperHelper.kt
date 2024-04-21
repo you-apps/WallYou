@@ -39,6 +39,13 @@ object WallpaperHelper {
         }
     }
 
+    suspend fun setWallpaperWithoutFilters(context: Context, src: Bitmap, mode: WallpaperTarget) {
+        withContext(Dispatchers.IO) {
+            val bitmap = resizeBitmapByPreference(context, src)
+            setWallpaper(context, bitmap, mode)
+        }
+    }
+
     fun setWallpaper(context: Context, bitmap: Bitmap, mode: WallpaperTarget) {
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.N) {
             if (mode in listOf(WallpaperTarget.BOTH, WallpaperTarget.HOME)) {

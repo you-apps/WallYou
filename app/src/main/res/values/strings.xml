@@ -65,6 +65,7 @@
     <string name="none">None</string>
     <string name="invert_wallpaper_by_theme">Invert wallpaper by theme</string>
     <string name="invert_wallpaper_by_theme_summary">Invert the wallpaper to be dark on dark themes and light on light themes.</string>
+    <string name="apply_image_filters">Apply image filters</string>
     <!-- Network constraints -->
     <string name="network_type">Network type</string>
     <string name="all_networks">All networks</string>
