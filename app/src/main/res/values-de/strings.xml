@@ -84,4 +84,5 @@
     <string name="image_url">Bild-URL</string>
     <string name="all_networks">Alle Netzwerke</string>
     <string name="not_roaming">Kein Roaming</string>
+    <string name="apply_image_filters">Bildfilter anwenden</string>
 </resources>
