@@ -85,4 +85,5 @@
     <string name="image_url">رابط الصورة</string>
     <string name="all_networks">جميع الشبكات</string>
     <string name="metered">مقننة</string>
+    <string name="apply_image_filters">تطبيق مرشحات الصور</string>
 </resources>
