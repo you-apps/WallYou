@@ -85,4 +85,5 @@
     <string name="unmetered">Neměřené</string>
     <string name="metered">Měřené</string>
     <string name="not_roaming">Bez roamingu</string>
+    <string name="apply_image_filters">Použít filtry obrázků</string>
 </resources>
