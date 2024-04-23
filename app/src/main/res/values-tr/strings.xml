@@ -85,4 +85,5 @@
     <string name="unmetered">Kotasız</string>
     <string name="metered">Kotalı</string>
     <string name="not_roaming">Dolaşımda değil</string>
+    <string name="apply_image_filters">Resim filtreleri uygula</string>
 </resources>
