@@ -97,4 +97,5 @@
     <string name="not_roaming">Не в роумінгу</string>
     <string name="image_url">URL зображення</string>
     <string name="all_networks">Всі мережі</string>
+    <string name="apply_image_filters">Застосувати фільтри зображень</string>
 </resources>
