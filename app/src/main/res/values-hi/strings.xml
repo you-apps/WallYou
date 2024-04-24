@@ -85,4 +85,5 @@
     <string name="all_networks">सभी नेटवर्क</string>
     <string name="metered">मीटर किया गया</string>
     <string name="not_roaming">रोमिंग नहीं</string>
+    <string name="apply_image_filters">छवि फिल्टर लागू करें</string>
 </resources>
