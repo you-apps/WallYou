@@ -85,4 +85,5 @@
     <string name="all_networks">Kõik võrgud</string>
     <string name="unmetered">Andmemahu piiranguta võrgud</string>
     <string name="not_roaming">Ära kasuta rändluses</string>
+    <string name="apply_image_filters">Kasuta pildifiltreid</string>
 </resources>
