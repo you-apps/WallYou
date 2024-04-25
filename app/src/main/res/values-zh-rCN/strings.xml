@@ -97,4 +97,5 @@
     <string name="network_type">网络类型</string>
     <string name="all_networks">所有网络</string>
     <string name="not_roaming">非漫游网络</string>
+    <string name="apply_image_filters">应用图像筛选器</string>
 </resources>
