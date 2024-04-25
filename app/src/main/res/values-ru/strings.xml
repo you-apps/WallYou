@@ -97,4 +97,5 @@
     <string name="metered">Лимитированное</string>
     <string name="image_url">Ссылка на изображение</string>
     <string name="all_networks">Любое</string>
+    <string name="apply_image_filters">Применить фильтры</string>
 </resources>
