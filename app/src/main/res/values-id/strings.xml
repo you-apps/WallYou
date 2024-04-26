@@ -96,4 +96,6 @@
     <string name="not_roaming">Tidak roaming</string>
     <string name="all_networks">Semua jaringan</string>
     <string name="metered">Diukur</string>
+    <string name="wallpaper">Wallpaper</string>
+    <string name="apply_image_filters">Terapkan penyaring gambar</string>
 </resources>
