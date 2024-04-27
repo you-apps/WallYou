@@ -102,4 +102,5 @@
     <string name="network_type">Тип мреже</string>
     <string name="image_url">URL слике</string>
     <string name="not_roaming">Ван роминга</string>
+    <string name="apply_image_filters">Примени филтере слика</string>
 </resources>
