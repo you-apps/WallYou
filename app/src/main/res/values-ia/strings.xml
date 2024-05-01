@@ -79,4 +79,7 @@
     <string name="dismiss">Dimitter</string>
     <string name="preview_invert_effect">Previsualisar effecto de inverter</string>
     <string name="favorite">Favorito</string>
+    <string name="image_url">URL de imagine</string>
+    <string name="all_networks">Tote le retes</string>
+    <string name="network_type">Typo de rete</string>
 </resources>

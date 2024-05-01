@@ -79,4 +79,11 @@
     <string name="set_as">इस प्रकार सेट करें</string>
     <string name="apply">लागू करें</string>
     <string name="saving_wallpaper">वॉलपेपर सहेजा जा रहा है</string>
+    <string name="network_type">नेटवर्क प्रकार</string>
+    <string name="unmetered">अमीटरीकृत</string>
+    <string name="image_url">छवि URL</string>
+    <string name="all_networks">सभी नेटवर्क</string>
+    <string name="metered">मीटर किया गया</string>
+    <string name="not_roaming">रोमिंग नहीं</string>
+    <string name="apply_image_filters">छवि फिल्टर लागू करें</string>
 </resources>

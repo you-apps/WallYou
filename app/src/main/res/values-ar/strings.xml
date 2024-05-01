@@ -79,4 +79,11 @@
     <string name="saving_wallpaper">حفظ ورق الحائط</string>
     <string name="applying_wallpaper">تطبيق الخلفية</string>
     <string name="dismiss">رفض</string>
+    <string name="network_type">نوع الشبكة</string>
+    <string name="unmetered">غير مقننة</string>
+    <string name="not_roaming">بدون تجوال</string>
+    <string name="image_url">رابط الصورة</string>
+    <string name="all_networks">جميع الشبكات</string>
+    <string name="metered">مقننة</string>
+    <string name="apply_image_filters">تطبيق مرشحات الصور</string>
 </resources>

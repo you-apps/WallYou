@@ -90,4 +90,11 @@
     <string name="saving_wallpaper">Guardar fondo de pantalla</string>
     <string name="applying_wallpaper">Aplicar el fondo de pantalla</string>
     <string name="dismiss">Descartar</string>
+    <string name="metered">Medida</string>
+    <string name="not_roaming">Sin itinerancia</string>
+    <string name="image_url">URL de la imagen</string>
+    <string name="network_type">Tipo de red</string>
+    <string name="all_networks">Todas las redes</string>
+    <string name="unmetered">Sin límite</string>
+    <string name="apply_image_filters">Aplicar filtros de imagen</string>
 </resources>

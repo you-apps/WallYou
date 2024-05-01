@@ -79,4 +79,11 @@
     <string name="done">Bitti</string>
     <string name="save">Kaydet</string>
     <string name="edit">Düzenle</string>
+    <string name="network_type">Ağ türü</string>
+    <string name="all_networks">Tüm ağlar</string>
+    <string name="image_url">Resim URL\'si</string>
+    <string name="unmetered">Kotasız</string>
+    <string name="metered">Kotalı</string>
+    <string name="not_roaming">Dolaşımda değil</string>
+    <string name="apply_image_filters">Resim filtreleri uygula</string>
 </resources>
