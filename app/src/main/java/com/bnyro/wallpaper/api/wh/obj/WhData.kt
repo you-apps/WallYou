@@ -1,5 +1,8 @@
 package com.bnyro.wallpaper.api.wh.obj
 
+import kotlinx.serialization.Serializable
+
+@Serializable
 data class WhData(
     val category: String? = null,
     val colors: List<String>? = null,

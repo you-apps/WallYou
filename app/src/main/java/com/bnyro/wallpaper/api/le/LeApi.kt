@@ -2,7 +2,7 @@ package com.bnyro.wallpaper.api.le
 
 import com.bnyro.wallpaper.api.CommunityApi
 import com.bnyro.wallpaper.db.obj.Wallpaper
-import com.bnyro.wallpaper.util.RetrofitBuilder
+import com.bnyro.wallpaper.util.RetrofitHelper
 
 class LeApi : CommunityApi() {
     override val name: String = "Lemmy"
@@ -32,7 +32,7 @@ class LeApi : CommunityApi() {
 
     override val defaultCommunityName: String = "pics@lemmy.world"
 
-    private val api = RetrofitBuilder.create(baseUrl, Lemmy::class.java)
+    private val api = RetrofitHelper.create(baseUrl, Lemmy::class.java)
 
     override suspend fun getWallpapers(page: Int): List<Wallpaper> {
         return api.getWallpapers(

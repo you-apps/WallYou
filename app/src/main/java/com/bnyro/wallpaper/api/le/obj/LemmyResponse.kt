@@ -1,8 +1,8 @@
 package com.bnyro.wallpaper.api.le.obj
 
-import com.fasterxml.jackson.annotation.JsonIgnoreProperties
+import kotlinx.serialization.Serializable
 
-@JsonIgnoreProperties(ignoreUnknown = true)
+@Serializable
 data class LemmyResponse(
     val posts: List<LemmyPostView> = emptyList()
 )

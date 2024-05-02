@@ -1,13 +1,13 @@
 package com.bnyro.wallpaper.api.re.obj
 
-import com.fasterxml.jackson.annotation.JsonIgnoreProperties
-import com.fasterxml.jackson.annotation.JsonProperty
+import kotlinx.serialization.SerialName
+import kotlinx.serialization.Serializable
 
-@JsonIgnoreProperties(ignoreUnknown = true)
+@Serializable
 data class Source(
-    @JsonProperty("url") val url: String? = null,
-    @JsonProperty("width") val width: Int? = null,
-    @JsonProperty("height") val height: Int? = null
+    @SerialName("url") val url: String? = null,
+    @SerialName("width") val width: Int? = null,
+    @SerialName("height") val height: Int? = null
 ) {
     val imgUrl
         get() = url?.replace("&amp;", "&")

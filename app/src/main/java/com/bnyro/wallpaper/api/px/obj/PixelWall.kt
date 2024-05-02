@@ -1,5 +1,8 @@
 package com.bnyro.wallpaper.api.px.obj
 
+import kotlinx.serialization.Serializable
+
+@Serializable
 data class PixelWall(
     val mode: String = "",
     val path: String = "",

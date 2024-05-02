@@ -1,22 +1,22 @@
 package com.bnyro.wallpaper.api.bi.obj
 
-import com.fasterxml.jackson.annotation.JsonIgnoreProperties
-import com.fasterxml.jackson.annotation.JsonProperty
+import kotlinx.serialization.SerialName
+import kotlinx.serialization.Serializable
 
-@JsonIgnoreProperties(ignoreUnknown = true)
+@Serializable
 data class BingImage(
-    @JsonProperty("bot") val bot: Int? = null,
-    @JsonProperty("copyright") val copyright: String? = null,
-    @JsonProperty("copyrightlink") val copyrightLink: String? = null,
-    @JsonProperty("drk") val drk: Int? = null,
-    @JsonProperty("enddate") val endDate: String? = null,
-    @JsonProperty("fullstartdate") val fullStartDate: String? = null,
-    @JsonProperty("hsh") val hsh: String? = null,
-    @JsonProperty("quiz") val quiz: String? = null,
-    @JsonProperty("startdate") val startDate: String? = null,
-    @JsonProperty("title") val title: String = "",
-    @JsonProperty("top") val top: Int? = null,
-    @JsonProperty("url") val url: String = "",
-    @JsonProperty("urlbase") val urlBase: String = "",
-    @JsonProperty("wp") val wp: Boolean = false
+    @SerialName("bot") val bot: Int? = null,
+    @SerialName("copyright") val copyright: String? = null,
+    @SerialName("copyrightlink") val copyrightLink: String? = null,
+    @SerialName("drk") val drk: Int? = null,
+    @SerialName("enddate") val endDate: String? = null,
+    @SerialName("fullstartdate") val fullStartDate: String? = null,
+    @SerialName("hsh") val hsh: String? = null,
+    @SerialName("quiz") val quiz: String? = null,
+    @SerialName("startdate") val startDate: String? = null,
+    @SerialName("title") val title: String = "",
+    @SerialName("top") val top: Int? = null,
+    @SerialName("url") val url: String = "",
+    @SerialName("urlbase") val urlBase: String = "",
+    @SerialName("wp") val wp: Boolean = false
 )

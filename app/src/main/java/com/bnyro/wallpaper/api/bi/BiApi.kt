@@ -2,7 +2,7 @@ package com.bnyro.wallpaper.api.bi
 
 import com.bnyro.wallpaper.api.Api
 import com.bnyro.wallpaper.db.obj.Wallpaper
-import com.bnyro.wallpaper.util.RetrofitBuilder
+import com.bnyro.wallpaper.util.RetrofitHelper
 
 class BiApi : Api() {
     override val name: String = "Bing"
@@ -12,7 +12,7 @@ class BiApi : Api() {
     )
     private val previewResolution = "1366x768"
 
-    val api = RetrofitBuilder.create(baseUrl, Bing::class.java)
+    val api = RetrofitHelper.create(baseUrl, Bing::class.java)
 
     private fun getImgSrc(path: String, resolution: String): String {
         return "$baseUrl${path}_${resolution}.jpg"

@@ -2,17 +2,18 @@ package com.bnyro.wallpaper.api.ow
 
 import com.bnyro.wallpaper.api.Api
 import com.bnyro.wallpaper.db.obj.Wallpaper
-import com.bnyro.wallpaper.ext.toJsonObject
-import com.bnyro.wallpaper.util.RetrofitBuilder
+import com.bnyro.wallpaper.util.RetrofitHelper
+import kotlinx.serialization.json.jsonObject
+import kotlinx.serialization.json.jsonPrimitive
 
-class OwApi() : Api() {
+class OwApi : Api() {
     override val name: String = "OWalls"
     override val baseUrl: String = "https://gist.github.com/"
     override val filters: Map<String, List<String>> = mapOf(
         "style" to listOf("all", "light", "dark")
     )
 
-    private val api = RetrofitBuilder.create(baseUrl, OWalls::class.java)
+    private val api = RetrofitHelper.create(baseUrl, OWalls::class.java)
     private val resultsPerPage = 20
 
     private var wallpapers: MutableList<Wallpaper> = mutableListOf()
@@ -36,16 +37,9 @@ class OwApi() : Api() {
     }
 
     private suspend fun loadAll() {
-        val response = api.getAll().toJsonObject()
-        response.fields().forEach { timePair ->
-            timePair.value.fields().forEach {
-                wallpapers.add(
-                    0,
-                    Wallpaper(
-                        imgSrc = it.value.textValue(),
-                        category = it.key
-                    )
-                )
+        api.getAll().forEach { _, images ->
+            images.jsonObject.forEach { category, source ->
+                wallpapers.add(0, Wallpaper(imgSrc = source.jsonPrimitive.content, category = category))
             }
         }
     }

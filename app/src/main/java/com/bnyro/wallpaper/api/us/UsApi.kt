@@ -2,7 +2,7 @@ package com.bnyro.wallpaper.api.us
 
 import com.bnyro.wallpaper.api.Api
 import com.bnyro.wallpaper.db.obj.Wallpaper
-import com.bnyro.wallpaper.util.RetrofitBuilder
+import com.bnyro.wallpaper.util.RetrofitHelper
 
 class UsApi() : Api() {
     override val name: String = "Unsplash"
@@ -12,7 +12,7 @@ class UsApi() : Api() {
     )
     override val supportsTags: Boolean = true
 
-    private val api = RetrofitBuilder.create(baseUrl, Unsplash::class.java)
+    private val api = RetrofitHelper.create(baseUrl, Unsplash::class.java)
 
     override suspend fun getWallpapers(page: Int): List<Wallpaper> {
         val tags = getTags()

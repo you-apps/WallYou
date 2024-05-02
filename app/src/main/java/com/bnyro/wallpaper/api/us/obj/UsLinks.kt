@@ -1,8 +1,8 @@
 package com.bnyro.wallpaper.api.us.obj
 
-import com.fasterxml.jackson.annotation.JsonIgnoreProperties
+import kotlinx.serialization.Serializable
 
-@JsonIgnoreProperties(ignoreUnknown = true)
+@Serializable
 data class UsLinks(
     val download: String? = null,
     val download_location: String? = null,

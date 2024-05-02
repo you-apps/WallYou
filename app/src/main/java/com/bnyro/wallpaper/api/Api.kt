@@ -16,7 +16,7 @@ abstract class Api {
     abstract suspend fun getRandomWallpaperUrl(): String?
 
     fun getPref(key: String, defValue: String): String {
-        return Preferences.getString(this.name + key, defValue) ?: defValue
+        return Preferences.getString(this.name + key, defValue)
     }
 
     fun setPref(key: String, value: String) {

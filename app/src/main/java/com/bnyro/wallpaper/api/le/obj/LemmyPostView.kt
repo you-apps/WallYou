@@ -1,10 +1,10 @@
 package com.bnyro.wallpaper.api.le.obj
 
-import com.fasterxml.jackson.annotation.JsonIgnoreProperties
-import com.fasterxml.jackson.annotation.JsonProperty
+import kotlinx.serialization.SerialName
+import kotlinx.serialization.Serializable
 
-@JsonIgnoreProperties(ignoreUnknown = true)
+@Serializable
 data class LemmyPostView(
-    @JsonProperty("creator") val creator: LemmyCreator = LemmyCreator(),
-    @JsonProperty("post") val post: LemmyPost = LemmyPost(),
+    @SerialName("creator") val creator: LemmyCreator = LemmyCreator(),
+    @SerialName("post") val post: LemmyPost = LemmyPost(),
 )

@@ -7,8 +7,8 @@ import com.bnyro.wallpaper.App
 import com.bnyro.wallpaper.obj.WallpaperConfig
 import com.bnyro.wallpaper.enums.WallpaperTarget
 import com.bnyro.wallpaper.ui.nav.DrawerScreens
-import com.fasterxml.jackson.core.type.TypeReference
-import com.fasterxml.jackson.databind.ObjectMapper
+import kotlinx.serialization.decodeFromString
+import kotlinx.serialization.encodeToString
 
 object Preferences {
     const val resizeMethodKey = "resizeMethod"
@@ -33,8 +33,6 @@ object Preferences {
 
     private const val prefFile = "preferences"
     private lateinit var preferences: SharedPreferences
-
-    private val mapper = ObjectMapper()
 
     fun init(context: Context) {
         preferences = context.getSharedPreferences(prefFile, Context.MODE_PRIVATE)
@@ -61,18 +59,18 @@ object Preferences {
     }
 
     fun setWallpaperConfigs(configs: List<WallpaperConfig>) {
-        edit { putString(wallpaperChangerConfigKey, mapper.writeValueAsString(configs)) }
+        edit { putString(wallpaperChangerConfigKey, RetrofitHelper.json.encodeToString(configs)) }
     }
 
     fun getWallpaperConfigs(): List<WallpaperConfig> {
         val prefString = getString(wallpaperChangerConfigKey, "")
+
         return try {
-            mapper.readValue(
-                prefString,
-                object : TypeReference<List<WallpaperConfig>>() {}
-            )
+            if (prefString.isEmpty()) throw IllegalArgumentException("No saved wallpaper config yet.")
+
+            RetrofitHelper.json.decodeFromString<List<WallpaperConfig>>(prefString)
         } catch (e: Exception) {
-            Log.e(this.javaClass.name, e.toString())
+            Log.e(this.javaClass.name, e.stackTraceToString())
             listOf(WallpaperConfig(WallpaperTarget.BOTH))
         }
     }

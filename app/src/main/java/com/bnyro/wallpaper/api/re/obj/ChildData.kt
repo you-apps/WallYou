@@ -1,11 +1,11 @@
 package com.bnyro.wallpaper.api.re.obj
 
-import com.fasterxml.jackson.annotation.JsonIgnoreProperties
-import com.fasterxml.jackson.annotation.JsonProperty
+import kotlinx.serialization.SerialName
+import kotlinx.serialization.Serializable
 
-@JsonIgnoreProperties(ignoreUnknown = true)
+@Serializable
 data class ChildData(
-    @JsonProperty("title") val title: String? = null,
-    @JsonProperty("url") val url: String? = null,
-    @JsonProperty("preview") val preview: Preview? = null
+    @SerialName("title") val title: String? = null,
+    @SerialName("url") val url: String? = null,
+    @SerialName("preview") val preview: Preview? = null
 )

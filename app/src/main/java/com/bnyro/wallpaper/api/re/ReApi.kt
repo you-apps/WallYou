@@ -2,7 +2,7 @@ package com.bnyro.wallpaper.api.re
 
 import com.bnyro.wallpaper.api.CommunityApi
 import com.bnyro.wallpaper.db.obj.Wallpaper
-import com.bnyro.wallpaper.util.RetrofitBuilder
+import com.bnyro.wallpaper.util.RetrofitHelper
 
 class ReApi : CommunityApi() {
     override val name = "Reddit"
@@ -12,7 +12,7 @@ class ReApi : CommunityApi() {
         "time" to listOf("month", "year", "hour", "day", "week")
     )
 
-    val api = RetrofitBuilder.create(baseUrl, Reddit::class.java)
+    val api = RetrofitHelper.create(baseUrl, Reddit::class.java)
 
     override val defaultCommunityName = "r/wallpaper"
 
@@ -33,12 +33,12 @@ class ReApi : CommunityApi() {
         nextPageAfter = response.data?.after
 
         return response.data?.children?.filter {
-            it.childdata.url?.matches(imageRegex) == true
+            it.childData.url?.matches(imageRegex) == true
         }?.map {
-            with(it.childdata) {
+            with(it.childData) {
                 Wallpaper(
                     preview?.images?.firstOrNull()?.source?.imgUrl ?: url!!,
-                    it.childdata.title,
+                    it.childData.title,
                     thumb = url,
                     resolution = preview?.images?.firstOrNull()?.source?.let { img -> "${img.width}x${img.height}" }
                 )

@@ -2,13 +2,13 @@ package com.bnyro.wallpaper.api.ps
 
 import com.bnyro.wallpaper.api.Api
 import com.bnyro.wallpaper.db.obj.Wallpaper
-import com.bnyro.wallpaper.util.RetrofitBuilder
+import com.bnyro.wallpaper.util.RetrofitHelper
 
 class PsApi : Api() {
     override val name: String = "Picsum"
     override val baseUrl: String = "https://picsum.photos"
 
-    private val api = RetrofitBuilder.create(baseUrl, Picsum::class.java)
+    private val api = RetrofitHelper.create(baseUrl, Picsum::class.java)
 
     override suspend fun getWallpapers(page: Int): List<Wallpaper> {
         return api.getWallpapers(page).map {

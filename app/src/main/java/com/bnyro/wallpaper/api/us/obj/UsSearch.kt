@@ -1,8 +1,8 @@
 package com.bnyro.wallpaper.api.us.obj
 
-import com.fasterxml.jackson.annotation.JsonIgnoreProperties
+import kotlinx.serialization.Serializable
 
-@JsonIgnoreProperties(ignoreUnknown = true)
+@Serializable
 data class UsSearch(
     val total: Long? = null,
     val total_pages: Long? = null,

@@ -2,7 +2,7 @@ package com.bnyro.wallpaper.api.wh
 
 import com.bnyro.wallpaper.api.Api
 import com.bnyro.wallpaper.db.obj.Wallpaper
-import com.bnyro.wallpaper.util.RetrofitBuilder
+import com.bnyro.wallpaper.util.RetrofitHelper
 
 class WhApi : Api() {
     override val name: String = "Wallhaven"
@@ -16,7 +16,7 @@ class WhApi : Api() {
     )
     override val supportsTags: Boolean = true
 
-    private val api = RetrofitBuilder.create(baseUrl, Wallhaven::class.java)
+    private val api = RetrofitHelper.create(baseUrl, Wallhaven::class.java)
 
     override suspend fun getWallpapers(page: Int): List<Wallpaper> {
         return api.search(
