@@ -30,7 +30,7 @@ class LeApi : CommunityApi() {
         "type" to listOf("All", "Local")
     )
 
-    override val defaultCommunityName: String = "apocalypticart@feddit.de"
+    override val defaultCommunityName: String = "pics@lemmy.world"
 
     private val api = RetrofitBuilder.create(baseUrl, Lemmy::class.java)
 
