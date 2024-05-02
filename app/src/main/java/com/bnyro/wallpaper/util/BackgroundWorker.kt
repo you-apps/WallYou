@@ -5,7 +5,7 @@ import android.graphics.Bitmap
 import androidx.work.CoroutineWorker
 import androidx.work.WorkerParameters
 import com.bnyro.wallpaper.db.DatabaseHolder
-import com.bnyro.wallpaper.enums.WallpaperConfig
+import com.bnyro.wallpaper.obj.WallpaperConfig
 import com.bnyro.wallpaper.enums.WallpaperSource
 import com.bnyro.wallpaper.ext.awaitQuery
 import kotlinx.coroutines.Dispatchers

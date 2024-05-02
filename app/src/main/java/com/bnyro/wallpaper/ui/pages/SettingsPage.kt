@@ -23,7 +23,7 @@ import androidx.compose.ui.unit.dp
 import androidx.work.NetworkType
 import com.bnyro.wallpaper.R
 import com.bnyro.wallpaper.enums.ThemeMode
-import com.bnyro.wallpaper.enums.WallpaperConfig
+import com.bnyro.wallpaper.obj.WallpaperConfig
 import com.bnyro.wallpaper.enums.WallpaperTarget
 import com.bnyro.wallpaper.ext.formatBinarySize
 import com.bnyro.wallpaper.ext.formatMinutes

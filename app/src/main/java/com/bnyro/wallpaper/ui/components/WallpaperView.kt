@@ -44,9 +44,9 @@ import com.bnyro.wallpaper.ui.components.bottombar.WallpaperViewTopBar
 import com.bnyro.wallpaper.ui.components.dialogs.MultiStateDialog
 import com.bnyro.wallpaper.ui.components.infosheet.WallpaperInfoSheet
 import com.bnyro.wallpaper.ui.models.WallpaperHelperModel
-import com.bnyro.wallpaper.util.rememberZoomState
-import com.bnyro.wallpaper.util.zoomArea
-import com.bnyro.wallpaper.util.zoomImage
+import com.bnyro.wallpaper.ext.rememberZoomState
+import com.bnyro.wallpaper.ext.zoomArea
+import com.bnyro.wallpaper.ext.zoomImage
 import java.time.Instant
 
 @Composable

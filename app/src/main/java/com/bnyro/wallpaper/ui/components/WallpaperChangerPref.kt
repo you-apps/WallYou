@@ -32,7 +32,7 @@ import androidx.compose.ui.unit.dp
 import androidx.core.net.toUri
 import androidx.documentfile.provider.DocumentFile
 import com.bnyro.wallpaper.R
-import com.bnyro.wallpaper.enums.WallpaperConfig
+import com.bnyro.wallpaper.obj.WallpaperConfig
 import com.bnyro.wallpaper.enums.WallpaperSource
 import com.bnyro.wallpaper.enums.WallpaperTarget
 import com.bnyro.wallpaper.ui.components.prefs.CheckboxPref

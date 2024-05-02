@@ -1,5 +1,7 @@
-package com.bnyro.wallpaper.enums
+package com.bnyro.wallpaper.obj
 
+import com.bnyro.wallpaper.enums.WallpaperSource
+import com.bnyro.wallpaper.enums.WallpaperTarget
 import com.bnyro.wallpaper.ui.nav.DrawerScreens
 
 data class WallpaperConfig(

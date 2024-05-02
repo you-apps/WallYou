@@ -3,7 +3,7 @@ package com.bnyro.wallpaper.util
 import android.content.Context
 import androidx.core.net.toUri
 import androidx.documentfile.provider.DocumentFile
-import com.bnyro.wallpaper.enums.WallpaperConfig
+import com.bnyro.wallpaper.obj.WallpaperConfig
 
 object LocalWallpaperHelper {
     private fun getAllFilesInCurrentDir(directory: DocumentFile?): List<DocumentFile> {

@@ -1,4 +1,4 @@
-package com.bnyro.wallpaper.util
+package com.bnyro.wallpaper.ext
 
 import androidx.compose.animation.core.RepeatMode
 import androidx.compose.animation.core.animateFloat

@@ -1,4 +1,4 @@
-package com.bnyro.wallpaper.util
+package com.bnyro.wallpaper.ext
 
 import androidx.compose.foundation.gestures.awaitEachGesture
 import androidx.compose.foundation.gestures.awaitFirstDown
@@ -13,7 +13,7 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.graphicsLayer
 import androidx.compose.ui.input.pointer.pointerInput
 
-class ZoomState() {
+class ZoomState {
     var scale by mutableFloatStateOf(1f)
     var offsetX by mutableFloatStateOf(1f)
     var offsetY by mutableFloatStateOf(1f)

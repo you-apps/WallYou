@@ -45,9 +45,9 @@ import com.bnyro.wallpaper.ui.components.prefs.CheckboxPref
 import com.bnyro.wallpaper.ui.components.prefs.ListPreference
 import com.bnyro.wallpaper.ui.models.WallpaperHelperModel
 import com.bnyro.wallpaper.util.Preferences
-import com.bnyro.wallpaper.util.rememberZoomState
-import com.bnyro.wallpaper.util.zoomArea
-import com.bnyro.wallpaper.util.zoomImage
+import com.bnyro.wallpaper.ext.rememberZoomState
+import com.bnyro.wallpaper.ext.zoomArea
+import com.bnyro.wallpaper.ext.zoomImage
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
