@@ -12,8 +12,8 @@ android {
         applicationId = "com.bnyro.wallpaper"
         minSdk = 21
         targetSdk = 34
-        versionCode = 25
-        versionName = "8.0"
+        versionCode = 26
+        versionName = "8.1"
 
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
 
