@@ -48,7 +48,6 @@
     <string name="wallpaper_changer_source">壁紙チェンジャーのソース</string>
     <string name="combine_wallpaper_changers">複合壁紙チェンジャー</string>
     <string name="combine_wallpaper_changers_summary">ホーム画面とロック画面に同じ壁紙を使用します。</string>
-    <string name="color_palette">カラーパレットを表示</string>
     <!-- Wallpaper changer source -->
     <string name="online">オンライン</string>
     <string name="local">ローカル</string>

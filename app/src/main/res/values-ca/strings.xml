@@ -40,7 +40,6 @@
     <string name="wallpaper_changer_source">Font del canviador de fons de pantalla</string>
     <string name="combine_wallpaper_changers">Canviador de fons de pantalla combinat</string>
     <string name="combine_wallpaper_changers_summary">Utilitza el mateix fons de pantalla per a la pantalla d\'inici i la pantalla de bloqueig.</string>
-    <string name="color_palette">Mostra la paleta de colors</string>
     <string name="import_export">Importa i exporta</string>
     <string name="import_favorites">Importa preferits</string>
     <string name="export_favorites">Exporta preferits</string>

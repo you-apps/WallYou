@@ -42,7 +42,6 @@
     <string name="wallpaper_changer">Taustapiltide vahetaja</string>
     <string name="change_interval">Vahetamise välp</string>
     <string name="combine_wallpaper_changers">Kas kasutame sama taustapilti</string>
-    <string name="color_palette">Näita värvipaletti</string>
     <string name="import_export">Import ja eksport</string>
     <string name="import_favorites">Impordi lemmikud</string>
     <string name="export_favorites">Ekspordi lemmikud</string>

@@ -37,7 +37,6 @@
     <string name="coil_cache">حافظه پنهان Coil</string>
     <string name="wallpaper_changer">سامان دهنده پس‌زمینه</string>
     <string name="change_interval">فاصله تا ساماندهی دوباره</string>
-    <string name="color_palette">نمایش طیف رنگی</string>
     <string name="import_export">واردکردن و خروجی گرفتن</string>
     <string name="export_favorites">خروجی گرفتن از مورد علاقه ها</string>
     <string name="success">انجام شد!</string>

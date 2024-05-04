@@ -66,7 +66,6 @@
     <string name="fit_height">Ajuster à la hauteur</string>
     <string name="fit_width">Ajuster à la largeur</string>
     <string name="combine_wallpaper_changers">Changeur de fonds d\'écrans combinés</string>
-    <string name="color_palette">Afficher la palette de couleurs</string>
     <string name="combine_wallpaper_changers_summary">Utiliser le même fond d\'écran pour l\'écran d\'accueil et de verrouillage.</string>
     <string name="import_export">Importer &amp; exporter</string>
     <string name="import_favorites">Importer les favoris</string>

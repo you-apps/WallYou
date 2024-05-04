@@ -2,7 +2,6 @@
 <resources>
     <string name="wallpaper_changer_source">Taustakuvan vaihtajan lähde</string>
     <string name="theme_light">Vaalea</string>
-    <string name="color_palette">Näytä väripaletti</string>
     <string name="no_favorites">Ei vielä suosikkeja</string>
     <string name="applying_random">Toteutaan satunnainen taustakuva</string>
     <string name="filter">Suodatin</string>

@@ -56,7 +56,6 @@
     <string name="wallpaper_changer_source">Wallpaper changer source</string>
     <string name="combine_wallpaper_changers">Combined wallpaper changer</string>
     <string name="combine_wallpaper_changers_summary">Use the same wallpaper for home and lockscreen.</string>
-    <string name="color_palette">Show color palette</string>
     <string name="import_export">Import &amp; export</string>
     <string name="import_favorites">Import favorites</string>
     <string name="export_favorites">Export favorites</string>
