@@ -3,8 +3,10 @@ package com.bnyro.wallpaper.db.obj
 import androidx.room.ColumnInfo
 import androidx.room.Entity
 import androidx.room.PrimaryKey
+import kotlinx.serialization.Serializable
 
 @Entity(tableName = "favorites")
+@Serializable
 data class Wallpaper(
     @PrimaryKey val imgSrc: String = "",
     @ColumnInfo val title: String? = null,
