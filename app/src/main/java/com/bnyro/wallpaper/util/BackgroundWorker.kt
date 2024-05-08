@@ -5,6 +5,7 @@ import android.graphics.Bitmap
 import androidx.work.CoroutineWorker
 import androidx.work.WorkerParameters
 import com.bnyro.wallpaper.db.DatabaseHolder
+import com.bnyro.wallpaper.db.obj.Wallpaper
 import com.bnyro.wallpaper.obj.WallpaperConfig
 import com.bnyro.wallpaper.enums.WallpaperSource
 import com.bnyro.wallpaper.ext.awaitQuery
@@ -52,8 +53,14 @@ class BackgroundWorker(
         return withContext(Dispatchers.IO) {
             val url = runCatching {
                 Preferences.getApiByRoute(source).getRandomWallpaperUrl()
-            }.getOrElse { return@withContext null }
-            ImageHelper.getSuspend(applicationContext, url, true)
+            }.getOrNull() ?: return@withContext null
+
+            val bitmap = ImageHelper.getSuspend(applicationContext, url, true)
+            if (bitmap != null && Preferences.getBoolean(Preferences.autoAddToFavoritesKey, false)) {
+                DatabaseHolder.Database.favoritesDao().insertAll(Wallpaper(imgSrc = url))
+            }
+
+            bitmap
         }
     }
 
