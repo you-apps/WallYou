@@ -8,9 +8,9 @@ class BiApi : Api() {
     override val name: String = "Bing"
     override val baseUrl: String = "https://www.bing.com"
     override val filters: Map<String, List<String>> = mapOf(
-        "resolution" to listOf("1366x768", "1920x1080", "UHD")
+        "resolution" to listOf("1080x1920", "768x1366", "1366x768", "1920x1080", "UHD")
     )
-    private val previewResolution = "1366x768"
+    private val previewResolution = "768x1366"
 
     val api = RetrofitHelper.create(baseUrl, Bing::class.java)
 
