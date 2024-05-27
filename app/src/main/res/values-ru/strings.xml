@@ -1,7 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="app_name" translatable="false">Wall You</string>
-    <string name="wallhaven" translatable="false">Wallhaven</string>
     <!-- Navigation Drawer -->
     <string name="favorites">Избранные</string>
     <string name="settings">Настройки</string>
@@ -38,7 +36,6 @@
     <string name="no_favorites">Избранных пока нет</string>
     <!-- About -->
     <string name="version">Версия</string>
-    <string name="github" translatable="false">GitHub</string>
     <string name="license">Лицензия</string>
     <string name="website">Веб-сайт</string>
     <string name="grayscale">Оттенки серого</string>

@@ -41,7 +41,6 @@
     <string name="auto_add_to_favorites">Añadir a favoritos al aplicar</string>
     <!-- About -->
     <string name="version">Versión</string>
-    <string name="github" translatable="false">GitHub</string>
     <string name="license">Licencia</string>
     <string name="website">Página web</string>
     <string name="applying_random">Aplicar un fondo de pantalla al azar</string>

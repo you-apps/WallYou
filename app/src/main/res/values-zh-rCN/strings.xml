@@ -1,7 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="app_name" translatable="false">Wall You</string>
-    <string name="wallhaven" translatable="false">Wallhaven</string>
     <!-- Navigation Drawer -->
     <string name="favorites">收藏夹</string>
     <string name="settings">设置</string>
@@ -38,7 +36,6 @@
     <string name="no_favorites">暂无收藏</string>
     <!-- About -->
     <string name="version">版本</string>
-    <string name="github" translatable="false">GitHub</string>
     <string name="license">许可</string>
     <string name="website">网站</string>
     <string name="blur">模糊</string>
