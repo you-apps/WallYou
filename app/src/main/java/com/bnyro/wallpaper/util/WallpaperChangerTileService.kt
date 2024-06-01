@@ -27,7 +27,7 @@ class WallpaperChangerTileService : TileService() {
             .build()
 
         WorkManager.getInstance(this)
-            .enqueueUniqueWork(TILE_WORKER_KEY, ExistingWorkPolicy.KEEP, oneTimeJob)
+            .enqueueUniqueWork(TILE_WORKER_KEY, ExistingWorkPolicy.REPLACE, oneTimeJob)
 
         qsTile.state = Tile.STATE_ACTIVE
         qsTile.updateTile()
