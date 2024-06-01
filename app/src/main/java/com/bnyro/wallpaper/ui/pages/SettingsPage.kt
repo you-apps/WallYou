@@ -87,8 +87,9 @@ fun SettingsPage(
                     viewModel.themeMode = ThemeMode.values()[it.toInt()]
                 }
                 CheckboxPref(
-                    prefKey = Preferences.autoAddToFavoritesKey,
-                    title = stringResource(R.string.auto_add_to_favorites)
+                    prefKey = Preferences.wallpaperHistory,
+                    title = stringResource(R.string.wallpaper_history),
+                    defaultValue = true
                 )
             }
         }

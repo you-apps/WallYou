@@ -14,7 +14,7 @@ object Preferences {
     const val resizeMethodKey = "resizeMethod"
     const val diskCacheKey = "diskCache"
     const val themeModeKey = "themeModeKey"
-    const val autoAddToFavoritesKey = "autoAddToFavorites"
+    const val wallpaperHistory = "autoAddToFavorites"
     const val grayscaleKey = "grayscale"
     const val blurKey = "blur"
     const val startTabKey = "startTab"

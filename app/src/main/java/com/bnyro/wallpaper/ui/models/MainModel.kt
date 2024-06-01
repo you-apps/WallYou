@@ -35,7 +35,14 @@ class MainModel : ViewModel() {
     )
 
     val favWallpapers: StateFlow<List<Wallpaper>> =
-        DatabaseHolder.Database.favoritesDao().getAllFlow().stateIn(
+        DatabaseHolder.Database.favoritesDao().getFavoritesFlow().stateIn(
+            scope = viewModelScope,
+            started = SharingStarted.WhileSubscribed(5000L),
+            initialValue = listOf()
+        )
+
+    val recentlyAppliedWallpapers: StateFlow<List<Wallpaper>> =
+        DatabaseHolder.Database.favoritesDao().getHistoryFlow().stateIn(
             scope = viewModelScope,
             started = SharingStarted.WhileSubscribed(5000L),
             initialValue = listOf()

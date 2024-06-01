@@ -1,12 +1,12 @@
 {
   "formatVersion": 1,
   "database": {
-    "version": 1,
-    "identityHash": "b8804b8b4eaa74f2f2977f3c05bc3500",
+    "version": 2,
+    "identityHash": "bcfb14085e7abeb5d0f9c9bd5273164d",
     "entities": [
       {
         "tableName": "favorites",
-        "createSql": "CREATE TABLE IF NOT EXISTS `${TABLE_NAME}` (`imgSrc` TEXT NOT NULL, `title` TEXT, `url` TEXT, `author` TEXT, `category` TEXT, `resolution` TEXT, `fileSize` INTEGER, `thumb` TEXT, `creationDate` TEXT, PRIMARY KEY(`imgSrc`))",
+        "createSql": "CREATE TABLE IF NOT EXISTS `${TABLE_NAME}` (`imgSrc` TEXT NOT NULL, `title` TEXT, `url` TEXT, `author` TEXT, `category` TEXT, `resolution` TEXT, `fileSize` INTEGER, `thumb` TEXT, `creationDate` TEXT, `favorite` INTEGER NOT NULL DEFAULT 1, `inHistory` INTEGER NOT NULL DEFAULT 0, `timeAdded` INTEGER NOT NULL DEFAULT 0, PRIMARY KEY(`imgSrc`))",
         "fields": [
           {
             "fieldPath": "imgSrc",
@@ -61,13 +61,34 @@
             "columnName": "creationDate",
             "affinity": "TEXT",
             "notNull": false
+          },
+          {
+            "fieldPath": "favorite",
+            "columnName": "favorite",
+            "affinity": "INTEGER",
+            "notNull": true,
+            "defaultValue": "1"
+          },
+          {
+            "fieldPath": "inHistory",
+            "columnName": "inHistory",
+            "affinity": "INTEGER",
+            "notNull": true,
+            "defaultValue": "0"
+          },
+          {
+            "fieldPath": "timeAdded",
+            "columnName": "timeAdded",
+            "affinity": "INTEGER",
+            "notNull": true,
+            "defaultValue": "0"
           }
         ],
         "primaryKey": {
+          "autoGenerate": false,
           "columnNames": [
             "imgSrc"
-          ],
-          "autoGenerate": false
+          ]
         },
         "indices": [],
         "foreignKeys": []
@@ -76,7 +97,7 @@
     "views": [],
     "setupQueries": [
       "CREATE TABLE IF NOT EXISTS room_master_table (id INTEGER PRIMARY KEY,identity_hash TEXT)",
-      "INSERT OR REPLACE INTO room_master_table (id,identity_hash) VALUES(42, 'b8804b8b4eaa74f2f2977f3c05bc3500')"
+      "INSERT OR REPLACE INTO room_master_table (id,identity_hash) VALUES(42, 'bcfb14085e7abeb5d0f9c9bd5273164d')"
     ]
   }
 }

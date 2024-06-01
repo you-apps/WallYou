@@ -16,10 +16,10 @@ fun WallpaperModeDialog(
     wallpaper: Wallpaper,
     wallpaperHelperModel: WallpaperHelperModel,
     onDismissRequest: () -> Unit,
-    onLike: () -> Unit = {},
     applyFilter: Boolean = false
 ) {
     val context = LocalContext.current
+
     ListDialog(
         title = stringResource(R.string.set_wallpaper),
         items = listOf(
@@ -30,10 +30,10 @@ fun WallpaperModeDialog(
         ),
         onDismissRequest = onDismissRequest,
         onClick = { index ->
-            if (Preferences.getBoolean(Preferences.autoAddToFavoritesKey, false)) {
-                onLike.invoke()
+            if (Preferences.getBoolean(Preferences.wallpaperHistory, true)) {
                 awaitQuery {
-                    DatabaseHolder.Database.favoritesDao().insertAll(wallpaper)
+                    DatabaseHolder.Database.favoritesDao()
+                        .insert(wallpaper, null, true)
                 }
             }
             if (index == 3) {

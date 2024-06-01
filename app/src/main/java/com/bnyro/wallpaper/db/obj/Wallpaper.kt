@@ -16,5 +16,8 @@ data class Wallpaper(
     @ColumnInfo val resolution: String? = null,
     @ColumnInfo val fileSize: Long? = null,
     @ColumnInfo val thumb: String? = null,
-    @ColumnInfo val creationDate: String? = null
+    @ColumnInfo val creationDate: String? = null,
+    @ColumnInfo(defaultValue = "1") var favorite: Boolean = false,
+    @ColumnInfo(defaultValue = "0") var inHistory: Boolean = false,
+    @ColumnInfo(defaultValue = "0") var timeAdded: Long = 0,
 )
