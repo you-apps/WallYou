@@ -1,13 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="app_name" translatable="false">Wall You</string>
-    <string name="wallhaven" translatable="false">Wallhaven</string>
-    <string name="picsum" translatable="false">Picsum</string>
-    <string name="owalls" translatable="false">OWalls</string>
-    <string name="unsplash" translatable="false">Unsplash</string>
-    <string name="bing_daily" translatable="false">Bing daily</string>
-    <string name="reddit" translatable="false">Reddit</string>
-    <string name="lemmy" translatable="false">Lemmy</string>
     <!-- Navigation Drawer -->
     <string name="favorites">お気に入り</string>
     <string name="settings">設定</string>
@@ -62,7 +54,6 @@
     <string name="auto_add_to_favorites">壁紙を変更する時にお気に入りに追加</string>
     <!-- About -->
     <string name="version">バージョン</string>
-    <string name="github" translatable="false">GitHub</string>
     <string name="license">ライセンス</string>
     <string name="website">ウェブサイト</string>
 </resources>

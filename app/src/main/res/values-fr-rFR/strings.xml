@@ -1,7 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="app_name" translatable="false">Wall You</string>
-    <string name="wallhaven" translatable="false">Wallhaven</string>
     <!-- Navigation Drawer -->
     <string name="favorites">Favoris</string>
     <string name="settings">Paramètres</string>
@@ -37,7 +35,6 @@
     <string name="no_favorites">Aucun favori pour le moment</string>
     <!-- About -->
     <string name="version">Version</string>
-    <string name="github" translatable="false">GitHub</string>
     <string name="license">Licence</string>
     <string name="website">Site web</string>
     <string name="home">Écran d\'accueil</string>

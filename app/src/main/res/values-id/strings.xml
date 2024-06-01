@@ -1,7 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="app_name" translatable="false">Wall You</string>
-    <string name="wallhaven" translatable="false">Wallhaven</string>
     <!-- Navigation Drawer -->
     <string name="favorites">Favorit</string>
     <string name="settings">Pengaturan</string>
@@ -38,7 +36,6 @@
     <string name="no_favorites">Belum ada favorit</string>
     <!-- About -->
     <string name="version">Versi</string>
-    <string name="github" translatable="false">GitHub</string>
     <string name="license">Lisensi</string>
     <string name="website">Website</string>
     <string name="auto_add_to_favorites">Tambahkan ke favorit jika saat diterapkan</string>
