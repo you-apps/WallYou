@@ -63,9 +63,7 @@ fun WallpaperView(
     var liked by remember { mutableStateOf(false) }
     LaunchedEffect(true) {
         query {
-            wallpaper.imgSrc.let {
-                liked = Database.favoritesDao().exists(it)
-            }
+            liked = Database.favoritesDao().isLiked(wallpaper.imgSrc)
         }
     }
 
@@ -165,9 +163,9 @@ fun WallpaperView(
                             liked = !liked
                             query {
                                 if (!liked) {
-                                    Database.favoritesDao().delete(wallpaper)
+                                    Database.favoritesDao().removeFromFavorites(wallpaper)
                                 } else {
-                                    Database.favoritesDao().insertAll(wallpaper)
+                                    Database.favoritesDao().insert(wallpaper, true, null)
                                 }
                             }
                         },
@@ -189,10 +187,7 @@ fun WallpaperView(
         WallpaperModeDialog(
             wallpaper,
             wallpaperHelperModel,
-            onDismissRequest = { showModeSelection = false },
-            onLike = {
-                liked = true
-            })
+            onDismissRequest = { showModeSelection = false })
     }
 
     MultiStateDialog(

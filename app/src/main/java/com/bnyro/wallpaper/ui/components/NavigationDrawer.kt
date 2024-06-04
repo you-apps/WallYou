@@ -124,7 +124,6 @@ fun NavigationDrawer(
 val MinimumDrawerWidth = 240.dp
 val MaximumDrawerWidth = 300.dp
 
-@OptIn(ExperimentalMaterial3Api::class)
 @Composable
 private fun DrawerSheet(
     windowInsets: WindowInsets,

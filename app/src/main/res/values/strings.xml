@@ -11,6 +11,7 @@
     <string name="pixel" translatable="false">Google Pixel</string>
     <!-- Navigation Drawer -->
     <string name="favorites">Favorites</string>
+    <string name="history">History</string>
     <string name="settings">Settings</string>
     <string name="about">About</string>
     <!-- Image Preview -->
@@ -83,7 +84,9 @@
     <string name="theme_dark">Dark</string>
     <!-- Favorites -->
     <string name="no_favorites">No favorites yet</string>
+    <string name="no_history">No history yet</string>
     <string name="auto_add_to_favorites">Add to favorites when applying</string>
+    <string name="wallpaper_history">Wallpaper history</string>
     <!-- About -->
     <string name="version">Version</string>
     <string name="github" translatable="false">GitHub</string>

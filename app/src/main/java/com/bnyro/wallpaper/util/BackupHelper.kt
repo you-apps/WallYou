@@ -32,7 +32,7 @@ object BackupHelper {
         try {
             context.contentResolver.openInputStream(uri)?.use {
                 val backupFile = RetrofitHelper.json.decodeFromStream<BackupFile>(it)
-                DatabaseHolder.Database.favoritesDao().insertAll(*backupFile.favorites.toTypedArray())
+                DatabaseHolder.Database.favoritesDao().insertAll(backupFile.favorites)
             }
             context.toastFromMainThread(context.getString(R.string.success))
         } catch (e: Exception) {

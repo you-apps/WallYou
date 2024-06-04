@@ -56,8 +56,9 @@ class BackgroundWorker(
             }.getOrNull() ?: return@withContext null
 
             val bitmap = ImageHelper.getSuspend(applicationContext, url, true)
-            if (bitmap != null && Preferences.getBoolean(Preferences.autoAddToFavoritesKey, false)) {
-                DatabaseHolder.Database.favoritesDao().insertAll(Wallpaper(imgSrc = url))
+            if (bitmap != null && Preferences.getBoolean(Preferences.wallpaperHistory, true)) {
+                val wallpaper = Wallpaper(imgSrc = url)
+                DatabaseHolder.Database.favoritesDao().insert(wallpaper, null, true)
             }
 
             bitmap
@@ -66,7 +67,7 @@ class BackgroundWorker(
 
     private suspend fun getFavoritesWallpaper(): Bitmap? {
         val favoriteUrl = awaitQuery {
-            DatabaseHolder.Database.favoritesDao().getAll()
+            DatabaseHolder.Database.favoritesDao().getFavorites()
         }.randomOrNull()?.imgSrc
         return ImageHelper.getSuspend(applicationContext, favoriteUrl, true)
     }

@@ -4,6 +4,7 @@ import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.HeartBroken
+import androidx.compose.material.icons.filled.History
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.collectAsState
 import androidx.compose.runtime.getValue
@@ -19,31 +20,31 @@ import com.bnyro.wallpaper.ui.components.WallpaperPageView
 import com.bnyro.wallpaper.ui.models.MainModel
 
 @Composable
-fun FavoritesPage(viewModel: MainModel) {
+fun HistoryPage(viewModel: MainModel) {
     Column(
         modifier = Modifier
             .fillMaxSize()
     ) {
-        val favorites by viewModel.favWallpapers.collectAsState()
+        val history by viewModel.recentlyAppliedWallpapers.collectAsState()
 
         var selectedIndex by remember { mutableStateOf<Int?>(null) }
 
-        if (favorites.isNotEmpty()) {
+        if (history.isNotEmpty()) {
             WallpaperGrid(
-                wallpapers = favorites,
+                wallpapers = history,
                 onClickWallpaper = {
                     selectedIndex = it
                 }
             )
             selectedIndex?.let {
-                WallpaperPageView(initialPage = it, wallpapers = favorites) {
+                WallpaperPageView(initialPage = it, wallpapers = history) {
                     selectedIndex = null
                 }
             }
         } else {
             NothingHere(
-                text = stringResource(R.string.no_favorites),
-                icon = Icons.Default.HeartBroken
+                text = stringResource(R.string.no_history),
+                icon = Icons.Default.History
             )
         }
     }

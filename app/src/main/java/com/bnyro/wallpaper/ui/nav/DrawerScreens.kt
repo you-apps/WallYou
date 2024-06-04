@@ -5,6 +5,7 @@ import androidx.compose.material.icons.filled.Air
 import androidx.compose.material.icons.filled.Book
 import androidx.compose.material.icons.filled.Favorite
 import androidx.compose.material.icons.filled.Forum
+import androidx.compose.material.icons.filled.History
 import androidx.compose.material.icons.filled.Info
 import androidx.compose.material.icons.filled.Landscape
 import androidx.compose.material.icons.filled.Nightlight
@@ -13,6 +14,7 @@ import androidx.compose.material.icons.filled.Settings
 import androidx.compose.material.icons.filled.WaterDrop
 import androidx.compose.ui.graphics.vector.ImageVector
 import com.bnyro.wallpaper.R
+import com.bnyro.wallpaper.util.Preferences
 
 sealed class DrawerScreens(
     val titleResource: Int,
@@ -31,11 +33,27 @@ sealed class DrawerScreens(
     object Lemmy : DrawerScreens(R.string.lemmy, "le", Icons.Default.Book)
     object Pixel : DrawerScreens(R.string.pixel, "px", Icons.Default.Pix)
     object Favorites : DrawerScreens(R.string.favorites, "favorites", Icons.Default.Favorite, true)
+    object History : DrawerScreens(R.string.history, "history", Icons.Default.History)
     object Settings : DrawerScreens(R.string.settings, "settings", Icons.Default.Settings, true)
     object About : DrawerScreens(R.string.about, "about", Icons.Default.Info)
 
     companion object {
-        val apiScreens by lazy { listOf(Wallhaven, Unsplash, OWalls, Picsum, BingDaily, Reddit, Lemmy, Pixel) }
-        val screens by lazy { listOf(*apiScreens.toTypedArray(), Favorites, Settings, About) }
+        val apiScreens by lazy {
+            listOf(
+                Wallhaven,
+                Unsplash,
+                OWalls,
+                Picsum,
+                BingDaily,
+                Reddit,
+                Lemmy,
+                Pixel
+            )
+        }
+        val screens by lazy {
+            listOfNotNull(*apiScreens.toTypedArray(), Favorites, History.takeIf {
+                Preferences.getBoolean(Preferences.wallpaperHistory, true)
+            }, Settings, About)
+        }
     }
 }
