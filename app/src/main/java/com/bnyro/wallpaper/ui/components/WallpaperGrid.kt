@@ -25,6 +25,7 @@ import androidx.compose.runtime.derivedStateOf
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
+import androidx.compose.runtime.rememberCoroutineScope
 import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
@@ -34,7 +35,9 @@ import androidx.compose.ui.unit.dp
 import coil.compose.AsyncImage
 import com.bnyro.wallpaper.db.DatabaseHolder.Database
 import com.bnyro.wallpaper.db.obj.Wallpaper
-import com.bnyro.wallpaper.ext.query
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.launch
+import kotlinx.coroutines.withContext
 
 @Composable
 fun WallpaperGrid(
@@ -67,7 +70,7 @@ fun WallpaperGrid(
             }
 
             LaunchedEffect(true) {
-                query {
+                withContext(Dispatchers.IO) {
                     liked = Database.favoritesDao().isLiked(wallpaper.imgSrc)
                 }
             }
@@ -96,12 +99,14 @@ fun WallpaperGrid(
                             .clip(CircleShape)
                             .background(MaterialTheme.colorScheme.primaryContainer)
                     ) {
+                        val scope = rememberCoroutineScope()
+
                         ButtonWithIcon(
                             modifier = Modifier,
                             if (liked) Icons.Default.Favorite else Icons.Default.FavoriteBorder
                         ) {
                             liked = !liked
-                            query {
+                            scope.launch(Dispatchers.IO) {
                                 if (!liked) {
                                     Database.favoritesDao().removeFromFavorites(wallpaper)
                                 } else {

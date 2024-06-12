@@ -8,7 +8,6 @@ import com.bnyro.wallpaper.db.DatabaseHolder
 import com.bnyro.wallpaper.db.obj.Wallpaper
 import com.bnyro.wallpaper.obj.WallpaperConfig
 import com.bnyro.wallpaper.enums.WallpaperSource
-import com.bnyro.wallpaper.ext.awaitQuery
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.withContext
 
@@ -66,7 +65,7 @@ class BackgroundWorker(
     }
 
     private suspend fun getFavoritesWallpaper(): Bitmap? {
-        val favoriteUrl = awaitQuery {
+        val favoriteUrl = withContext(Dispatchers.IO) {
             DatabaseHolder.Database.favoritesDao().getFavorites()
         }.randomOrNull()?.imgSrc
         return ImageHelper.getSuspend(applicationContext, favoriteUrl, true)

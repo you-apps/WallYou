@@ -20,6 +20,7 @@ import androidx.compose.runtime.MutableState
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
+import androidx.compose.runtime.rememberCoroutineScope
 import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
@@ -38,7 +39,6 @@ import com.bnyro.wallpaper.R
 import com.bnyro.wallpaper.db.DatabaseHolder.Database
 import com.bnyro.wallpaper.db.obj.Wallpaper
 import com.bnyro.wallpaper.enums.MultiState
-import com.bnyro.wallpaper.ext.query
 import com.bnyro.wallpaper.ui.components.bottombar.BottomBar
 import com.bnyro.wallpaper.ui.components.bottombar.WallpaperViewTopBar
 import com.bnyro.wallpaper.ui.components.dialogs.MultiStateDialog
@@ -47,6 +47,9 @@ import com.bnyro.wallpaper.ui.models.WallpaperHelperModel
 import com.bnyro.wallpaper.ext.rememberZoomState
 import com.bnyro.wallpaper.ext.zoomArea
 import com.bnyro.wallpaper.ext.zoomImage
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.launch
+import kotlinx.coroutines.withContext
 import java.time.Instant
 
 @Composable
@@ -62,7 +65,7 @@ fun WallpaperView(
     var showModeSelection by remember { mutableStateOf(false) }
     var liked by remember { mutableStateOf(false) }
     LaunchedEffect(true) {
-        query {
+        withContext(Dispatchers.IO) {
             liked = Database.favoritesDao().isLiked(wallpaper.imgSrc)
         }
     }
@@ -139,6 +142,8 @@ fun WallpaperView(
                     .align(Alignment.BottomCenter),
                 horizontalAlignment = Alignment.CenterHorizontally
             ) {
+                val scope = rememberCoroutineScope()
+
                 AnimatedVisibility(
                     visible = showUi
                 ) {
@@ -161,7 +166,7 @@ fun WallpaperView(
                         },
                         onClickFavourite = {
                             liked = !liked
-                            query {
+                            scope.launch(Dispatchers.IO) {
                                 if (!liked) {
                                     Database.favoritesDao().removeFromFavorites(wallpaper)
                                 } else {

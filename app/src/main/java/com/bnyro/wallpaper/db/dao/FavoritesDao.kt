@@ -11,10 +11,10 @@ import kotlinx.coroutines.flow.Flow
 @Dao
 interface FavoritesDao {
     @Query("SELECT * FROM favorites")
-    fun getAll(): List<Wallpaper>
+    suspend fun getAll(): List<Wallpaper>
 
     @Query("SELECT * FROM favorites WHERE favorite = 1")
-    fun getFavorites(): List<Wallpaper>
+    suspend fun getFavorites(): List<Wallpaper>
 
     @Query("SELECT * FROM favorites WHERE favorite = 1 ORDER BY timeAdded DESC")
     fun getFavoritesFlow(): Flow<List<Wallpaper>>
@@ -23,18 +23,18 @@ interface FavoritesDao {
     fun getHistoryFlow(): Flow<List<Wallpaper>>
 
     @Query("SELECT EXISTS (SELECT 1 FROM favorites WHERE favorite = 1 AND imgSrc = :imgSrc)")
-    fun isLiked(imgSrc: String): Boolean
+    suspend fun isLiked(imgSrc: String): Boolean
 
     @Query("SELECT * FROM favorites WHERE imgSrc = :imgSrc")
-    fun findByImgSrc(imgSrc: String): Wallpaper?
+    suspend fun findByImgSrc(imgSrc: String): Wallpaper?
 
     /**
      * Do not use this method directly unless when restoring backups
      */
     @Insert(onConflict = OnConflictStrategy.REPLACE)
-    fun insertAll(wallpapers: List<Wallpaper>)
+    suspend fun insertAll(wallpapers: List<Wallpaper>)
 
-    fun insert(wallpaper: Wallpaper, isFavorite: Boolean?, isHistory: Boolean?) {
+    suspend fun insert(wallpaper: Wallpaper, isFavorite: Boolean?, isHistory: Boolean?) {
         val existingWallpaper = findByImgSrc(wallpaper.imgSrc)
 
         wallpaper.favorite = isFavorite ?: existingWallpaper?.favorite ?: false
@@ -49,14 +49,14 @@ interface FavoritesDao {
     }
 
     @Update
-    fun updateWallpaper(wallpaper: Wallpaper)
+    suspend fun updateWallpaper(wallpaper: Wallpaper)
 
-    fun removeFromFavorites(wallpaper: Wallpaper) {
+    suspend fun removeFromFavorites(wallpaper: Wallpaper) {
         insertAll(listOf(wallpaper.copy(favorite = false)))
 
         cleanup()
     }
 
     @Query("DELETE FROM favorites WHERE favorite = 0 and inHistory = 0")
-    fun cleanup()
+    suspend fun cleanup()
 }
