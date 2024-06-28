@@ -85,4 +85,7 @@
     <string name="unmetered">Andmemahu piiranguta võrgud</string>
     <string name="not_roaming">Ära kasuta rändluses</string>
     <string name="apply_image_filters">Kasuta pildifiltreid</string>
+    <string name="no_history">Ajalugu pole veel salvestunud</string>
+    <string name="history">Ajalugu</string>
+    <string name="wallpaper_history">Taustapiltide ajalugu</string>
 </resources>
