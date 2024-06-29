@@ -95,4 +95,7 @@
     <string name="all_networks">Todas las redes</string>
     <string name="unmetered">Sin límite</string>
     <string name="apply_image_filters">Aplicar filtros de imagen</string>
+    <string name="history">Historial</string>
+    <string name="wallpaper_history">Historial de fondos de pantalla</string>
+    <string name="no_history">Sin historial aún</string>
 </resources>
