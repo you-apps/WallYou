@@ -96,4 +96,7 @@
     <string name="image_url">URL слике</string>
     <string name="not_roaming">Ван роминга</string>
     <string name="apply_image_filters">Примени филтере слика</string>
+    <string name="history">Историја</string>
+    <string name="no_history">Још нема историје</string>
+    <string name="wallpaper_history">Историја позадина</string>
 </resources>
