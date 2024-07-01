@@ -94,4 +94,7 @@
     <string name="image_url">Ссылка на изображение</string>
     <string name="all_networks">Любое</string>
     <string name="apply_image_filters">Применить фильтры</string>
+    <string name="history">История</string>
+    <string name="wallpaper_history">История обоев</string>
+    <string name="no_history">Пока ничего нет</string>
 </resources>
