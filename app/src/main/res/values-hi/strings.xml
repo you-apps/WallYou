@@ -85,4 +85,7 @@
     <string name="metered">मीटर किया गया</string>
     <string name="not_roaming">रोमिंग नहीं</string>
     <string name="apply_image_filters">छवि फिल्टर लागू करें</string>
+    <string name="wallpaper_history">वॉलपेपर का इतिहास</string>
+    <string name="no_history">अभी तक कोई इतिहास नहीं</string>
+    <string name="history">इतिहास</string>
 </resources>
