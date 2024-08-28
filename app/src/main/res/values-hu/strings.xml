@@ -5,7 +5,7 @@
     <string name="settings">Beállítások</string>
     <string name="info">Információ</string>
     <string name="filter">Szűrő</string>
-    <string name="add">Hozzáad</string>
+    <string name="add">Hozzáadás</string>
     <string name="community_name">Közösség neve</string>
     <string name="set_wallpaper">Háttérkép beállítása</string>
     <string name="download">Letöltés</string>
@@ -27,7 +27,7 @@
     <string name="applying_wallpaper">Háttérkép alkalmazása</string>
     <string name="dismiss">Elvetés</string>
     <string name="favorites">Kedvencek</string>
-    <string name="history">Előzmény</string>
+    <string name="history">Előzmények</string>
     <string name="author">Szerző</string>
     <string name="resolution">Felbontás</string>
     <string name="category">Kategória</string>
@@ -52,15 +52,15 @@
     <string name="metered">Mért</string>
     <string name="apply_image_filters">Képszűrők alkalmazása</string>
     <string name="combine_wallpaper_changers">Kombinált háttérképváltó</string>
-    <string name="combine_wallpaper_changers_summary">Használja ugyanazt a háttérképet a kezdőképernyőre és a záróképernyőre.</string>
+    <string name="combine_wallpaper_changers_summary">Használja ugyanazt a háttérképet a kezdőképernyőnek és a záróképernyőnek.</string>
     <string name="import_export">Importálás és exportálás</string>
     <string name="success">Sikeres!</string>
     <string name="website">Weboldal</string>
     <string name="invert_wallpaper_by_theme_summary">Háttérkép megfordítása, hogy sötét témákon sötét, világos témákon pedig világos legyen.</string>
     <string name="unmetered">Nem mért</string>
     <string name="all_networks">Minden hálózat</string>
-    <string name="network_type">Hálózat típusa</string>
-    <string name="not_roaming">Nincs barangolás</string>
+    <string name="network_type">Hálózattípus</string>
+    <string name="not_roaming">Barangolás nélküli</string>
     <string name="local">Helyi</string>
     <string name="directories">Könyvtárak</string>
     <string name="online">Online</string>
@@ -70,7 +70,7 @@
     <string name="theme_dark">Sötét</string>
     <string name="theme_system">Rendszer</string>
     <string name="no_favorites">Még nincsenek kedvencek</string>
-    <string name="no_history">Még nincs előzmény</string>
+    <string name="no_history">Még nincsenek előzmények</string>
     <string name="version">Verzió</string>
     <string name="auto_add_to_favorites">Hozzáadás a kedvencekhez alkalmazáskor</string>
     <string name="license">Licenc</string>
