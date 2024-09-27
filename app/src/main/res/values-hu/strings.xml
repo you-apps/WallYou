@@ -39,7 +39,7 @@
     <string name="both">Mindkettő</string>
     <string name="grayscale">Szürkeárnyalatos</string>
     <string name="contrast">Kontraszt</string>
-    <string name="image_url">Kép URL-címe</string>
+    <string name="image_url">Kép webcíme</string>
     <string name="reset">Visszaállítás</string>
     <string name="lockscreen">Zárolási képernyő</string>
     <string name="fit_width">Illeszkedés szélességhez</string>
