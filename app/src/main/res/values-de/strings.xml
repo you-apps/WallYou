@@ -83,4 +83,9 @@
     <string name="all_networks">Alle Netzwerke</string>
     <string name="not_roaming">Kein Roaming</string>
     <string name="apply_image_filters">Bildfilter anwenden</string>
+    <string name="history">Verlauf</string>
+    <string name="unmetered">Unbegrenzt</string>
+    <string name="metered">Begrenzt</string>
+    <string name="no_history">Bisher kein Verfauf</string>
+    <string name="wallpaper_history">Hintergrundbild-Verlauf</string>
 </resources>

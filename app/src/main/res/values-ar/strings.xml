@@ -85,4 +85,7 @@
     <string name="all_networks">جميع الشبكات</string>
     <string name="metered">مقننة</string>
     <string name="apply_image_filters">تطبيق مرشحات الصور</string>
+    <string name="history">السجل</string>
+    <string name="no_history">لا يوجد سجل حتى الان</string>
+    <string name="wallpaper_history">سجل الخلفيات</string>
 </resources>

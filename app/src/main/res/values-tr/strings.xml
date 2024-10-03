@@ -85,4 +85,7 @@
     <string name="metered">Kotalı</string>
     <string name="not_roaming">Dolaşımda değil</string>
     <string name="apply_image_filters">Resim filtreleri uygula</string>
+    <string name="history">Geçmiş</string>
+    <string name="wallpaper_history">Duvar kağıdı geçmişi</string>
+    <string name="no_history">Henüz geçmiş yok</string>
 </resources>

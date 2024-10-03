@@ -94,4 +94,7 @@
     <string name="image_url">URL зображення</string>
     <string name="all_networks">Всі мережі</string>
     <string name="apply_image_filters">Застосувати фільтри зображень</string>
+    <string name="history">Історія</string>
+    <string name="no_history">Історії ще немає</string>
+    <string name="wallpaper_history">Історія шпалер</string>
 </resources>

@@ -9,7 +9,7 @@
     <string name="filter">Filtre</string>
     <string name="add">Ajouter</string>
     <!-- Info Dialog -->
-    <string name="author">Auteur</string>
+    <string name="author">Auteurs</string>
     <string name="resolution">Résolution</string>
     <string name="category">Catégorie</string>
     <string name="fileSize">Taille du fichier</string>
@@ -44,7 +44,7 @@
     <string name="auto_add_to_favorites">Ajouter aux favoris lors de l\'application</string>
     <string name="applying_random">Application d\'un fond d\'écran aléatoire</string>
     <string name="choose_dir">Choisir un répertoire</string>
-    <string name="wallpaper_changer_source">Source du wallpaper</string>
+    <string name="wallpaper_changer_source">Source du fond d\'écran</string>
     <string name="online">En ligne</string>
     <string name="local">Local</string>
     <string name="directories">Répertoires</string>
@@ -69,4 +69,32 @@
     <string name="export_favorites">Exporter les favoris</string>
     <string name="invert_wallpaper_by_theme">Inverser le fond d\'écran par thème</string>
     <string name="invert_wallpaper_by_theme_summary">Inverser le fond d\'écran pour qu\'il soit sombre sur les thèmes sombres et clair sur les thèmes clairs.</string>
+    <string name="set_as">Définir comme</string>
+    <string name="details">Détails</string>
+    <string name="label">Étiquette</string>
+    <string name="error">Erreur</string>
+    <string name="done">Ok</string>
+    <string name="history">Historique</string>
+    <string name="image_url">URL de l\'image</string>
+    <string name="no_history">Pas d\'historique pour le moment</string>
+    <string name="wallpaper_history">Historique du fond d\'écran</string>
+    <string name="set_with">Définir avec…</string>
+    <string name="go_back">Retour</string>
+    <string name="image_info">Infos sur l\'image</string>
+    <string name="network_type">Type de réseau</string>
+    <string name="all_networks">Tous types de réseaux</string>
+    <string name="unmetered">Non compté</string>
+    <string name="metered">Compté</string>
+    <string name="not_roaming">Pas d\'itinérance</string>
+    <string name="save">Enregistrer</string>
+    <string name="edit">Modifier</string>
+    <string name="favorite">Favori</string>
+    <string name="dismiss">Annuler</string>
+    <string name="applying_wallpaper">Appliquer le fond d\'écran</string>
+    <string name="preview_invert_effect">Prévisualiser l\'effet d\'inversion</string>
+    <string name="apply_image_filters">Appliquer les filtres</string>
+    <string name="apply">Appliquer</string>
+    <string name="colors">Couleurs</string>
+    <string name="wallpaper">Fond d\'écran</string>
+    <string name="saving_wallpaper">Enregistrer le fond d\'écran</string>
 </resources>

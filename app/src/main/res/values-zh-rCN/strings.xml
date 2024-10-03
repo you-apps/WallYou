@@ -94,4 +94,7 @@
     <string name="all_networks">所有网络</string>
     <string name="not_roaming">非漫游网络</string>
     <string name="apply_image_filters">应用图像筛选器</string>
+    <string name="no_history">尚无历史</string>
+    <string name="wallpaper_history">壁纸历史</string>
+    <string name="history">历史记录</string>
 </resources>

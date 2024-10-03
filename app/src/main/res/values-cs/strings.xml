@@ -85,4 +85,7 @@
     <string name="metered">Měřené</string>
     <string name="not_roaming">Bez roamingu</string>
     <string name="apply_image_filters">Použít filtry obrázků</string>
+    <string name="history">Historie</string>
+    <string name="no_history">Zatím žádná historie</string>
+    <string name="wallpaper_history">Historie tapet</string>
 </resources>
