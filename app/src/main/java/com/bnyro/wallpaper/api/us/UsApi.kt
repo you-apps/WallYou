@@ -1,5 +1,7 @@
 package com.bnyro.wallpaper.api.us
 
+import androidx.compose.material.icons.Icons
+import androidx.compose.material.icons.filled.WaterDrop
 import com.bnyro.wallpaper.api.Api
 import com.bnyro.wallpaper.db.obj.Wallpaper
 import com.bnyro.wallpaper.util.RetrofitHelper
@@ -7,6 +9,8 @@ import com.bnyro.wallpaper.util.RetrofitHelper
 class UsApi() : Api() {
     override val name: String = "Unsplash"
     override val baseUrl: String = "https://unsplash.com"
+    override val icon = Icons.Default.WaterDrop
+
     override val filters: Map<String, List<String>> = mapOf(
         "order_by" to listOf("latest", "oldest", "popular")
     )

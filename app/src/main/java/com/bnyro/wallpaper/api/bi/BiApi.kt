@@ -1,5 +1,7 @@
 package com.bnyro.wallpaper.api.bi
 
+import androidx.compose.material.icons.Icons
+import androidx.compose.material.icons.filled.Nightlight
 import com.bnyro.wallpaper.api.Api
 import com.bnyro.wallpaper.db.obj.Wallpaper
 import com.bnyro.wallpaper.util.RetrofitHelper
@@ -7,6 +9,8 @@ import com.bnyro.wallpaper.util.RetrofitHelper
 class BiApi : Api() {
     override val name: String = "Bing"
     override val baseUrl: String = "https://www.bing.com"
+    override val icon = Icons.Default.Nightlight
+
     override val filters: Map<String, List<String>> = mapOf(
         "resolution" to listOf("1080x1920", "768x1366", "1366x768", "1920x1080", "UHD")
     )

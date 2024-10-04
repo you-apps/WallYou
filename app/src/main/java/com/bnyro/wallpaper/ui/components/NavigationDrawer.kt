@@ -42,6 +42,7 @@ import androidx.navigation.NavController
 import com.bnyro.wallpaper.R
 import com.bnyro.wallpaper.ui.models.MainModel
 import com.bnyro.wallpaper.ui.nav.DrawerScreens
+import com.bnyro.wallpaper.util.str
 import kotlinx.coroutines.launch
 
 @OptIn(ExperimentalMaterial3Api::class)
@@ -101,7 +102,7 @@ fun NavigationDrawer(
                             Icon(screen.icon, null)
                         },
                         label = {
-                            Text(stringResource(screen.titleResource))
+                            Text(screen.title.str())
                         },
                         selected = screen == viewModel.currentDestination,
                         onClick = {

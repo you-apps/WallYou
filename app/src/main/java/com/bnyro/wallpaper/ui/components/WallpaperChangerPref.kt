@@ -36,6 +36,7 @@ import com.bnyro.wallpaper.ui.components.prefs.ListPreference
 import com.bnyro.wallpaper.ui.components.prefs.SettingsCategory
 import com.bnyro.wallpaper.ui.nav.DrawerScreens
 import com.bnyro.wallpaper.util.PickFolderContract
+import com.bnyro.wallpaper.util.str
 
 @Composable
 fun WallpaperChangerPref(config: WallpaperConfig, onChange: (WallpaperConfig) -> Unit) {
@@ -86,7 +87,7 @@ fun WallpaperChangerPref(config: WallpaperConfig, onChange: (WallpaperConfig) ->
                 }
                 MultiSelectionBlockPreference(
                     preferenceKey = null,
-                    entries = DrawerScreens.apiScreens.map { stringResource(it.titleResource) },
+                    entries = DrawerScreens.apiScreens.map { it.title.str() },
                     values = DrawerScreens.apiScreens.map { it.route },
                     defaultSelections = currentSelections
                 ) { selections ->

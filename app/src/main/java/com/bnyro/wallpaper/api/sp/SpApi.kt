@@ -1,5 +1,7 @@
 package com.bnyro.wallpaper.api.sp
 
+import androidx.compose.material.icons.Icons
+import androidx.compose.material.icons.filled.LightMode
 import com.bnyro.wallpaper.api.Api
 import com.bnyro.wallpaper.api.sp.obj.SpotlightImage
 import com.bnyro.wallpaper.db.obj.Wallpaper
@@ -10,8 +12,10 @@ import java.util.Locale
 // Credits to https://github.com/ORelio/Spotlight-Downloader/blob/master/SpotlightAPI.md
 
 class SpApi: Api() {
-    override val name = "Windows Spotlight"
+    override val name = "Spotlight"
     override val baseUrl = "https://fd.api.iris.microsoft.com"
+    override val icon = Icons.Default.LightMode
+
     override val filters: Map<String, List<String>> = mapOf(
         "country" to listOf("US") + Locale.getISOCountries().toList().filter { it != "US" }.sorted()
     )

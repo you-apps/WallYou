@@ -1,14 +1,18 @@
 package com.bnyro.wallpaper.api
 
+import androidx.compose.ui.graphics.vector.ImageVector
 import com.bnyro.wallpaper.db.obj.Wallpaper
 import com.bnyro.wallpaper.util.Preferences
 
 abstract class Api {
     abstract val name: String
+    abstract val icon: ImageVector
     abstract val baseUrl: String
+
     open val filters: Map<String, List<String>> = mapOf()
     open val supportsTags: Boolean = false
 
+    val route get() = name.replace(" ", "_").lowercase()
     private val tagsKey get() = name + "tags"
 
     abstract suspend fun getWallpapers(page: Int): List<Wallpaper>

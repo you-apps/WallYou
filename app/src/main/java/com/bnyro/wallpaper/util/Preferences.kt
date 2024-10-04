@@ -46,17 +46,7 @@ object Preferences {
         preferences.edit().apply(action).apply()
     }
 
-    fun getApiByRoute(route: String) = when (route) {
-        DrawerScreens.Picsum.route -> App.psApi
-        DrawerScreens.OWalls.route -> App.owApi
-        DrawerScreens.Unsplash.route -> App.usApi
-        DrawerScreens.BingDaily.route -> App.biApi
-        DrawerScreens.Reddit.route -> App.reApi
-        DrawerScreens.Lemmy.route -> App.leApi
-        DrawerScreens.Pixel.route -> App.pxApi
-        DrawerScreens.Spotlight.route -> App.spApi
-        else -> App.whApi
-    }
+    fun getApiByRoute(route: String) = App.apis.firstOrNull { it.route == route } ?: App.apis.first()
 
     fun setWallpaperConfigs(configs: List<WallpaperConfig>) {
         edit { putString(wallpaperChangerConfigKey, RetrofitHelper.json.encodeToString(configs)) }

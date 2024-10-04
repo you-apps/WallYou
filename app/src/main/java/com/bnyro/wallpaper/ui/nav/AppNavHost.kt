@@ -6,7 +6,7 @@ import androidx.navigation.NavHostController
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
-import com.bnyro.wallpaper.R
+import com.bnyro.wallpaper.App
 import com.bnyro.wallpaper.ui.models.MainModel
 import com.bnyro.wallpaper.ui.pages.AboutPage
 import com.bnyro.wallpaper.ui.pages.FavoritesPage
@@ -19,7 +19,7 @@ import com.bnyro.wallpaper.util.Preferences
 fun AppNavHost(
     modifier: Modifier = Modifier,
     navController: NavHostController = rememberNavController(),
-    startDestination: String = DrawerScreens.Wallhaven.route,
+    startDestination: String = App.apis.first().route,
     viewModel: MainModel
 ) {
     NavHost(
@@ -29,25 +29,25 @@ fun AppNavHost(
     ) {
         DrawerScreens.apiScreens.forEach { screen ->
             composable(screen.route) {
-                viewModel.titleResource = screen.titleResource
+                viewModel.titleResource = screen.title
                 viewModel.api = Preferences.getApiByRoute(screen.route)
                 WallpaperPage(viewModel)
             }
         }
-        composable(DrawerScreens.Favorites.route) {
-            viewModel.titleResource = R.string.favorites
+        composable(DrawerScreens.Companion.Favorites.route) {
+            viewModel.titleResource = DrawerScreens.Companion.Favorites.title
             FavoritesPage(viewModel)
         }
-        composable(DrawerScreens.History.route) {
-            viewModel.titleResource = DrawerScreens.History.titleResource
+        composable(DrawerScreens.Companion.History.route) {
+            viewModel.titleResource = DrawerScreens.Companion.History.title
             HistoryPage(viewModel)
         }
-        composable(DrawerScreens.Settings.route) {
-            viewModel.titleResource = R.string.settings
+        composable(DrawerScreens.Companion.Settings.route) {
+            viewModel.titleResource = DrawerScreens.Companion.Settings.title
             SettingsPage(viewModel)
         }
-        composable(DrawerScreens.About.route) {
-            viewModel.titleResource = R.string.about
+        composable(DrawerScreens.Companion.About.route) {
+            viewModel.titleResource = DrawerScreens.Companion.About.title
             AboutPage()
         }
     }

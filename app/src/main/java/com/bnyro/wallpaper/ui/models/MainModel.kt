@@ -7,11 +7,13 @@ import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.setValue
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
+import com.bnyro.wallpaper.App
 import com.bnyro.wallpaper.R
 import com.bnyro.wallpaper.db.DatabaseHolder
 import com.bnyro.wallpaper.db.obj.Wallpaper
 import com.bnyro.wallpaper.enums.ThemeMode
 import com.bnyro.wallpaper.ui.nav.DrawerScreens
+import com.bnyro.wallpaper.util.Either
 import com.bnyro.wallpaper.util.Preferences
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.flow.SharingStarted
@@ -27,8 +29,8 @@ class MainModel : ViewModel() {
     ).toInt()
     var themeMode by mutableStateOf(ThemeMode.values()[themeModeIndex])
 
-    var currentDestination: DrawerScreens by mutableStateOf(DrawerScreens.Wallhaven)
-    var api = Preferences.getApiByRoute(DrawerScreens.Wallhaven.route)
+    var currentDestination: DrawerScreens by mutableStateOf(DrawerScreens.apiScreens.first())
+    var api = App.apis.first()
 
     var wallpapers by mutableStateOf(
         listOf<Wallpaper>()
@@ -48,7 +50,7 @@ class MainModel : ViewModel() {
             initialValue = listOf()
         )
 
-    var titleResource by mutableIntStateOf(R.string.app_name)
+    var titleResource by mutableStateOf<Either<Int, String>>(Either.Left(R.string.app_name))
 
     var page: Int = 1
 

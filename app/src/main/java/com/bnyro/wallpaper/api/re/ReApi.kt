@@ -1,5 +1,7 @@
 package com.bnyro.wallpaper.api.re
 
+import androidx.compose.material.icons.Icons
+import androidx.compose.material.icons.filled.Forum
 import com.bnyro.wallpaper.api.CommunityApi
 import com.bnyro.wallpaper.db.obj.Wallpaper
 import com.bnyro.wallpaper.util.RetrofitHelper
@@ -7,6 +9,8 @@ import com.bnyro.wallpaper.util.RetrofitHelper
 class ReApi : CommunityApi() {
     override val name = "Reddit"
     override val baseUrl = "https://www.reddit.com/"
+    override val icon = Icons.Default.Forum
+
     override val filters: Map<String, List<String>> = mapOf(
         "sort" to listOf("top", "new", "hot", "rising"),
         "time" to listOf("month", "year", "hour", "day", "week")

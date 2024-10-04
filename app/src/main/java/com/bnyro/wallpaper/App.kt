@@ -44,16 +44,9 @@ class App : Application(), ImageLoaderFactory {
             )
             .build()
     }
-    
+
     companion object {
-        val psApi = PsApi()
-        val owApi = OwApi()
-        val usApi = UsApi()
-        val biApi = BiApi()
-        val reApi = ReApi()
-        val leApi = LeApi()
-        val whApi = WhApi()
-        val pxApi = PxApi()
-        val spApi = SpApi()
+        val apis =
+            listOf(WhApi(), OwApi(), UsApi(), BiApi(), ReApi(), LeApi(), PxApi(), SpApi(), PsApi())
     }
 }

@@ -1,5 +1,7 @@
 package com.bnyro.wallpaper.api.px
 
+import androidx.compose.material.icons.Icons
+import androidx.compose.material.icons.filled.Pix
 import com.bnyro.wallpaper.api.Api
 import com.bnyro.wallpaper.db.obj.Wallpaper
 import com.bnyro.wallpaper.util.RetrofitHelper
@@ -7,6 +9,8 @@ import com.bnyro.wallpaper.util.RetrofitHelper
 class PxApi : Api() {
     override val name: String = "Google Pixel"
     override val baseUrl: String = "https://api.github.com"
+    override val icon = Icons.Default.Pix
+
     private val api = RetrofitHelper.create(baseUrl, Pixel::class.java)
     private val imgSrcPrefix = "https://raw.githubusercontent.com/wacko1805/Pixel-Wallpapers/main/"
 

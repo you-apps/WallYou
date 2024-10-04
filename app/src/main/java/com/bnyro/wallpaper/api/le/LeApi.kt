@@ -1,12 +1,16 @@
 package com.bnyro.wallpaper.api.le
 
+import androidx.compose.material.icons.Icons
+import androidx.compose.material.icons.filled.Book
 import com.bnyro.wallpaper.api.CommunityApi
 import com.bnyro.wallpaper.db.obj.Wallpaper
 import com.bnyro.wallpaper.util.RetrofitHelper
 
 class LeApi : CommunityApi() {
-    override val name: String = "Lemmy"
-    override val baseUrl: String = "https://lemmy.ml"
+    override val name = "Lemmy"
+    override val baseUrl = "https://lemmy.ml"
+    override val icon = Icons.Default.Book
+
     override val filters: Map<String, List<String>> = mapOf(
         "sort" to listOf(
             "Active",

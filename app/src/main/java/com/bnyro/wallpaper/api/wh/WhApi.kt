@@ -1,5 +1,7 @@
 package com.bnyro.wallpaper.api.wh
 
+import androidx.compose.material.icons.Icons
+import androidx.compose.material.icons.filled.Landscape
 import com.bnyro.wallpaper.api.Api
 import com.bnyro.wallpaper.db.obj.Wallpaper
 import com.bnyro.wallpaper.util.RetrofitHelper
@@ -7,6 +9,8 @@ import com.bnyro.wallpaper.util.RetrofitHelper
 class WhApi : Api() {
     override val name: String = "Wallhaven"
     override val baseUrl: String = "https://wallhaven.cc/api/v1/"
+    override val icon = Icons.Default.Landscape
+
     override val filters: Map<String, List<String>> = mapOf(
         "ratios" to listOf("portrait", "landscape"),
         "categories" to listOf("general", "anime", "people", "all"),

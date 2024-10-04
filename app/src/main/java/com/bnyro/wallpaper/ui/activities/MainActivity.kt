@@ -29,7 +29,9 @@ import com.bnyro.wallpaper.ui.models.MainModel
 import com.bnyro.wallpaper.ui.nav.AppNavHost
 import com.bnyro.wallpaper.ui.nav.DrawerScreens
 import com.bnyro.wallpaper.ui.theme.WallYouTheme
+import com.bnyro.wallpaper.util.Either
 import com.bnyro.wallpaper.util.Preferences
+import com.bnyro.wallpaper.util.str
 import kotlinx.coroutines.launch
 
 class MainActivity : BaseActivity() {
@@ -82,7 +84,7 @@ private fun MainContent(
                 TopAppBar(
                     title = {
                         Text(
-                            stringResource(viewModel.titleResource)
+                            text = viewModel.titleResource.str()
                         )
                     },
                     navigationIcon = {

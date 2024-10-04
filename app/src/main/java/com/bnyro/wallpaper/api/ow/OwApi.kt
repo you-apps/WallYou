@@ -1,5 +1,7 @@
 package com.bnyro.wallpaper.api.ow
 
+import androidx.compose.material.icons.Icons
+import androidx.compose.material.icons.filled.Air
 import com.bnyro.wallpaper.api.Api
 import com.bnyro.wallpaper.db.obj.Wallpaper
 import com.bnyro.wallpaper.util.RetrofitHelper
@@ -7,8 +9,10 @@ import kotlinx.serialization.json.jsonObject
 import kotlinx.serialization.json.jsonPrimitive
 
 class OwApi : Api() {
-    override val name: String = "OWalls"
-    override val baseUrl: String = "https://gist.github.com/"
+    override val name = "OWalls"
+    override val baseUrl = "https://gist.github.com/"
+    override val icon = Icons.Default.Air
+
     override val filters: Map<String, List<String>> = mapOf(
         "style" to listOf("all", "light", "dark")
     )

@@ -1,5 +1,7 @@
 package com.bnyro.wallpaper.api.ps
 
+import androidx.compose.material.icons.Icons
+import androidx.compose.material.icons.filled.Pix
 import com.bnyro.wallpaper.api.Api
 import com.bnyro.wallpaper.db.obj.Wallpaper
 import com.bnyro.wallpaper.util.RetrofitHelper
@@ -7,6 +9,7 @@ import com.bnyro.wallpaper.util.RetrofitHelper
 class PsApi : Api() {
     override val name: String = "Picsum"
     override val baseUrl: String = "https://picsum.photos"
+    override val icon = Icons.Default.Pix
 
     private val api = RetrofitHelper.create(baseUrl, Picsum::class.java)
 
