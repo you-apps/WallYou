@@ -9,6 +9,7 @@
     <string name="reddit" translatable="false">Reddit</string>
     <string name="lemmy" translatable="false">Lemmy</string>
     <string name="pixel" translatable="false">Google Pixel</string>
+    <string name="spotlight" translatable="false">Spotlight</string>
     <!-- Navigation Drawer -->
     <string name="favorites">Favorites</string>
     <string name="history">History</string>

@@ -8,6 +8,7 @@ import androidx.compose.material.icons.filled.Forum
 import androidx.compose.material.icons.filled.History
 import androidx.compose.material.icons.filled.Info
 import androidx.compose.material.icons.filled.Landscape
+import androidx.compose.material.icons.filled.LightMode
 import androidx.compose.material.icons.filled.Nightlight
 import androidx.compose.material.icons.filled.Pix
 import androidx.compose.material.icons.filled.Settings
@@ -32,6 +33,7 @@ sealed class DrawerScreens(
     object Reddit : DrawerScreens(R.string.reddit, "redd", Icons.Default.Forum)
     object Lemmy : DrawerScreens(R.string.lemmy, "le", Icons.Default.Book)
     object Pixel : DrawerScreens(R.string.pixel, "px", Icons.Default.Pix)
+    object Spotlight : DrawerScreens(R.string.spotlight, "sp", Icons.Default.LightMode)
     object Favorites : DrawerScreens(R.string.favorites, "favorites", Icons.Default.Favorite, true)
     object History : DrawerScreens(R.string.history, "history", Icons.Default.History)
     object Settings : DrawerScreens(R.string.settings, "settings", Icons.Default.Settings, true)
@@ -47,7 +49,8 @@ sealed class DrawerScreens(
                 BingDaily,
                 Reddit,
                 Lemmy,
-                Pixel
+                Pixel,
+                Spotlight
             )
         }
         val screens by lazy {

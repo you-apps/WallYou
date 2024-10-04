@@ -10,6 +10,7 @@ import com.bnyro.wallpaper.api.ow.OwApi
 import com.bnyro.wallpaper.api.ps.PsApi
 import com.bnyro.wallpaper.api.px.PxApi
 import com.bnyro.wallpaper.api.re.ReApi
+import com.bnyro.wallpaper.api.sp.SpApi
 import com.bnyro.wallpaper.api.us.UsApi
 import com.bnyro.wallpaper.api.wh.WhApi
 import com.bnyro.wallpaper.db.DatabaseHolder
@@ -53,5 +54,6 @@ class App : Application(), ImageLoaderFactory {
         val leApi = LeApi()
         val whApi = WhApi()
         val pxApi = PxApi()
+        val spApi = SpApi()
     }
 }
