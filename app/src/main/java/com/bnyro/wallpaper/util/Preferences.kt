@@ -24,7 +24,7 @@ object Preferences {
     const val wallpaperChangerKey = "wallpaperChanger"
     const val wallpaperChangerIntervalKey = "wallpaperChangerInterval"
     const val wallpaperChangerNetworkTypeKey = "wallpaperChangerNetworkType"
-    private const val wallpaperChangerConfigKey = "wallpaperChangerConfig"
+    private const val wallpaperChangerConfigKey = "wallpaperChangerConfiguration"
     const val combineWallpaperChangers = "combineWallpaperChangers"
 
     const val defaultDiskCacheSize = 128L * 1024 * 1024
