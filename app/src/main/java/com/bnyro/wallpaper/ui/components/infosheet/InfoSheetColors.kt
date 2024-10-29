@@ -40,7 +40,7 @@ fun InfoSheetColors(
     LaunchedEffect(wallpaper) {
         ImageHelper.urlToBitmap(
             this,
-            wallpaper.thumb,
+            wallpaper.preview,
             context.applicationContext
         ) {
             Palette.from(it).generate { palette ->

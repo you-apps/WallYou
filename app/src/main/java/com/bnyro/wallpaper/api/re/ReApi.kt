@@ -41,8 +41,8 @@ class ReApi : CommunityApi() {
         }?.map {
             with(it.childData) {
                 Wallpaper(
-                    preview?.images?.firstOrNull()?.source?.imgUrl ?: url!!,
-                    it.childData.title,
+                    imgSrc = preview?.images?.firstOrNull()?.source?.imgUrl ?: url!!,
+                    title = it.childData.title,
                     thumb = url,
                     resolution = preview?.images?.firstOrNull()?.source?.let { img -> "${img.width}x${img.height}" }
                 )

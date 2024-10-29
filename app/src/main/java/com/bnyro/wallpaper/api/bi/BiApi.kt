@@ -37,7 +37,8 @@ class BiApi : Api() {
                 // creation date doesn't contain any dividers by default
                 creationDate = it.startDate
                     ?.replaceRange(6, 6, "-")
-                    ?.replaceRange(4, 4, "-")
+                    ?.replaceRange(4, 4, "-"),
+                author = it.copyright
             )
         }
     }

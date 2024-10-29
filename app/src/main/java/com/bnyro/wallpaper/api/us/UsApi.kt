@@ -6,7 +6,7 @@ import com.bnyro.wallpaper.api.Api
 import com.bnyro.wallpaper.db.obj.Wallpaper
 import com.bnyro.wallpaper.util.RetrofitHelper
 
-class UsApi() : Api() {
+class UsApi : Api() {
     override val name: String = "Unsplash"
     override val baseUrl: String = "https://unsplash.com"
     override val icon = Icons.Default.WaterDrop
@@ -32,6 +32,7 @@ class UsApi() : Api() {
         return wallpapers.filter { it.premium != true }.map {
             Wallpaper(
                 imgSrc = it.links.download ?: it.urls?.raw ?: "",
+                description = it.alt_description,
                 author = it.user?.username,
                 url = it.links.html,
                 resolution = "${it.width}x${it.height}",

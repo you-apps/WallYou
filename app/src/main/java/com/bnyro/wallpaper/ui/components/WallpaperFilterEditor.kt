@@ -214,7 +214,7 @@ fun WallpaperFilterEditor(
                     .background(Color.Black)
                     .zoomArea(zoomState)
             ) {
-                val lowRes = rememberAsyncImagePainter(model = wallpaper.thumb ?: wallpaper.imgSrc)
+                val lowRes = rememberAsyncImagePainter(model = wallpaper.preview)
                 val colorMatrix = remember(grayscaleEnabled, invertPreview, contrastValue) {
                     val sat = if (grayscaleEnabled) 0f else 1f
                     val invSat = 1 - sat

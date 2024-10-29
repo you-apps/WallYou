@@ -95,7 +95,7 @@ fun WallpaperView(
             animationSpec = tween(500)
         )
         AsyncImage(
-            model = wallpaper.thumb ?: wallpaper.imgSrc,
+            model = wallpaper.preview,
             contentDescription = null,
             contentScale = ContentScale.FillBounds,
             modifier = Modifier
@@ -109,7 +109,7 @@ fun WallpaperView(
                 .zoomArea(zoomState),
             contentAlignment = Alignment.Center
         ) {
-            val lowRes = rememberAsyncImagePainter(model = wallpaper.thumb ?: wallpaper.imgSrc)
+            val lowRes = rememberAsyncImagePainter(model = wallpaper.preview)
             AsyncImage(
                 model = wallpaper.imgSrc,
                 contentDescription = stringResource(id = R.string.wallpaper),

@@ -7,6 +7,7 @@ import kotlinx.serialization.Serializable
 data class LemmyPost(
     @SerialName("ap_id") val postUrl: String = "",
     @SerialName("name") val name: String = "",
+    @SerialName("body") val body: String? = null,
     @SerialName("published") val published: String = "",
     @SerialName("thumbnail_url") val thumbnailUrl: String? = null,
 )

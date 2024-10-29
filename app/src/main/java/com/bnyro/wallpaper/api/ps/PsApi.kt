@@ -16,7 +16,7 @@ class PsApi : Api() {
     override suspend fun getWallpapers(page: Int): List<Wallpaper> {
         return api.getWallpapers(page).map {
             Wallpaper(
-                imgSrc = it.download_url!!,
+                imgSrc = it.downloadUrl!!,
                 author = it.author,
                 resolution = "${it.width}x${it.height}",
                 url = it.url

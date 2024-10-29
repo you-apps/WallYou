@@ -92,6 +92,7 @@
     <string name="colors">Colors</string>
     <string name="details">Details</string>
     <string name="label">Label</string>
+    <string name="description">Description</string>
     <string name="error">Error</string>
     <string name="done">Done</string>
     <string name="save">Save</string>

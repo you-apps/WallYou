@@ -5,6 +5,7 @@ import androidx.compose.material.icons.filled.Book
 import com.bnyro.wallpaper.api.CommunityApi
 import com.bnyro.wallpaper.db.obj.Wallpaper
 import com.bnyro.wallpaper.util.RetrofitHelper
+import com.bnyro.wallpaper.util.TextUtils
 
 class LeApi : CommunityApi() {
     override val name = "Lemmy"
@@ -51,6 +52,7 @@ class LeApi : CommunityApi() {
                 imgSrc = it.post.thumbnailUrl!!,
                 thumb = "${it.post.thumbnailUrl}?format=jpg&thumbnail=1080",
                 title = it.post.name,
+                description = it.post.body?.let { text -> TextUtils.removeMarkdownSymbols(text) },
                 url = it.post.postUrl,
                 author = it.creator.name,
                 creationDate = it.post.published

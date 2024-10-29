@@ -33,7 +33,8 @@ class SpApi: Api() {
                 title = it.ad.title,
                 imgSrc = it.ad.portraitImage.asset,
                 author = it.ad.copyright,
-                url = it.ad.ctaUri.replaceFirst("microsoft-edge:", "")
+                url = it.ad.ctaUri.replaceFirst("microsoft-edge:", ""),
+                description = it.ad.description
             )
         }
     }

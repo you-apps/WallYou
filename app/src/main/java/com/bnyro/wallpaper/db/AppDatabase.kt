@@ -7,9 +7,10 @@ import com.bnyro.wallpaper.db.dao.FavoritesDao
 import com.bnyro.wallpaper.db.obj.Wallpaper
 
 @Database(
-    version = 2,
+    version = 3,
     autoMigrations = [
-        AutoMigration(1, 2)
+        AutoMigration(1, 2),
+        AutoMigration(2, 3)
     ],
     entities = [
         Wallpaper::class

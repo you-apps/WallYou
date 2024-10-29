@@ -1,7 +1,6 @@
 package com.bnyro.wallpaper.api.sp
 
 import com.bnyro.wallpaper.api.sp.obj.SpotlightImage
-import com.bnyro.wallpaper.api.sp.obj.SpotlightImageItem
 import com.bnyro.wallpaper.api.sp.obj.SpotlightPage
 import retrofit2.http.GET
 import retrofit2.http.Query

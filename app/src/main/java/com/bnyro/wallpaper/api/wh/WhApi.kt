@@ -49,7 +49,6 @@ class WhApi : Api() {
                 fileSize = it.file_size,
                 resolution = it.resolution,
                 thumb = it.thumbs?.original,
-                author = null,
                 creationDate = it.created_at
             )
         }.orEmpty()
