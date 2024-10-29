@@ -6,6 +6,7 @@ import coil.ImageLoaderFactory
 import coil.disk.DiskCache
 import com.bnyro.wallpaper.api.bi.BiApi
 import com.bnyro.wallpaper.api.le.LeApi
+import com.bnyro.wallpaper.api.na.NaApi
 import com.bnyro.wallpaper.api.ow.OwApi
 import com.bnyro.wallpaper.api.ps.PsApi
 import com.bnyro.wallpaper.api.px.PxApi
@@ -47,6 +48,6 @@ class App : Application(), ImageLoaderFactory {
 
     companion object {
         val apis =
-            listOf(WhApi(), OwApi(), UsApi(), BiApi(), ReApi(), LeApi(), PxApi(), SpApi(), PsApi())
+            listOf(WhApi(), OwApi(), UsApi(), BiApi(), ReApi(), LeApi(), PxApi(), SpApi(), NaApi(), PsApi())
     }
 }
