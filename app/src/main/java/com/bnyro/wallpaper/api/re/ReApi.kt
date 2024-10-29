@@ -50,5 +50,5 @@ class ReApi : CommunityApi() {
         }.orEmpty()
     }
 
-    override suspend fun getRandomWallpaperUrl(): String? = getWallpapers(1).randomOrNull()?.url
+    override suspend fun getRandomWallpaperUrl(): String? = getWallpapers(1).randomOrNull()?.imgSrc
 }
