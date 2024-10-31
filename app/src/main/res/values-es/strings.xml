@@ -98,4 +98,5 @@
     <string name="history">Historial</string>
     <string name="wallpaper_history">Historial de fondos de pantalla</string>
     <string name="no_history">Sin historial aún</string>
+    <string name="description">Descripción</string>
 </resources>
