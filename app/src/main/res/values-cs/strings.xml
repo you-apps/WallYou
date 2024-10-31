@@ -88,4 +88,5 @@
     <string name="history">Historie</string>
     <string name="no_history">Zatím žádná historie</string>
     <string name="wallpaper_history">Historie tapet</string>
+    <string name="description">Popis</string>
 </resources>
