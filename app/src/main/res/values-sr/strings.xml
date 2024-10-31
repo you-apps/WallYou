@@ -99,4 +99,5 @@
     <string name="history">Историја</string>
     <string name="no_history">Још нема историје</string>
     <string name="wallpaper_history">Историја позадина</string>
+    <string name="description">Опис</string>
 </resources>
