@@ -88,4 +88,5 @@
     <string name="no_history">Ajalugu pole veel salvestunud</string>
     <string name="history">Ajalugu</string>
     <string name="wallpaper_history">Taustapiltide ajalugu</string>
+    <string name="description">Kirjeldus</string>
 </resources>
