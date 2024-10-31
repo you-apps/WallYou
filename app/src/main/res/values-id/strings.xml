@@ -94,4 +94,7 @@
     <string name="metered">Diukur</string>
     <string name="wallpaper">Wallpaper</string>
     <string name="apply_image_filters">Terapkan penyaring gambar</string>
+    <string name="no_history">Belum ada riwayat</string>
+    <string name="wallpaper_history">Riwayat wallpaper</string>
+    <string name="history">Riwayat</string>
 </resources>
