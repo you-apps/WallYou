@@ -97,4 +97,5 @@
     <string name="no_history">Belum ada riwayat</string>
     <string name="wallpaper_history">Riwayat wallpaper</string>
     <string name="history">Riwayat</string>
+    <string name="description">Deskripsi</string>
 </resources>
