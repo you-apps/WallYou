@@ -97,4 +97,5 @@
     <string name="no_history">尚无历史</string>
     <string name="wallpaper_history">壁纸历史</string>
     <string name="history">历史记录</string>
+    <string name="description">描述</string>
 </resources>
