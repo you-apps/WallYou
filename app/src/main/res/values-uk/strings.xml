@@ -97,4 +97,5 @@
     <string name="history">Історія</string>
     <string name="no_history">Історії ще немає</string>
     <string name="wallpaper_history">Історія шпалер</string>
+    <string name="description">Опис</string>
 </resources>
