@@ -99,7 +99,7 @@ dependencies {
     implementation("io.coil-kt:coil-compose:2.6.0")
 
     // Renderscript
-    implementation(project(":renderscript-toolkit"))
+    implementation("com.github.android:renderscript-intrinsics-replacement-toolkit:344be3f")
 
     // Room
     implementation("androidx.room:room-runtime:2.6.1")
