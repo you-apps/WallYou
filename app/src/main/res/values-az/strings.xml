@@ -88,4 +88,5 @@
     <string name="set_with">Bununla tənzimlə...</string>
     <string name="set_as">Belə təyin et</string>
     <string name="add_to_favorites">Sevimlilərə əlavə edin</string>
+    <string name="description">Açıqlama</string>
 </resources>
