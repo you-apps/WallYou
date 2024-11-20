@@ -88,4 +88,5 @@
     <string name="history">السجل</string>
     <string name="no_history">لا يوجد سجل حتى الان</string>
     <string name="wallpaper_history">سجل الخلفيات</string>
+    <string name="description">الوصف</string>
 </resources>

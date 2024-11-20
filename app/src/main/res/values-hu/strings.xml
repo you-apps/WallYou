@@ -55,7 +55,7 @@
     <string name="combine_wallpaper_changers_summary">Használja ugyanazt a háttérképet a kezdőképernyőnek és a záróképernyőnek.</string>
     <string name="import_export">Importálás és exportálás</string>
     <string name="success">Sikeres!</string>
-    <string name="website">Honlap</string>
+    <string name="website">Weboldal</string>
     <string name="invert_wallpaper_by_theme_summary">Háttérkép megfordítása, hogy sötét témákon sötét, világos témákon pedig világos legyen.</string>
     <string name="unmetered">Nem forgalomkorlátos</string>
     <string name="all_networks">Minden hálózat</string>
@@ -88,4 +88,5 @@
     <string name="save">Mentés</string>
     <string name="go_back">Visszatérés</string>
     <string name="image_info">Képinformáció</string>
+    <string name="description">Leírás</string>
 </resources>
