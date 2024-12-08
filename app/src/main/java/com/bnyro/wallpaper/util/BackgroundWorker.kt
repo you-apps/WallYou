@@ -2,7 +2,6 @@ package com.bnyro.wallpaper.util
 
 import android.content.Context
 import android.graphics.Bitmap
-import android.util.Log
 import androidx.work.CoroutineWorker
 import androidx.work.WorkerParameters
 import com.bnyro.wallpaper.db.DatabaseHolder
@@ -24,7 +23,11 @@ class BackgroundWorker(
             it.id == configId
         } ?: return Result.success()
 
-        Log.e("wallpaper changer", "found appropriate wallpaper config")
+        val nowMillis = TimeHelper.timeTodayInMillis()
+        if (config.startTimeMillis != null && config.endTimeMillis != null &&
+            !TimeHelper.isInTimeRange(nowMillis, config.startTimeMillis!!, config.endTimeMillis!!)
+        ) return Result.success()
+
         return if (runWallpaperChanger(config)) Result.success()
         else Result.retry()
     }

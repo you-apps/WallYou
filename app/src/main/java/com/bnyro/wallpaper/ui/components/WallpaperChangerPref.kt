@@ -1,8 +1,10 @@
 package com.bnyro.wallpaper.ui.components
 
+import android.text.format.DateUtils
 import androidx.activity.compose.rememberLauncherForActivityResult
 import androidx.compose.animation.AnimatedVisibility
 import androidx.compose.animation.Crossfade
+import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.Spacer
@@ -10,9 +12,14 @@ import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.width
 import androidx.compose.material.icons.Icons
+import androidx.compose.material.icons.automirrored.filled.ArrowForward
+import androidx.compose.material.icons.filled.AccessTimeFilled
 import androidx.compose.material.icons.filled.Delete
 import androidx.compose.material3.AlertDialog
 import androidx.compose.material3.Button
+import androidx.compose.material3.Card
+import androidx.compose.material3.ElevatedCard
+import androidx.compose.material3.Icon
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.LaunchedEffect
@@ -35,6 +42,10 @@ import com.bnyro.wallpaper.obj.WallpaperConfig
 import com.bnyro.wallpaper.enums.WallpaperSource
 import com.bnyro.wallpaper.enums.WallpaperTarget
 import com.bnyro.wallpaper.ext.formatMinutes
+import com.bnyro.wallpaper.ext.formatTime
+import com.bnyro.wallpaper.ext.toast
+import com.bnyro.wallpaper.ext.toastFromMainThread
+import com.bnyro.wallpaper.ui.components.dialogs.TimePickerDialog
 import com.bnyro.wallpaper.ui.components.prefs.CheckboxPref
 import com.bnyro.wallpaper.ui.components.prefs.MultiSelectionBlockPreference
 import com.bnyro.wallpaper.ui.components.prefs.ListPreference
@@ -85,6 +96,12 @@ fun WallpaperChangerPrefDialog(
     var applyImageFilters by remember {
         mutableStateOf(config.applyImageFilters)
     }
+    var startTimeMillis by remember {
+        mutableStateOf(config.startTimeMillis)
+    }
+    var endTimeMillis by remember {
+        mutableStateOf(config.endTimeMillis)
+    }
 
     AlertDialog(
         onDismissRequest = onDismissRequest,
@@ -95,6 +112,12 @@ fun WallpaperChangerPrefDialog(
         },
         confirmButton = {
             DialogButton(stringResource(android.R.string.ok)) {
+                val hasStartAndEndTime = startTimeMillis != null && endTimeMillis != null
+                if (hasStartAndEndTime && startTimeMillis!! == endTimeMillis!!) {
+                    context.toast(context.getString(R.string.invalid_time_interval))
+                    return@DialogButton
+                }
+
                 val newConfig = WallpaperConfig(
                     id = config.id,
                     changeIntervalMinutes = changeInterval,
@@ -103,7 +126,9 @@ fun WallpaperChangerPrefDialog(
                     source = wallpaperSource,
                     selectedApiRoutes = wallpaperEnginesIndices.map { DrawerScreens.apiScreens[it].route },
                     localFolderUris = localFolderUris,
-                    applyImageFilters = applyImageFilters
+                    applyImageFilters = applyImageFilters,
+                    startTimeMillis = if (hasStartAndEndTime) startTimeMillis else null,
+                    endTimeMillis = if (hasStartAndEndTime) endTimeMillis else null,
                 )
                 onConfigChange(newConfig)
                 onDismissRequest()
@@ -232,6 +257,81 @@ fun WallpaperChangerPrefDialog(
                     defaultValue = applyImageFilters
                 ) { newValue ->
                     applyImageFilters = newValue
+                }
+
+                var customTimeInterval by remember {
+                    mutableStateOf(endTimeMillis != null && startTimeMillis != null)
+                }
+                CheckboxPref(
+                    prefKey = null,
+                    title = stringResource(R.string.time_interval),
+                    defaultValue = customTimeInterval
+                ) { newValue ->
+                    customTimeInterval = newValue
+
+                    if (!customTimeInterval) {
+                        startTimeMillis = null
+                        endTimeMillis = null
+                    } else {
+                        startTimeMillis = 0
+                        endTimeMillis = 0
+                    }
+                }
+                AnimatedVisibility(visible = customTimeInterval) {
+                    var showStartTimePicker by remember {
+                        mutableStateOf(false)
+                    }
+
+                    var showEndTimePicker by remember {
+                        mutableStateOf(false)
+                    }
+
+                    Row(
+                        verticalAlignment = Alignment.CenterVertically
+                    ) {
+                        Icon(
+                            imageVector = Icons.Default.AccessTimeFilled,
+                            contentDescription = null
+                        )
+
+                        Spacer(modifier = Modifier.width(10.dp))
+
+                        Button(
+                            onClick = { showStartTimePicker = true }
+                        ) {
+                            Text((startTimeMillis ?: 0).formatTime())
+                        }
+
+                        Icon(
+                            modifier = Modifier.padding(horizontal = 10.dp),
+                            imageVector = Icons.AutoMirrored.Default.ArrowForward,
+                            contentDescription = null
+                        )
+
+                        Button(
+                            onClick = { showEndTimePicker = true }
+                        ) {
+                            Text((endTimeMillis ?: 0).formatTime())
+                        }
+                    }
+
+                    if (showStartTimePicker) {
+                        TimePickerDialog(
+                            startTimeMillis ?: 0,
+                            onTimeChange = { startTimeMillis = it }
+                        ) {
+                            showStartTimePicker = false
+                        }
+                    }
+
+                    if (showEndTimePicker) {
+                        TimePickerDialog(
+                            endTimeMillis ?: 0,
+                            onTimeChange = { endTimeMillis = it }
+                        ) {
+                            showEndTimePicker = false
+                        }
+                    }
                 }
             }
         }

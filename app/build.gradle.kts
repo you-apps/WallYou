@@ -79,7 +79,7 @@ dependencies {
 
     // UI
     implementation("androidx.activity:activity-compose:1.8.2")
-    implementation("androidx.compose.ui:ui:1.6.5")
+    implementation("androidx.compose.ui:ui:1.7.5")
     implementation("androidx.compose.ui:ui-tooling-preview:1.6.5")
     implementation("androidx.navigation:navigation-compose:2.7.7")
 

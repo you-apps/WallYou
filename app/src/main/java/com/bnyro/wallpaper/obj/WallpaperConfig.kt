@@ -18,7 +18,9 @@ data class WallpaperConfig(
     var source: WallpaperSource = WallpaperSource.ONLINE,
     var applyImageFilters: Boolean = true,
     var selectedApiRoutes: List<String> = listOf(DrawerScreens.apiScreens[0].route),
-    var localFolderUris: List<String> = listOf()
+    var localFolderUris: List<String> = listOf(),
+    var startTimeMillis: Long? = null,
+    var endTimeMillis: Long? = null,
 ) {
     fun getSummary(context: Context): String {
         val targetString = when (target) {
