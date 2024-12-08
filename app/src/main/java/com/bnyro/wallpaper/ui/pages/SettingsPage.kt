@@ -1,6 +1,5 @@
 package com.bnyro.wallpaper.ui.pages
 
-import android.util.Log
 import androidx.activity.compose.rememberLauncherForActivityResult
 import androidx.activity.result.contract.ActivityResultContracts
 import androidx.compose.animation.AnimatedVisibility
@@ -22,9 +21,7 @@ import androidx.compose.material3.Button
 import androidx.compose.material3.Icon
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
-import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.runtime.getValue
-import androidx.compose.runtime.mutableIntStateOf
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
 import androidx.compose.runtime.rememberCoroutineScope
@@ -155,12 +152,13 @@ fun SettingsPage(
                 Column(
                     modifier = Modifier.fillMaxWidth()
                 ) {
+                    var wallpaperConfigDialogIndex by remember {
+                        mutableStateOf<Int?>(null)
+                    }
+
                     wallpaperConfigs.forEachIndexed { index, wallpaperConfig ->
                         Spacer(modifier = Modifier.height(5.dp))
 
-                        var showWallpaperConfigDialog by remember {
-                            mutableStateOf(false)
-                        }
                         Row(
                             modifier = Modifier.fillMaxWidth().padding(start = 8.dp),
                             verticalAlignment = Alignment.CenterVertically
@@ -172,7 +170,7 @@ fun SettingsPage(
                             ButtonWithIcon(
                                 icon = Icons.Default.Edit
                             ) {
-                                showWallpaperConfigDialog = true
+                                wallpaperConfigDialogIndex = index
                             }
 
                             ButtonWithIcon(
@@ -183,18 +181,18 @@ fun SettingsPage(
                                 Preferences.setWallpaperConfigs(wallpaperConfigs)
                             }
                         }
+                    }
 
-                        if (showWallpaperConfigDialog) {
-                            WallpaperChangerPrefDialog(
-                                wallpaperConfig,
-                                onConfigChange = { newConfig ->
-                                    wallpaperConfigs[index] = newConfig
-                                    Preferences.setWallpaperConfigs(wallpaperConfigs)
-                                    WorkerHelper.enqueue(context, wallpaperConfig, true)
-                                },
-                                onDismissRequest = { showWallpaperConfigDialog = false }
-                            )
-                        }
+                    wallpaperConfigDialogIndex?.let { index ->
+                        WallpaperChangerPrefDialog(
+                            wallpaperConfigs[index],
+                            onConfigChange = { newConfig ->
+                                wallpaperConfigs[index] = newConfig
+                                Preferences.setWallpaperConfigs(wallpaperConfigs)
+                                WorkerHelper.enqueue(context, newConfig, true)
+                            },
+                            onDismissRequest = { wallpaperConfigDialogIndex = null }
+                        )
                     }
 
                     Button(
