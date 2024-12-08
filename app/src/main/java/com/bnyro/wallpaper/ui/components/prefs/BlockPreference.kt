@@ -17,6 +17,7 @@ fun MultiSelectionBlockPreference(
     entries: List<String>,
     values: List<String>,
     defaultSelections: List<Int> = listOf(0),
+    requireAtLeastOne: Boolean = false,
     onSelectionChange: (List<Int>) -> Unit = {}
 ) {
     val selected = remember {
@@ -34,7 +35,12 @@ fun MultiSelectionBlockPreference(
                 text = it,
                 selected = selected.contains(index)
             ) {
-                if (selected.contains(index)) selected.remove(index) else selected.add(index)
+                if (!selected.contains(index)) {
+                    selected.add(index)
+                } else if (!requireAtLeastOne || selected.size > 1) {
+                    selected.remove(index)
+                }
+
                 if (preferenceKey != null) Preferences.edit {
                     putString(preferenceKey, values.joinToString(","))
                 }

@@ -22,10 +22,7 @@ object Preferences {
     const val contrastKey = "contrast"
 
     const val wallpaperChangerKey = "wallpaperChanger"
-    const val wallpaperChangerIntervalKey = "wallpaperChangerInterval"
-    const val wallpaperChangerNetworkTypeKey = "wallpaperChangerNetworkType"
-    private const val wallpaperChangerConfigKey = "wallpaperChangerConfiguration"
-    const val combineWallpaperChangers = "combineWallpaperChangers"
+    private const val wallpaperChangerConfigKey = "wallpaperChangerConfigurations"
 
     const val defaultDiskCacheSize = 128L * 1024 * 1024
     const val defaultWallpaperChangeInterval = 12L * 60
@@ -61,7 +58,7 @@ object Preferences {
             RetrofitHelper.json.decodeFromString<List<WallpaperConfig>>(prefString)
         } catch (e: Exception) {
             Log.e(this.javaClass.name, e.stackTraceToString())
-            listOf(WallpaperConfig(WallpaperTarget.BOTH))
+            listOf()
         }
     }
 }

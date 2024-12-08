@@ -2,6 +2,7 @@ package com.bnyro.wallpaper.util
 
 import android.content.Context
 import android.graphics.Bitmap
+import android.util.Log
 import androidx.work.CoroutineWorker
 import androidx.work.WorkerParameters
 import com.bnyro.wallpaper.db.DatabaseHolder
@@ -13,23 +14,33 @@ import kotlinx.coroutines.withContext
 
 class BackgroundWorker(
     applicationContext: Context,
-    workerParameters: WorkerParameters
+    private val workerParameters: WorkerParameters
 ) : CoroutineWorker(applicationContext, workerParameters) {
     override suspend fun doWork(): Result {
-        Preferences.getWallpaperConfigs().forEach {
-            runWallpaperChanger(it)
-        }
+        val configId = workerParameters.inputData.getInt(WorkerHelper.WALLPAPER_CONFIG_ID, -1)
+        if (configId == -1) return Result.failure()
 
-        return Result.success()
+        val config = Preferences.getWallpaperConfigs().firstOrNull {
+            it.id == configId
+        } ?: return Result.success()
+
+        Log.e("wallpaper changer", "found appropriate wallpaper config")
+        return if (runWallpaperChanger(config)) Result.success()
+        else Result.retry()
     }
 
-    private suspend fun runWallpaperChanger(config: WallpaperConfig) {
+    /**
+     * Fetch and apply a wallpaper using the given config
+     *
+     * @return Whether the wallpaper change applied successfully without errors
+     */
+    private suspend fun runWallpaperChanger(config: WallpaperConfig): Boolean {
         val bitmap = when (config.source) {
             WallpaperSource.ONLINE -> getOnlineWallpaper(config)
             WallpaperSource.FAVORITES -> getFavoritesWallpaper()
             WallpaperSource.LOCAL -> getLocalWallpaper(config)
-            else -> return
-        } ?: return
+            else -> return true
+        } ?: return false
 
         if (config.applyImageFilters) {
             WallpaperHelper.setWallpaperWithFilters(
@@ -44,6 +55,8 @@ class BackgroundWorker(
                 config.target
             )
         }
+
+        return true
     }
 
     private suspend fun getOnlineWallpaper(config: WallpaperConfig): Bitmap? {

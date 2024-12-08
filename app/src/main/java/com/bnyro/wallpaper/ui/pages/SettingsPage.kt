@@ -1,33 +1,46 @@
 package com.bnyro.wallpaper.ui.pages
 
+import android.util.Log
 import androidx.activity.compose.rememberLauncherForActivityResult
 import androidx.activity.result.contract.ActivityResultContracts
+import androidx.compose.animation.AnimatedVisibility
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxSize
+import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
+import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.width
 import androidx.compose.foundation.rememberScrollState
 import androidx.compose.foundation.verticalScroll
+import androidx.compose.material.icons.Icons
+import androidx.compose.material.icons.filled.Add
+import androidx.compose.material.icons.filled.Delete
+import androidx.compose.material.icons.filled.Edit
 import androidx.compose.material3.Button
+import androidx.compose.material3.Icon
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.LaunchedEffect
+import androidx.compose.runtime.getValue
+import androidx.compose.runtime.mutableIntStateOf
+import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
 import androidx.compose.runtime.rememberCoroutineScope
+import androidx.compose.runtime.setValue
 import androidx.compose.runtime.toMutableStateList
+import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.unit.dp
-import androidx.work.NetworkType
 import com.bnyro.wallpaper.R
 import com.bnyro.wallpaper.enums.ThemeMode
-import com.bnyro.wallpaper.obj.WallpaperConfig
-import com.bnyro.wallpaper.enums.WallpaperTarget
 import com.bnyro.wallpaper.ext.formatBinarySize
-import com.bnyro.wallpaper.ext.formatMinutes
-import com.bnyro.wallpaper.ui.components.WallpaperChangerPref
+import com.bnyro.wallpaper.obj.WallpaperConfig
+import com.bnyro.wallpaper.ui.components.ButtonWithIcon
+import com.bnyro.wallpaper.ui.components.WallpaperChangerPrefDialog
 import com.bnyro.wallpaper.ui.components.about.AboutContainer
 import com.bnyro.wallpaper.ui.components.prefs.CheckboxPref
 import com.bnyro.wallpaper.ui.components.prefs.ListPreference
@@ -117,23 +130,6 @@ fun SettingsPage(
             }
         }
 
-        val changeIntervals = listOf(
-            15L,
-            30L,
-            60L,
-            180L,
-            360L,
-            720L,
-            1440L
-        )
-
-        val networkTypes = listOf(
-            R.string.all_networks to NetworkType.CONNECTED,
-            R.string.unmetered to NetworkType.UNMETERED,
-            R.string.metered to NetworkType.METERED,
-            R.string.not_roaming to NetworkType.NOT_ROAMING,
-        )
-
         AboutContainer {
             SettingsCategory(
                 title = stringResource(R.string.wallpaper_changer)
@@ -142,50 +138,85 @@ fun SettingsPage(
                 modifier = Modifier
                     .height(5.dp)
             )
+
+            var wallpaperChangerEnabled by remember {
+                mutableStateOf(Preferences.getBoolean(Preferences.wallpaperChangerKey, false))
+            }
             CheckboxPref(
                 prefKey = Preferences.wallpaperChangerKey,
                 title = stringResource(R.string.wallpaper_changer)
-            ) {
-                WorkerHelper.enqueue(context, true)
+            ) { newValue ->
+                wallpaperChangerEnabled = newValue
+
+                WorkerHelper.enqueueOrCancelAll(context, wallpaperConfigs)
             }
-            ListPreference(
-                prefKey = Preferences.wallpaperChangerNetworkTypeKey,
-                title = stringResource(R.string.network_type),
-                entries = networkTypes.map { stringResource(id = it.first) },
-                values = networkTypes.map { it.second.name },
-                defaultValue = NetworkType.CONNECTED.name
-            ) {
-                WorkerHelper.enqueue(context, true)
-            }
-            ListPreference(
-                prefKey = Preferences.wallpaperChangerIntervalKey,
-                title = stringResource(R.string.change_interval),
-                entries = changeIntervals.map { it.formatMinutes() },
-                values = changeIntervals.map { it.toString() },
-                defaultValue = Preferences.defaultWallpaperChangeInterval.toString()
-            ) {
-                WorkerHelper.enqueue(context, true)
-            }
-            CheckboxPref(
-                prefKey = Preferences.combineWallpaperChangers,
-                title = stringResource(R.string.combine_wallpaper_changers),
-                summary = stringResource(R.string.combine_wallpaper_changers_summary),
-                defaultValue = true
-            ) { newState ->
-                wallpaperConfigs.clear()
-                val availableTargets = if (newState) {
-                    listOf(WallpaperTarget.BOTH)
-                } else {
-                    listOf(WallpaperTarget.HOME, WallpaperTarget.LOCK)
-                }
-                wallpaperConfigs.addAll(availableTargets.map { WallpaperConfig(it) })
-                Preferences.setWallpaperConfigs(wallpaperConfigs)
-            }
-            wallpaperConfigs.forEachIndexed { index, wallpaperConfig ->
-                Spacer(modifier = Modifier.height(10.dp))
-                WallpaperChangerPref(wallpaperConfig) {
-                    wallpaperConfigs[index] = wallpaperConfig
-                    Preferences.setWallpaperConfigs(wallpaperConfigs)
+
+            AnimatedVisibility(visible = wallpaperChangerEnabled) {
+                Column(
+                    modifier = Modifier.fillMaxWidth()
+                ) {
+                    wallpaperConfigs.forEachIndexed { index, wallpaperConfig ->
+                        Spacer(modifier = Modifier.height(5.dp))
+
+                        var showWallpaperConfigDialog by remember {
+                            mutableStateOf(false)
+                        }
+                        Row(
+                            modifier = Modifier.fillMaxWidth().padding(start = 8.dp),
+                            verticalAlignment = Alignment.CenterVertically
+                        ) {
+                            Text(text = wallpaperConfig.getSummary(context))
+
+                            Spacer(modifier = Modifier.weight(1f))
+
+                            ButtonWithIcon(
+                                icon = Icons.Default.Edit
+                            ) {
+                                showWallpaperConfigDialog = true
+                            }
+
+                            ButtonWithIcon(
+                                icon = Icons.Default.Delete
+                            ) {
+                                WorkerHelper.cancelWork(context, wallpaperConfig)
+                                wallpaperConfigs.removeAt(index)
+                                Preferences.setWallpaperConfigs(wallpaperConfigs)
+                            }
+                        }
+
+                        if (showWallpaperConfigDialog) {
+                            WallpaperChangerPrefDialog(
+                                wallpaperConfig,
+                                onConfigChange = { newConfig ->
+                                    wallpaperConfigs[index] = newConfig
+                                    Preferences.setWallpaperConfigs(wallpaperConfigs)
+                                    WorkerHelper.enqueue(context, wallpaperConfig, true)
+                                },
+                                onDismissRequest = { showWallpaperConfigDialog = false }
+                            )
+                        }
+                    }
+
+                    Button(
+                        onClick = {
+                            val maxId = if (wallpaperConfigs.isNotEmpty()) {
+                                wallpaperConfigs.maxBy { it.id }.id
+                            } else {
+                                -1
+                            }
+
+                            val newConfig = WallpaperConfig(id = maxId + 1)
+                            wallpaperConfigs.add(newConfig)
+                            Preferences.setWallpaperConfigs(wallpaperConfigs)
+                            WorkerHelper.enqueue(context, newConfig, true)
+                        }
+                    ) {
+                        Row(verticalAlignment = Alignment.CenterVertically) {
+                            Icon(imageVector = Icons.Default.Add, contentDescription = null)
+                            Spacer(Modifier.width(5.dp))
+                            Text(stringResource(R.string.add_wallpaper_changer_rule))
+                        }
+                    }
                 }
             }
         }

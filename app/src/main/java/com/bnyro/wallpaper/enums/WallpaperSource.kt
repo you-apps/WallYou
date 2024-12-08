@@ -4,5 +4,4 @@ enum class WallpaperSource {
     ONLINE,
     FAVORITES,
     LOCAL,
-    NONE;
 }
