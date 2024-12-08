@@ -34,7 +34,6 @@ import com.bnyro.wallpaper.api.CommunityApi
 import com.bnyro.wallpaper.ext.capitalize
 import com.bnyro.wallpaper.ui.components.DialogButton
 import com.bnyro.wallpaper.ui.components.TagsEditor
-import java.util.*
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable

@@ -18,7 +18,6 @@ import androidx.compose.runtime.Composable
 import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.runtime.rememberCoroutineScope
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.lifecycle.ViewModelProvider
 import androidx.lifecycle.get
@@ -29,7 +28,6 @@ import com.bnyro.wallpaper.ui.models.MainModel
 import com.bnyro.wallpaper.ui.nav.AppNavHost
 import com.bnyro.wallpaper.ui.nav.DrawerScreens
 import com.bnyro.wallpaper.ui.theme.WallYouTheme
-import com.bnyro.wallpaper.util.Either
 import com.bnyro.wallpaper.util.Preferences
 import com.bnyro.wallpaper.util.str
 import kotlinx.coroutines.launch

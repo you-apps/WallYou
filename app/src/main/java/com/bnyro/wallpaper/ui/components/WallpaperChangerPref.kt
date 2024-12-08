@@ -1,10 +1,8 @@
 package com.bnyro.wallpaper.ui.components
 
-import android.text.format.DateUtils
 import androidx.activity.compose.rememberLauncherForActivityResult
 import androidx.compose.animation.AnimatedVisibility
 import androidx.compose.animation.Crossfade
-import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.Spacer
@@ -17,8 +15,6 @@ import androidx.compose.material.icons.filled.AccessTimeFilled
 import androidx.compose.material.icons.filled.Delete
 import androidx.compose.material3.AlertDialog
 import androidx.compose.material3.Button
-import androidx.compose.material3.Card
-import androidx.compose.material3.ElevatedCard
 import androidx.compose.material3.Icon
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
@@ -38,17 +34,16 @@ import androidx.core.net.toUri
 import androidx.documentfile.provider.DocumentFile
 import androidx.work.NetworkType
 import com.bnyro.wallpaper.R
-import com.bnyro.wallpaper.obj.WallpaperConfig
 import com.bnyro.wallpaper.enums.WallpaperSource
 import com.bnyro.wallpaper.enums.WallpaperTarget
 import com.bnyro.wallpaper.ext.formatMinutes
 import com.bnyro.wallpaper.ext.formatTime
 import com.bnyro.wallpaper.ext.toast
-import com.bnyro.wallpaper.ext.toastFromMainThread
+import com.bnyro.wallpaper.obj.WallpaperConfig
 import com.bnyro.wallpaper.ui.components.dialogs.TimePickerDialog
 import com.bnyro.wallpaper.ui.components.prefs.CheckboxPref
-import com.bnyro.wallpaper.ui.components.prefs.MultiSelectionBlockPreference
 import com.bnyro.wallpaper.ui.components.prefs.ListPreference
+import com.bnyro.wallpaper.ui.components.prefs.MultiSelectionBlockPreference
 import com.bnyro.wallpaper.ui.components.prefs.SettingsCategory
 import com.bnyro.wallpaper.ui.nav.DrawerScreens
 import com.bnyro.wallpaper.util.PickFolderContract

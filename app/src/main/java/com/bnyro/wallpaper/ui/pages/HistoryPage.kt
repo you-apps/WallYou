@@ -3,7 +3,6 @@ package com.bnyro.wallpaper.ui.pages
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.material.icons.Icons
-import androidx.compose.material.icons.filled.HeartBroken
 import androidx.compose.material.icons.filled.History
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.collectAsState

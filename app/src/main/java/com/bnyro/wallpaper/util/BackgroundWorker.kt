@@ -6,8 +6,8 @@ import androidx.work.CoroutineWorker
 import androidx.work.WorkerParameters
 import com.bnyro.wallpaper.db.DatabaseHolder
 import com.bnyro.wallpaper.db.obj.Wallpaper
-import com.bnyro.wallpaper.obj.WallpaperConfig
 import com.bnyro.wallpaper.enums.WallpaperSource
+import com.bnyro.wallpaper.obj.WallpaperConfig
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.withContext
 

@@ -5,8 +5,6 @@ import android.content.SharedPreferences
 import android.util.Log
 import com.bnyro.wallpaper.App
 import com.bnyro.wallpaper.obj.WallpaperConfig
-import com.bnyro.wallpaper.enums.WallpaperTarget
-import com.bnyro.wallpaper.ui.nav.DrawerScreens
 import kotlinx.serialization.decodeFromString
 import kotlinx.serialization.encodeToString
 

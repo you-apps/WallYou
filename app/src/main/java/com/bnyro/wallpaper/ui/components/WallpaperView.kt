@@ -39,14 +39,14 @@ import com.bnyro.wallpaper.R
 import com.bnyro.wallpaper.db.DatabaseHolder.Database
 import com.bnyro.wallpaper.db.obj.Wallpaper
 import com.bnyro.wallpaper.enums.MultiState
+import com.bnyro.wallpaper.ext.rememberZoomState
+import com.bnyro.wallpaper.ext.zoomArea
+import com.bnyro.wallpaper.ext.zoomImage
 import com.bnyro.wallpaper.ui.components.bottombar.BottomBar
 import com.bnyro.wallpaper.ui.components.bottombar.WallpaperViewTopBar
 import com.bnyro.wallpaper.ui.components.dialogs.MultiStateDialog
 import com.bnyro.wallpaper.ui.components.infosheet.WallpaperInfoSheet
 import com.bnyro.wallpaper.ui.models.WallpaperHelperModel
-import com.bnyro.wallpaper.ext.rememberZoomState
-import com.bnyro.wallpaper.ext.zoomArea
-import com.bnyro.wallpaper.ext.zoomImage
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 import kotlinx.coroutines.withContext
