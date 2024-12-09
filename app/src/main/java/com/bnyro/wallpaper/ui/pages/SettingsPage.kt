@@ -195,6 +195,10 @@ fun SettingsPage(
                         )
                     }
 
+                    var newWallpaperConfig by remember {
+                        mutableStateOf<WallpaperConfig?>(null)
+                    }
+
                     Button(
                         onClick = {
                             val maxId = if (wallpaperConfigs.isNotEmpty()) {
@@ -203,10 +207,7 @@ fun SettingsPage(
                                 -1
                             }
 
-                            val newConfig = WallpaperConfig(id = maxId + 1)
-                            wallpaperConfigs.add(newConfig)
-                            Preferences.setWallpaperConfigs(wallpaperConfigs)
-                            WorkerHelper.enqueue(context, newConfig, true)
+                            newWallpaperConfig = WallpaperConfig(id = maxId + 1)
                         }
                     ) {
                         Row(verticalAlignment = Alignment.CenterVertically) {
@@ -214,6 +215,18 @@ fun SettingsPage(
                             Spacer(Modifier.width(5.dp))
                             Text(stringResource(R.string.add_wallpaper_changer_rule))
                         }
+                    }
+
+                    newWallpaperConfig?.let { config ->
+                        WallpaperChangerPrefDialog(
+                            config,
+                            onConfigChange = { newConfig ->
+                                wallpaperConfigs.add(newConfig)
+                                Preferences.setWallpaperConfigs(wallpaperConfigs)
+                                WorkerHelper.enqueue(context, newConfig, true)
+                            },
+                            onDismissRequest = { newWallpaperConfig = null }
+                        )
                     }
                 }
             }
