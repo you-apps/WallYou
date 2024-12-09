@@ -16,10 +16,17 @@ class BackgroundWorker(
     private val workerParameters: WorkerParameters
 ) : CoroutineWorker(applicationContext, workerParameters) {
     override suspend fun doWork(): Result {
-        val configId = workerParameters.inputData.getInt(WorkerHelper.WALLPAPER_CONFIG_ID, -1)
-        if (configId == -1) return Result.failure()
+        val wallpaperConfigs = Preferences.getWallpaperConfigs()
 
-        val config = Preferences.getWallpaperConfigs().firstOrNull {
+        val configId = workerParameters.inputData.getInt(WorkerHelper.WALLPAPER_CONFIG_ID, -1)
+        if (configId == -1) {
+            for (config in wallpaperConfigs) {
+                runWallpaperChanger(config)
+            }
+            return Result.success()
+        }
+
+        val config = wallpaperConfigs.firstOrNull {
             it.id == configId
         } ?: return Result.success()
 
