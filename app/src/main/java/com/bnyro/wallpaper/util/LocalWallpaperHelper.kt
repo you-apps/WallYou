@@ -12,7 +12,7 @@ object LocalWallpaperHelper {
         val contents = directory?.listFiles().orEmpty()
         files.addAll(contents.filter { it.isFile })
 
-        contents.filter { it.isDirectory }.forEach {
+        contents.filter { it.isDirectory && !it.name.orEmpty().startsWith(".") }.forEach {
             files.addAll(getAllFilesInCurrentDir(it))
         }
 
