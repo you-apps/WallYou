@@ -89,4 +89,7 @@
     <string name="go_back">Visszatérés</string>
     <string name="image_info">Képinformáció</string>
     <string name="description">Leírás</string>
+    <string name="add_wallpaper_changer_rule">Háttérképváltó szabály hozzáadása</string>
+    <string name="time_interval">Időintervallum</string>
+    <string name="invalid_time_interval">Érvénytelen időintervallum</string>
 </resources>
