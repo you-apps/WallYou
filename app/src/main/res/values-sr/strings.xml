@@ -100,4 +100,7 @@
     <string name="no_history">Још нема историје</string>
     <string name="wallpaper_history">Историја позадина</string>
     <string name="description">Опис</string>
+    <string name="add_wallpaper_changer_rule">Додај правило за мењање позадине</string>
+    <string name="time_interval">Временски интервал</string>
+    <string name="invalid_time_interval">Неважећи временски интервал</string>
 </resources>
