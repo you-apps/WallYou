@@ -89,4 +89,7 @@
     <string name="favorite">הוספה למועדפים</string>
     <string name="edit">עריכה</string>
     <string name="description">תיאור</string>
+    <string name="time_interval">הפרש זמן</string>
+    <string name="add_wallpaper_changer_rule">הוספת כלל החלפת תמונת רקע</string>
+    <string name="invalid_time_interval">הפרש הזמן שגוי</string>
 </resources>
