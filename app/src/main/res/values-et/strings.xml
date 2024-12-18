@@ -89,4 +89,7 @@
     <string name="history">Ajalugu</string>
     <string name="wallpaper_history">Taustapiltide ajalugu</string>
     <string name="description">Kirjeldus</string>
+    <string name="invalid_time_interval">Vigane ajavahemik</string>
+    <string name="add_wallpaper_changer_rule">Lisa taustapildi vahetamise reegel</string>
+    <string name="time_interval">Ajavahemik</string>
 </resources>
