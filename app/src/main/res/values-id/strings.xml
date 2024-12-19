@@ -94,4 +94,11 @@
     <string name="metered">Diukur</string>
     <string name="wallpaper">Wallpaper</string>
     <string name="apply_image_filters">Terapkan penyaring gambar</string>
+    <string name="no_history">Belum ada riwayat</string>
+    <string name="wallpaper_history">Riwayat wallpaper</string>
+    <string name="history">Riwayat</string>
+    <string name="description">Deskripsi</string>
+    <string name="invalid_time_interval">Interval waktu tidak valid</string>
+    <string name="add_wallpaper_changer_rule">Tambahkan peraturan pengubah wallpaper</string>
+    <string name="time_interval">Interval waktu</string>
 </resources>
