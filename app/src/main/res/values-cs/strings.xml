@@ -88,4 +88,8 @@
     <string name="history">Historie</string>
     <string name="no_history">Zatím žádná historie</string>
     <string name="wallpaper_history">Historie tapet</string>
+    <string name="description">Popis</string>
+    <string name="time_interval">Časový interval</string>
+    <string name="invalid_time_interval">Neplatný časový interval</string>
+    <string name="add_wallpaper_changer_rule">Přidat pravidlo změny tapety</string>
 </resources>

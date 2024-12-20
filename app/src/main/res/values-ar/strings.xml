@@ -26,13 +26,13 @@
     <string name="applying_random">اختيار صورة خلفيَّة عشوائيَّة</string>
     <string name="add">أضف</string>
     <string name="general">عام</string>
-    <string name="change_interval">مهلة التغيير</string>
+    <string name="change_interval">فترة التغيير</string>
     <string name="reset">أعِد التعيين</string>
     <string name="theme_light">فاتح</string>
     <string name="favorites">المفضَّلات</string>
     <string name="blur">الضبابيَّة</string>
     <string name="cache">الخبيئة</string>
-    <string name="wallpaper_changer">مغيِّر الخلفيَّة</string>
+    <string name="wallpaper_changer">مغيّر الخلفيَّة</string>
     <string name="crop">قُصَّ الصور</string>
     <string name="wallpaper_changer_source">مصدر مغيِّر الخلفية</string>
     <string name="online">عبر الشبكة</string>
@@ -88,4 +88,8 @@
     <string name="history">السجل</string>
     <string name="no_history">لا يوجد سجل حتى الان</string>
     <string name="wallpaper_history">سجل الخلفيات</string>
+    <string name="description">الوصف</string>
+    <string name="time_interval">الفترة الزمنية</string>
+    <string name="add_wallpaper_changer_rule">أضف قاعدة تغيير الخلفية</string>
+    <string name="invalid_time_interval">فترة زمنية غير صالحة</string>
 </resources>
