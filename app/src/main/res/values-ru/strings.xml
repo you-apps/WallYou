@@ -97,4 +97,8 @@
     <string name="history">История</string>
     <string name="wallpaper_history">История обоев</string>
     <string name="no_history">Пока ничего нет</string>
+    <string name="description">Описание</string>
+    <string name="time_interval">Период</string>
+    <string name="invalid_time_interval">Неправильный период</string>
+    <string name="add_wallpaper_changer_rule">Добавить правило смены обоев</string>
 </resources>

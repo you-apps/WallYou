@@ -97,4 +97,8 @@
     <string name="history">Історія</string>
     <string name="no_history">Історії ще немає</string>
     <string name="wallpaper_history">Історія шпалер</string>
+    <string name="description">Опис</string>
+    <string name="add_wallpaper_changer_rule">Додати правило зміни шпалер</string>
+    <string name="time_interval">Часовий інтервал</string>
+    <string name="invalid_time_interval">Неправильний часовий інтервал</string>
 </resources>
