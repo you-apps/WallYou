@@ -89,4 +89,7 @@
     <string name="set_as">Belə təyin et</string>
     <string name="add_to_favorites">Sevimlilərə əlavə edin</string>
     <string name="description">Açıqlama</string>
+    <string name="add_wallpaper_changer_rule">Divar kağızı dəyişdirici qayda əlavə et</string>
+    <string name="time_interval">Vaxt aralığı</string>
+    <string name="invalid_time_interval">Səhv vaxt aralığı</string>
 </resources>
