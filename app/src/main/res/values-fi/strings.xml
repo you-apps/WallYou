@@ -88,4 +88,8 @@
     <string name="none">Ei mitään</string>
     <string name="invert_wallpaper_by_theme">Käänteinen tausta teeman toimesta</string>
     <string name="done">Valmis</string>
+    <string name="time_interval">Aikaväli</string>
+    <string name="description">Kuvaus</string>
+    <string name="invalid_time_interval">Virheellinen aikaväli</string>
+    <string name="add_wallpaper_changer_rule">Lisää taustakuvan vaihdon sääntö</string>
 </resources>
