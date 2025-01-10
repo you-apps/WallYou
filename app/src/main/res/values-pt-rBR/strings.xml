@@ -61,7 +61,7 @@
     <string name="resize_method">Método de redimensionamento</string>
     <string name="zoom">Zoom (Mantém a proporção de tela)</string>
     <string name="fit_height">Ajustar altura</string>
-    <string name="fit_width">Ajustar Largura</string>
+    <string name="fit_width">Ajustar largura</string>
     <string name="invert_wallpaper_by_theme">Inverter papel de parede pelo tema</string>
     <string name="invert_wallpaper_by_theme_summary">Inverter o papel de parede para ser escuro em temas escuros e claro em temas claros.</string>
     <string name="set_as">Definir como</string>
@@ -78,4 +78,18 @@
     <string name="saving_wallpaper">Salvando papel de parede</string>
     <string name="applying_wallpaper">Aplicando papel de parede</string>
     <string name="dismiss">Desfazer</string>
+    <string name="all_networks">Todas as redes</string>
+    <string name="no_history">Ainda sem histórico</string>
+    <string name="time_interval">Intervalo de tempo</string>
+    <string name="wallpaper_history">Histórico de papel de parede</string>
+    <string name="image_url">URL de imagem</string>
+    <string name="history">Histórico</string>
+    <string name="apply_image_filters">Aplicar filtros de imagem</string>
+    <string name="network_type">Tipo de rede</string>
+    <string name="unmetered">Sem medição</string>
+    <string name="metered">Medido</string>
+    <string name="not_roaming">Não roaming</string>
+    <string name="add_wallpaper_changer_rule">Adicionar regra ao trocador de papel de parede</string>
+    <string name="invalid_time_interval">Intervalo de tempo inválido</string>
+    <string name="description">Descrição</string>
 </resources>
