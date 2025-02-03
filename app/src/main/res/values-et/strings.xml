@@ -52,7 +52,7 @@
     <string name="online">Võrguteenus</string>
     <string name="choose_dir">Lisa kaust</string>
     <string name="directories">Kaustad</string>
-    <string name="theme_mode">Teema</string>
+    <string name="theme_mode">Kujundus</string>
     <string name="theme_light">Hele kujundus</string>
     <string name="theme_dark">Tume kujundus</string>
     <string name="theme_system">Süsteemi kujundus</string>
@@ -88,4 +88,8 @@
     <string name="no_history">Ajalugu pole veel salvestunud</string>
     <string name="history">Ajalugu</string>
     <string name="wallpaper_history">Taustapiltide ajalugu</string>
+    <string name="description">Kirjeldus</string>
+    <string name="invalid_time_interval">Vigane ajavahemik</string>
+    <string name="add_wallpaper_changer_rule">Lisa taustapildi vahetamise reegel</string>
+    <string name="time_interval">Ajavahemik</string>
 </resources>

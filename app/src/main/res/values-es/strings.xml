@@ -98,4 +98,8 @@
     <string name="history">Historial</string>
     <string name="wallpaper_history">Historial de fondos de pantalla</string>
     <string name="no_history">Sin historial aún</string>
+    <string name="description">Descripción</string>
+    <string name="add_wallpaper_changer_rule">Añadir regla de cambio de fondo de pantalla</string>
+    <string name="time_interval">Intervalo de tiempo</string>
+    <string name="invalid_time_interval">Intervalo de tiempo no válido</string>
 </resources>

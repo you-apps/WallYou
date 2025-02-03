@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="settings">Iestatījumi</string>
+    <string name="about">Par lietotni</string>
+    <string name="history">Vēsture</string>
+    <string name="info">Informācija</string>
+    <string name="add">Pievienot</string>
+    <string name="download">Lejupielādēt</string>
+    <string name="author">Autors</string>
+    <string name="resolution">Izšķirtspēja</string>
+    <string name="category">Kategorija</string>
+    <string name="fileSize">Faila izmērs</string>
+    <string name="creationDate">Izveidošanas datums</string>
+    <string name="general">Vispārīgie</string>
+    <string name="cache">Kešatmiņa</string>
+    <string name="favorites">Iecienītākie</string>
+    <string name="image_url">Attēla saite</string>
+</resources>

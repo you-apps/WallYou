@@ -97,4 +97,8 @@
     <string name="no_history">尚无历史</string>
     <string name="wallpaper_history">壁纸历史</string>
     <string name="history">历史记录</string>
+    <string name="description">描述</string>
+    <string name="add_wallpaper_changer_rule">添加壁纸更改程序规则</string>
+    <string name="time_interval">间隔</string>
+    <string name="invalid_time_interval">无效的间隔</string>
 </resources>

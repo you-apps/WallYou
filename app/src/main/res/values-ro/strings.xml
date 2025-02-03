@@ -60,4 +60,24 @@
     <string name="invert_wallpaper_by_theme">Inversează fundalul prin temă</string>
     <string name="invert_wallpaper_by_theme_summary">Inversează fundalul pentru a fi întunecat pe teme întunecate și luminos pe teme luminoase.</string>
     <string name="directories">Directoare</string>
+    <string name="apply_image_filters">Aplică filtrele imagine</string>
+    <string name="set_with">Setează cu...</string>
+    <string name="set_as">Setează ca</string>
+    <string name="wallpaper">Temă</string>
+    <string name="apply">Aplică</string>
+    <string name="colors">Culori</string>
+    <string name="details">Detali</string>
+    <string name="error">Eroare</string>
+    <string name="done">Gata</string>
+    <string name="save">Salvează</string>
+    <string name="edit">Editează</string>
+    <string name="favorite">Favorite</string>
+    <string name="go_back">Înapoi</string>
+    <string name="history">Istorie</string>
+    <string name="all_networks">Tot network</string>
+    <string name="no_history">Fără istorie încă</string>
+    <string name="image_url">Link Imagine</string>
+    <string name="network_type">Tip network</string>
+    <string name="applying_wallpaper">Aplicarea Tema</string>
+    <string name="saving_wallpaper">Salvarea Tema</string>
 </resources>
