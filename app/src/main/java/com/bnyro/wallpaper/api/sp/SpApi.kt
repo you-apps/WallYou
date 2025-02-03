@@ -17,7 +17,8 @@ class SpApi: Api() {
     override val icon = Icons.Default.LightMode
 
     override val filters: Map<String, List<String>> = mapOf(
-        "country" to listOf("US") + Locale.getISOCountries().toList().filter { it != "US" }.sorted()
+        "country" to listOf("US") + Locale.getISOCountries().toList().filter { it != "US" }.sorted(),
+        "orientation" to listOf("portrait", "landscape")
     )
 
     private val api = RetrofitHelper.create(baseUrl, Spotlight::class.java)
@@ -31,7 +32,10 @@ class SpApi: Api() {
         return images.map {
             Wallpaper(
                 title = it.ad.title,
-                imgSrc = it.ad.portraitImage.asset,
+                imgSrc = when (getQuery("orientation")) {
+                    "portrait" -> it.ad.portraitImage.asset
+                        else -> it.ad.landscapeImage.asset
+                },
                 author = it.ad.copyright,
                 url = it.ad.ctaUri.replaceFirst("microsoft-edge:", ""),
                 description = it.ad.description
