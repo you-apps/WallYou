@@ -12,6 +12,7 @@ import androidx.compose.foundation.lazy.grid.items
 import androidx.compose.foundation.shape.CircleShape
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Text
+import androidx.compose.material3.contentColorFor
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.runtime.getValue
@@ -63,15 +64,15 @@ fun InfoSheetColors(
         verticalArrangement = Arrangement.spacedBy(10.dp),
         horizontalArrangement = Arrangement.spacedBy(10.dp),
     ) {
-        items(items = colors) {
+        items(items = colors) { colorSwatch ->
             val hexColor = String.format(
                 "#%06X",
-                0xFFFFFF and it.rgb
+                0xFFFFFF and colorSwatch.rgb
             )
             Box(
                 modifier = Modifier
                     .clip(CircleShape)
-                    .background(Color(it.rgb))
+                    .background(Color(colorSwatch.rgb))
                     .clickable {
                         clipboardManager.setText(AnnotatedString(hexColor))
                     },
@@ -80,7 +81,7 @@ fun InfoSheetColors(
                 Text(
                     hexColor,
                     style = MaterialTheme.typography.titleMedium,
-                    color = Color.White,
+                    color = Color(colorSwatch.bodyTextColor),
                     modifier = Modifier.padding(8.dp)
                 )
             }
