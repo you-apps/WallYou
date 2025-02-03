@@ -14,6 +14,7 @@ import com.bnyro.wallpaper.api.re.ReApi
 import com.bnyro.wallpaper.api.sp.SpApi
 import com.bnyro.wallpaper.api.us.UsApi
 import com.bnyro.wallpaper.api.wh.WhApi
+import com.bnyro.wallpaper.api.wi.WiAPi
 import com.bnyro.wallpaper.db.DatabaseHolder
 import com.bnyro.wallpaper.util.Preferences
 
@@ -48,6 +49,6 @@ class App : Application(), ImageLoaderFactory {
 
     companion object {
         val apis =
-            listOf(WhApi(), OwApi(), UsApi(), BiApi(), ReApi(), LeApi(), PxApi(), SpApi(), NaApi(), PsApi())
+            listOf(WhApi(), OwApi(), UsApi(), BiApi(), ReApi(), LeApi(), PxApi(), SpApi(), NaApi(), WiAPi(), PsApi())
     }
 }
