@@ -16,7 +16,7 @@ class ReApi : CommunityApi() {
         "time" to listOf("month", "year", "hour", "day", "week")
     )
 
-    val api = RetrofitHelper.create(baseUrl, Reddit::class.java)
+    val api = RetrofitHelper.create<Reddit>(baseUrl)
 
     override val defaultCommunityName = "r/wallpaper"
 

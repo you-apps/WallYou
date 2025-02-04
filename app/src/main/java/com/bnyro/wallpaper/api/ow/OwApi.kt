@@ -17,7 +17,7 @@ class OwApi : Api() {
         "style" to listOf("all", "light", "dark")
     )
 
-    private val api = RetrofitHelper.create(baseUrl, OWalls::class.java)
+    private val api = RetrofitHelper.create<OWalls>(baseUrl)
     private val resultsPerPage = 20
 
     private var wallpapers: MutableList<Wallpaper> = mutableListOf()

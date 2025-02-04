@@ -14,7 +14,7 @@ class WiAPi : Api() {
     override val icon: ImageVector = Icons.Default.Today
     override val baseUrl = "https://en.wikipedia.org"
 
-    private val api = RetrofitHelper.create(baseUrl, WikiPOTD::class.java)
+    private val api = RetrofitHelper.create<WikiPOTD>(baseUrl)
     private val dateFormat = DateTimeFormatter.ofPattern("yyyy-MM-dd")
 
     override suspend fun getWallpapers(page: Int): List<Wallpaper> {

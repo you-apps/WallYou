@@ -16,7 +16,7 @@ class UsApi : Api() {
     )
     override val supportsTags: Boolean = true
 
-    private val api = RetrofitHelper.create(baseUrl, Unsplash::class.java)
+    private val api = RetrofitHelper.create<Unsplash>(baseUrl)
 
     override suspend fun getWallpapers(page: Int): List<Wallpaper> {
         val tags = getTags()

@@ -20,7 +20,7 @@ class WhApi : Api() {
     )
     override val supportsTags: Boolean = true
 
-    private val api = RetrofitHelper.create(baseUrl, Wallhaven::class.java)
+    private val api = RetrofitHelper.create<Wallhaven>(baseUrl)
 
     override suspend fun getWallpapers(page: Int): List<Wallpaper> {
         return api.search(

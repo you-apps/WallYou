@@ -16,7 +16,7 @@ object RetrofitHelper {
         }
     }
 
-    private val okHttpClient by lazy {
+    val okHttpClient by lazy {
         val builder = OkHttpClient.Builder()
 
         if (BuildConfig.DEBUG) {
@@ -28,7 +28,7 @@ object RetrofitHelper {
         builder.build()
     }
 
-    fun <T> create(baseUrl: String, type: Class<T>): T {
+    inline fun <reified T> create(baseUrl: String): T {
         val mediaType = "application/json".toMediaType()
 
         return Retrofit.Builder()
@@ -36,6 +36,6 @@ object RetrofitHelper {
             .client(okHttpClient)
             .addConverterFactory(json.asConverterFactory(mediaType))
             .build()
-            .create(type)
+            .create(T::class.java)
     }
 }

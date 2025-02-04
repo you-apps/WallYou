@@ -11,7 +11,7 @@ class PxApi : Api() {
     override val baseUrl: String = "https://api.github.com"
     override val icon = Icons.Default.Pix
 
-    private val api = RetrofitHelper.create(baseUrl, Pixel::class.java)
+    private val api = RetrofitHelper.create<Pixel>(baseUrl)
     private val imgSrcPrefix = "https://raw.githubusercontent.com/wacko1805/Pixel-Wallpapers/main/"
 
     private var wallpapers: List<Wallpaper> = emptyList()

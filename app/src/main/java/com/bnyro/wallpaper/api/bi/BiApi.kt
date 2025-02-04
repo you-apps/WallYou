@@ -16,7 +16,7 @@ class BiApi : Api() {
     )
     private val previewResolution = "768x1366"
 
-    val api = RetrofitHelper.create(baseUrl, Bing::class.java)
+    val api = RetrofitHelper.create<Bing>(baseUrl)
 
     private fun getImgSrc(path: String, resolution: String): String {
         return "$baseUrl${path}_${resolution}.jpg"

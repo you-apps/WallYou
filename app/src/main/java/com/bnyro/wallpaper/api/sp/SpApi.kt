@@ -21,7 +21,7 @@ class SpApi: Api() {
         "orientation" to listOf("portrait", "landscape")
     )
 
-    private val api = RetrofitHelper.create(baseUrl, Spotlight::class.java)
+    private val api = RetrofitHelper.create<Spotlight>(baseUrl)
 
     override suspend fun getWallpapers(page: Int): List<Wallpaper> {
         val country = getQuery("country")

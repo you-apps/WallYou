@@ -11,7 +11,7 @@ class PsApi : Api() {
     override val baseUrl: String = "https://picsum.photos"
     override val icon = Icons.Default.Pix
 
-    private val api = RetrofitHelper.create(baseUrl, Picsum::class.java)
+    private val api = RetrofitHelper.create<Picsum>(baseUrl)
 
     override suspend fun getWallpapers(page: Int): List<Wallpaper> {
         return api.getWallpapers(page).map {

@@ -17,7 +17,7 @@ class NaApi : Api() {
     override val filters: Map<String, List<String>>
         get() = mapOf("order" to listOf("date", "random"))
 
-    private val api = RetrofitHelper.create(baseUrl, NasaAPOD::class.java)
+    private val api = RetrofitHelper.create<NasaAPOD>(baseUrl)
 
     private var nextEndDate: LocalDateTime? = null
 

@@ -37,7 +37,7 @@ class LeApi : CommunityApi() {
 
     override val defaultCommunityName: String = "pics@lemmy.world"
 
-    private val api = RetrofitHelper.create(baseUrl, Lemmy::class.java)
+    private val api = RetrofitHelper.create<Lemmy>(baseUrl)
 
     override suspend fun getWallpapers(page: Int): List<Wallpaper> {
         return api.getWallpapers(
