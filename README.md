@@ -18,12 +18,11 @@
 <!-- ---------- Description ---------- -->
 ## Features
 
+- [x] Wallpaper Browsing and Downloading
 - [x] Automatic Wallpaper Changer
-- [x] Favorites
-- [x] Search filters
-- [x] Material Design 3 (You)
-- [x] Written in Jetpack Compose
-- [x] Entirely Open Source
+- [x] Favorites List
+- [x] Wallpaper History
+- [x] Image Filter Effects
 
 <!-- ---------- Download ---------- -->
 ## Download
