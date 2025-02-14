@@ -18,6 +18,7 @@ object Preferences {
     const val startTabKey = "startTab"
     const val invertKey = "invert"
     const val contrastKey = "contrast"
+    const val hueKey = "hue"
     const val brightnessKey = "brightness"
     const val autoLightenDarkenKey = "autoLightenDarken"
 

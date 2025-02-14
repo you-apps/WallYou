@@ -79,6 +79,14 @@ fun WallpaperFilterEditor(
             )
         )
     }
+    var hueValue by remember {
+        mutableFloatStateOf(
+            Preferences.getFloat(
+                Preferences.hueKey,
+                1f
+            )
+        )
+    }
     var brightnessValue by remember {
         mutableFloatStateOf(
             Preferences.getFloat(
@@ -143,6 +151,19 @@ fun WallpaperFilterEditor(
                         }
                     }
                 )
+                ImageFilterSlider(
+                    title = stringResource(R.string.hue),
+                    value = hueValue,
+                    valueRange = 0f..1f,
+                    onValueChange = {
+                        hueValue = it
+                    },
+                    onValueChangeFinished = {
+                        Preferences.edit {
+                            putFloat(Preferences.hueKey, hueValue)
+                        }
+                    }
+                )
                 CheckboxPref(
                     prefKey = Preferences.grayscaleKey,
                     title = stringResource(R.string.grayscale)
@@ -176,16 +197,18 @@ fun WallpaperFilterEditor(
                         .fillMaxWidth()
                 ) {
                     TextButton(onClick = {
-                        grayscaleEnabled = false
                         contrastValue = 1f
                         brightnessValue = 1f
+                        hueValue = 1f
                         blurRadius = 0f
+                        grayscaleEnabled = false
                         invertEnabled = false
 
                         Preferences.edit {
                             putFloat(Preferences.blurKey, 0f)
                             putFloat(Preferences.contrastKey, 1f)
                             putFloat(Preferences.brightnessKey, 1f)
+                            putFloat(Preferences.hueKey, 1f)
                             putString(Preferences.resizeMethodKey, ResizeMethod.CROP.name)
                             putBoolean(Preferences.grayscaleKey, false)
                             putBoolean(Preferences.invertKey, false)
@@ -218,11 +241,12 @@ fun WallpaperFilterEditor(
             ) {
                 val lowRes = rememberAsyncImagePainter(model = wallpaper.preview)
                 val colorMatrix =
-                    remember(brightnessValue, contrastValue, invertEnabled, grayscaleEnabled) {
+                    remember(brightnessValue, contrastValue, hueValue, invertEnabled, grayscaleEnabled) {
                         // grayscale doesn't seem to work the same way here (always looks greenish)
                         val matrix = BitmapProcessor.getTransformMatrix(
                             contrastValue,
                             brightnessValue,
+                            hueValue,
                             false,
                             invertEnabled
                         )

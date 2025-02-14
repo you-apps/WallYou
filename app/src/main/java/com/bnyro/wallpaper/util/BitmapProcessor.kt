@@ -3,6 +3,8 @@ package com.bnyro.wallpaper.util
 import android.graphics.Bitmap
 import android.graphics.Color
 import com.google.android.renderscript.Toolkit
+import kotlin.math.cos
+import kotlin.math.sin
 import kotlin.math.sqrt
 
 object BitmapProcessor {
@@ -26,6 +28,19 @@ object BitmapProcessor {
         0f, 0f, brightness, 0f,
         0f, 0f, 0f, 1f
     )
+
+    private fun getHueMatrix(hueAngle: Float): FloatArray {
+        val cosOnly = (1 + 2 * cos(hueAngle)) / 3
+        val cosSubSin = (1 - cos(hueAngle)) / 3 - sin(hueAngle) / sqrt(3f)
+        val cosAddSin = (1 - cos(hueAngle)) / 3 + sin(hueAngle) / sqrt(3f)
+
+        return floatArrayOf(
+            cosOnly, cosSubSin, cosAddSin, 0f,
+            cosAddSin, cosOnly, cosSubSin, 0f,
+            cosSubSin, cosAddSin, cosOnly, 0f,
+            0f, 0f, 0f, 1f
+        )
+    }
 
     private fun Bitmap.blur(radius: Int): Bitmap {
         if (radius == 0) return this
@@ -53,7 +68,7 @@ object BitmapProcessor {
         return result
     }
 
-    fun getTransformMatrix(contrast: Float, brightness: Float, grayScale: Boolean, invert: Boolean): FloatArray {
+    fun getTransformMatrix(contrast: Float, brightness: Float, hue: Float, grayScale: Boolean, invert: Boolean): FloatArray {
         var transformMatrix = Toolkit.identityMatrix
         if (contrast != 1f) {
             transformMatrix = multiply(transformMatrix, getContrastMatrix(contrast))
@@ -61,11 +76,14 @@ object BitmapProcessor {
         if (brightness != 1f) {
             transformMatrix = multiply(transformMatrix, getBrightnessMatrix(brightness))
         }
-        if (grayScale) {
-            transformMatrix = multiply(transformMatrix, Toolkit.greyScaleColorMatrix)
+        if (hue != 1f) {
+            transformMatrix = multiply(transformMatrix, getHueMatrix((hue * 2 * Math.PI).toFloat()))
         }
         if (invert) {
             transformMatrix = multiply(transformMatrix, matrixInvert)
+        }
+        if (grayScale) {
+            transformMatrix = multiply(transformMatrix, Toolkit.greyScaleColorMatrix)
         }
 
         return transformMatrix
@@ -75,10 +93,11 @@ object BitmapProcessor {
         val blurRadius = Preferences.getFloat(Preferences.blurKey, 0f).toInt()
         val contrast = Preferences.getFloat(Preferences.contrastKey, 1f)
         val brightness = Preferences.getFloat(Preferences.brightnessKey, 1f)
+        val hue = Preferences.getFloat(Preferences.hueKey, 1f)
         val grayScale = Preferences.getBoolean(Preferences.grayscaleKey, false)
         val invert = Preferences.getBoolean(Preferences.invertKey, false)
 
-        val transformMatrix = getTransformMatrix(contrast, brightness, grayScale, invert)
+        val transformMatrix = getTransformMatrix(contrast, brightness, hue, grayScale, invert)
         return Toolkit.colorMatrix(bitmap.blur(blurRadius), transformMatrix)
     }
 
