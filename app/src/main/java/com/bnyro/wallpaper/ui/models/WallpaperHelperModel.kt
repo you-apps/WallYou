@@ -22,6 +22,7 @@ import com.bnyro.wallpaper.R
 import com.bnyro.wallpaper.db.obj.Wallpaper
 import com.bnyro.wallpaper.enums.MultiState
 import com.bnyro.wallpaper.enums.WallpaperTarget
+import com.bnyro.wallpaper.util.BitmapProcessor
 import com.bnyro.wallpaper.util.ImageHelper
 import com.bnyro.wallpaper.util.WallpaperHelper
 import kotlinx.coroutines.Dispatchers
@@ -94,11 +95,12 @@ class WallpaperHelperModel(private val application: Application) : ViewModel() {
                 saveWallpaperState = MultiState.ERROR
                 return@launch
             }
+            val transformedBitmap = BitmapProcessor.processBitmapByPrefs(bitmap)
             saveWallpaperState = try {
                 withContext(Dispatchers.IO) {
                     application.contentResolver.openFileDescriptor(uri, "w")?.use {
                         FileOutputStream(it.fileDescriptor).use { fos ->
-                            bitmap.compress(Bitmap.CompressFormat.PNG, 25, fos)
+                            transformedBitmap.compress(Bitmap.CompressFormat.PNG, 25, fos)
                         }
                     }
                 }

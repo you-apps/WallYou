@@ -47,6 +47,7 @@ import com.bnyro.wallpaper.ext.zoomImage
 import com.bnyro.wallpaper.ui.components.prefs.CheckboxPref
 import com.bnyro.wallpaper.ui.components.prefs.ListPreference
 import com.bnyro.wallpaper.ui.models.WallpaperHelperModel
+import com.bnyro.wallpaper.util.BitmapProcessor
 import com.bnyro.wallpaper.util.Preferences
 
 @OptIn(ExperimentalMaterial3Api::class)
@@ -85,6 +86,14 @@ fun WallpaperFilterEditor(
             )
         )
     }
+    var brightnessValue by remember {
+        mutableFloatStateOf(
+            Preferences.getFloat(
+                Preferences.brightnessKey,
+                1f
+            )
+        )
+    }
     var blurRadius by remember {
         mutableFloatStateOf(
             Preferences.getFloat(
@@ -118,13 +127,26 @@ fun WallpaperFilterEditor(
                 ImageFilterSlider(
                     title = stringResource(R.string.contrast),
                     value = contrastValue,
-                    valueRange = 0f..10f,
+                    valueRange = 0f..1f,
                     onValueChange = {
                         contrastValue = it
                     },
                     onValueChangeFinished = {
                         Preferences.edit {
                             putFloat(Preferences.contrastKey, contrastValue)
+                        }
+                    }
+                )
+                ImageFilterSlider(
+                    title = stringResource(R.string.brightness),
+                    value = brightnessValue,
+                    valueRange = 0f..10f,
+                    onValueChange = {
+                        brightnessValue = it
+                    },
+                    onValueChangeFinished = {
+                        Preferences.edit {
+                            putFloat(Preferences.brightnessKey, brightnessValue)
                         }
                     }
                 )
@@ -215,32 +237,19 @@ fun WallpaperFilterEditor(
                     .zoomArea(zoomState)
             ) {
                 val lowRes = rememberAsyncImagePainter(model = wallpaper.preview)
-                val colorMatrix = remember(grayscaleEnabled, invertPreview, contrastValue) {
-                    val sat = if (grayscaleEnabled) 0f else 1f
-                    val invSat = 1 - sat
-                    val R = 0.213f * invSat
-                    val G = 0.715f * invSat
-                    val B = 0.072f * invSat
-                    val invert = if (invertPreview) -1f else 1f
-                    val contrast = contrastValue * invert
-                    floatArrayOf(
-                        (R + sat) * contrast,
-                        G * contrast,
-                        B * contrast,
-                        0f,
-                        (255f - 255f * invert) / 2f,
-                        R * contrast,
-                        (G + sat) * contrast,
-                        B * contrast,
-                        0f,
-                        (255f - 255f * invert) / 2f,
-                        R * contrast,
-                        G * contrast,
-                        (B + sat) * contrast,
-                        0f,
-                        (255f - 255f * invert) / 2f,
-                        0f, 0f, 0f, 1f, 0f
-                    )
+                val colorMatrix = remember(brightnessValue, contrastValue, invertPreview, grayscaleEnabled) {
+                    // grayscale doesn't seem to work the same way here (always looks greenish)
+                    val matrix = BitmapProcessor.getTransformMatrix(contrastValue, brightnessValue, false, invertPreview)
+
+                    // the Android color matrix requires a 5th column with constant values to add
+                    val colorMatrixWithAdditionalColumn = matrix.toMutableList()
+                    for (i in 1..4) {
+                        colorMatrixWithAdditionalColumn.add(5 * i - 1, 0f)
+                    }
+
+                    ColorMatrix(colorMatrixWithAdditionalColumn.toFloatArray()).apply {
+                        if (grayscaleEnabled) setToSaturation(0f)
+                    }
                 }
 
                 AsyncImage(
@@ -252,7 +261,7 @@ fun WallpaperFilterEditor(
                         .blur(radius = blurRadius.dp)
                         .zoomImage(zoomState),
                     placeholder = lowRes,
-                    colorFilter = ColorFilter.colorMatrix(ColorMatrix(colorMatrix))
+                    colorFilter = ColorFilter.colorMatrix(colorMatrix)
                 )
             }
         }

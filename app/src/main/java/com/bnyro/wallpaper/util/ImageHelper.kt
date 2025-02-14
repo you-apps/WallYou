@@ -43,7 +43,7 @@ object ImageHelper {
         val result = context.imageLoader.execute(request)
 
         if (result is SuccessResult) {
-            return result.drawable.toBitmap()
+            return result.drawable.toBitmap().copy(Bitmap.Config.ARGB_8888, false)
         }
         return null
     }

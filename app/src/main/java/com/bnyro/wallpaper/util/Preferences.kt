@@ -18,6 +18,7 @@ object Preferences {
     const val startTabKey = "startTab"
     const val invertBitmapBySystemThemeKey = "invertBitmapBySystemTheme"
     const val contrastKey = "contrast"
+    const val brightnessKey = "brightness"
 
     const val wallpaperChangerKey = "wallpaperChanger"
     private const val wallpaperChangerConfigKey = "wallpaperChangerConfigurations"
