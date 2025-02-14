@@ -101,6 +101,11 @@ fun SettingsPage(
                     title = stringResource(R.string.wallpaper_history),
                     defaultValue = true
                 )
+                CheckboxPref(
+                    prefKey = Preferences.autoLightenDarkenKey,
+                    title = stringResource(R.string.auto_darken_lighten_by_theme),
+                    summary = stringResource(R.string.auto_darken_lighten_by_theme_desc)
+                )
             }
         }
 

@@ -1,6 +1,5 @@
 package com.bnyro.wallpaper.ui.components
 
-import androidx.compose.animation.AnimatedVisibility
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
@@ -10,9 +9,7 @@ import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
 import androidx.compose.material3.BottomSheetScaffold
-import androidx.compose.material3.Checkbox
 import androidx.compose.material3.ExperimentalMaterial3Api
-import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.SheetValue
 import androidx.compose.material3.Text
 import androidx.compose.material3.TextButton
@@ -24,7 +21,6 @@ import androidx.compose.runtime.mutableFloatStateOf
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
 import androidx.compose.runtime.setValue
-import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.blur
 import androidx.compose.ui.graphics.Color
@@ -70,13 +66,10 @@ fun WallpaperFilterEditor(
     var invertEnabled by remember {
         mutableStateOf(
             Preferences.getBoolean(
-                Preferences.invertBitmapBySystemThemeKey,
+                Preferences.invertKey,
                 false
             )
         )
-    }
-    var invertPreview by remember {
-        mutableStateOf(false)
     }
     var contrastValue by remember {
         mutableFloatStateOf(
@@ -163,6 +156,12 @@ fun WallpaperFilterEditor(
                     R.string.fit_width,
                     R.string.fit_height
                 )
+                CheckboxPref(
+                    prefKey = Preferences.invertKey,
+                    title = stringResource(R.string.invert_wallpaper)
+                ) {
+                    invertEnabled = it
+                }
                 ListPreference(
                     prefKey = Preferences.resizeMethodKey,
                     title = stringResource(R.string.resize_method),
@@ -170,28 +169,6 @@ fun WallpaperFilterEditor(
                     values = ResizeMethod.values().map { it.name },
                     defaultValue = ResizeMethod.ZOOM.name
                 )
-                CheckboxPref(
-                    prefKey = Preferences.invertBitmapBySystemThemeKey,
-                    title = stringResource(R.string.invert_wallpaper_by_theme),
-                    summary = stringResource(R.string.invert_wallpaper_by_theme_summary)
-                ) {
-                    invertEnabled = it
-                    if (!it) invertPreview = false
-                }
-                AnimatedVisibility(visible = invertEnabled) {
-                    Row(
-                        modifier = Modifier.padding(start = 20.dp),
-                        verticalAlignment = Alignment.CenterVertically
-                    ) {
-                        Text(
-                            text = stringResource(R.string.preview_invert_effect),
-                            style = MaterialTheme.typography.titleSmall
-                        )
-                        Checkbox(checked = invertPreview, onCheckedChange = {
-                            invertPreview = it
-                        })
-                    }
-                }
                 Row(
                     horizontalArrangement = Arrangement.SpaceEvenly,
                     modifier = Modifier
@@ -201,14 +178,17 @@ fun WallpaperFilterEditor(
                     TextButton(onClick = {
                         grayscaleEnabled = false
                         contrastValue = 1f
+                        brightnessValue = 1f
                         blurRadius = 0f
                         invertEnabled = false
+
                         Preferences.edit {
                             putFloat(Preferences.blurKey, 0f)
                             putFloat(Preferences.contrastKey, 1f)
+                            putFloat(Preferences.brightnessKey, 1f)
                             putString(Preferences.resizeMethodKey, ResizeMethod.CROP.name)
                             putBoolean(Preferences.grayscaleKey, false)
-                            putBoolean(Preferences.invertBitmapBySystemThemeKey, false)
+                            putBoolean(Preferences.invertKey, false)
                         }
                     }) {
                         Text(text = stringResource(R.string.reset))
@@ -237,20 +217,26 @@ fun WallpaperFilterEditor(
                     .zoomArea(zoomState)
             ) {
                 val lowRes = rememberAsyncImagePainter(model = wallpaper.preview)
-                val colorMatrix = remember(brightnessValue, contrastValue, invertPreview, grayscaleEnabled) {
-                    // grayscale doesn't seem to work the same way here (always looks greenish)
-                    val matrix = BitmapProcessor.getTransformMatrix(contrastValue, brightnessValue, false, invertPreview)
+                val colorMatrix =
+                    remember(brightnessValue, contrastValue, invertEnabled, grayscaleEnabled) {
+                        // grayscale doesn't seem to work the same way here (always looks greenish)
+                        val matrix = BitmapProcessor.getTransformMatrix(
+                            contrastValue,
+                            brightnessValue,
+                            false,
+                            invertEnabled
+                        )
 
-                    // the Android color matrix requires a 5th column with constant values to add
-                    val colorMatrixWithAdditionalColumn = matrix.toMutableList()
-                    for (i in 1..4) {
-                        colorMatrixWithAdditionalColumn.add(5 * i - 1, 0f)
-                    }
+                        // the Android color matrix requires a 5th column with constant values to add
+                        val colorMatrixWithAdditionalColumn = matrix.toMutableList()
+                        for (i in 1..4) {
+                            colorMatrixWithAdditionalColumn.add(5 * i - 1, 0f)
+                        }
 
-                    ColorMatrix(colorMatrixWithAdditionalColumn.toFloatArray()).apply {
-                        if (grayscaleEnabled) setToSaturation(0f)
+                        ColorMatrix(colorMatrixWithAdditionalColumn.toFloatArray()).apply {
+                            if (grayscaleEnabled) setToSaturation(0f)
+                        }
                     }
-                }
 
                 AsyncImage(
                     model = wallpaper.imgSrc,

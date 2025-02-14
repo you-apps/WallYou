@@ -56,8 +56,9 @@
     <string name="success">Success!</string>
     <string name="current_directory">Current</string>
     <string name="none">None</string>
-    <string name="invert_wallpaper_by_theme">Invert wallpaper by theme</string>
-    <string name="invert_wallpaper_by_theme_summary">Invert the wallpaper to be dark on dark themes and light on light themes.</string>
+    <string name="invert_wallpaper">Invert wallpaper</string>
+    <string name="auto_darken_lighten_by_theme">Auto-brightness by theme</string>
+    <string name="auto_darken_lighten_by_theme_desc">Automatically darken or lighten the wallpaper based on the theme</string>
     <string name="apply_image_filters">Apply image filters</string>
     <string name="add_wallpaper_changer_rule">Add wallpaper changer rule</string>
     <string name="time_interval">Time interval</string>

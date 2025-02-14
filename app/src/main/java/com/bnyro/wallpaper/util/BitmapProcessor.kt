@@ -6,21 +6,21 @@ import com.google.android.renderscript.Toolkit
 import kotlin.math.sqrt
 
 object BitmapProcessor {
-    val matrixInvert = floatArrayOf(
+    private val matrixInvert = floatArrayOf(
         -1f, 0f, 0f, 1.0f,
         0f, -1f, 0f, 1.0f,
         0f, 0f, -1f, 1.0f,
         1.0f, 1.0f, 1.0f, 1.0f
     )
 
-    fun getContrastMatrix(contrast: Float) = floatArrayOf(
+    private fun getContrastMatrix(contrast: Float) = floatArrayOf(
         contrast, 0f, 0f, (1f - contrast) / 2,
         0f, contrast, 0f, (1f - contrast) / 2,
         0f, 0f, contrast, (1f - contrast) / 2,
         0f, 0f, 0f, 1f
     )
 
-    fun getBrightnessMatrix(brightness: Float) = floatArrayOf(
+    private fun getBrightnessMatrix(brightness: Float) = floatArrayOf(
         brightness, 0f, 0f, 0f,
         0f, brightness, 0f, 0f,
         0f, 0f, brightness, 0f,
@@ -33,7 +33,12 @@ object BitmapProcessor {
         return Toolkit.blur(this, radius)
     }
 
-        fun multiply(a: FloatArray, b: FloatArray): FloatArray {
+    fun changeBrightness(bitmap: Bitmap, brightness: Float): Bitmap {
+        val brightnessMatrix = getBrightnessMatrix(brightness)
+        return Toolkit.colorMatrix(bitmap, brightnessMatrix)
+    }
+
+    fun multiply(a: FloatArray, b: FloatArray): FloatArray {
         val result = FloatArray(a.size)
 
         val dimension = sqrt(a.size.toDouble()).toInt()
@@ -48,7 +53,7 @@ object BitmapProcessor {
         return result
     }
 
-    fun getTransformMatrix(contrast: Float, brightness: Float, grayScale: Boolean, invert: Boolean = false): FloatArray {
+    fun getTransformMatrix(contrast: Float, brightness: Float, grayScale: Boolean, invert: Boolean): FloatArray {
         var transformMatrix = Toolkit.identityMatrix
         if (contrast != 1f) {
             transformMatrix = multiply(transformMatrix, getContrastMatrix(contrast))
@@ -71,35 +76,24 @@ object BitmapProcessor {
         val contrast = Preferences.getFloat(Preferences.contrastKey, 1f)
         val brightness = Preferences.getFloat(Preferences.brightnessKey, 1f)
         val grayScale = Preferences.getBoolean(Preferences.grayscaleKey, false)
+        val invert = Preferences.getBoolean(Preferences.invertKey, false)
 
-        val transformMatrix = getTransformMatrix(contrast, brightness, grayScale)
+        val transformMatrix = getTransformMatrix(contrast, brightness, grayScale, invert)
         return Toolkit.colorMatrix(bitmap.blur(blurRadius), transformMatrix)
     }
 
-    fun calculateBrightnessEstimate(bitmap: Bitmap, pixelSpacing: Int): Int {
-        val height = bitmap.height
-        val width = bitmap.width
+    fun calculateBrightnessEstimate(bitmap: Bitmap, pixelSpacing: Int = 20): Float {
+        val pixels = IntArray(bitmap.width * bitmap.height)
+        bitmap.getPixels(pixels, 0, bitmap.width, 0, 0, bitmap.width, bitmap.height)
 
         var pixelsRead = 0
-        var red = 0
-        var green = 0
-        var blue = 0
-
-        val pixels = IntArray(width * height)
-        bitmap.getPixels(pixels, 0, width, 0, 0, width, height)
-
+        var totalBrightness = 0
         for (i in pixels.indices step pixelSpacing) {
             val color = pixels[i]
-            red += Color.red(color)
-            green += Color.green(color)
-            blue += Color.blue(color)
+            totalBrightness += Color.red(color) + Color.green(color) + Color.blue(color)
             pixelsRead++
         }
 
-        return (red + blue + green) / (pixelsRead * 3)
-    }
-
-    fun invert(src: Bitmap): Bitmap {
-        return Toolkit.colorMatrix(src, matrixInvert)
+        return totalBrightness.toFloat() / (pixelsRead * 3) / 256
     }
 }

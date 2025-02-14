@@ -13,6 +13,12 @@ import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.withContext
 
 object WallpaperHelper {
+    private const val LIGHT_BRIGHTNESS_MIN = 0.8f
+    private const val DARK_BRIGHTNESS_MAX = 0.3f
+
+    private const val TARGET_BRIGHTNESS_DARK = 0.7f
+    private const val TARGET_BRIGHTNESS_LIGHT = 0.4f
+
     @RequiresApi(Build.VERSION_CODES.N)
     private fun setWallpaperUp(context: Context, imageBitmap: Bitmap, mode: Int) {
         val (width, height) = getMetrics(context)
@@ -32,8 +38,8 @@ object WallpaperHelper {
         withContext(Dispatchers.IO) {
             var bitmap = BitmapProcessor.processBitmapByPrefs(src)
             bitmap = resizeBitmapByPreference(context, bitmap = bitmap)
-            if (Preferences.getBoolean(Preferences.invertBitmapBySystemThemeKey, false)) {
-                bitmap = invertBitmapIfNeeded(context, bitmap)
+            if (Preferences.getBoolean(Preferences.autoLightenDarkenKey, false)) {
+                bitmap = lightenOrDarkenBitmapIfNeeded(context, bitmap)
             }
             setWallpaper(context, bitmap, mode)
         }
@@ -129,13 +135,19 @@ object WallpaperHelper {
         return getResizedBitmap(bitmap, (bitmap.width * widthRatio).toInt(), height)
     }
 
-    private fun invertBitmapIfNeeded(context: Context, bitmap: Bitmap): Bitmap {
-        val bitmapBrightness = BitmapProcessor.calculateBrightnessEstimate(bitmap, 20)
+    private fun lightenOrDarkenBitmapIfNeeded(context: Context, bitmap: Bitmap): Bitmap {
+        val bitmapBrightness = BitmapProcessor.calculateBrightnessEstimate(bitmap)
         val isDarkMode = ThemeHelper.isNightMode(context)
 
         return when {
-            isDarkMode && bitmapBrightness > 127 -> BitmapProcessor.invert(bitmap)
-            !isDarkMode && bitmapBrightness < 127 -> BitmapProcessor.invert(bitmap)
+            isDarkMode && bitmapBrightness > LIGHT_BRIGHTNESS_MIN -> {
+                val newBrightness = TARGET_BRIGHTNESS_DARK / bitmapBrightness
+                BitmapProcessor.changeBrightness(bitmap, newBrightness)
+            }
+            !isDarkMode && bitmapBrightness < DARK_BRIGHTNESS_MAX -> {
+                val newBrightness = TARGET_BRIGHTNESS_LIGHT / bitmapBrightness
+                BitmapProcessor.changeBrightness(bitmap, newBrightness)
+            }
             else -> bitmap
         }
     }
