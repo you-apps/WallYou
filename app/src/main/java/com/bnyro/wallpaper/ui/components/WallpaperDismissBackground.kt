@@ -10,6 +10,7 @@ import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.Delete
 import androidx.compose.material.icons.filled.Favorite
+import androidx.compose.material.icons.filled.FavoriteBorder
 import androidx.compose.material3.ExperimentalMaterial3Api
 import androidx.compose.material3.Icon
 import androidx.compose.material3.MaterialTheme
@@ -25,13 +26,14 @@ import androidx.compose.ui.unit.dp
 
 @OptIn(ExperimentalMaterial3Api::class, ExperimentalMaterial3Api::class)
 @Composable
-fun DismissBackground(
+fun WallpaperDismissBackground(
     dismissState: SwipeToDismissBoxState,
-    cornerShape: Shape = RoundedCornerShape(10.dp)
+    cornerShape: Shape = RoundedCornerShape(10.dp),
+    isFavorite: Boolean
 ) {
     val color = when (dismissState.dismissDirection) {
         SwipeToDismissBoxValue.StartToEnd -> MaterialTheme.colorScheme.errorContainer
-        SwipeToDismissBoxValue.EndToStart -> MaterialTheme.colorScheme.primaryContainer
+        SwipeToDismissBoxValue.EndToStart -> MaterialTheme.colorScheme.secondaryContainer
         SwipeToDismissBoxValue.Settled -> Color.Transparent
     }
 
@@ -44,14 +46,18 @@ fun DismissBackground(
         verticalAlignment = Alignment.CenterVertically,
         horizontalArrangement = Arrangement.SpaceBetween
     ) {
-        Icon(
-            Icons.Default.Delete,
-            contentDescription = null
-        )
-        Spacer(modifier = Modifier)
-//        Icon(
-//            imageVector = Icons.Default.Favorite,
-//            contentDescription = null
-//        )
+        if (dismissState.dismissDirection == SwipeToDismissBoxValue.StartToEnd) {
+            Icon(
+                Icons.Default.Delete,
+                contentDescription = null
+            )
+        }
+        Spacer(modifier = Modifier.weight(1f))
+        if (dismissState.dismissDirection == SwipeToDismissBoxValue.EndToStart) {
+            Icon(
+                imageVector =  if (isFavorite) Icons.Default.Favorite else Icons.Default.FavoriteBorder,
+                contentDescription = null
+            )
+        }
     }
 }

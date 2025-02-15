@@ -9,6 +9,7 @@ import androidx.lifecycle.viewModelScope
 import com.bnyro.wallpaper.App
 import com.bnyro.wallpaper.R
 import com.bnyro.wallpaper.db.DatabaseHolder
+import com.bnyro.wallpaper.db.DatabaseHolder.Database
 import com.bnyro.wallpaper.db.obj.Wallpaper
 import com.bnyro.wallpaper.enums.ThemeMode
 import com.bnyro.wallpaper.ui.nav.DrawerScreens
@@ -67,8 +68,16 @@ class MainModel : ViewModel() {
         }
     }
 
+    fun addToFavorites(wallpaper: Wallpaper) = viewModelScope.launch(Dispatchers.IO) {
+        Database.favoritesDao().insert(wallpaper, true, null)
+    }
+
+    fun removeFromFavorites(wallpaper: Wallpaper) = viewModelScope.launch(Dispatchers.IO) {
+        Database.favoritesDao().removeFromFavorites(wallpaper)
+    }
+
     fun removeRecentlyAppliedWallpaper(wallpaper: Wallpaper) = viewModelScope.launch(Dispatchers.IO) {
-        DatabaseHolder.Database.favoritesDao().removeFromHistory(wallpaper)
+        Database.favoritesDao().removeFromHistory(wallpaper)
     }
 
     fun clearWallpapers() {

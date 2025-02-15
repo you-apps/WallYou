@@ -30,6 +30,7 @@ fun FavoritesPage(viewModel: MainModel) {
 
         if (favorites.isNotEmpty()) {
             WallpaperGrid(
+                viewModel = viewModel,
                 wallpapers = favorites,
                 onClickWallpaper = {
                     selectedIndex = it

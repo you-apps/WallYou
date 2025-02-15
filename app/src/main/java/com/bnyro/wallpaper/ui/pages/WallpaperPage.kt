@@ -62,6 +62,7 @@ fun WallpaperPage(
     ) {
         if (viewModel.wallpapers.isNotEmpty()) {
             WallpaperGrid(
+                viewModel = viewModel,
                 wallpapers = viewModel.wallpapers,
                 onClickWallpaper = {
                     selectedIndex = it

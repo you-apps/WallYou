@@ -30,6 +30,7 @@ fun HistoryPage(viewModel: MainModel) {
 
         if (history.isNotEmpty()) {
             WallpaperGrid(
+                viewModel = viewModel,
                 wallpapers = history,
                 onClickWallpaper = {
                     selectedIndex = it
