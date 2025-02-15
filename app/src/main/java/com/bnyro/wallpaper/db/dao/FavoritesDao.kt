@@ -57,6 +57,12 @@ interface FavoritesDao {
         cleanup()
     }
 
+    suspend fun removeFromHistory(wallpaper: Wallpaper) {
+        insertAll(listOf(wallpaper.copy(inHistory = false)))
+
+        cleanup()
+    }
+
     @Query("DELETE FROM favorites WHERE favorite = 0 and inHistory = 0")
     suspend fun cleanup()
 }

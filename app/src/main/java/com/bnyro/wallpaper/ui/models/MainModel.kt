@@ -67,6 +67,10 @@ class MainModel : ViewModel() {
         }
     }
 
+    fun removeRecentlyAppliedWallpaper(wallpaper: Wallpaper) = viewModelScope.launch(Dispatchers.IO) {
+        DatabaseHolder.Database.favoritesDao().removeFromHistory(wallpaper)
+    }
+
     fun clearWallpapers() {
         wallpapers = listOf()
         page = 1

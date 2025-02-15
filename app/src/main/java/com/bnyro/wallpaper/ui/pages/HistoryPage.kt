@@ -33,6 +33,9 @@ fun HistoryPage(viewModel: MainModel) {
                 wallpapers = history,
                 onClickWallpaper = {
                     selectedIndex = it
+                },
+                onDeleteWallpaper = { wallpaper ->
+                    viewModel.removeRecentlyAppliedWallpaper(wallpaper)
                 }
             )
             selectedIndex?.let {

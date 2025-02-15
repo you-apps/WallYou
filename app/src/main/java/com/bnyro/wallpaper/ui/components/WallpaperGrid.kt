@@ -18,7 +18,11 @@ import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.Favorite
 import androidx.compose.material.icons.filled.FavoriteBorder
 import androidx.compose.material3.ElevatedCard
+import androidx.compose.material3.ExperimentalMaterial3Api
 import androidx.compose.material3.MaterialTheme
+import androidx.compose.material3.SwipeToDismissBox
+import androidx.compose.material3.SwipeToDismissBoxValue
+import androidx.compose.material3.rememberSwipeToDismissBoxState
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.runtime.derivedStateOf
@@ -39,10 +43,12 @@ import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 import kotlinx.coroutines.withContext
 
+@OptIn(ExperimentalMaterial3Api::class)
 @Composable
 fun WallpaperGrid(
     wallpapers: List<Wallpaper>,
     onClickWallpaper: (Int) -> Unit,
+    onDeleteWallpaper: ((Wallpaper) -> Unit)? = null,
     onScrollEnd: () -> Unit = {}
 ) {
     val listState = rememberLazyGridState()
@@ -64,7 +70,7 @@ fun WallpaperGrid(
         horizontalArrangement = Arrangement.spacedBy(16.dp),
         contentPadding = PaddingValues(8.dp)
     ) {
-        itemsIndexed(wallpapers) { index, wallpaper ->
+        itemsIndexed(wallpapers, key = { _, wallpaper -> wallpaper.imgSrc }) { index, wallpaper ->
             var liked by remember {
                 mutableStateOf(false)
             }
@@ -75,42 +81,60 @@ fun WallpaperGrid(
                 }
             }
 
-            ElevatedCard(
-                modifier = Modifier
-                    .aspectRatio(9 / 16f)
-                    .clip(shape)
-                    .clickable {
-                        onClickWallpaper(index)
+            val dismissState = rememberSwipeToDismissBoxState(
+                positionalThreshold = { totalDistance -> totalDistance / 2.5f },
+                confirmValueChange = { value ->
+                    if (value == SwipeToDismissBoxValue.StartToEnd) {
+                        onDeleteWallpaper?.invoke(wallpaper)
                     }
+                    false
+                }
+            )
+            SwipeToDismissBox(
+                state = dismissState,
+                backgroundContent = {
+                    DismissBackground(dismissState, cornerShape = shape)
+                },
+                enableDismissFromEndToStart = false,
+                enableDismissFromStartToEnd = onDeleteWallpaper != null
             ) {
-                Box {
-                    AsyncImage(
-                        model = wallpaper.preview,
-                        contentDescription = null,
-                        contentScale = ContentScale.Crop,
-                        modifier = Modifier
-                            .fillMaxWidth()
-                            .clip(shape)
-                    )
-                    Box(
-                        Modifier
-                            .padding(bottom = 8.dp, end = 8.dp)
-                            .align(Alignment.BottomEnd)
-                            .clip(CircleShape)
-                            .background(MaterialTheme.colorScheme.primaryContainer)
-                    ) {
-                        val scope = rememberCoroutineScope()
-
-                        ButtonWithIcon(
-                            modifier = Modifier,
-                            if (liked) Icons.Default.Favorite else Icons.Default.FavoriteBorder
+                ElevatedCard(
+                    modifier = Modifier
+                        .aspectRatio(9 / 16f)
+                        .clip(shape)
+                        .clickable {
+                            onClickWallpaper(index)
+                        }
+                ) {
+                    Box {
+                        AsyncImage(
+                            model = wallpaper.preview,
+                            contentDescription = null,
+                            contentScale = ContentScale.Crop,
+                            modifier = Modifier
+                                .fillMaxWidth()
+                                .clip(shape)
+                        )
+                        Box(
+                            Modifier
+                                .padding(bottom = 8.dp, end = 8.dp)
+                                .align(Alignment.BottomEnd)
+                                .clip(CircleShape)
+                                .background(MaterialTheme.colorScheme.primaryContainer)
                         ) {
-                            liked = !liked
-                            scope.launch(Dispatchers.IO) {
-                                if (!liked) {
-                                    Database.favoritesDao().removeFromFavorites(wallpaper)
-                                } else {
-                                    Database.favoritesDao().insert(wallpaper, true, null)
+                            val scope = rememberCoroutineScope()
+
+                            ButtonWithIcon(
+                                modifier = Modifier,
+                                if (liked) Icons.Default.Favorite else Icons.Default.FavoriteBorder
+                            ) {
+                                liked = !liked
+                                scope.launch(Dispatchers.IO) {
+                                    if (!liked) {
+                                        Database.favoritesDao().removeFromFavorites(wallpaper)
+                                    } else {
+                                        Database.favoritesDao().insert(wallpaper, true, null)
+                                    }
                                 }
                             }
                         }
