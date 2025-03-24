@@ -92,4 +92,9 @@
     <string name="time_interval">Časový interval</string>
     <string name="invalid_time_interval">Neplatný časový interval</string>
     <string name="add_wallpaper_changer_rule">Přidat pravidlo změny tapety</string>
+    <string name="hue">Odstín</string>
+    <string name="brightness">Jas</string>
+    <string name="auto_darken_lighten_by_theme_desc">Automaticky ztmavit nebo zesvětlit pozadí podle motivu</string>
+    <string name="auto_darken_lighten_by_theme">Automatický jas podle motivu</string>
+    <string name="invert_wallpaper">Invertovat pozadí</string>
 </resources>
