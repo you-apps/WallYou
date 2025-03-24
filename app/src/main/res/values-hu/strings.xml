@@ -92,4 +92,9 @@
     <string name="add_wallpaper_changer_rule">Háttérképváltó szabály hozzáadása</string>
     <string name="time_interval">Időintervallum</string>
     <string name="invalid_time_interval">Érvénytelen időintervallum</string>
+    <string name="auto_darken_lighten_by_theme_desc">Automatikusan sötétíti vagy világosítja a háttérképet a téma alapján</string>
+    <string name="auto_darken_lighten_by_theme">Automatikus fényerő téma szerint</string>
+    <string name="brightness">Fényerő</string>
+    <string name="hue">Árnyalat</string>
+    <string name="invert_wallpaper">Háttérkép megfordítása</string>
 </resources>
