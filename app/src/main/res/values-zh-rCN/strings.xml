@@ -101,4 +101,9 @@
     <string name="add_wallpaper_changer_rule">添加壁纸更改程序规则</string>
     <string name="time_interval">间隔</string>
     <string name="invalid_time_interval">无效的间隔</string>
+    <string name="brightness">亮度</string>
+    <string name="hue">色度</string>
+    <string name="auto_darken_lighten_by_theme">按系统主题自动调节亮度</string>
+    <string name="auto_darken_lighten_by_theme_desc">根据主题自动将壁纸变暗或变亮</string>
+    <string name="invert_wallpaper">颠倒壁纸</string>
 </resources>
