@@ -103,4 +103,9 @@
     <string name="add_wallpaper_changer_rule">Додај правило за мењање позадине</string>
     <string name="time_interval">Временски интервал</string>
     <string name="invalid_time_interval">Неважећи временски интервал</string>
+    <string name="auto_darken_lighten_by_theme">Аутоматска осветљеност према теми</string>
+    <string name="brightness">Осветљеност</string>
+    <string name="hue">Нијанса</string>
+    <string name="invert_wallpaper">Обрни боје позадине</string>
+    <string name="auto_darken_lighten_by_theme_desc">Аутоматско потамњивање или посветљивање позадине на основу теме</string>
 </resources>
