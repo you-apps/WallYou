@@ -92,4 +92,9 @@
     <string name="add_wallpaper_changer_rule">Divar kağızı dəyişdirici qayda əlavə et</string>
     <string name="time_interval">Vaxt aralığı</string>
     <string name="invalid_time_interval">Səhv vaxt aralığı</string>
+    <string name="brightness">Parlaqlıq</string>
+    <string name="hue">Rəng çaları</string>
+    <string name="auto_darken_lighten_by_theme">Temaya görə avtomatik parlaqlıq</string>
+    <string name="invert_wallpaper">Divar kağızın çevir</string>
+    <string name="auto_darken_lighten_by_theme_desc">Temaya görə divar kağızın avtomatik qaraldır və ya işıqlandırır</string>
 </resources>
