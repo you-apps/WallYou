@@ -97,4 +97,13 @@
     <string name="colors">Couleurs</string>
     <string name="wallpaper">Fond d\'écran</string>
     <string name="saving_wallpaper">Enregistrer le fond d\'écran</string>
+    <string name="brightness">Luminosité</string>
+    <string name="hue">Teinte</string>
+    <string name="invert_wallpaper">Inversé le font d\'écran</string>
+    <string name="auto_darken_lighten_by_theme">Luminosité automatique selon le thème</string>
+    <string name="auto_darken_lighten_by_theme_desc">Automatiquement assombrir ou éclaircir le font d\'écran en fonction du thème</string>
+    <string name="add_wallpaper_changer_rule">Ajouter une règle de changement de font d\'écran</string>
+    <string name="time_interval">Interval de temps</string>
+    <string name="invalid_time_interval">Interval de temps invalide</string>
+    <string name="description">Description</string>
 </resources>
