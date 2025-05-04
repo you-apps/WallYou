@@ -243,22 +243,22 @@ fun WallpaperFilterEditor(
                 val colorMatrix =
                     remember(brightnessValue, contrastValue, hueValue, invertEnabled, grayscaleEnabled) {
                         // grayscale doesn't seem to work the same way here (always looks greenish)
-                        val matrix = BitmapProcessor.getTransformMatrix(
+                        val matrixArray = BitmapProcessor.getTransformMatrix(
                             contrastValue,
                             brightnessValue,
                             hueValue,
-                            false,
                             invertEnabled
                         )
 
-                        // the Android color matrix requires a 5th column with constant values to add
-                        val colorMatrixWithAdditionalColumn = matrix.toMutableList()
-                        for (i in 1..4) {
-                            colorMatrixWithAdditionalColumn.add(5 * i - 1, 0f)
-                        }
-
-                        ColorMatrix(colorMatrixWithAdditionalColumn.toFloatArray()).apply {
-                            if (grayscaleEnabled) setToSaturation(0f)
+                        ColorMatrix(matrixArray).apply {
+                            if (grayscaleEnabled) {
+                                // grayscaling has to be done with a new matrix because it would
+                                // otherwise override all other transformations (contrast, hue, ...)
+                                val grayScaleMatrix = ColorMatrix().apply {
+                                    setToSaturation(0f)
+                                }
+                                timesAssign(grayScaleMatrix)
+                            }
                         }
                     }
 
@@ -268,7 +268,7 @@ fun WallpaperFilterEditor(
                     contentScale = ContentScale.Fit,
                     modifier = Modifier
                         .fillMaxSize()
-                        .blur(radius = blurRadius.dp)
+                        .blur(radius = blurRadius.div(5).dp)
                         .zoomImage(zoomState),
                     placeholder = lowRes,
                     colorFilter = ColorFilter.colorMatrix(colorMatrix)

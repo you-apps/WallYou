@@ -1,11 +1,16 @@
 package com.bnyro.wallpaper.util
 
 import android.graphics.Bitmap
+import android.graphics.Canvas
 import android.graphics.Color
+import android.graphics.ColorMatrix
+import android.graphics.ColorMatrixColorFilter
+import android.graphics.Paint
 import com.google.android.renderscript.Toolkit
 import kotlin.math.cos
 import kotlin.math.sin
 import kotlin.math.sqrt
+import androidx.core.graphics.createBitmap
 
 object BitmapProcessor {
     private val matrixInvert = floatArrayOf(
@@ -68,7 +73,12 @@ object BitmapProcessor {
         return result
     }
 
-    fun getTransformMatrix(contrast: Float, brightness: Float, hue: Float, grayScale: Boolean, invert: Boolean): FloatArray {
+    fun getTransformMatrix(
+        contrast: Float,
+        brightness: Float,
+        hue: Float,
+        invert: Boolean
+    ): FloatArray {
         var transformMatrix = Toolkit.identityMatrix
         if (contrast != 1f) {
             transformMatrix = multiply(transformMatrix, getContrastMatrix(contrast))
@@ -82,11 +92,14 @@ object BitmapProcessor {
         if (invert) {
             transformMatrix = multiply(transformMatrix, matrixInvert)
         }
-        if (grayScale) {
-            transformMatrix = multiply(transformMatrix, Toolkit.greyScaleColorMatrix)
+
+        // the Android color matrix requires a 5th column with constant values to add
+        val paddedMatrix = transformMatrix.toMutableList()
+        for (i in 1..4) {
+            paddedMatrix.add(5 * i - 1, 0f)
         }
 
-        return transformMatrix
+        return paddedMatrix.toFloatArray()
     }
 
     fun processBitmapByPrefs(bitmap: Bitmap): Bitmap {
@@ -97,8 +110,30 @@ object BitmapProcessor {
         val grayScale = Preferences.getBoolean(Preferences.grayscaleKey, false)
         val invert = Preferences.getBoolean(Preferences.invertKey, false)
 
-        val transformMatrix = getTransformMatrix(contrast, brightness, hue, grayScale, invert)
-        return Toolkit.colorMatrix(bitmap.blur(blurRadius), transformMatrix)
+        val transformMatrix = getTransformMatrix(contrast, brightness, hue, invert)
+        return applyColorFilterMatrix(bitmap, transformMatrix, grayScale).blur(blurRadius)
+    }
+
+    private fun applyColorFilterMatrix(
+        bitmap: Bitmap,
+        transformMatrix: FloatArray,
+        grayScale: Boolean
+    ): Bitmap {
+        val cm = ColorMatrix(transformMatrix).apply {
+            if (grayScale) {
+                // grayscaling has to be done with a new matrix because it would
+                // otherwise override all other transformations (contrast, hue, ...)
+                val grayScaleMatrix = ColorMatrix().apply { setSaturation(0f) }
+                postConcat(grayScaleMatrix)
+            }
+        }
+        val paint = Paint().apply { colorFilter = ColorMatrixColorFilter(cm) }
+
+        val output = createBitmap(bitmap.width, bitmap.height)
+
+        val canvas = Canvas(output)
+        canvas.drawBitmap(bitmap, 0f, 0f, paint)
+        return output
     }
 
     fun calculateBrightnessEstimate(bitmap: Bitmap, pixelSpacing: Int = 20): Float {
