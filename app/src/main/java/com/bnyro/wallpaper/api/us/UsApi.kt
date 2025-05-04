@@ -12,7 +12,8 @@ class UsApi : Api() {
     override val icon = Icons.Default.WaterDrop
 
     override val filters: Map<String, List<String>> = mapOf(
-        "order_by" to listOf("latest", "oldest", "popular")
+        "orientation" to listOf("any", "landscape", "portrait", "squarish"),
+       "order_by" to listOf("latest", "oldest", "popular")
     )
     override val supportsTags: Boolean = true
 
@@ -21,12 +22,13 @@ class UsApi : Api() {
     override suspend fun getWallpapers(page: Int): List<Wallpaper> {
         val tags = getTags()
         val sortOrder = getQuery("order_by")
+        val orientation = getQuery("orientation").takeIf { it != "any" }
 
         val wallpapers = if (tags.isEmpty()) {
-            api.getWallpapers(page, sortOrder)
+            api.getWallpapers(page, orientation, sortOrder)
         } else {
             val tagString = tags.joinToString(" ")
-            api.searchWallpapers(page, tagString, sortOrder).results
+            api.searchWallpapers(page, tagString, orientation, sortOrder).results
         }
 
         return wallpapers.filter { it.premium != true }.map {

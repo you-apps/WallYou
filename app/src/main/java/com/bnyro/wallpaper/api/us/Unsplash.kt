@@ -9,6 +9,7 @@ interface Unsplash {
     @GET("/napi/photos")
     suspend fun getWallpapers(
         @Query("page") page: Int,
+        @Query("orientation") orientation: String?,
         @Query("order_by") order: String
     ): List<UsImage>
 
@@ -16,6 +17,7 @@ interface Unsplash {
     suspend fun searchWallpapers(
         @Query("page") page: Int,
         @Query("query") query: String,
+        @Query("orientation") orientation: String?,
         @Query("order_by") order: String
     ): UsSearch
 
