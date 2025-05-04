@@ -45,8 +45,6 @@
     <string name="export_favorites">Exporta preferits</string>
     <string name="success">Ha anat bé!</string>
     <string name="current_directory">Actual</string>
-    <string name="invert_wallpaper_by_theme">Inverteix el fons de pantalla en funció del tema</string>
-    <string name="invert_wallpaper_by_theme_summary">Inverteix el fons de pantalla perquè sigui fosc als temes foscos i clar als temes clars.</string>
     <string name="online">En línia</string>
     <string name="local">Local</string>
     <string name="choose_dir">Afegeix un directori</string>

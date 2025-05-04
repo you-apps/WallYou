@@ -20,7 +20,6 @@
     <string name="fit_height">Illeszkedés magassághoz</string>
     <string name="current_directory">Jelenlegi</string>
     <string name="none">Nincs</string>
-    <string name="invert_wallpaper_by_theme">Háttérkép megfordítása téma szerint</string>
     <string name="apply">Alkalmaz</string>
     <string name="done">Kész</string>
     <string name="saving_wallpaper">Háttérkép mentése</string>
@@ -56,7 +55,6 @@
     <string name="import_export">Importálás és exportálás</string>
     <string name="success">Sikeres!</string>
     <string name="website">Weboldal</string>
-    <string name="invert_wallpaper_by_theme_summary">Háttérkép megfordítása, hogy sötét témákon sötét, világos témákon pedig világos legyen.</string>
     <string name="unmetered">Nem forgalomkorlátos</string>
     <string name="all_networks">Minden hálózat</string>
     <string name="network_type">Hálózattípus</string>

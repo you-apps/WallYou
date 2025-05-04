@@ -62,8 +62,6 @@
     <string name="import_favorites">Importar los favoritos</string>
     <string name="resize_method">Redimensionamiento</string>
     <string name="contrast">Contraste</string>
-    <string name="invert_wallpaper_by_theme">Invertir fondo de pantalla por tema</string>
-    <string name="invert_wallpaper_by_theme_summary">Invierte el fondo de pantalla para que sea oscuro en temas oscuros y claro en temas claros.</string>
     <string name="directories">Directorios</string>
     <string name="random_wallpaper">Fondo de pantalla aleatorio</string>
     <string name="none">Ninguno</string>

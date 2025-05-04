@@ -67,8 +67,6 @@
     <string name="fit_height">Регулювання висоти</string>
     <string name="fit_width">Регулювання ширини</string>
     <string name="none">Нічого</string>
-    <string name="invert_wallpaper_by_theme">Інвертувати шпалери за темою</string>
-    <string name="invert_wallpaper_by_theme_summary">Інвертуйте шпалери, щоб на темних темах вони були темними, а на світлих — світлими.</string>
     <string name="wallpaper">Шпалера</string>
     <string name="apply">Застосувати</string>
     <string name="set_with">Встановити з...</string>

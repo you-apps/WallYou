@@ -56,7 +56,6 @@
     <string name="image_url">כתובת תמונה</string>
     <string name="resize_method">שיטת שינוי גודל</string>
     <string name="contrast">ניגודיות</string>
-    <string name="invert_wallpaper_by_theme">היפוך צבעי תמונת הרקע לפי ערכת העיצוב</string>
     <string name="random_wallpaper">תמונת רקע אקראית</string>
     <string name="none">ללא</string>
     <string name="directories">תיקיות</string>
@@ -65,7 +64,6 @@
     <string name="image_info">פרטי תמונה</string>
     <string name="label">תווית</string>
     <string name="history">היסטוריה</string>
-    <string name="invert_wallpaper_by_theme_summary">היפוך תמונת הרקע לכהה בערכות עיצוב כהות ולבהירה בערכות עיצוב בהירות.</string>
     <string name="network_type">סוג רשת</string>
     <string name="all_networks">כל הרשתות</string>
     <string name="unmetered">לא מדודה</string>

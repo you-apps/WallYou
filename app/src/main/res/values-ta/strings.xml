@@ -47,8 +47,6 @@
     <string name="success">வெற்றி!</string>
     <string name="current_directory">மின்னோட்ட்ம், ஓட்டம்</string>
     <string name="none">எதுவுமில்லை</string>
-    <string name="invert_wallpaper_by_theme">கருப்பொருள் மூலம் வால்பேப்பரை தலைகீழ்</string>
-    <string name="invert_wallpaper_by_theme_summary">வால்பேப்பரை இருண்ட கருப்பொருள்களில் இருட்டாகவும், ஒளி கருப்பொருள்களில் வெளிச்சமாகவும் மாற்றவும்.</string>
     <string name="apply_image_filters">பட வடிப்பான்களைப் பயன்படுத்துங்கள்</string>
     <string name="network_type">பிணைய வகை</string>
     <string name="all_networks">அனைத்து நெட்வொர்க்குகள்</string>

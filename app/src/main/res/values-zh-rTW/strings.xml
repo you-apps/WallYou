@@ -63,7 +63,6 @@
     <string name="grayscale">灰階</string>
     <string name="reset">重置</string>
     <string name="general">一般</string>
-    <string name="invert_wallpaper_by_theme_summary">在深色主題時將壁紙反轉為深色，或在淺色主題時將壁紙反轉為淺色。</string>
     <string name="all_networks">所有網路</string>
     <string name="combine_wallpaper_changers">組合壁紙更換器</string>
     <string name="success">成功！</string>
@@ -71,7 +70,6 @@
     <string name="import_export">匯入與匯出</string>
     <string name="current_directory">目前</string>
     <string name="none">無</string>
-    <string name="invert_wallpaper_by_theme">按主題反轉壁紙</string>
     <string name="unmetered">非計量</string>
     <string name="choose_dir">新增目錄</string>
     <string name="directories">目錄</string>

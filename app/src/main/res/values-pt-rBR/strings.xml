@@ -62,8 +62,6 @@
     <string name="zoom">Zoom (Mantém a proporção de tela)</string>
     <string name="fit_height">Ajustar altura</string>
     <string name="fit_width">Ajustar largura</string>
-    <string name="invert_wallpaper_by_theme">Inverter papel de parede pelo tema</string>
-    <string name="invert_wallpaper_by_theme_summary">Inverter o papel de parede para ser escuro em temas escuros e claro em temas claros.</string>
     <string name="set_as">Definir como</string>
     <string name="apply">Aplicar</string>
     <string name="preview_invert_effect">Pré-visualizar o efeito invertido</string>

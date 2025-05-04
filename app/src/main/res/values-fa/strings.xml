@@ -5,8 +5,6 @@
     <string name="combine_wallpaper_changers_summary">بکارگیری پس‌زمینه های یکسان برای دیمه‌ی خانه و کوپله.</string>
     <string name="import_favorites">درون‌برد پسندیده‌ها</string>
     <string name="none">هیچ‌کدام</string>
-    <string name="invert_wallpaper_by_theme">برگرداندن پس‌زمینه با پوسته</string>
-    <string name="invert_wallpaper_by_theme_summary">پس‌زمینه را برگردانید تا در سان تیره، تیره باشد و در سان روشن، روشن باشد.</string>
     <string name="local">برزنی</string>
     <string name="directories">پوشه‌ها</string>
     <string name="no_favorites">هنوز پسندیده‌ای نیست</string>

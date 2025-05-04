@@ -67,8 +67,6 @@
     <string name="import_export">Importer &amp; exporter</string>
     <string name="import_favorites">Importer les favoris</string>
     <string name="export_favorites">Exporter les favoris</string>
-    <string name="invert_wallpaper_by_theme">Inverser le fond d\'écran par thème</string>
-    <string name="invert_wallpaper_by_theme_summary">Inverser le fond d\'écran pour qu\'il soit sombre sur les thèmes sombres et clair sur les thèmes clairs.</string>
     <string name="set_as">Définir comme</string>
     <string name="details">Détails</string>
     <string name="label">Étiquette</string>

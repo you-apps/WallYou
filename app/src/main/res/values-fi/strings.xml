@@ -58,7 +58,6 @@
     <string name="resize_method">Koon muuttamistapa</string>
     <string name="fit_width">Sovita leveys</string>
     <string name="current_directory">Nykyinen</string>
-    <string name="invert_wallpaper_by_theme_summary">Luo taustasta käänteinen, tumma tummilla teemoilla ja vaalea vaaleilla teemoilla.</string>
     <string name="directories">Kansiot</string>
     <string name="no_history">Ei historiaa vielä</string>
     <string name="wallpaper_history">Taustakuvien historia</string>
@@ -86,7 +85,6 @@
     <string name="details">Yksityiskohdat</string>
     <string name="success">Onnistui!</string>
     <string name="none">Ei mitään</string>
-    <string name="invert_wallpaper_by_theme">Käänteinen tausta teeman toimesta</string>
     <string name="done">Valmis</string>
     <string name="time_interval">Aikaväli</string>
     <string name="description">Kuvaus</string>

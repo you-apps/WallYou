@@ -57,8 +57,6 @@
     <string name="combine_wallpaper_changers_summary">Utilizați același fundal pentru ecranul principal și pentru ecranul de blocare.</string>
     <string name="success">Succes!</string>
     <string name="none">Niciunul</string>
-    <string name="invert_wallpaper_by_theme">Inversează fundalul prin temă</string>
-    <string name="invert_wallpaper_by_theme_summary">Inversează fundalul pentru a fi întunecat pe teme întunecate și luminos pe teme luminoase.</string>
     <string name="directories">Directoare</string>
     <string name="apply_image_filters">Aplică filtrele imagine</string>
     <string name="set_with">Setează cu...</string>

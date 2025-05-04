@@ -48,7 +48,6 @@
     <string name="random_wallpaper">Выпадковыя шпалеры</string>
     <string name="contrast">Кантраст</string>
     <string name="fit_height">Рэгуляванне вышыні</string>
-    <string name="invert_wallpaper_by_theme_summary">Перавярніце шпалеры, каб яны былі цёмнымі на цёмных тэмах і светлымі на светлых тэмах.</string>
     <string name="set_as">Ўсталяваць як</string>
     <string name="apply">Ужыць</string>
     <string name="edit">Рэдагаваць</string>
@@ -61,7 +60,6 @@
     <string name="resize_method">Метад змены памеру</string>
     <string name="zoom">Маштабаванне (захоўвае суадносіны бакоў)</string>
     <string name="fit_width">Рэгуляванне шырыні</string>
-    <string name="invert_wallpaper_by_theme">Інвертаваць шпалеры па тэмах</string>
     <string name="wallpaper">Шпалер</string>
     <string name="preview_invert_effect">Папярэдні прагляд інвертаванага эфекту</string>
     <string name="colors">Колеры</string>

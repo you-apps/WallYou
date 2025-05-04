@@ -57,8 +57,6 @@
     <string name="resize_method">Methodo de redimension</string>
     <string name="zoom">Zoom (mantene le proportion de imagine)</string>
     <string name="combine_wallpaper_changers">Combinar le fundo de schermo</string>
-    <string name="invert_wallpaper_by_theme_summary">Inverter le fundo de schermo a esser obscur in themas obscur e clar in themas clar.</string>
-    <string name="invert_wallpaper_by_theme">Inverter fundo de schermo per thema</string>
     <string name="crop">Taliar le imagines</string>
     <string name="set_as">Definir como</string>
     <string name="wallpaper">Fundo de schermo</string>

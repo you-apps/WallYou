@@ -58,8 +58,6 @@
     <string name="resize_method">Methode zur Größenänderung</string>
     <string name="zoom">Zoom (behält das Seitenverhältnis bei)</string>
     <string name="none">Keine</string>
-    <string name="invert_wallpaper_by_theme">Invertiere Bildschirmhintergrund nach Thema</string>
-    <string name="invert_wallpaper_by_theme_summary">Invertieren Sie das Hintergrundbild, damit es bei dunklen Themen dunkel und bei hellen Themen hell ist.</string>
     <string name="set_with">Setze mit...</string>
     <string name="set_as">Festlegen als</string>
     <string name="wallpaper">Bildschirmhintergrund</string>

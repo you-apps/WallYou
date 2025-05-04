@@ -67,8 +67,6 @@
     <string name="export_favorites">Ekspor favorit</string>
     <string name="success">Sukses!</string>
     <string name="current_directory">Saat ini</string>
-    <string name="invert_wallpaper_by_theme">Sesuaikan skema warna wallpaper menurut tema</string>
-    <string name="invert_wallpaper_by_theme_summary">Sesuaikan wallpaper agar menjadi gelap pada tema gelap dan terang pada tema cerah.</string>
     <string name="set_with">Atur Dengan...</string>
     <string name="set_as">Atur Sebagai</string>
     <string name="apply">Terapkan</string>

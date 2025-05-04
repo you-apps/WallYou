@@ -56,10 +56,8 @@
     <string name="contrast">Contraste</string>
     <string name="resize_method">Método de redimensionamento</string>
     <string name="zoom">Zoom (Mantém a proporção de ecrã)</string>
-    <string name="invert_wallpaper_by_theme">Inverter papel de parede pelo tema</string>
     <string name="fit_height">Ajustar à altura</string>
     <string name="fit_width">Ajustar à largura</string>
-    <string name="invert_wallpaper_by_theme_summary">Inverter o papel de parede para ser escuro em temas escuros e claro em temas claros.</string>
     <string name="directories">Pastas</string>
     <string name="set_with">Definir com...</string>
     <string name="set_as">Definir como</string>

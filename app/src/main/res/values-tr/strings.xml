@@ -51,7 +51,6 @@
     <string name="download">İndir</string>
     <string name="combine_wallpaper_changers_summary">Ana ekran ve kilit ekranı için aynı duvar kağıdını kullanın.</string>
     <string name="fit_width">Genişliğe sığdır</string>
-    <string name="invert_wallpaper_by_theme">Duvar kağıdı rengini temaya göre değiştir</string>
     <string name="contrast">Karşıtlık</string>
     <string name="resize_method">Yeniden boyutlandırma yöntemi</string>
     <string name="directories">Dizinler</string>
@@ -59,7 +58,6 @@
     <string name="zoom">Yakınlaştır (en boy oranını korur)</string>
     <string name="fit_height">Yüksekliğe sığdır</string>
     <string name="none">Hiçbiri</string>
-    <string name="invert_wallpaper_by_theme_summary">Duvar kağıdını koyu temalarda koyu, açık temalarda açık olacak şekilde değiştir.</string>
     <string name="wallpaper">Duvar Kağıdı</string>
     <string name="apply">Uygula</string>
     <string name="preview_invert_effect">Değiştirme Efektini Ön İzle</string>

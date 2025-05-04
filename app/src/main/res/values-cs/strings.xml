@@ -52,13 +52,11 @@
     <string name="import_favorites">Importovat oblíbené</string>
     <string name="zoom">Přiblížení (ponechat poměr stran)</string>
     <string name="fit_height">Vyplnit výšku</string>
-    <string name="invert_wallpaper_by_theme_summary">Invertovat tapetu tak, aby byla tmavá u tmavých motivů a světlá u světlých motivů.</string>
     <string name="directories">Adresáře</string>
     <string name="random_wallpaper">Náhodná tapeta</string>
     <string name="none">Žádný</string>
     <string name="contrast">Kontrast</string>
     <string name="resize_method">Způsob změny velikosti</string>
-    <string name="invert_wallpaper_by_theme">Invertovat tapetu podle motivu</string>
     <string name="fit_width">Vyplnit šířku</string>
     <string name="set_with">Nastavit pomocí...</string>
     <string name="set_as">Nastavit jako</string>

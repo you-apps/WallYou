@@ -19,7 +19,6 @@
     <string name="wallpaper_changer_source">Taustapiltide muutmise allikas</string>
     <string name="combine_wallpaper_changers_summary">Kasuta sama taustapilti avalehel ja lukustusvaates.</string>
     <string name="none">Puudub</string>
-    <string name="invert_wallpaper_by_theme_summary">Kohanda taustapilti nii, et tumeda teema puhul oleks pilt tume ja heleda teema puhul hele.</string>
     <string name="auto_add_to_favorites">Pildi valimisel lisa ta lemmikuks</string>
     <string name="source">Pildi allikas</string>
     <string name="creationDate">Loomise kuupäev</string>
@@ -47,7 +46,6 @@
     <string name="export_favorites">Ekspordi lemmikud</string>
     <string name="success">Valmis!</string>
     <string name="current_directory">Hetkel kasutatav kaust</string>
-    <string name="invert_wallpaper_by_theme">Taustapildi kohandumine teemaga</string>
     <string name="local">Kohalik andmekogu</string>
     <string name="online">Võrguteenus</string>
     <string name="choose_dir">Lisa kaust</string>

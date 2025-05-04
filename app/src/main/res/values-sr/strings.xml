@@ -62,7 +62,6 @@
     <string name="export_favorites">Извези омиљене</string>
     <string name="import_favorites">Увези омиљене</string>
     <string name="fit_width">Уклопи ширину</string>
-    <string name="invert_wallpaper_by_theme_summary">Инверзија боја позадине тако да буде тамна на тамним темама и светла на светлим темама.</string>
     <string name="directories">Фолдери</string>
     <string name="none">Ниједно</string>
     <string name="random_wallpaper">Насумична позадина</string>
@@ -70,7 +69,6 @@
     <string name="resize_method">Метода промене величине</string>
     <string name="fit_height">Уклопи висину</string>
     <string name="zoom">Увеличај (задржава размеру)</string>
-    <string name="invert_wallpaper_by_theme">Инверзија боја позадине према теми</string>
     <string name="apply">Примени</string>
     <string name="preview_invert_effect">Прегледај ефекат инверзије</string>
     <string name="colors">Боје</string>

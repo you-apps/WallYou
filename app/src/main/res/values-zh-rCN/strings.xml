@@ -67,8 +67,6 @@
     <string name="zoom">缩放（保持纵横比）</string>
     <string name="fit_height">适合高度</string>
     <string name="fit_width">适合宽度</string>
-    <string name="invert_wallpaper_by_theme">按主题反转壁纸</string>
-    <string name="invert_wallpaper_by_theme_summary">处于深色或浅色主题时将壁纸反转为同样的颜色。</string>
     <string name="set_with">使用其他应用设定...</string>
     <string name="set_as">设置为</string>
     <string name="wallpaper">壁纸</string>

@@ -51,9 +51,7 @@
     <string name="combine_wallpaper_changers">संयुक्त वॉलपेपर परिवर्तक</string>
     <string name="combine_wallpaper_changers_summary">होम और लॉकस्क्रीन के लिए एक ही वॉलपेपर का उपयोग करें।</string>
     <string name="import_favorites">पसंदीदा आयात करें</string>
-    <string name="invert_wallpaper_by_theme">थीम के अनुसार वॉलपेपर पलटें</string>
     <string name="version">संस्करण</string>
-    <string name="invert_wallpaper_by_theme_summary">वॉलपेपर को उल्टा करके गहरी थीम पर गहरा और हल्की थीम पर हल्का कर दें।</string>
     <string name="directories">डॉयरेक्टरी</string>
     <string name="wallpaper">वॉलपेपर</string>
     <string name="colors">रंग</string>

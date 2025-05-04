@@ -45,8 +45,6 @@
     <string name="combine_wallpaper_changers">Połączony zmieniacz tapet</string>
     <string name="download">Pobierz</string>
     <string name="combine_wallpaper_changers_summary">Użyj tej samej tapety na ekranie głównym i ekranie blokady.</string>
-    <string name="invert_wallpaper_by_theme">Odwróć tapetę (według motywu)</string>
-    <string name="invert_wallpaper_by_theme_summary">Odwróć kolory tapety tak, aby dopasować ją do ciemnego i jasnego motywu.</string>
     <string name="success">Udało się!</string>
     <string name="import_export">Importowanie i eksportowanie</string>
     <string name="import_favorites">Importuj ulubione</string>
