@@ -85,4 +85,16 @@
     <string name="image_info">பட செய்தி</string>
     <string name="applying_wallpaper">வால்பேப்பரைப் பயன்படுத்துதல்</string>
     <string name="dismiss">தள்ளுபடி</string>
+    <string name="wallpaper_history">சுவர்த்தாள் வரலாறு</string>
+    <string name="no_history">இதுவரை வரலாறு இல்லை</string>
+    <string name="history">வரலாறு</string>
+    <string name="time_interval">நேர இடைவெளி</string>
+    <string name="add_wallpaper_changer_rule">பிண்ணனிபட மாற்றி விதியைச் சேர்</string>
+    <string name="invalid_time_interval">தவறான நேர இடைவெளி</string>
+    <string name="description">விளக்கம்</string>
+    <string name="brightness">ஒளி</string>
+    <string name="hue">வண்ணச்சாயல்</string>
+    <string name="invert_wallpaper">வால்பேப்பர் தலைகீழ்</string>
+    <string name="auto_darken_lighten_by_theme">கருப்பொருள் மூலம் தானாக ஒளி</string>
+    <string name="auto_darken_lighten_by_theme_desc">கருப்பொருளின் அடிப்படையில் தானாகவே வால்பேப்பரை இருட்டடிப்பு அல்லது ஒளிரச் செய்யுங்கள்</string>
 </resources>

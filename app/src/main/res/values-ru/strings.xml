@@ -101,4 +101,9 @@
     <string name="time_interval">Период</string>
     <string name="invalid_time_interval">Неправильный период</string>
     <string name="add_wallpaper_changer_rule">Добавить правило смены обоев</string>
+    <string name="brightness">Яркость</string>
+    <string name="hue">Тон</string>
+    <string name="invert_wallpaper">Инвертировать обои</string>
+    <string name="auto_darken_lighten_by_theme">Авто-яркость по теме</string>
+    <string name="auto_darken_lighten_by_theme_desc">Автоматически затемнять или осветлять обои на основе темы</string>
 </resources>

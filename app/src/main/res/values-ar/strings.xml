@@ -92,4 +92,9 @@
     <string name="time_interval">الفترة الزمنية</string>
     <string name="add_wallpaper_changer_rule">أضف قاعدة تغيير الخلفية</string>
     <string name="invalid_time_interval">فترة زمنية غير صالحة</string>
+    <string name="hue">الدرجة</string>
+    <string name="auto_darken_lighten_by_theme">السطوع التلقائي حسب السمة</string>
+    <string name="brightness">السطوع</string>
+    <string name="auto_darken_lighten_by_theme_desc">تعتيم الخلفية أو تفتيحها تلقائياً بناءً على السمة</string>
+    <string name="invert_wallpaper">عكس الخلفية</string>
 </resources>

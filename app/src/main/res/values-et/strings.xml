@@ -92,4 +92,9 @@
     <string name="invalid_time_interval">Vigane ajavahemik</string>
     <string name="add_wallpaper_changer_rule">Lisa taustapildi vahetamise reegel</string>
     <string name="time_interval">Ajavahemik</string>
+    <string name="auto_darken_lighten_by_theme_desc">Muuda taustapilt automaatselt tumedamaks või eredamaks vastavalt kasutatavale kujundusele</string>
+    <string name="brightness">Eredus</string>
+    <string name="auto_darken_lighten_by_theme">Säti eredust kujunduse alusel automaatselt</string>
+    <string name="hue">Värvitoon</string>
+    <string name="invert_wallpaper">Pööra taustapilt pahupidi</string>
 </resources>

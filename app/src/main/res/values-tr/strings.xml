@@ -88,4 +88,13 @@
     <string name="history">Geçmiş</string>
     <string name="wallpaper_history">Duvar kağıdı geçmişi</string>
     <string name="no_history">Henüz geçmiş yok</string>
+    <string name="hue">Renk tonu</string>
+    <string name="brightness">Parlaklık</string>
+    <string name="invert_wallpaper">Duvar kağıdını ters çevir</string>
+    <string name="auto_darken_lighten_by_theme">Temaya göre otomatik parlaklık</string>
+    <string name="auto_darken_lighten_by_theme_desc">Temaya göre duvar kağıdını otomatik olarak koyulaştırın veya açın</string>
+    <string name="time_interval">Zaman aralığı</string>
+    <string name="invalid_time_interval">Geçersiz zaman aralığı</string>
+    <string name="add_wallpaper_changer_rule">Duvar kağıdı değiştirici kuralı ekle</string>
+    <string name="description">Açıklama</string>
 </resources>

@@ -92,4 +92,9 @@
     <string name="add_wallpaper_changer_rule">Adicionar regra ao trocador de papel de parede</string>
     <string name="invalid_time_interval">Intervalo de tempo inválido</string>
     <string name="description">Descrição</string>
+    <string name="brightness">Luminosidade</string>
+    <string name="hue">Matiz</string>
+    <string name="invert_wallpaper">Inverter papel de parede</string>
+    <string name="auto_darken_lighten_by_theme_desc">Escurecer ou clarear automaticamente o papel de parede com base no tema</string>
+    <string name="auto_darken_lighten_by_theme">Brilho automático por tema</string>
 </resources>
