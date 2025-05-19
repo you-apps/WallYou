@@ -56,7 +56,7 @@
     <string name="image_url">כתובת תמונה</string>
     <string name="resize_method">שיטת שינוי גודל</string>
     <string name="contrast">ניגודיות</string>
-    <string name="random_wallpaper">תמונת רקע אקראית</string>
+    <string name="random_wallpaper">טפט אקראי</string>
     <string name="none">ללא</string>
     <string name="directories">תיקיות</string>
     <string name="apply_image_filters">החלת מסנני תמונה</string>
@@ -90,4 +90,9 @@
     <string name="time_interval">הפרש זמן</string>
     <string name="add_wallpaper_changer_rule">הוספת כלל החלפת תמונת רקע</string>
     <string name="invalid_time_interval">הפרש הזמן שגוי</string>
+    <string name="hue">גוון</string>
+    <string name="brightness">בהירות</string>
+    <string name="invert_wallpaper">היפוך צבע טפט</string>
+    <string name="auto_darken_lighten_by_theme">בהירות אוטומטית לפי ערכת עיצוב</string>
+    <string name="auto_darken_lighten_by_theme_desc">טפט כהה או בהיר אוטומטית לפי ערכת העיצוב</string>
 </resources>

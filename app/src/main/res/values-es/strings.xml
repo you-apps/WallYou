@@ -100,4 +100,9 @@
     <string name="add_wallpaper_changer_rule">Añadir regla de cambio de fondo de pantalla</string>
     <string name="time_interval">Intervalo de tiempo</string>
     <string name="invalid_time_interval">Intervalo de tiempo no válido</string>
+    <string name="brightness">Brillo</string>
+    <string name="hue">Matiz</string>
+    <string name="invert_wallpaper">Invertir fondo de pantalla</string>
+    <string name="auto_darken_lighten_by_theme">Brillo automático por el tema</string>
+    <string name="auto_darken_lighten_by_theme_desc">Oscurecer o iluminar el fondo de pantalla basado en el tema</string>
 </resources>
