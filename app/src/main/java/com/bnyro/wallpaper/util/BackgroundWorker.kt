@@ -76,7 +76,7 @@ class BackgroundWorker(
                 Preferences.getApiByRoute(source).getRandomWallpaperUrl()
             }.getOrNull() ?: return@withContext null
 
-            val bitmap = ImageHelper.getSuspend(applicationContext, url, true)
+            val bitmap = ImageHelper.urlToBitmap(url, applicationContext, forceReload = true)
             if (bitmap != null && Preferences.getBoolean(Preferences.wallpaperHistory, true)) {
                 val wallpaper = Wallpaper(imgSrc = url)
                 DatabaseHolder.Database.favoritesDao().insert(wallpaper, null, true)
@@ -90,7 +90,7 @@ class BackgroundWorker(
         val favoriteUrl = withContext(Dispatchers.IO) {
             DatabaseHolder.Database.favoritesDao().getFavorites()
         }.randomOrNull()?.imgSrc
-        return ImageHelper.getSuspend(applicationContext, favoriteUrl, true)
+        return ImageHelper.urlToBitmap(favoriteUrl, applicationContext, forceReload = true)
     }
 
     private fun getLocalWallpaper(config: WallpaperConfig): Bitmap? {

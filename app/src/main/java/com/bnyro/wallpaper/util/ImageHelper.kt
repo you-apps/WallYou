@@ -7,9 +7,8 @@ import android.graphics.Matrix
 import android.net.Uri
 import androidx.core.graphics.drawable.toBitmap
 import androidx.exifinterface.media.ExifInterface
-import coil.ImageLoader
-import coil.annotation.ExperimentalCoilApi
 import coil.imageLoader
+import coil.request.CachePolicy
 import coil.request.ImageRequest
 import coil.request.SuccessResult
 import kotlinx.coroutines.CoroutineScope
@@ -24,7 +23,9 @@ object ImageHelper {
         onSuccess: (bitmap: Bitmap) -> Unit
     ) {
         scope.launch(Dispatchers.IO) {
-            val request = buildRequest(context, imageURL)
+            val request = ImageRequest.Builder(context)
+                .data(imageURL)
+                .allowHardware(false)
                 .target {
                     onSuccess(it.toBitmap())
                 }
@@ -35,12 +36,22 @@ object ImageHelper {
 
     suspend fun urlToBitmap(
         imageURL: String?,
-        context: Context
+        context: Context,
+        forceReload: Boolean = false
     ): Bitmap? {
-        val request = ImageRequest.Builder(context)
+        val imageRequestBuilder = ImageRequest.Builder(context)
             .data(imageURL)
-            .build()
-        val result = context.imageLoader.execute(request)
+            .allowHardware(false)
+
+        if (forceReload) {
+            // disable all caches for this request to fresh-reload the image
+            imageRequestBuilder
+                .diskCachePolicy(CachePolicy.DISABLED)
+                .memoryCachePolicy(CachePolicy.DISABLED)
+                .networkCachePolicy(CachePolicy.DISABLED)
+        }
+
+        val result = context.imageLoader.execute(imageRequestBuilder.build())
 
         if (result is SuccessResult) {
             return result.drawable.toBitmap().copy(Bitmap.Config.ARGB_8888, false)
@@ -48,27 +59,6 @@ object ImageHelper {
         return null
     }
 
-    @OptIn(ExperimentalCoilApi::class)
-    suspend fun getSuspend(
-        context: Context,
-        imageURL: String?,
-        forceReload: Boolean = false
-    ): Bitmap? {
-        val request = buildRequest(context, imageURL).build()
-
-        return ImageLoader(context).apply {
-            if (forceReload) {
-                diskCache?.clear()
-                memoryCache?.clear()
-            }
-        }.execute(request).drawable?.toBitmap()
-    }
-
-    private fun buildRequest(context: Context, url: String?): ImageRequest.Builder {
-        return ImageRequest.Builder(context)
-            .data(url)
-            .allowHardware(false)
-    }
     private fun rotateBitmap(bitmap: Bitmap, exifInterface: ExifInterface): Bitmap {
         val orientation = runCatching {
             exifInterface.getAttributeInt(
@@ -82,14 +72,17 @@ object ImageHelper {
                 bitmap,
                 90f
             )
+
             ExifInterface.ORIENTATION_ROTATE_180, ExifInterface.ORIENTATION_FLIP_VERTICAL -> rotateImage(
                 bitmap,
                 180f
             )
+
             ExifInterface.ORIENTATION_ROTATE_270, ExifInterface.ORIENTATION_TRANSVERSE -> rotateImage(
                 bitmap,
                 -90f
             )
+
             else -> bitmap
         }
     }
@@ -107,7 +100,8 @@ object ImageHelper {
     fun getLocalImage(context: Context, imagePath: Uri): Bitmap? {
         return context.contentResolver.openFileDescriptor(imagePath, "r")?.use {
             val bitmap = BitmapFactory.decodeFileDescriptor(it.fileDescriptor) ?: return null
-            val exifInterface = ExifInterface(it.fileDescriptor) // This will change fileDescriptor position
+            val exifInterface =
+                ExifInterface(it.fileDescriptor) // This will change fileDescriptor position
             rotateBitmap(bitmap, exifInterface)
         }
     }
