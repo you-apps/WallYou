@@ -1,6 +1,7 @@
 package com.bnyro.wallpaper.ui.components.infosheet
 
 import android.text.format.Formatter
+import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxWidth
@@ -61,7 +62,8 @@ fun WallpaperInfoSheet(onDismissRequest: () -> Unit, wallpaper: Wallpaper) {
                 style = MaterialTheme.typography.titleLarge
             )
             Column(
-                modifier = Modifier.verticalScroll(rememberScrollState())
+                modifier = Modifier.verticalScroll(rememberScrollState()),
+                verticalArrangement = Arrangement.spacedBy(5.dp)
             ) {
                 wallpaper.title?.let {
                     WallpaperInfoItem(Icons.AutoMirrored.Filled.Label, R.string.label, it)

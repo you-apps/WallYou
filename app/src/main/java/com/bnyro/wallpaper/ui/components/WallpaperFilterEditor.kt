@@ -111,7 +111,9 @@ fun WallpaperFilterEditor(
         val bottomSheetState = rememberStandardBottomSheetState(initialValue = SheetValue.Expanded)
         val sheetState = rememberBottomSheetScaffoldState(bottomSheetState = bottomSheetState)
         BottomSheetScaffold(scaffoldState = sheetState, sheetContent = {
-            Column {
+            Column(
+                modifier = Modifier.padding(horizontal = 10.dp)
+            ) {
                 ImageFilterSlider(
                     title = stringResource(R.string.blur),
                     value = blurRadius,
