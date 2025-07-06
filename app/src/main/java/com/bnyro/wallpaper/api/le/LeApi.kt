@@ -6,6 +6,7 @@ import com.bnyro.wallpaper.api.CommunityApi
 import com.bnyro.wallpaper.db.obj.Wallpaper
 import com.bnyro.wallpaper.util.RetrofitHelper
 import com.bnyro.wallpaper.util.TextUtils
+import okhttp3.HttpUrl.Companion.toHttpUrlOrNull
 
 class LeApi : CommunityApi() {
     override val name = "Lemmy"
@@ -48,9 +49,11 @@ class LeApi : CommunityApi() {
         ).posts.filter {
             !it.post.thumbnailUrl.isNullOrEmpty()
         }.map {
+            val imgUrl = extractImageUrl(it.post.thumbnailUrl!!)
+
             Wallpaper(
-                imgSrc = it.post.thumbnailUrl!!,
-                thumb = "${it.post.thumbnailUrl}?format=jpg&thumbnail=1080",
+                imgSrc = imgUrl,
+                thumb = "$imgUrl?format=jpg&thumbnail=1080",
                 title = it.post.name,
                 description = it.post.body?.let { text -> TextUtils.removeMarkdownSymbols(text) },
                 url = it.post.postUrl,
@@ -58,6 +61,17 @@ class LeApi : CommunityApi() {
                 creationDate = it.post.published
             )
         }
+    }
+
+    private fun extractImageUrl(plainUrl: String): String {
+        val url = plainUrl.toHttpUrlOrNull() ?: return plainUrl
+
+        // proxied urls: https://lemmy.local/api/v3/image_proxy?url=...
+        if (!url.queryParameter("url").isNullOrEmpty()) {
+            return url.queryParameter("url")!!
+        }
+
+        return plainUrl
     }
 
     override suspend fun getRandomWallpaperUrl(): String? = getWallpapers(1).randomOrNull()?.imgSrc
