@@ -78,4 +78,6 @@
     <string name="network_type">Tip network</string>
     <string name="applying_wallpaper">Aplicarea Tema</string>
     <string name="saving_wallpaper">Salvarea Tema</string>
+    <string name="brightness">Luminozitate</string>
+    <string name="hue">Ton</string>
 </resources>
