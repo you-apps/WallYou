@@ -16,6 +16,7 @@ import com.bnyro.wallpaper.ui.nav.DrawerScreens
 import com.bnyro.wallpaper.util.Either
 import com.bnyro.wallpaper.util.Preferences
 import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.Job
 import kotlinx.coroutines.flow.SharingStarted
 import kotlinx.coroutines.flow.StateFlow
 import kotlinx.coroutines.flow.stateIn
@@ -54,8 +55,13 @@ class MainModel : ViewModel() {
 
     var page: Int = 1
 
+    private var wallpaperJob: Job? = null
     fun fetchWallpapers(onException: (Exception) -> Unit) {
-        viewModelScope.launch {
+        // ensure that only one job for loading new wallpapers is run at a time
+        // this prevents that quick switching between different wallpaper sources causes the app
+        // to display images from all sources, because they were still loading in the background
+        wallpaperJob?.cancel()
+        wallpaperJob = viewModelScope.launch {
             try {
                 val newWallpapers = withContext(Dispatchers.IO) {
                     api.getWallpapers(page)

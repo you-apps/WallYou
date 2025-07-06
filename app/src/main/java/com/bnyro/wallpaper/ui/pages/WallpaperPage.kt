@@ -47,8 +47,7 @@ fun WallpaperPage(
     LaunchedEffect(Unit) {
         if (fetchedWallpapers) return@LaunchedEffect
 
-        viewModel.wallpapers = listOf()
-        viewModel.page = 1
+        viewModel.clearWallpapers()
         viewModel.fetchWallpapers {
             Toast.makeText(context, it.localizedMessage, Toast.LENGTH_LONG).show()
         }

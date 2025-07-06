@@ -146,9 +146,7 @@ fun WallpaperGrid(
         }
     }
 
-    if (scrollEnded) {
-        LaunchedEffect(Unit) {
-            onScrollEnd.invoke()
-        }
+    LaunchedEffect(scrollEnded) {
+        if (scrollEnded) onScrollEnd.invoke()
     }
 }
