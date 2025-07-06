@@ -11,11 +11,29 @@ import coil.imageLoader
 import coil.request.CachePolicy
 import coil.request.ImageRequest
 import coil.request.SuccessResult
+import coil.size.Size
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 
 object ImageHelper {
+    private fun buildRequest(context: Context, url: String, forceReload: Boolean = false): ImageRequest.Builder {
+        val imageRequestBuilder = ImageRequest.Builder(context)
+            .data(url)
+            .allowHardware(false)
+            .size(Size.ORIGINAL)
+
+        if (forceReload) {
+            // disable all caches for this request to fresh-reload the image
+            imageRequestBuilder
+                .diskCachePolicy(CachePolicy.DISABLED)
+                .memoryCachePolicy(CachePolicy.DISABLED)
+                .networkCachePolicy(CachePolicy.DISABLED)
+        }
+
+        return imageRequestBuilder
+    }
+
     fun urlToBitmap(
         scope: CoroutineScope,
         imageURL: String?,
@@ -23,9 +41,7 @@ object ImageHelper {
         onSuccess: (bitmap: Bitmap) -> Unit
     ) {
         scope.launch(Dispatchers.IO) {
-            val request = ImageRequest.Builder(context)
-                .data(imageURL)
-                .allowHardware(false)
+            val request = buildRequest(context, imageURL ?: return@launch)
                 .target {
                     onSuccess(it.toBitmap())
                 }
@@ -39,22 +55,13 @@ object ImageHelper {
         context: Context,
         forceReload: Boolean = false
     ): Bitmap? {
-        val imageRequestBuilder = ImageRequest.Builder(context)
-            .data(imageURL)
-            .allowHardware(false)
+        if (imageURL == null) return null
 
-        if (forceReload) {
-            // disable all caches for this request to fresh-reload the image
-            imageRequestBuilder
-                .diskCachePolicy(CachePolicy.DISABLED)
-                .memoryCachePolicy(CachePolicy.DISABLED)
-                .networkCachePolicy(CachePolicy.DISABLED)
-        }
-
-        val result = context.imageLoader.execute(imageRequestBuilder.build())
+        val imageRequest = buildRequest(context, imageURL, forceReload)
+        val result = context.imageLoader.execute(imageRequest.build())
 
         if (result is SuccessResult) {
-            return result.drawable.toBitmap().copy(Bitmap.Config.ARGB_8888, false)
+            return result.drawable.toBitmap()
         }
         return null
     }
