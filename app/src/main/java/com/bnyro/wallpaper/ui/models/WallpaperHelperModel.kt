@@ -53,7 +53,7 @@ class WallpaperHelperModel(private val application: Application) : ViewModel() {
             WallpaperHelper.setWallpaper(
                 application.applicationContext,
                 convertToNonHardwareBitmap(bitmap),
-                WallpaperTarget.values()[targetIndex]
+                WallpaperTarget.entries[targetIndex]
             )
             setWallpaperState = MultiState.SUCCESS
         }
@@ -75,7 +75,7 @@ class WallpaperHelperModel(private val application: Application) : ViewModel() {
             WallpaperHelper.setWallpaperWithFilters(
                 application.applicationContext,
                 convertToNonHardwareBitmap(bitmap),
-                WallpaperTarget.values()[targetIndex]
+                WallpaperTarget.entries[targetIndex]
             )
             setWallpaperState = MultiState.SUCCESS
         }

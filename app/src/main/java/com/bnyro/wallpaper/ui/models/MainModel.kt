@@ -27,7 +27,7 @@ class MainModel : ViewModel() {
         Preferences.themeModeKey,
         ThemeMode.AUTO.value.toString()
     ).toInt()
-    var themeMode by mutableStateOf(ThemeMode.values()[themeModeIndex])
+    var themeMode by mutableStateOf(ThemeMode.entries[themeModeIndex])
 
     var currentDestination: DrawerScreens by mutableStateOf(DrawerScreens.apiScreens.first())
     var api = App.apis.first()

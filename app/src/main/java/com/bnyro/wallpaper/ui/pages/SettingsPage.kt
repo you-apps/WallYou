@@ -94,7 +94,7 @@ fun SettingsPage(
                     values = (0..2).map { it.toString() },
                     defaultValue = ThemeMode.AUTO.toString()
                 ) {
-                    viewModel.themeMode = ThemeMode.values()[it.toInt()]
+                    viewModel.themeMode = ThemeMode.entries[it.toInt()]
                 }
                 CheckboxPref(
                     prefKey = Preferences.wallpaperHistory,

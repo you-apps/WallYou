@@ -187,7 +187,7 @@ fun WallpaperFilterEditor(
                     prefKey = Preferences.resizeMethodKey,
                     title = stringResource(R.string.resize_method),
                     entries = resizeMethods.map { stringResource(it) },
-                    values = ResizeMethod.values().map { it.name },
+                    values = ResizeMethod.entries.map { it.name },
                     defaultValue = ResizeMethod.ZOOM.name
                 )
                 Row(
