@@ -5,5 +5,6 @@ import kotlinx.serialization.Serializable
 
 @Serializable
 data class Images(
-    @SerialName("source") val source: Source? = null
+    @SerialName("source") val source: Source? = null,
+    @SerialName("resolutions") val resolutions: List<Source> = emptyList()
 )

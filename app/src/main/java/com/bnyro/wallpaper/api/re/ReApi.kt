@@ -20,7 +20,7 @@ class ReApi : CommunityApi() {
 
     override val defaultCommunityName = "r/wallpaper"
 
-    private val imageRegex = Regex("^.+\\.(jpg|jpeg|png|webp)\$")
+    private val imageRegex = Regex("^.+\\.(jpg|jpeg|png|webp)$")
 
     private var nextPageAfter: String? = null
 
@@ -32,21 +32,25 @@ class ReApi : CommunityApi() {
         if (page == 1) nextPageAfter = null
         val communityName = getCommunityName().replaceFirst("r/", "")
 
-        val response = api.getRedditData(communityName, getQuery("sort"), getQuery("time"), nextPageAfter)
+        val response =
+            api.getRedditData(communityName, getQuery("sort"), getQuery("time"), nextPageAfter)
         // needed in order to load the next page
         nextPageAfter = response.data?.after
 
         return response.data?.children?.filter {
             it.childData.url?.matches(imageRegex) == true
-        }?.map {
-            with(it.childData) {
-                Wallpaper(
-                    imgSrc = preview?.images?.firstOrNull()?.source?.imgUrl ?: url!!,
-                    title = it.childData.title,
-                    thumb = url,
-                    resolution = preview?.images?.firstOrNull()?.source?.let { img -> "${img.width}x${img.height}" }
-                )
-            }
+        }?.map { child ->
+            val data = child.childData
+            val preview = data.preview?.images?.firstOrNull()
+            val thumb = preview?.resolutions?.sortedBy { it.height }
+                ?.firstOrNull { it.height != null && it.height > 400 }?.imgUrl ?: data.thumbnail
+
+            Wallpaper(
+                imgSrc = preview?.source?.imgUrl ?: data.url.orEmpty(),
+                title = data.title,
+                thumb = thumb,
+                resolution = preview?.source?.let { img -> "${img.width}x${img.height}" }
+            )
         }.orEmpty()
     }
 
