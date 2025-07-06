@@ -57,9 +57,11 @@ class MainModel : ViewModel() {
     fun fetchWallpapers(onException: (Exception) -> Unit) {
         viewModelScope.launch {
             try {
-                wallpapers += withContext(Dispatchers.IO) {
+                val newWallpapers = withContext(Dispatchers.IO) {
                     api.getWallpapers(page)
                 }
+                // remove duplicated results - e.g. if multiple posts contain the same image
+                wallpapers = (wallpapers + newWallpapers).distinctBy { it.imgSrc }
                 page += 1
             } catch (e: Exception) {
                 Log.e(this.javaClass.name, e.toString())
@@ -76,9 +78,10 @@ class MainModel : ViewModel() {
         Database.favoritesDao().removeFromFavorites(wallpaper)
     }
 
-    fun removeRecentlyAppliedWallpaper(wallpaper: Wallpaper) = viewModelScope.launch(Dispatchers.IO) {
-        Database.favoritesDao().removeFromHistory(wallpaper)
-    }
+    fun removeRecentlyAppliedWallpaper(wallpaper: Wallpaper) =
+        viewModelScope.launch(Dispatchers.IO) {
+            Database.favoritesDao().removeFromHistory(wallpaper)
+        }
 
     fun clearWallpapers() {
         wallpapers = listOf()
