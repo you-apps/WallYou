@@ -31,5 +31,4 @@ fun BottomBar(
             color = contentColor
         )
     }
-
 }

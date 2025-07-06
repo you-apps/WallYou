@@ -98,10 +98,8 @@ class WallpaperHelperModel(private val application: Application) : ViewModel() {
             val transformedBitmap = BitmapProcessor.processBitmapByPrefs(bitmap)
             saveWallpaperState = try {
                 withContext(Dispatchers.IO) {
-                    application.contentResolver.openFileDescriptor(uri, "w")?.use {
-                        FileOutputStream(it.fileDescriptor).use { fos ->
-                            transformedBitmap.compress(Bitmap.CompressFormat.PNG, 25, fos)
-                        }
+                    application.contentResolver.openOutputStream(uri)?.use { fos ->
+                        transformedBitmap.compress(Bitmap.CompressFormat.PNG, 25, fos)
                     }
                 }
                 MultiState.SUCCESS
