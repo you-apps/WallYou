@@ -7,6 +7,7 @@ import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxWidth
+import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.width
 import androidx.compose.material.icons.Icons
@@ -188,12 +189,12 @@ fun WallpaperChangerPrefDialog(
                     values = List(wallpaperSources.size) { index -> index.toString() },
                     defaultValue = wallpaperSource.ordinal.toString()
                 ) { newValue ->
-                    wallpaperSource = WallpaperSource.values()[newValue.toInt()]
+                    wallpaperSource = WallpaperSource.entries[newValue.toInt()]
                 }
 
                 Crossfade(targetState = wallpaperSource, label = "wallpaper_source") { state ->
                     when (state) {
-                        WallpaperSource.ONLINE -> {
+                        WallpaperSource.ONLINE -> Column {
                             MultiSelectionBlockPreference(
                                 preferenceKey = null,
                                 entries = DrawerScreens.apiScreens.map { it.title.str() },
@@ -202,6 +203,7 @@ fun WallpaperChangerPrefDialog(
                             ) { selections ->
                                 wallpaperEnginesIndices = selections
                             }
+                            Spacer(modifier = Modifier.height(5.dp))
                         }
 
                         WallpaperSource.LOCAL -> Column(
@@ -248,7 +250,8 @@ fun WallpaperChangerPrefDialog(
 
                 CheckboxPref(
                     prefKey = null,
-                    title = stringResource(id = R.string.apply_image_filters),
+                    title = stringResource(R.string.apply_image_filters),
+                    summary = stringResource(R.string.apply_image_filters_desc),
                     defaultValue = applyImageFilters
                 ) { newValue ->
                     applyImageFilters = newValue
@@ -260,6 +263,7 @@ fun WallpaperChangerPrefDialog(
                 CheckboxPref(
                     prefKey = null,
                     title = stringResource(R.string.time_interval),
+                    summary = stringResource(R.string.time_interval_desc),
                     defaultValue = customTimeInterval
                 ) { newValue ->
                     customTimeInterval = newValue

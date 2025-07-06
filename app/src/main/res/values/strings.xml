@@ -61,8 +61,10 @@
     <string name="auto_darken_lighten_by_theme">Auto-brightness by theme</string>
     <string name="auto_darken_lighten_by_theme_desc">Automatically darken or lighten the wallpaper based on the theme</string>
     <string name="apply_image_filters">Apply image filters</string>
+    <string name="apply_image_filters_desc">Blur, hue, brightness, …</string>
     <string name="add_wallpaper_changer_rule">Add wallpaper changer rule</string>
     <string name="time_interval">Time interval</string>
+    <string name="time_interval_desc">Run only between specified times.</string>
     <string name="invalid_time_interval">Invalid time interval</string>
     <!-- Network constraints -->
     <string name="network_type">Network type</string>
