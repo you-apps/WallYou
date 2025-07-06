@@ -1,5 +1,6 @@
 package com.bnyro.wallpaper.ui.components.infosheet
 
+import android.content.ClipData
 import androidx.compose.foundation.background
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Arrangement
@@ -23,6 +24,7 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
 import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.platform.LocalClipboard
 import androidx.compose.ui.platform.LocalClipboardManager
 import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.text.AnnotatedString
@@ -56,7 +58,7 @@ fun InfoSheetColors(
             }
         }
     }
-    val clipboardManager = LocalClipboardManager.current
+    val clipboardManager = LocalClipboard.current
     LazyVerticalGrid(
         columns = GridCells.Adaptive(100.dp),
         modifier = Modifier
@@ -74,7 +76,13 @@ fun InfoSheetColors(
                     .clip(CircleShape)
                     .background(Color(colorSwatch.rgb))
                     .clickable {
-                        clipboardManager.setText(AnnotatedString(hexColor))
+                        clipboardManager.nativeClipboard.setPrimaryClip(
+                            ClipData(
+                                null,
+                                arrayOf("text/plain"),
+                                ClipData.Item(hexColor)
+                            )
+                        )
                     },
                 contentAlignment = Alignment.Center
             ) {

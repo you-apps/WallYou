@@ -9,6 +9,7 @@ import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.rememberScrollState
 import androidx.compose.foundation.verticalScroll
 import androidx.compose.material.icons.Icons
+import androidx.compose.material.icons.automirrored.filled.Label
 import androidx.compose.material.icons.filled.AccessTime
 import androidx.compose.material.icons.filled.Category
 import androidx.compose.material.icons.filled.Description
@@ -63,7 +64,7 @@ fun WallpaperInfoSheet(onDismissRequest: () -> Unit, wallpaper: Wallpaper) {
                 modifier = Modifier.verticalScroll(rememberScrollState())
             ) {
                 wallpaper.title?.let {
-                    WallpaperInfoItem(Icons.Default.Label, R.string.label, it)
+                    WallpaperInfoItem(Icons.AutoMirrored.Filled.Label, R.string.label, it)
                 }
                 wallpaper.description?.let {
                     WallpaperInfoItem(Icons.Default.Description, R.string.description, it)

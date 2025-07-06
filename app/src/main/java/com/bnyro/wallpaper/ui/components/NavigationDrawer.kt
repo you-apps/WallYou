@@ -17,6 +17,7 @@ import androidx.compose.material3.Divider
 import androidx.compose.material3.DrawerDefaults
 import androidx.compose.material3.DrawerState
 import androidx.compose.material3.ExperimentalMaterial3Api
+import androidx.compose.material3.HorizontalDivider
 import androidx.compose.material3.Icon
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.ModalNavigationDrawer
@@ -91,7 +92,7 @@ fun NavigationDrawer(
                 Spacer(Modifier.height(20.dp))
                 pages.forEach { screen ->
                     if (screen.divideBefore) {
-                        Divider(
+                        HorizontalDivider(
                             modifier = Modifier
                                 .padding(25.dp, 15.dp)
                                 .height(2.dp)

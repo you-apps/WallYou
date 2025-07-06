@@ -92,7 +92,6 @@ fun WallpaperGrid(
             }
 
             val dismissState = rememberSwipeToDismissBoxState(
-                positionalThreshold = { totalDistance -> totalDistance / 2.5f },
                 confirmValueChange = { value ->
                     when (value) {
                         SwipeToDismissBoxValue.StartToEnd -> onDeleteWallpaper?.invoke(wallpaper)

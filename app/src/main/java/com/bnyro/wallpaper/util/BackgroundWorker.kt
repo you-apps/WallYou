@@ -49,7 +49,6 @@ class BackgroundWorker(
             WallpaperSource.ONLINE -> getOnlineWallpaper(config)
             WallpaperSource.FAVORITES -> getFavoritesWallpaper()
             WallpaperSource.LOCAL -> getLocalWallpaper(config)
-            else -> return true
         } ?: return false
 
         if (config.applyImageFilters) {

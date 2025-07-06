@@ -1,6 +1,7 @@
 package com.bnyro.wallpaper.ui.components.bottombar
 
 import androidx.compose.material.icons.Icons
+import androidx.compose.material.icons.automirrored.filled.ArrowBack
 import androidx.compose.material.icons.rounded.ArrowBack
 import androidx.compose.material.icons.rounded.Info
 import androidx.compose.material3.ExperimentalMaterial3Api
@@ -27,7 +28,7 @@ fun WallpaperViewTopBar(
         navigationIcon = {
             IconButton(onClick = { onClickBack.invoke() }) {
                 Icon(
-                    imageVector = Icons.Rounded.ArrowBack,
+                    imageVector = Icons.AutoMirrored.Filled.ArrowBack,
                     contentDescription = stringResource(R.string.go_back)
                 )
             }
