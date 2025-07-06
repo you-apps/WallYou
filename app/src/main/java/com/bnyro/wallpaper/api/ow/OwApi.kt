@@ -30,20 +30,27 @@ class OwApi : Api() {
 
     override suspend fun getWallpapers(page: Int): List<Wallpaper> {
         if (wallpapers.isEmpty()) loadAll()
-        return if (resultsPerPage * 20 > filteredWallpapers.size) {
-            filteredWallpapers.toList().subList(
-                filteredWallpapers.size - (filteredWallpapers.size % resultsPerPage),
-                filteredWallpapers.size
-            )
-        } else {
-            filteredWallpapers.toList().subList((page - 1) * resultsPerPage, page * resultsPerPage)
+
+        if (resultsPerPage * (page - 1) > filteredWallpapers.size) {
+            return emptyList()
         }
+
+        return filteredWallpapers.toList().subList(
+            (page - 1) * resultsPerPage,
+            minOf(page * resultsPerPage, filteredWallpapers.size)
+        )
     }
 
     private suspend fun loadAll() {
         api.getAll().forEach { _, images ->
             images.jsonObject.forEach { category, source ->
-                wallpapers.add(0, Wallpaper(imgSrc = source.jsonPrimitive.content, category = category))
+                val imgSrc = source.jsonPrimitive.content
+                if (imgSrc.isNotBlank()) {
+                    wallpapers.add(
+                        0,
+                        Wallpaper(imgSrc = imgSrc, category = category)
+                    )
+                }
             }
         }
     }
