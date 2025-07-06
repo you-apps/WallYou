@@ -3,6 +3,7 @@ package com.bnyro.wallpaper.ui.components
 import androidx.activity.compose.rememberLauncherForActivityResult
 import androidx.compose.animation.AnimatedVisibility
 import androidx.compose.animation.Crossfade
+import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.Spacer
@@ -49,16 +50,6 @@ import com.bnyro.wallpaper.ui.components.prefs.SettingsCategory
 import com.bnyro.wallpaper.ui.nav.DrawerScreens
 import com.bnyro.wallpaper.util.PickFolderContract
 import com.bnyro.wallpaper.util.str
-
-private val changeIntervals = listOf(
-    15L,
-    30L,
-    60L,
-    180L,
-    360L,
-    720L,
-    1440L
-)
 
 private val networkTypes = listOf(
     R.string.all_networks to NetworkType.CONNECTED,
@@ -108,6 +99,11 @@ fun WallpaperChangerPrefDialog(
         },
         confirmButton = {
             DialogButton(stringResource(android.R.string.ok)) {
+                if (changeInterval == 0) {
+                    context.toast(context.getString(R.string.invalid_time_interval))
+                    return@DialogButton
+                }
+
                 val hasStartAndEndTime = startTimeMillis != null && endTimeMillis != null
                 if (hasStartAndEndTime && startTimeMillis!! == endTimeMillis!!) {
                     context.toast(context.getString(R.string.invalid_time_interval))
@@ -160,14 +156,38 @@ fun WallpaperChangerPrefDialog(
                     }
                 }
 
-                ListPreference(
-                    prefKey = null,
-                    title = stringResource(R.string.change_interval),
-                    entries = changeIntervals.map { it.formatMinutes() },
-                    values = changeIntervals.map { it.toString() },
-                    defaultValue = changeInterval.toString()
+                Spacer(modifier = Modifier.height(10.dp))
+                Text(stringResource(R.string.change_interval))
+                var intervalDays by remember {
+                    mutableIntStateOf(changeInterval / 60 / 24)
+                }
+                var intervalHours by remember {
+                    mutableIntStateOf(changeInterval / 60 % 24)
+                }
+                LaunchedEffect(intervalDays, intervalHours) {
+                    changeInterval = ((intervalDays * 24) + intervalHours) * 60
+                }
+                Row(
+                    verticalAlignment = Alignment.CenterVertically,
+                    horizontalArrangement = Arrangement.spacedBy(10.dp)
                 ) {
-                    changeInterval = it.toInt()
+                    NumberPicker(
+                        modifier = Modifier.weight(1f),
+                        items = (0..90).map { it.toString() },
+                        startIndex = intervalDays
+                    ) { index ->
+                        intervalDays = index
+                    }
+                    Text(text = stringResource(R.string.days))
+
+                    NumberPicker(
+                        modifier = Modifier.weight(1f),
+                        items = (0..23).map { it.toString() },
+                        startIndex = intervalHours
+                    ) { index ->
+                        intervalHours = index
+                    }
+                    Text(text = stringResource(R.string.hours))
                 }
 
                 AnimatedVisibility(visible = wallpaperSource != WallpaperSource.LOCAL) {

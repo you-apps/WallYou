@@ -66,6 +66,8 @@
     <string name="time_interval">Time interval</string>
     <string name="time_interval_desc">Run only between specified times.</string>
     <string name="invalid_time_interval">Invalid time interval</string>
+    <string name="days">days</string>
+    <string name="hours">hours</string>
     <!-- Network constraints -->
     <string name="network_type">Network type</string>
     <string name="all_networks">All networks</string>
