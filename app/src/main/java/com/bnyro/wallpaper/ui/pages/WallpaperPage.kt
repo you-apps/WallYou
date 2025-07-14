@@ -28,6 +28,7 @@ import com.bnyro.wallpaper.ui.components.WallpaperGrid
 import com.bnyro.wallpaper.ui.components.WallpaperPageView
 import com.bnyro.wallpaper.ui.components.dialogs.FilterDialog
 import com.bnyro.wallpaper.ui.models.MainModel
+import kotlinx.coroutines.CancellationException
 import kotlin.random.Random
 
 @Composable
@@ -44,13 +45,21 @@ fun WallpaperPage(
     var fetchedWallpapers by rememberSaveable {
         mutableStateOf(false)
     }
+
+    fun fetchMoreWallpapers() {
+        viewModel.fetchWallpapers { exception ->
+            // suppress errors when a request is cancelled by user navigation
+            if (exception !is CancellationException) {
+                Toast.makeText(context, exception.localizedMessage, Toast.LENGTH_LONG).show()
+            }
+        }
+    }
+
     LaunchedEffect(Unit) {
         if (fetchedWallpapers) return@LaunchedEffect
 
         viewModel.clearWallpapers()
-        viewModel.fetchWallpapers {
-            Toast.makeText(context, it.localizedMessage, Toast.LENGTH_LONG).show()
-        }
+        fetchMoreWallpapers()
 
         fetchedWallpapers = true
     }
@@ -67,9 +76,7 @@ fun WallpaperPage(
                     selectedIndex = it
                 }
             ) {
-                viewModel.fetchWallpapers {
-                    Toast.makeText(context, it.localizedMessage, Toast.LENGTH_LONG).show()
-                }
+                fetchMoreWallpapers()
             }
             selectedIndex?.let {
                 WallpaperPageView(initialPage = it, wallpapers = viewModel.wallpapers) {
@@ -126,9 +133,7 @@ fun WallpaperPage(
                 showFilterDialog = false
                 if (changed) {
                     viewModel.clearWallpapers()
-                    viewModel.fetchWallpapers {
-                        Toast.makeText(context, it.localizedMessage, Toast.LENGTH_SHORT).show()
-                    }
+                    fetchMoreWallpapers()
                 }
             }
         }
