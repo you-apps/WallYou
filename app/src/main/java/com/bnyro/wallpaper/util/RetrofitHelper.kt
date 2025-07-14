@@ -13,6 +13,8 @@ object RetrofitHelper {
     val json by lazy {
         Json {
             ignoreUnknownKeys = true
+            explicitNulls = true
+            encodeDefaults = true
         }
     }
 
