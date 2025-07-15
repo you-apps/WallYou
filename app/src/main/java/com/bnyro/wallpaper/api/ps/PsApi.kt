@@ -10,11 +10,12 @@ class PsApi : Api() {
     override val name: String = "Picsum"
     override val baseUrl: String = "https://picsum.photos"
     override val icon = Icons.Default.Pix
+    private val maxPage = 34
 
     private val api = RetrofitHelper.create<Picsum>(baseUrl)
 
     override suspend fun getWallpapers(page: Int): List<Wallpaper> {
-        return api.getWallpapers(page).map {
+        return api.getWallpapers(maxPage + 1 - page).map {
             Wallpaper(
                 imgSrc = it.downloadUrl!!,
                 author = it.author,
