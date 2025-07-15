@@ -2,6 +2,7 @@ package com.bnyro.wallpaper.util
 
 import android.content.Context
 import android.graphics.Bitmap
+import android.util.Log
 import androidx.work.CoroutineWorker
 import androidx.work.WorkerParameters
 import com.bnyro.wallpaper.db.DatabaseHolder
@@ -72,9 +73,12 @@ class BackgroundWorker(
         val source = config.selectedApiRoutes.ifEmpty { return null }.random()
 
         return withContext(Dispatchers.IO) {
-            val url = runCatching {
+            val url = try {
                 Preferences.getApiByRoute(source).getRandomWallpaperUrl()
-            }.getOrNull() ?: return@withContext null
+            } catch (e: Exception) {
+                Log.e(this@BackgroundWorker::class.simpleName, e.toString())
+                return@withContext null
+            } ?: return@withContext null
 
             val bitmap = ImageHelper.urlToBitmap(url, applicationContext, forceReload = true)
             if (bitmap != null && Preferences.getBoolean(Preferences.wallpaperHistory, true)) {
@@ -94,10 +98,13 @@ class BackgroundWorker(
     }
 
     private fun getLocalWallpaper(config: WallpaperConfig): Bitmap? {
-        return runCatching {
+        return try {
             val wallpaper = LocalWallpaperHelper.getLocalWalls(applicationContext, config)
                 .randomOrNull() ?: return null
             ImageHelper.getLocalImage(applicationContext, wallpaper.uri)
-        }.getOrNull()
+        } catch (e: Exception) {
+            Log.e(this@BackgroundWorker::class.simpleName, e.toString())
+            null
+        }
     }
 }

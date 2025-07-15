@@ -5,10 +5,12 @@ import android.graphics.Bitmap
 import android.graphics.BitmapFactory
 import android.graphics.Matrix
 import android.net.Uri
+import android.util.Log
 import androidx.core.graphics.drawable.toBitmap
 import androidx.exifinterface.media.ExifInterface
 import coil.imageLoader
 import coil.request.CachePolicy
+import coil.request.ErrorResult
 import coil.request.ImageRequest
 import coil.request.SuccessResult
 import coil.size.Size
@@ -28,7 +30,6 @@ object ImageHelper {
             imageRequestBuilder
                 .diskCachePolicy(CachePolicy.DISABLED)
                 .memoryCachePolicy(CachePolicy.DISABLED)
-                .networkCachePolicy(CachePolicy.DISABLED)
         }
 
         return imageRequestBuilder
@@ -62,6 +63,8 @@ object ImageHelper {
 
         if (result is SuccessResult) {
             return result.drawable.toBitmap()
+        } else if (result is ErrorResult) {
+            Log.e("error loading image", result.throwable.localizedMessage.orEmpty())
         }
         return null
     }
