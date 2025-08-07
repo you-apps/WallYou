@@ -86,4 +86,12 @@
     <string name="done">完成</string>
     <string name="label">標籤</string>
     <string name="edit">編輯</string>
+    <string name="brightness">亮度</string>
+    <string name="hue">色調</string>
+    <string name="auto_darken_lighten_by_theme">自動基於主題調整亮度</string>
+    <string name="auto_darken_lighten_by_theme_desc">自動基於主題將桌布變暗或變亮</string>
+    <string name="add_wallpaper_changer_rule">增加桌布變更規則</string>
+    <string name="time_interval">時間間隔</string>
+    <string name="invalid_time_interval">無效的時間間隔</string>
+    <string name="description">描述</string>
 </resources>
