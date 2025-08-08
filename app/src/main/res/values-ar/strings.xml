@@ -95,4 +95,8 @@
     <string name="brightness">السطوع</string>
     <string name="auto_darken_lighten_by_theme_desc">تعتيم الخلفية أو تفتيحها تلقائياً بناءً على السمة</string>
     <string name="invert_wallpaper">عكس الخلفية</string>
+    <string name="apply_image_filters_desc">تمويه، تدرج لوني، سطوع، …</string>
+    <string name="time_interval_desc">شغّل فقط بين الأوقات المحدّدة.</string>
+    <string name="days">أيام</string>
+    <string name="hours">ساعات</string>
 </resources>
