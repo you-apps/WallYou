@@ -95,4 +95,8 @@
     <string name="brightness">Fényerő</string>
     <string name="hue">Árnyalat</string>
     <string name="invert_wallpaper">Háttérkép megfordítása</string>
+    <string name="apply_image_filters_desc">Elmosódás, színárnyalat, fényerő, …</string>
+    <string name="time_interval_desc">Csak meghatározott időközönként futtatható.</string>
+    <string name="days">nap</string>
+    <string name="hours">óra</string>
 </resources>
