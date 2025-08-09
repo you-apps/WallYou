@@ -104,4 +104,8 @@
     <string name="auto_darken_lighten_by_theme">按系统主题自动调节亮度</string>
     <string name="auto_darken_lighten_by_theme_desc">根据主题自动将壁纸变暗或变亮</string>
     <string name="invert_wallpaper">颠倒壁纸</string>
+    <string name="apply_image_filters_desc">模糊、色度、亮度…</string>
+    <string name="time_interval_desc">只在指定时间段中运行。</string>
+    <string name="days">天</string>
+    <string name="hours">小时</string>
 </resources>
