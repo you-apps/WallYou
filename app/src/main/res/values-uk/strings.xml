@@ -104,4 +104,8 @@
     <string name="hue">Відтінок</string>
     <string name="invert_wallpaper">Інвертувати шпалери</string>
     <string name="auto_darken_lighten_by_theme">Автояскравість за темами</string>
+    <string name="apply_image_filters_desc">Розмиття, відтінок, яскравість, …</string>
+    <string name="time_interval_desc">Працює тільки в зазначений час.</string>
+    <string name="days">днів</string>
+    <string name="hours">годин</string>
 </resources>
