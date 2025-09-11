@@ -1,5 +1,11 @@
 package com.bnyro.wallpaper.ui.pages
 
+import android.annotation.SuppressLint
+import android.content.Context.POWER_SERVICE
+import android.content.Intent
+import android.os.Build
+import android.os.PowerManager
+import android.provider.Settings
 import androidx.activity.compose.rememberLauncherForActivityResult
 import androidx.activity.result.contract.ActivityResultContracts
 import androidx.compose.animation.AnimatedVisibility
@@ -32,6 +38,7 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.unit.dp
+import androidx.core.net.toUri
 import com.bnyro.wallpaper.R
 import com.bnyro.wallpaper.enums.ThemeMode
 import com.bnyro.wallpaper.ext.formatBinarySize
@@ -151,6 +158,20 @@ fun SettingsPage(
                 wallpaperChangerEnabled = newValue
 
                 WorkerHelper.enqueueOrCancelAll(context, wallpaperConfigs)
+
+                // request unrestricted battery usage if not yet granted
+                if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M && newValue) {
+                    val pm = context.getSystemService(POWER_SERVICE) as PowerManager
+
+                    if (!pm.isIgnoringBatteryOptimizations(context.packageName)) {
+                        val intent = Intent().apply {
+                            @SuppressLint("BatteryLife")
+                            action = Settings.ACTION_REQUEST_IGNORE_BATTERY_OPTIMIZATIONS
+                            data = "package:${context.packageName}".toUri()
+                        }
+                        context.startActivity(intent)
+                    }
+                }
             }
 
             AnimatedVisibility(visible = wallpaperChangerEnabled) {
