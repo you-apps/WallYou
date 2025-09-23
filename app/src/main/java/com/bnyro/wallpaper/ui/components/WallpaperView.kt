@@ -179,10 +179,11 @@ fun WallpaperView(
                 }
             }
         }
-    }
-    if (showEditView) {
-        WallpaperFilterEditor(wallpaper = wallpaper) {
-            showEditView = false
+
+        if (showEditView) {
+            WallpaperFilterEditor(wallpaper = wallpaper) {
+                showEditView = false
+            }
         }
     }
     if (showInfoSheet) {

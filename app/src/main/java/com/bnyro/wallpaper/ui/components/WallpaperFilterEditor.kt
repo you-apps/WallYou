@@ -29,8 +29,6 @@ import androidx.compose.ui.graphics.ColorMatrix
 import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.unit.dp
-import androidx.compose.ui.window.Dialog
-import androidx.compose.ui.window.DialogProperties
 import androidx.lifecycle.viewmodel.compose.viewModel
 import coil.compose.AsyncImage
 import coil.compose.rememberAsyncImagePainter
@@ -53,7 +51,6 @@ fun WallpaperFilterEditor(
     wallpaperHelperModel: WallpaperHelperModel = viewModel(factory = WallpaperHelperModel.Factory),
     onDismissRequest: () -> Unit
 ) {
-
     var showModeSelection by remember { mutableStateOf(false) }
     var grayscaleEnabled by remember {
         mutableStateOf(
@@ -104,9 +101,8 @@ fun WallpaperFilterEditor(
         )
     }
 
-    Dialog(
+    FullscreenDialog(
         onDismissRequest = onDismissRequest,
-        properties = remember { DialogProperties(usePlatformDefaultWidth = false) }
     ) {
         val bottomSheetState = rememberStandardBottomSheetState(initialValue = SheetValue.Expanded)
         val sheetState = rememberBottomSheetScaffoldState(bottomSheetState = bottomSheetState)
@@ -243,7 +239,13 @@ fun WallpaperFilterEditor(
             ) {
                 val lowRes = rememberAsyncImagePainter(model = wallpaper.preview)
                 val colorMatrix =
-                    remember(brightnessValue, contrastValue, hueValue, invertEnabled, grayscaleEnabled) {
+                    remember(
+                        brightnessValue,
+                        contrastValue,
+                        hueValue,
+                        invertEnabled,
+                        grayscaleEnabled
+                    ) {
                         // grayscale doesn't seem to work the same way here (always looks greenish)
                         val matrixArray = BitmapProcessor.getTransformMatrix(
                             contrastValue,

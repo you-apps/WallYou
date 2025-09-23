@@ -8,8 +8,6 @@ import androidx.compose.runtime.Composable
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.window.Dialog
-import androidx.compose.ui.window.DialogProperties
 import com.bnyro.wallpaper.db.obj.Wallpaper
 
 @OptIn(ExperimentalFoundationApi::class)
@@ -26,9 +24,8 @@ fun WallpaperPageView(
     ) {
         wallpapers.size
     }
-    Dialog(
+    FullscreenDialog(
         onDismissRequest = onDismissRequest,
-        properties = remember { DialogProperties(usePlatformDefaultWidth = false) }
     ) {
         HorizontalPager(modifier = Modifier.fillMaxSize(), state = pagerState) {
             WallpaperView(
