@@ -32,7 +32,7 @@ abstract class Api {
     }
 
     fun getTags(): List<String> {
-        return getPref(tagsKey, "sunset").split(",").filter {
+        return getPref(tagsKey, "").split(",").filter {
             it.isNotBlank()
         }
     }

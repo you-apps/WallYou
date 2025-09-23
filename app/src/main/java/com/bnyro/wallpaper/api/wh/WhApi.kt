@@ -14,7 +14,7 @@ class WhApi : Api() {
     override val filters: Map<String, List<String>> = mapOf(
         "ratios" to listOf("portrait", "landscape"),
         "categories" to listOf("general", "anime", "people", "all"),
-        "sorting" to listOf("favorites", "date_added", "relevance", "random", "views", "toplist"),
+        "sorting" to listOf("date_added", "favorites", "relevance", "random", "views", "toplist"),
         "order" to listOf("desc", "asc"),
         "purity" to listOf("sfw", "sketchy", "all")
     )
