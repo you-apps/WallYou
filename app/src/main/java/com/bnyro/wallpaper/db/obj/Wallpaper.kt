@@ -18,6 +18,8 @@ data class Wallpaper(
     @ColumnInfo val thumb: String? = null,
     @ColumnInfo val creationDate: String? = null,
     @ColumnInfo(defaultValue = "NULL") val description: String? = null,
+
+    // The following ones may not be set by wallpaper APIs!
     @ColumnInfo(defaultValue = "1") var favorite: Boolean = false,
     @ColumnInfo(defaultValue = "0") var inHistory: Boolean = false,
     @ColumnInfo(defaultValue = "0") var timeAdded: Long = 0,
