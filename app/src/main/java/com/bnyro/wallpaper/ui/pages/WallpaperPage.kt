@@ -3,6 +3,7 @@ package com.bnyro.wallpaper.ui.pages
 import android.widget.Toast
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
+import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.padding
@@ -11,6 +12,8 @@ import androidx.compose.material.icons.filled.FilterList
 import androidx.compose.material.icons.filled.Shuffle
 import androidx.compose.material3.FloatingActionButton
 import androidx.compose.material3.Icon
+import androidx.compose.material3.MaterialTheme
+import androidx.compose.material3.SmallFloatingActionButton
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.runtime.getValue
@@ -92,19 +95,19 @@ fun WallpaperPage(
             ShimmerGrid()
         }
 
-        Row(
+        Column(
             modifier = Modifier
                 .align(Alignment.BottomEnd)
-                .padding(bottom = 20.dp, end = 10.dp),
-            horizontalArrangement = Arrangement.End
+                .padding(16.dp),
+            horizontalAlignment = Alignment.End,
+            verticalArrangement = Arrangement.spacedBy(4.dp)
         ) {
-            FloatingActionButton(
-                modifier = Modifier
-                    .padding(horizontal = 10.dp),
+            SmallFloatingActionButton(
                 onClick = {
                     selectedIndex =
                         if (viewModel.wallpapers.isNotEmpty()) Random.nextInt(viewModel.wallpapers.size) else null
-                }
+                },
+                containerColor = MaterialTheme.colorScheme.tertiaryContainer
             ) {
                 Icon(
                     imageVector = Icons.Default.Shuffle,
@@ -117,8 +120,6 @@ fun WallpaperPage(
                 viewModel.api is CommunityApi
             ) {
                 FloatingActionButton(
-                    modifier = Modifier
-                        .padding(horizontal = 10.dp),
                     onClick = {
                         showFilterDialog = true
                     }
