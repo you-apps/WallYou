@@ -38,7 +38,6 @@ import androidx.work.NetworkType
 import com.bnyro.wallpaper.R
 import com.bnyro.wallpaper.enums.WallpaperSource
 import com.bnyro.wallpaper.enums.WallpaperTarget
-import com.bnyro.wallpaper.ext.formatMinutes
 import com.bnyro.wallpaper.ext.formatTime
 import com.bnyro.wallpaper.ext.toast
 import com.bnyro.wallpaper.obj.WallpaperConfig

@@ -6,11 +6,11 @@ import android.graphics.Color
 import android.graphics.ColorMatrix
 import android.graphics.ColorMatrixColorFilter
 import android.graphics.Paint
+import androidx.core.graphics.createBitmap
 import com.google.android.renderscript.Toolkit
 import kotlin.math.cos
 import kotlin.math.sin
 import kotlin.math.sqrt
-import androidx.core.graphics.createBitmap
 
 object BitmapProcessor {
     private val matrixInvert = floatArrayOf(

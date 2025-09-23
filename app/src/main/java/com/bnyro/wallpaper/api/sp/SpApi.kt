@@ -6,7 +6,6 @@ import com.bnyro.wallpaper.api.Api
 import com.bnyro.wallpaper.api.sp.obj.SpotlightImage
 import com.bnyro.wallpaper.db.obj.Wallpaper
 import com.bnyro.wallpaper.util.RetrofitHelper
-import kotlinx.serialization.decodeFromString
 import java.util.Locale
 
 // Credits to https://github.com/ORelio/Spotlight-Downloader/blob/master/SpotlightAPI.md

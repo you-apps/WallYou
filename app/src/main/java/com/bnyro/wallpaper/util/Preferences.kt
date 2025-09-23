@@ -5,8 +5,6 @@ import android.content.SharedPreferences
 import android.util.Log
 import com.bnyro.wallpaper.App
 import com.bnyro.wallpaper.obj.WallpaperConfig
-import kotlinx.serialization.decodeFromString
-import kotlinx.serialization.encodeToString
 
 object Preferences {
     const val resizeMethodKey = "resizeMethod"
