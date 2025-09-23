@@ -17,7 +17,7 @@ data class WallpaperConfig(
     var target: WallpaperTarget = WallpaperTarget.BOTH,
     var source: WallpaperSource = WallpaperSource.ONLINE,
     var applyImageFilters: Boolean = true,
-    var selectedApiRoutes: List<String> = listOf(DrawerScreens.apiScreens[0].route),
+    var selectedApiRoutes: List<String> = DrawerScreens.apiScreens.map { it.route },
     var localFolderUris: List<String> = listOf(),
     var startTimeMillis: Long? = null,
     var endTimeMillis: Long? = null,
