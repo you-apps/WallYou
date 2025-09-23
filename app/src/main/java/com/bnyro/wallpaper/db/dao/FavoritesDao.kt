@@ -13,8 +13,8 @@ interface FavoritesDao {
     @Query("SELECT * FROM favorites")
     suspend fun getAll(): List<Wallpaper>
 
-    @Query("SELECT * FROM favorites WHERE favorite = 1")
-    suspend fun getFavorites(): List<Wallpaper>
+    @Query("SELECT * FROM favorites WHERE favorite = 1 ORDER BY RANDOM() LIMIT 1")
+    suspend fun getRandomFavorite(): Wallpaper?
 
     @Query("SELECT * FROM favorites WHERE favorite = 1 ORDER BY timeAdded DESC")
     fun getFavoritesFlow(): Flow<List<Wallpaper>>

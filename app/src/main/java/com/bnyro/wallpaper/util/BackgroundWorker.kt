@@ -11,6 +11,7 @@ import com.bnyro.wallpaper.enums.WallpaperSource
 import com.bnyro.wallpaper.obj.WallpaperConfig
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.withContext
+import java.util.Random
 
 class BackgroundWorker(
     applicationContext: Context,
@@ -92,16 +93,22 @@ class BackgroundWorker(
 
     private suspend fun getFavoritesWallpaper(): Bitmap? {
         val favoriteUrl = withContext(Dispatchers.IO) {
-            DatabaseHolder.Database.favoritesDao().getFavorites()
-        }.randomOrNull()?.imgSrc
+            DatabaseHolder.Database.favoritesDao().getRandomFavorite()
+        }?.imgSrc
         return ImageHelper.urlToBitmap(favoriteUrl, applicationContext, forceReload = true)
     }
 
     private fun getLocalWallpaper(config: WallpaperConfig): Bitmap? {
         return try {
-            val wallpaper = LocalWallpaperHelper.getLocalWalls(applicationContext, config)
-                .randomOrNull() ?: return null
-            ImageHelper.getLocalImage(applicationContext, wallpaper.uri)
+            val wallpapers = LocalWallpaperHelper.getLocalWalls(applicationContext, config)
+            if (wallpapers.isEmpty()) return null
+
+            // use Java's random number generator with a custom seed instead of Kotlin's
+            // see https://stackoverflow.com/questions/73475522/kotlin-random-always-generates-the-same-random-numbers
+            val randomGenerator = Random(System.currentTimeMillis())
+            val randomIndex = randomGenerator.nextInt(wallpapers.size)
+
+            ImageHelper.getLocalImage(applicationContext, wallpapers[randomIndex].uri)
         } catch (e: Exception) {
             Log.e(this@BackgroundWorker::class.simpleName, e.toString())
             null
