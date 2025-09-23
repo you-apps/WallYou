@@ -15,4 +15,8 @@
     <string name="cache">Kešatmiņa</string>
     <string name="favorites">Iecienītākie</string>
     <string name="image_url">Attēla saite</string>
+    <string name="hours">stundas</string>
+    <string name="network_type">Tīkla veids</string>
+    <string name="all_networks">Visi tīkli</string>
+    <string name="days">dienas</string>
 </resources>

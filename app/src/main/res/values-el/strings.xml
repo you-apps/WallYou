@@ -1,2 +1,17 @@
 <?xml version="1.0" encoding="utf-8"?>
-<resources></resources>
+<resources>
+    <string name="history">Ιστορικό</string>
+    <string name="settings">Ρυθμίσεις</string>
+    <string name="about">Σχετικά</string>
+    <string name="info">Πληροφορίες</string>
+    <string name="filter">Φίλτρο</string>
+    <string name="add">Προσθήκη</string>
+    <string name="download">Λήψη</string>
+    <string name="add_to_favorites">Προσθήκη στα αγαπημένα</string>
+    <string name="category">Κατηγορία</string>
+    <string name="fileSize">Μέγεθος αρχείου</string>
+    <string name="source">Πηγή</string>
+    <string name="creationDate">Ημερομηνία δημιουργίας</string>
+    <string name="home">Αρχική οθόνη</string>
+    <string name="lockscreen">Οθόνη κλειδώματος</string>
+</resources>

@@ -95,4 +95,8 @@
     <string name="auto_darken_lighten_by_theme_desc">Automaticky ztmavit nebo zesvětlit pozadí podle motivu</string>
     <string name="auto_darken_lighten_by_theme">Automatický jas podle motivu</string>
     <string name="invert_wallpaper">Invertovat pozadí</string>
+    <string name="apply_image_filters_desc">Rozostření, odstín, jas, …</string>
+    <string name="time_interval_desc">Spouští se pouze mezi zadanými časy.</string>
+    <string name="days">dny</string>
+    <string name="hours">hodiny</string>
 </resources>

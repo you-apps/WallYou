@@ -95,4 +95,8 @@
     <string name="auto_darken_lighten_by_theme">Säti eredust kujunduse alusel automaatselt</string>
     <string name="hue">Värvitoon</string>
     <string name="invert_wallpaper">Pööra taustapilt pahupidi</string>
+    <string name="time_interval_desc">Käivita vaid etteantud ajavahemikus.</string>
+    <string name="days">päeva</string>
+    <string name="hours">tundi</string>
+    <string name="apply_image_filters_desc">Hägustamine, värvitoon, eredus…</string>
 </resources>

@@ -90,4 +90,6 @@
     <string name="description">Kuvaus</string>
     <string name="invalid_time_interval">Virheellinen aikaväli</string>
     <string name="add_wallpaper_changer_rule">Lisää taustakuvan vaihdon sääntö</string>
+    <string name="brightness">Kirkkaus</string>
+    <string name="hue">Sävy</string>
 </resources>
