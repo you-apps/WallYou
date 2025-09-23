@@ -4,19 +4,19 @@ import android.app.Application
 import coil.ImageLoader
 import coil.ImageLoaderFactory
 import coil.disk.DiskCache
-import com.bnyro.wallpaper.api.bi.BiApi
-import com.bnyro.wallpaper.api.le.LeApi
-import com.bnyro.wallpaper.api.na.NaApi
-import com.bnyro.wallpaper.api.ow.OwApi
+import com.bnyro.wallpaper.api.bi.BingApi
+import com.bnyro.wallpaper.api.le.LemmyApi
+import com.bnyro.wallpaper.api.na.NasaPotdApi
+import com.bnyro.wallpaper.api.ow.OwallsApi
 import com.bnyro.wallpaper.api.pb.PixabayApi
-import com.bnyro.wallpaper.api.ps.PsApi
-import com.bnyro.wallpaper.api.px.PxApi
-import com.bnyro.wallpaper.api.re.ReApi
-import com.bnyro.wallpaper.api.sp.SpApi
-import com.bnyro.wallpaper.api.us.UsApi
-import com.bnyro.wallpaper.api.wh.WhApi
-import com.bnyro.wallpaper.api.wi.WiAPi
-import com.bnyro.wallpaper.api.ze.ZeApi
+import com.bnyro.wallpaper.api.ps.PicsumApi
+import com.bnyro.wallpaper.api.px.GooglePixelApi
+import com.bnyro.wallpaper.api.re.RedditApi
+import com.bnyro.wallpaper.api.sp.MicrosoftSpotlightApi
+import com.bnyro.wallpaper.api.us.UnsplashApi
+import com.bnyro.wallpaper.api.wh.WallhavenApi
+import com.bnyro.wallpaper.api.wi.WikipediaPotdApi
+import com.bnyro.wallpaper.api.ze.ZedgeApi
 import com.bnyro.wallpaper.db.DatabaseHolder
 import com.bnyro.wallpaper.util.Preferences
 
@@ -51,7 +51,20 @@ class App : Application(), ImageLoaderFactory {
 
     companion object {
         val apis =
-            listOf(WhApi(), OwApi(), UsApi(), PixabayApi(), BiApi(), ReApi(), LeApi(), PxApi(), SpApi(), NaApi(), WiAPi(), PsApi(),
-                ZeApi())
+            listOf(
+                WallhavenApi(),
+                OwallsApi(),
+                UnsplashApi(),
+                PixabayApi(),
+                ZedgeApi(),
+                BingApi(),
+                RedditApi(),
+                LemmyApi(),
+                GooglePixelApi(),
+                MicrosoftSpotlightApi(),
+                NasaPotdApi(),
+                WikipediaPotdApi(),
+                PicsumApi()
+            )
     }
 }

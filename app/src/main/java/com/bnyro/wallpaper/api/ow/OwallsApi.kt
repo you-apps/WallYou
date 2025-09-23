@@ -8,7 +8,7 @@ import com.bnyro.wallpaper.util.RetrofitHelper
 import kotlinx.serialization.json.jsonObject
 import kotlinx.serialization.json.jsonPrimitive
 
-class OwApi : Api() {
+class OwallsApi : Api() {
     override val name = "OWalls"
     override val baseUrl = "https://gist.github.com/"
     override val icon = Icons.Default.Air

@@ -10,7 +10,7 @@ import com.bnyro.wallpaper.api.ze.obj.ZedgeVariables
 import com.bnyro.wallpaper.db.obj.Wallpaper
 import com.bnyro.wallpaper.util.RetrofitHelper
 
-class ZeApi : Api() {
+class ZedgeApi : Api() {
     override val name: String = "Zedge"
     override val icon: ImageVector = Icons.Default.ScreenLockLandscape
     override val baseUrl: String = "https://www.zedge.net"

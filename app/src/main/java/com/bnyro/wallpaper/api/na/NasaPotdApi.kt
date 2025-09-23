@@ -9,7 +9,7 @@ import com.bnyro.wallpaper.util.RetrofitHelper
 import java.time.LocalDateTime
 import java.time.format.DateTimeFormatter
 
-class NaApi : Api() {
+class NasaPotdApi : Api() {
     override val name: String = "NASA APOD"
     override val icon: ImageVector = Icons.Default.Star
     override val baseUrl: String = "https://api.nasa.gov/"

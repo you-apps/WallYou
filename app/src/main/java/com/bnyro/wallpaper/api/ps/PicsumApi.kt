@@ -6,7 +6,7 @@ import com.bnyro.wallpaper.api.Api
 import com.bnyro.wallpaper.db.obj.Wallpaper
 import com.bnyro.wallpaper.util.RetrofitHelper
 
-class PsApi : Api() {
+class PicsumApi : Api() {
     override val name: String = "Picsum"
     override val baseUrl: String = "https://picsum.photos"
     override val icon = Icons.Default.Pix

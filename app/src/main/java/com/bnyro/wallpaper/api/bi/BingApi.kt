@@ -6,7 +6,7 @@ import com.bnyro.wallpaper.api.Api
 import com.bnyro.wallpaper.db.obj.Wallpaper
 import com.bnyro.wallpaper.util.RetrofitHelper
 
-class BiApi : Api() {
+class BingApi : Api() {
     override val name: String = "Bing"
     override val baseUrl: String = "https://www.bing.com"
     override val icon = Icons.Default.Nightlight

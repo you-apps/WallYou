@@ -10,7 +10,7 @@ import java.util.Locale
 
 // Credits to https://github.com/ORelio/Spotlight-Downloader/blob/master/SpotlightAPI.md
 
-class SpApi: Api() {
+class MicrosoftSpotlightApi: Api() {
     override val name = "Spotlight"
     override val baseUrl = "https://fd.api.iris.microsoft.com"
     override val icon = Icons.Default.LightMode

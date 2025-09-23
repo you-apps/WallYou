@@ -9,7 +9,7 @@ import com.bnyro.wallpaper.util.RetrofitHelper
 import java.time.LocalDate
 import java.time.format.DateTimeFormatter
 
-class WiAPi : Api() {
+class WikipediaPotdApi : Api() {
     override val name = "Wikipedia POTD"
     override val icon: ImageVector = Icons.Default.Today
     override val baseUrl = "https://en.wikipedia.org"

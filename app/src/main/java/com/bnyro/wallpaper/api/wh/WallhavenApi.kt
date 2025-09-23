@@ -6,7 +6,7 @@ import com.bnyro.wallpaper.api.Api
 import com.bnyro.wallpaper.db.obj.Wallpaper
 import com.bnyro.wallpaper.util.RetrofitHelper
 
-class WhApi : Api() {
+class WallhavenApi : Api() {
     override val name: String = "Wallhaven"
     override val baseUrl: String = "https://wallhaven.cc/api/v1/"
     override val icon = Icons.Default.Landscape

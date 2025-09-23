@@ -8,7 +8,7 @@ import com.bnyro.wallpaper.util.RetrofitHelper
 import com.bnyro.wallpaper.util.TextUtils
 import okhttp3.HttpUrl.Companion.toHttpUrlOrNull
 
-class LeApi : CommunityApi() {
+class LemmyApi : CommunityApi() {
     override val name = "Lemmy"
     override val baseUrl = "https://lemmy.ml"
     override val icon = Icons.Default.Book

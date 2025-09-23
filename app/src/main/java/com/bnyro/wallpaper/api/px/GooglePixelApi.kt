@@ -6,7 +6,7 @@ import com.bnyro.wallpaper.api.Api
 import com.bnyro.wallpaper.db.obj.Wallpaper
 import com.bnyro.wallpaper.util.RetrofitHelper
 
-class PxApi : Api() {
+class GooglePixelApi : Api() {
     override val name: String = "Google Pixel"
     override val baseUrl: String = "https://api.github.com"
     override val icon = Icons.Default.Pix

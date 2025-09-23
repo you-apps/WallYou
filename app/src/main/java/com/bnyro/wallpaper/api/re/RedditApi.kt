@@ -6,7 +6,7 @@ import com.bnyro.wallpaper.api.CommunityApi
 import com.bnyro.wallpaper.db.obj.Wallpaper
 import com.bnyro.wallpaper.util.RetrofitHelper
 
-class ReApi : CommunityApi() {
+class RedditApi : CommunityApi() {
     override val name = "Reddit"
     override val baseUrl = "https://www.reddit.com/"
     override val icon = Icons.Default.Forum
