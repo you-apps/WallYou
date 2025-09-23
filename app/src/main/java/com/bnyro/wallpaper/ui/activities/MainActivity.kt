@@ -1,6 +1,7 @@
 package com.bnyro.wallpaper.ui.activities
 
 import android.os.Bundle
+import android.util.Log
 import androidx.activity.enableEdgeToEdge
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.padding
@@ -16,7 +17,12 @@ import androidx.compose.material3.TopAppBar
 import androidx.compose.material3.rememberDrawerState
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.LaunchedEffect
+import androidx.compose.runtime.getValue
+import androidx.compose.runtime.mutableStateOf
+import androidx.compose.runtime.remember
 import androidx.compose.runtime.rememberCoroutineScope
+import androidx.compose.runtime.saveable.rememberSaveable
+import androidx.compose.runtime.setValue
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.lifecycle.ViewModelProvider
@@ -54,8 +60,16 @@ private fun MainContent(
 
     val drawerState = rememberDrawerState(DrawerValue.Closed)
 
-    // navigate to the last tab opened tab
-    LaunchedEffect(viewModel) {
+    // prevent page refreshes when orientation changes
+    var alreadySetStartDestination by rememberSaveable {
+        mutableStateOf(false)
+    }
+    // navigate to the last opened tab (from the previous app session)
+    LaunchedEffect(Unit) {
+        if (alreadySetStartDestination) return@LaunchedEffect
+        alreadySetStartDestination = true
+
+        Log.e("view model", "view model")
         val initialPage = if (viewModel.currentDestination in DrawerScreens.apiScreens) {
             val lastSelectedTab = Preferences.getString(Preferences.startTabKey, "")
             DrawerScreens.screens.firstOrNull { it.route == lastSelectedTab }

@@ -60,6 +60,7 @@ fun WallpaperPage(
     }
 
     LaunchedEffect(Unit) {
+        // prevent loading the same page a second time
         if (fetchedWallpapers) return@LaunchedEffect
 
         viewModel.clearWallpapers()
