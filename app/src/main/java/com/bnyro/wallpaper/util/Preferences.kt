@@ -53,9 +53,9 @@ object Preferences {
     fun getWallpaperConfigs(): List<WallpaperConfig> {
         val prefString = getString(wallpaperChangerConfigKey, "")
 
-        return try {
-            if (prefString.isEmpty()) throw IllegalArgumentException("No saved wallpaper config yet.")
+        if (prefString.isEmpty()) return emptyList()
 
+        return try {
             RetrofitHelper.json.decodeFromString<List<WallpaperConfig>>(prefString)
         } catch (e: Exception) {
             Log.e(this.javaClass.name, e.stackTraceToString())
