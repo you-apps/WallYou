@@ -8,6 +8,7 @@ import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.bnyro.wallpaper.App
 import com.bnyro.wallpaper.R
+import com.bnyro.wallpaper.api.Api
 import com.bnyro.wallpaper.db.DatabaseHolder
 import com.bnyro.wallpaper.db.DatabaseHolder.Database
 import com.bnyro.wallpaper.db.obj.Wallpaper
@@ -56,7 +57,7 @@ class MainModel : ViewModel() {
     var page: Int = 1
 
     private var wallpaperJob: Job? = null
-    fun fetchWallpapers(onException: (Exception) -> Unit) {
+    fun fetchWallpapers(onException: (Exception, Api) -> Unit) {
         // ensure that only one job for loading new wallpapers is run at a time
         // this prevents that quick switching between different wallpaper sources causes the app
         // to display images from all sources, because they were still loading in the background
@@ -71,7 +72,7 @@ class MainModel : ViewModel() {
                 page += 1
             } catch (e: Exception) {
                 Log.e(this.javaClass.name, e.toString())
-                onException.invoke(e)
+                onException.invoke(e, api)
             }
         }
     }

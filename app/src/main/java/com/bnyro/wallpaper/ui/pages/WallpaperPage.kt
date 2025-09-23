@@ -47,10 +47,14 @@ fun WallpaperPage(
     }
 
     fun fetchMoreWallpapers() {
-        viewModel.fetchWallpapers { exception ->
+        viewModel.fetchWallpapers { exception, responsibleApi ->
             // suppress errors when a request is cancelled by user navigation
             if (exception !is CancellationException) {
-                Toast.makeText(context, exception.localizedMessage, Toast.LENGTH_LONG).show()
+                Toast.makeText(
+                    context,
+                    "${responsibleApi.name}: ${exception.localizedMessage}",
+                    Toast.LENGTH_LONG
+                ).show()
             }
         }
     }
