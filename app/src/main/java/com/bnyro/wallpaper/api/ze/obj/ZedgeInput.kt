@@ -6,14 +6,15 @@ import kotlinx.serialization.Serializable
 data class ZedgeInput(
     val categories: List<String>,
     val sort: String,
+    val colors: List<String>,
     val next: String? = null,
     val itemType: String = "WALLPAPER",
     val profileType: String = "ANY",
     val size: Int = 24,
-    val colors: List<Unit> = emptyList(),
-    val keywords: List<Unit> = emptyList(),
-    val maxDurationMs: Unit? = null,
-    val maxPrice: Unit? = null,
-    val minDurationMs: Unit? = null,
-    val minPrice: Unit? = null,
+    val keywords: List<String> = emptyList(),
+    val maxDurationMs: Int? = null,
+    val minDurationMs: Int? = null,
+    // enforce free wallpapers only
+    val maxPrice: Int = 0,
+    val minPrice: Int = 0,
 )

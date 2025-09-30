@@ -42,7 +42,8 @@ class ZedgeApi : Api() {
             "Space",
             "Comics"
         ),
-        "sort" to listOf("Relevant", "Popular", "Newest")
+        "sort" to listOf("Relevant", "Popular", "Newest"),
+        "colors" to listOf("all", "black", "pink", "red", "blue", "white", "silver", "green", "gold")
     )
 
     private val api = RetrofitHelper.create<Zedge>(baseUrl)
@@ -61,6 +62,10 @@ class ZedgeApi : Api() {
                 ZedgeInput(
                     categories = category,
                     sort = getQuery("sort").uppercase(),
+                    colors = getQuery("colors")
+                        .takeIf { it != "all" }
+                        ?.let { listOf(it) }
+                        .orEmpty(),
                     next = nextPage
                 )
             )
