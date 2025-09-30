@@ -95,4 +95,8 @@
     <string name="invalid_time_interval">Geçersiz zaman aralığı</string>
     <string name="add_wallpaper_changer_rule">Duvar kağıdı değiştirici kuralı ekle</string>
     <string name="description">Açıklama</string>
+    <string name="apply_image_filters_desc">Blur, ton, parlaklık, …</string>
+    <string name="time_interval_desc">Sadece belirli zaman aralıklarında çalıştır.</string>
+    <string name="days">gün</string>
+    <string name="hours">saat</string>
 </resources>
