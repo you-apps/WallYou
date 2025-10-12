@@ -9,5 +9,9 @@ data class ZedgeItem(
     val meta: ZedgeMeta,
     val profile: ZedgeProfile,
     val title: String,
-    val type: String
+    val description: String,
+    val type: String,
+    val tags: List<String>,
+    val shareUrl: String,
+    val dateUploaded: Long
 )
