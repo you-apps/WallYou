@@ -1,5 +1,6 @@
 package com.bnyro.wallpaper.api.ze
 
+import android.util.Log
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.ScreenLockLandscape
 import androidx.compose.ui.graphics.vector.ImageVector
@@ -8,7 +9,14 @@ import com.bnyro.wallpaper.api.ze.obj.ZedgeInput
 import com.bnyro.wallpaper.api.ze.obj.ZedgeRequest
 import com.bnyro.wallpaper.api.ze.obj.ZedgeVariables
 import com.bnyro.wallpaper.db.obj.Wallpaper
+import com.bnyro.wallpaper.ext.amap
 import com.bnyro.wallpaper.util.RetrofitHelper
+import kotlinx.coroutines.async
+import kotlinx.coroutines.awaitAll
+import kotlinx.coroutines.flow.asFlow
+import kotlinx.coroutines.flow.collect
+import kotlinx.coroutines.flow.firstOrNull
+import kotlinx.coroutines.flow.map
 import java.text.SimpleDateFormat
 
 class ZedgeApi : Api() {
@@ -44,7 +52,17 @@ class ZedgeApi : Api() {
             "Comics"
         ),
         "sort" to listOf("Relevant", "Popular", "Newest"),
-        "colors" to listOf("all", "black", "pink", "red", "blue", "white", "silver", "green", "gold")
+        "colors" to listOf(
+            "all",
+            "black",
+            "pink",
+            "red",
+            "blue",
+            "white",
+            "silver",
+            "green",
+            "gold"
+        )
     )
 
     private val api = RetrofitHelper.create<Zedge>(baseUrl)
@@ -74,10 +92,20 @@ class ZedgeApi : Api() {
         val resp = api.getWallpapers(reqBody).data.browseFilteredlist
         nextPage = resp.next
 
-        return resp.items.map {
-            Wallpaper(
+        return resp.items.amap {
+            // fetching the full quality wallpaper source requires an additional request
+            // per wallpaper, thus this can be quite slow
+            val wallpaperSource = api.getWallpaperSource(it.id)
+                .string()
+                .let { rawText ->
+                    CONTENT_URL_REGEX.find(rawText)?.groups?.get(1)?.value?.also { url ->
+                        Log.d("zedge", "found maxres wallpaper url: $url")
+                    }
+                } ?: it.meta.previewUrl
+
+            return@amap Wallpaper(
                 url = it.shareUrl,
-                imgSrc = it.meta.previewUrl,
+                imgSrc = wallpaperSource,
                 thumb = it.meta.thumbUrl,
                 title = it.title,
                 description = it.description,
@@ -86,7 +114,13 @@ class ZedgeApi : Api() {
                 category = it.tags.joinToString(", ")
             )
         }
+            .awaitAll()
     }
 
     override suspend fun getRandomWallpaperUrl(): String? = getWallpapers(1).randomOrNull()?.imgSrc
+
+    companion object {
+        // example string: \"contentUrl\":\"https://is.zobj.net/image-server/v1/images?r=nip7NT8EvHH3sAqt78zrWnGJUpE0E3_Um9RWGrb6F6JQhuatkK8eoleHAUwUGbwIyMSDCzGdM3UdFH18qNHOdXfsFk-BSXBYMaBRyFJThDw86NiycO10zAvjQfQglcYUwf7mqMx0le77hwwmTX1TBznn3SX9j6yGQC_4uG0wCRKr0D5_I_POOE8yki9hUNwbOhd1ylsRId0KonLTHqDyK4vJLIxKAMLyrcvUUJaus6g7ma01aPq6cw7sReM\"}
+        private val CONTENT_URL_REGEX = Regex("""contentUrl\d*\\":\\"(https://.*?)\\"""")
+    }
 }

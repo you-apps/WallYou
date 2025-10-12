@@ -77,6 +77,7 @@ dependencies {
     implementation("androidx.lifecycle:lifecycle-viewmodel-compose:2.9.1")
     implementation("androidx.work:work-runtime-ktx:2.10.2")
     implementation("androidx.documentfile:documentfile:1.1.0")
+    implementation("org.jetbrains.kotlinx:kotlinx-coroutines-android:1.10.2")
 
     // UI
     implementation("androidx.activity:activity-compose:1.10.1")

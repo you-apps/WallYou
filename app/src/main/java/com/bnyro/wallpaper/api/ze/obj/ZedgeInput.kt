@@ -10,7 +10,7 @@ data class ZedgeInput(
     val next: String? = null,
     val itemType: String = "WALLPAPER",
     val profileType: String = "ANY",
-    val size: Int = 24,
+    val size: Int = 10,
     val keywords: List<String> = emptyList(),
     val maxDurationMs: Int? = null,
     val minDurationMs: Int? = null,
