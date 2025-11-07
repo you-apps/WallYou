@@ -1,0 +1,114 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- Navigation Drawer -->
+    <string name="favorites">Favoriter</string>
+    <string name="history">Historik</string>
+    <string name="settings">Inställningar</string>
+    <string name="about">Om</string>
+    <!-- Image Preview -->
+    <string name="info">Information</string>
+    <string name="filter">Filter</string>
+    <string name="add">Lägg till</string>
+    <string name="community_name">Gemenskapsnamn</string>
+    <string name="set_wallpaper">Ställ in bakgrundsbild</string>
+    <string name="download">Ladda ned</string>
+    <string name="add_to_favorites">Markera som favorit</string>
+    <!-- Info Dialog -->
+    <string name="author">Upphovsman</string>
+    <string name="resolution">Upplösning</string>
+    <string name="category">Kategori</string>
+    <string name="fileSize">Storlek</string>
+    <string name="source">Källa</string>
+    <string name="creationDate">Skapad</string>
+    <string name="image_url">Bild-URL</string>
+    <!-- Set Wallpaper -->
+    <string name="both">Båda</string>
+    <string name="home">Hemskärm</string>
+    <string name="lockscreen">Låsskärm</string>
+    <string name="applying_random">Tillämpar slumpmässig bakgrundsbild</string>
+    <string name="random_wallpaper">Slumpmässig bakgrundsbild</string>
+    <!-- Image Filters -->
+    <string name="blur">Blur</string>
+    <string name="grayscale">Gråskala</string>
+    <string name="contrast">Kontrast</string>
+    <string name="brightness">Ljusstyrka</string>
+    <string name="hue">Nyans</string>
+    <string name="reset">Nollställ</string>
+    <!-- Preference categories -->
+    <string name="general">Allmänt</string>
+    <string name="cache">Cache</string>
+    <string name="wallpaper_preview">Förhandsvisning av bakgrundsbild</string>
+    <!-- Preferences -->
+    <string name="resize_method">Metod för att ändra storlek</string>
+    <string name="crop">Beskär</string>
+    <string name="zoom">Zooma (behåller bildförhållandet)</string>
+    <string name="fit_height">Passa efter höjd</string>
+    <string name="fit_width">Passa efter bredd</string>
+    <string name="coil_cache">Bildcache för Coil</string>
+    <string name="wallpaper_changer">Bakgrundsbildsbyte</string>
+    <string name="change_interval">Ändra intervall</string>
+    <string name="wallpaper_changer_source">Källa för bakgrundsbildsbyte</string>
+    <string name="combine_wallpaper_changers">Kombinerat bakgrundsbildsbyte</string>
+    <string name="combine_wallpaper_changers_summary">Använd samma bakgrundsbild för hemskärmen och låsskärmen.</string>
+    <string name="import_export">Importera &amp; exportera</string>
+    <string name="import_favorites">Importera favoriter</string>
+    <string name="export_favorites">Exportera favoriter</string>
+    <string name="success">Klart!</string>
+    <string name="current_directory">Nuvarande</string>
+    <string name="none">Ingen</string>
+    <string name="invert_wallpaper">Invertera bakgrundsbilden</string>
+    <string name="auto_darken_lighten_by_theme">Automatisk ljusstyrka efter tema</string>
+    <string name="auto_darken_lighten_by_theme_desc">Justera bakgrundsbildens ljusstyrka automatiskt baserat på temat</string>
+    <string name="apply_image_filters">Applicera bildfilter</string>
+    <string name="apply_image_filters_desc">Oskärpa, nyans, ljusstyrka, …</string>
+    <string name="add_wallpaper_changer_rule">Lägg till regel för bakgrundsbildsbyte</string>
+    <string name="time_interval">Tidsintervall</string>
+    <string name="time_interval_desc">Kör endast mellan angivna tider.</string>
+    <string name="invalid_time_interval">Ogiltigt tidsintervall</string>
+    <string name="days">dagar</string>
+    <string name="hours">timmar</string>
+    <!-- Network constraints -->
+    <string name="network_type">Nätverkstyp</string>
+    <string name="all_networks">Alla nätverk</string>
+    <string name="unmetered">Obegränsat</string>
+    <string name="metered">Begränsat</string>
+    <string name="not_roaming">Ej roaming</string>
+    <!-- Wallpaper changer source -->
+    <string name="online">Online</string>
+    <string name="local">Lokalt</string>
+    <string name="choose_dir">Lägg till mapp</string>
+    <string name="directories">Mappar</string>
+    <!-- Theme -->
+    <string name="theme_mode">Tema</string>
+    <string name="theme_system">System</string>
+    <string name="theme_light">Ljust</string>
+    <string name="theme_dark">Mörkt</string>
+    <!-- Favorites -->
+    <string name="no_favorites">Inga favoriter sparade ännu</string>
+    <string name="no_history">Ingen historik ännu</string>
+    <string name="auto_add_to_favorites">Lägg till i favoriter automatiskt när bakgrundsbilder tillämpas</string>
+    <string name="wallpaper_history">Bakgrundsbildshistorik</string>
+    <!-- About -->
+    <string name="version">Version</string>
+    <string name="license">Programvarulicens</string>
+    <string name="website">Webbplats</string>
+    <string name="set_with">Ange med...</string>
+    <string name="set_as">Ange som</string>
+    <string name="wallpaper">Bakgrundsbild</string>
+    <string name="apply">Tillämpa</string>
+    <string name="preview_invert_effect">Förhandsgranska inverterad effekt</string>
+    <string name="colors">Färger</string>
+    <string name="details">Detaljer</string>
+    <string name="label">Etikett</string>
+    <string name="description">Beskrivning</string>
+    <string name="error">Fel</string>
+    <string name="done">Färdig</string>
+    <string name="save">Spara</string>
+    <string name="edit">Redigera</string>
+    <string name="favorite">Favorit</string>
+    <string name="go_back">Gå tillbaka</string>
+    <string name="image_info">Bildinformation</string>
+    <string name="saving_wallpaper">Sparar bakgrundsbild</string>
+    <string name="applying_wallpaper">Tillämpar bakgrundsbild</string>
+    <string name="dismiss">Avfärda</string>
+</resources>
