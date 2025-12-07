@@ -95,8 +95,7 @@ fun WallpaperGrid(
                 confirmValueChange = { value ->
                     when (value) {
                         SwipeToDismissBoxValue.StartToEnd -> onDeleteWallpaper?.invoke(wallpaper)
-                        SwipeToDismissBoxValue.EndToStart -> toggleLiked()
-                        SwipeToDismissBoxValue.Settled -> Unit
+                        else -> Unit // cancelled by user
                     }
                     false
                 }
@@ -104,9 +103,8 @@ fun WallpaperGrid(
             SwipeToDismissBox(
                 state = dismissState,
                 backgroundContent = {
-                    WallpaperDismissBackground(dismissState, cornerShape = shape, liked)
+                    WallpaperDismissBackground(cornerShape = shape)
                 },
-                enableDismissFromEndToStart = true,
                 enableDismissFromStartToEnd = onDeleteWallpaper != null
             ) {
                 ElevatedCard(
