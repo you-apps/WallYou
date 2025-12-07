@@ -19,6 +19,7 @@ import com.bnyro.wallpaper.api.wi.WikipediaPotdApi
 import com.bnyro.wallpaper.api.ze.ZedgeApi
 import com.bnyro.wallpaper.db.DatabaseHolder
 import com.bnyro.wallpaper.util.Preferences
+import com.bnyro.wallpaper.util.RetrofitHelper
 
 class App : Application(), ImageLoaderFactory {
     override fun onCreate() {
@@ -46,6 +47,7 @@ class App : Application(), ImageLoaderFactory {
                     )
                     .build()
             )
+            .okHttpClient { RetrofitHelper.okHttpClient }
             .build()
     }
 

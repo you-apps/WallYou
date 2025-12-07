@@ -10,6 +10,9 @@ import retrofit2.Retrofit
 
 
 object RetrofitHelper {
+    private const val USER_AGENT_HEADER =
+        "Mozilla/5.0 (X11; Linux x86_64; rv:143.0) Gecko/20100101 Firefox/143.0"
+
     val json by lazy {
         Json {
             ignoreUnknownKeys = true
@@ -25,6 +28,14 @@ object RetrofitHelper {
             val loggingInterceptor = HttpLoggingInterceptor()
             loggingInterceptor.setLevel(HttpLoggingInterceptor.Level.BODY)
             builder.addInterceptor(loggingInterceptor)
+        }
+
+        // add user agent to all requests
+        builder.addInterceptor { interceptorChain ->
+            val request = interceptorChain.request()
+                .newBuilder()
+                .addHeader("User-Agent", USER_AGENT_HEADER)
+            interceptorChain.proceed(request.build())
         }
 
         builder.build()

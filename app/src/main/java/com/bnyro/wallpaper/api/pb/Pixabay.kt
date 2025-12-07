@@ -9,7 +9,6 @@ import retrofit2.http.Query
 interface Pixabay {
     @GET("{category}/search/{query}/")
     @Headers(
-        "User-Agent: Mozilla/5.0 (X11; Linux x86_64; rv:143.0) Gecko/20100101 Firefox/143.0 Pixabay",
         "Accept: 'application/json",
         "x-bootstrap-cache-miss: 1",
         "x-fetch-bootstrap: 1"
