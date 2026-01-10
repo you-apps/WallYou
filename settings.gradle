@@ -18,3 +18,4 @@ include ':app'
 
 include 'renderscript-toolkit'
 project(':renderscript-toolkit').projectDir = new File(settingsDir, './renderscript-toolkit')
+include ':wallpaper-apis'

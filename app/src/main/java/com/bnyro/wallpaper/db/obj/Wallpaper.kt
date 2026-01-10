@@ -4,6 +4,7 @@ import androidx.room.ColumnInfo
 import androidx.room.Entity
 import androidx.room.PrimaryKey
 import kotlinx.serialization.Serializable
+import net.youapps.wallpaper_apis.Wallpaper as ApiWallpaper
 
 @Entity(tableName = "favorites")
 @Serializable
@@ -25,4 +26,17 @@ data class Wallpaper(
     @ColumnInfo(defaultValue = "0") var timeAdded: Long = 0,
 ) {
     val preview get() = thumb ?: imgSrc
+
+    constructor(wallpaper: ApiWallpaper) : this(
+        imgSrc = wallpaper.imgSrc,
+        title = wallpaper.title,
+        url = wallpaper.url,
+        author = wallpaper.author,
+        category = wallpaper.author,
+        resolution = wallpaper.resolution,
+        fileSize = wallpaper.fileSize,
+        thumb = wallpaper.thumb,
+        creationDate = wallpaper.creationDate,
+        description = wallpaper.description
+    )
 }

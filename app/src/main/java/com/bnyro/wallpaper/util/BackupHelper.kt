@@ -9,6 +9,7 @@ import com.bnyro.wallpaper.ext.toastFromMainThread
 import kotlinx.serialization.ExperimentalSerializationApi
 import kotlinx.serialization.json.decodeFromStream
 import kotlinx.serialization.json.encodeToStream
+import net.youapps.wallpaper_apis.RetrofitHelper
 
 object BackupHelper {
     const val JSON_MIME = "application/json"

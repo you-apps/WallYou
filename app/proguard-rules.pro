@@ -20,8 +20,7 @@
 # hide the original source file name.
 #-renamesourcefileattribute SourceFile
 
--keep class com.bnyro.wallpaper.obj.** { *; }
--keep class com.bnyro.wallpaper.api.**.** { *; }
+-keep class net.youapps.wallpaper_apis.** { *; }
 
 # Keep rules required by Kotlinx Serialization
 -if @kotlinx.serialization.Serializable class **

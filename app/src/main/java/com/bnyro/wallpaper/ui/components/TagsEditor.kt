@@ -26,12 +26,12 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.unit.dp
 import com.bnyro.wallpaper.R
-import com.bnyro.wallpaper.api.Api
+import net.youapps.wallpaper_apis.WallpaperApi
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
 fun TagsEditor(
-    api: Api,
+    api: WallpaperApi,
     onModify: () -> Unit
 ) {
     var showDialog by remember {
@@ -40,12 +40,12 @@ fun TagsEditor(
 
     var tags by remember {
         mutableStateOf(
-            api.getTags()
+            api.selectedTags
         )
     }
 
     fun onChange() {
-        api.setTags(tags)
+        api.selectedTags = tags
         onModify.invoke()
     }
 

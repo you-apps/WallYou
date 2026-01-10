@@ -5,6 +5,7 @@ import android.content.SharedPreferences
 import android.util.Log
 import com.bnyro.wallpaper.App
 import com.bnyro.wallpaper.obj.WallpaperConfig
+import net.youapps.wallpaper_apis.RetrofitHelper
 
 object Preferences {
     const val resizeMethodKey = "resizeMethod"

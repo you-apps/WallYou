@@ -1,0 +1,28 @@
+package net.youapps.wallpaper_apis.us
+
+import net.youapps.wallpaper_apis.us.obj.UsImage
+import net.youapps.wallpaper_apis.us.obj.UsSearch
+import retrofit2.http.GET
+import retrofit2.http.Query
+
+interface Unsplash {
+    @GET("/napi/photos")
+    suspend fun getWallpapers(
+        @Query("page") page: Int,
+        @Query("orientation") orientation: String?,
+        @Query("order_by") order: String
+    ): List<UsImage>
+
+    @GET("/napi/search/photos")
+    suspend fun searchWallpapers(
+        @Query("page") page: Int,
+        @Query("query") query: String,
+        @Query("orientation") orientation: String?,
+        @Query("order_by") order: String
+    ): UsSearch
+
+    @GET("/napi/photos/random")
+    suspend fun getRandom(
+        @Query("query") query: String
+    ): UsImage
+}

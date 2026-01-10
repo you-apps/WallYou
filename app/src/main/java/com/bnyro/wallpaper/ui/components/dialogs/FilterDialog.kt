@@ -29,16 +29,15 @@ import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import com.bnyro.wallpaper.R
-import com.bnyro.wallpaper.api.Api
-import com.bnyro.wallpaper.api.CommunityApi
 import com.bnyro.wallpaper.ext.capitalize
 import com.bnyro.wallpaper.ui.components.DialogButton
 import com.bnyro.wallpaper.ui.components.TagsEditor
+import com.bnyro.wallpaper.util.WallpaperApiWrapper
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
 fun FilterDialog(
-    api: Api,
+    api: WallpaperApiWrapper,
     onDismissRequest: (Boolean) -> Unit
 ) {
     var modified = remember { false }
@@ -48,7 +47,7 @@ fun FilterDialog(
     }
 
     var communityName by remember {
-        mutableStateOf((api as? CommunityApi)?.getCommunityName().orEmpty())
+        mutableStateOf(api.communityName.orEmpty())
     }
 
     AlertDialog(
@@ -68,7 +67,7 @@ fun FilterDialog(
         },
         text = {
             Column {
-                if (api is CommunityApi) {
+                if (api.requiresCommunityName) {
                     Column {
                         Text(text = stringResource(R.string.community_name))
                         Row(
@@ -95,7 +94,7 @@ fun FilterDialog(
                     }
                 }
 
-                api.filters.forEach {
+                api.availableFilters.forEach {
                     Text(
                         text = it.key.capitalize(),
                         fontSize = 14.sp
@@ -106,7 +105,7 @@ fun FilterDialog(
                     )
                     var selected by remember {
                         mutableStateOf(
-                            api.getPref(it.key, it.value.first())
+                            api.selectedFilters[it.key].orEmpty()
                         )
                     }
                     val rowState = rememberLazyListState()
@@ -125,7 +124,7 @@ fun FilterDialog(
                                 onClick = {
                                     modified = true
                                     selected = entry
-                                    api.setPref(it.key, entry)
+                                    api.setFilter(it.key, entry)
                                 },
                                 label = {
                                     Text(
@@ -146,7 +145,7 @@ fun FilterDialog(
         }
     )
 
-    if (api is CommunityApi && showCommunityNameDialog) {
+    if (showCommunityNameDialog) {
         var newCommunityName by remember {
             mutableStateOf(communityName)
         }
@@ -157,7 +156,7 @@ fun FilterDialog(
                 DialogButton(
                     text = stringResource(android.R.string.ok)
                 ) {
-                    api.setCommunityName(newCommunityName)
+                    api.communityName = newCommunityName
                     communityName = newCommunityName
                     modified = true
                     showCommunityNameDialog = false
@@ -180,7 +179,7 @@ fun FilterDialog(
                         Text(stringResource(R.string.community_name))
                     },
                     placeholder = {
-                        Text(api.defaultCommunityName)
+                        Text(api.communityName.orEmpty())
                     }
                 )
             }

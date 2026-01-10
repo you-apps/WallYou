@@ -91,14 +91,14 @@ dependencies {
     implementation("androidx.compose.material:material-icons-extended:1.7.8")
     implementation("androidx.palette:palette-ktx:1.0.0")
 
-    // Retrofit
-    implementation("com.squareup.retrofit2:retrofit:3.0.0")
+    // Settings serialization
     implementation("org.jetbrains.kotlinx:kotlinx-serialization-json:1.9.0")
-    implementation("com.jakewharton.retrofit:retrofit2-kotlinx-serialization-converter:1.0.0")
-    implementation("com.squareup.okhttp3:logging-interceptor:5.0.0")
 
     // Coil
     implementation("io.coil-kt:coil-compose:2.7.0")
+
+    // Local image parsing
+    implementation("androidx.exifinterface:exifinterface:1.4.1")
 
     // Renderscript
     implementation("com.github.android:renderscript-intrinsics-replacement-toolkit:344be3f")
@@ -108,8 +108,8 @@ dependencies {
     implementation("androidx.room:room-ktx:2.7.2")
     kapt("androidx.room:room-compiler:2.7.2")
 
-    // Local image parsing
-    implementation("androidx.exifinterface:exifinterface:1.4.1")
+    // Wallpaper APIs
+    implementation(project(":wallpaper-apis"))
 
     // Testing
     testImplementation("junit:junit:4.13.2")

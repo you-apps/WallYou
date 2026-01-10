@@ -4,7 +4,6 @@ import android.widget.Toast
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
-import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.padding
 import androidx.compose.material.icons.Icons
@@ -25,7 +24,6 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.unit.dp
-import com.bnyro.wallpaper.api.CommunityApi
 import com.bnyro.wallpaper.ui.components.ShimmerGrid
 import com.bnyro.wallpaper.ui.components.WallpaperGrid
 import com.bnyro.wallpaper.ui.components.WallpaperPageView
@@ -115,9 +113,9 @@ fun WallpaperPage(
                 )
             }
 
-            if (viewModel.api.filters.isNotEmpty() ||
+            if (viewModel.api.availableFilters.isNotEmpty() ||
                 viewModel.api.supportsTags ||
-                viewModel.api is CommunityApi
+                viewModel.api.requiresCommunityName
             ) {
                 FloatingActionButton(
                     onClick = {
