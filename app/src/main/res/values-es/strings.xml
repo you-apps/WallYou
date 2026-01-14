@@ -105,4 +105,8 @@
     <string name="invert_wallpaper">Invertir fondo de pantalla</string>
     <string name="auto_darken_lighten_by_theme">Brillo automático por el tema</string>
     <string name="auto_darken_lighten_by_theme_desc">Oscurecer o iluminar el fondo de pantalla basado en el tema</string>
+    <string name="days">días</string>
+    <string name="hours">horas</string>
+    <string name="time_interval_desc">Correr solo entre tiempos específicos.</string>
+    <string name="apply_image_filters_desc">Desenfoque, tono, brillo, …</string>
 </resources>
