@@ -64,7 +64,7 @@ fun WallpaperGrid(
     val shape = RoundedCornerShape(10.dp)
 
     LazyVerticalGrid(
-        columns = GridCells.Adaptive(170.dp),
+        columns = GridCells.Adaptive(MIN_GRID_ITEM_SIZE.dp),
         state = listState,
         verticalArrangement = Arrangement.spacedBy(16.dp),
         horizontalArrangement = Arrangement.spacedBy(16.dp),
@@ -148,3 +148,5 @@ fun WallpaperGrid(
         if (scrollEnded) onScrollEnd.invoke()
     }
 }
+
+const val MIN_GRID_ITEM_SIZE = 150
