@@ -16,7 +16,7 @@ import com.bnyro.wallpaper.ext.shimmer
 @Composable
 fun ShimmerGrid() {
     LazyVerticalGrid(
-        columns = GridCells.Adaptive(170.dp),
+        columns = GridCells.Adaptive(MIN_GRID_ITEM_SIZE.dp),
         verticalArrangement = Arrangement.spacedBy(16.dp),
         horizontalArrangement = Arrangement.spacedBy(16.dp),
         contentPadding = PaddingValues(8.dp)
