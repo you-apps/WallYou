@@ -42,7 +42,7 @@ class LemmyApi : WallpaperApi() {
         return api.getWallpapers(
             page = page,
             communityName = communityName ?: throw IllegalArgumentException("no community name specified"),
-            sort = selectedFilters["tags"]!!,
+            sort = selectedFilters["sort"]!!,
             type = selectedFilters["type"]!!
         ).posts.filter {
             !it.post.thumbnailUrl.isNullOrEmpty()
