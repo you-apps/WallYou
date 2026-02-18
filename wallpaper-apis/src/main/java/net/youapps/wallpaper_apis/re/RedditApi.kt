@@ -7,6 +7,7 @@ import net.youapps.wallpaper_apis.WallpaperApi
 class RedditApi : WallpaperApi() {
     override val name = "Reddit"
     override val baseUrl = "https://www.reddit.com/"
+    override val requiresCommunityName: Boolean = true
 
     override val availableFilters: Map<String, List<String>> = mapOf(
         "sort" to listOf("top", "new", "hot", "rising"),

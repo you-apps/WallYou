@@ -31,7 +31,7 @@ class WallpaperApiWrapper(private val api: WallpaperApi, val icon: ImageVector):
     override var communityName: String?
         get() = getPref("community", api.communityName.orEmpty())
         set(value) {
-            setPref("community", name)
+            setPref("community", value.orEmpty())
             api.communityName = value
         }
 

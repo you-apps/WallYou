@@ -40,7 +40,9 @@ fun FilterDialog(
     api: WallpaperApiWrapper,
     onDismissRequest: (Boolean) -> Unit
 ) {
-    var modified = remember { false }
+    var modified by remember {
+        mutableStateOf(false)
+    }
 
     var showCommunityNameDialog by remember {
         mutableStateOf(false)
