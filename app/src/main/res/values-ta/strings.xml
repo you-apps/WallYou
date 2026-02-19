@@ -95,4 +95,8 @@
     <string name="invert_wallpaper">வால்பேப்பர் தலைகீழ்</string>
     <string name="auto_darken_lighten_by_theme">கருப்பொருள் மூலம் தானாக ஒளி</string>
     <string name="auto_darken_lighten_by_theme_desc">கருப்பொருளின் அடிப்படையில் தானாகவே வால்பேப்பரை இருட்டடிப்பு அல்லது ஒளிரச் செய்யுங்கள்</string>
+    <string name="apply_image_filters_desc">மங்கல், சாயல், ஒளிர்வு, …</string>
+    <string name="time_interval_desc">குறிப்பிட்ட நேரங்களுக்கு இடையே மட்டும் இயக்கவும்.</string>
+    <string name="days">நாட்கள்</string>
+    <string name="hours">மணிநேரம்</string>
 </resources>

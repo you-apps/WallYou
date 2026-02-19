@@ -95,4 +95,8 @@
     <string name="invert_wallpaper">Inverter papel de parede</string>
     <string name="auto_darken_lighten_by_theme_desc">Escurecer ou clarear automaticamente o papel de parede com base no tema</string>
     <string name="auto_darken_lighten_by_theme">Brilho automático por tema</string>
+    <string name="apply_image_filters_desc">Desfoque, matiz, brilho, …</string>
+    <string name="time_interval_desc">Executar somente entre os horários especificados.</string>
+    <string name="days">Dias</string>
+    <string name="hours">horas</string>
 </resources>

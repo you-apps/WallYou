@@ -104,4 +104,8 @@
     <string name="brightness">Kecerahan</string>
     <string name="auto_darken_lighten_by_theme">Kecerahan otomatis berdasarkan tema</string>
     <string name="auto_darken_lighten_by_theme_desc">Gelapkan atau terangi wallpaper berdasarkan tema secara otomatis</string>
+    <string name="apply_image_filters_desc">Buram, warna, kecerahan, …</string>
+    <string name="time_interval_desc">Jalankan hanya dalam waktu tertentu.</string>
+    <string name="days">hari</string>
+    <string name="hours">jam</string>
 </resources>

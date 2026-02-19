@@ -38,4 +38,7 @@
     <string name="online">Online</string>
     <string name="wallpaper_changer_source">Fonte del cambiasfondo</string>
     <string name="choose_dir">Scegli la cartella</string>
+    <string name="history">Storia</string>
+    <string name="community_name">Nome della comunità</string>
+    <string name="set_wallpaper">Imposta sfondo</string>
 </resources>
