@@ -17,15 +17,15 @@ import com.bnyro.wallpaper.ext.shimmer
 fun ShimmerGrid() {
     LazyVerticalGrid(
         columns = GridCells.Adaptive(MIN_GRID_ITEM_SIZE.dp),
-        verticalArrangement = Arrangement.spacedBy(16.dp),
-        horizontalArrangement = Arrangement.spacedBy(16.dp),
-        contentPadding = PaddingValues(8.dp)
+        verticalArrangement = Arrangement.spacedBy(14.dp),
+        horizontalArrangement = Arrangement.spacedBy(14.dp),
+        contentPadding = PaddingValues(horizontal = 12.dp, vertical = 10.dp)
     ) {
         items(10) {
             Box(
                 modifier = Modifier
                     .aspectRatio(9 / 16f)
-                    .clip(RoundedCornerShape(10.dp))
+                    .clip(RoundedCornerShape(22.dp))
                     .shimmer(600f)
             )
         }

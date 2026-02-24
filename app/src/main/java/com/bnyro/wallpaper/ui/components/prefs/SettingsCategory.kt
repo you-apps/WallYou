@@ -1,6 +1,6 @@
 package com.bnyro.wallpaper.ui.components.prefs
 
-import androidx.compose.foundation.layout.Row
+import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
 import androidx.compose.material3.MaterialTheme
@@ -14,18 +14,20 @@ import androidx.compose.ui.unit.sp
 fun SettingsCategory(
     title: String
 ) {
-    Row(
+    Box(
         modifier = Modifier
             .fillMaxWidth()
             .padding(
-                start = 10.dp,
-                top = 5.dp
+                start = 8.dp,
+                top = 6.dp,
+                bottom = 2.dp
             )
     ) {
         Text(
             text = title.uppercase(),
-            fontSize = 10.sp,
-            color = MaterialTheme.colorScheme.secondary
+            fontSize = 11.sp,
+            color = MaterialTheme.colorScheme.primary,
+            style = MaterialTheme.typography.labelLarge
         )
     }
 }

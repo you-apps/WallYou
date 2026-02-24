@@ -59,6 +59,15 @@ android {
         buildConfig = true
     }
 
+    splits {
+        abi {
+            isEnable = true
+            reset()
+            include("armeabi-v7a", "arm64-v8a", "x86", "x86_64")
+            isUniversalApk = true
+        }
+    }
+
     composeOptions {
         kotlinCompilerExtensionVersion = "1.5.15"
     }
@@ -99,9 +108,6 @@ dependencies {
 
     // Local image parsing
     implementation("androidx.exifinterface:exifinterface:1.4.1")
-
-    // Renderscript
-    implementation("com.github.android:renderscript-intrinsics-replacement-toolkit:344be3f")
 
     // Room
     implementation("androidx.room:room-runtime:2.7.2")

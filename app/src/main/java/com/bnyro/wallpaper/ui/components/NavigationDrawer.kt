@@ -6,11 +6,13 @@ import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.WindowInsets
 import androidx.compose.foundation.layout.fillMaxHeight
+import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.sizeIn
 import androidx.compose.foundation.layout.width
 import androidx.compose.foundation.layout.windowInsetsPadding
+import androidx.compose.foundation.background
 import androidx.compose.foundation.rememberScrollState
 import androidx.compose.foundation.verticalScroll
 import androidx.compose.material3.DrawerDefaults
@@ -30,6 +32,7 @@ import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.runtime.rememberCoroutineScope
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.graphics.Brush
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.graphics.RectangleShape
 import androidx.compose.ui.graphics.Shape
@@ -37,7 +40,6 @@ import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.unit.Dp
 import androidx.compose.ui.unit.dp
-import androidx.compose.ui.unit.sp
 import androidx.navigation.NavController
 import com.bnyro.wallpaper.R
 import com.bnyro.wallpaper.ui.models.MainModel
@@ -77,24 +79,50 @@ fun NavigationDrawer(
                     .fillMaxHeight()
                     .verticalScroll(scrollState),
             ) {
-                Spacer(Modifier.height(20.dp))
-                Row(
-                    verticalAlignment = Alignment.CenterVertically
+                Surface(
+                    modifier = Modifier
+                        .fillMaxWidth()
+                        .padding(horizontal = 12.dp, vertical = 12.dp),
+                    shape = MaterialTheme.shapes.large,
+                    tonalElevation = 2.dp
                 ) {
-                    Icon(painterResource(R.drawable.ic_launcher_foreground), null)
-                    Spacer(Modifier.width(0.dp))
-                    Text(
-                        text = stringResource(R.string.app_name),
-                        fontSize = 20.sp
-                    )
+                    Column(
+                        modifier = Modifier
+                            .fillMaxWidth()
+                            .background(
+                                Brush.horizontalGradient(
+                                    colors = listOf(
+                                        MaterialTheme.colorScheme.primaryContainer,
+                                        MaterialTheme.colorScheme.secondaryContainer
+                                    )
+                                )
+                            )
+                            .padding(horizontal = 14.dp, vertical = 12.dp)
+                    ) {
+                        Row(
+                            verticalAlignment = Alignment.CenterVertically
+                        ) {
+                            Icon(painterResource(R.drawable.ic_launcher_foreground), null)
+                            Spacer(Modifier.width(6.dp))
+                            Text(
+                                text = stringResource(R.string.app_name),
+                                style = MaterialTheme.typography.titleLarge
+                            )
+                        }
+                        Spacer(Modifier.height(4.dp))
+                        Text(
+                            text = stringResource(R.string.drawer_subtitle),
+                            style = MaterialTheme.typography.bodySmall
+                        )
+                    }
                 }
-                Spacer(Modifier.height(20.dp))
+
                 pages.forEach { screen ->
                     if (screen.divideBefore) {
                         HorizontalDivider(
                             modifier = Modifier
-                                .padding(25.dp, 15.dp)
-                                .height(2.dp)
+                                .padding(horizontal = 18.dp, vertical = 14.dp)
+                                .height(1.dp)
                         )
                     }
                     NavigationDrawerItem(
@@ -112,8 +140,12 @@ fun NavigationDrawer(
                             }
                             viewModel.currentDestination = screen
                         },
+                        colors = NavigationDrawerItemDefaults.colors(
+                            selectedContainerColor = MaterialTheme.colorScheme.primaryContainer.copy(alpha = 0.75f),
+                            unselectedContainerColor = Color.Transparent
+                        ),
                         modifier = Modifier
-                            .padding(NavigationDrawerItemDefaults.ItemPadding)
+                            .padding(horizontal = 8.dp, vertical = 2.dp)
                     )
                 }
             }

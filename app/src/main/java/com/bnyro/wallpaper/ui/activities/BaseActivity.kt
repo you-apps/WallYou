@@ -3,14 +3,16 @@ package com.bnyro.wallpaper.ui.activities
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
 import androidx.compose.foundation.isSystemInDarkTheme
+import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.fillMaxSize
-import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Surface
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.graphics.Color
 import androidx.lifecycle.ViewModelProvider
 import androidx.lifecycle.get
 import com.bnyro.wallpaper.enums.ThemeMode
+import com.bnyro.wallpaper.ui.components.AnimatedBackground
 import com.bnyro.wallpaper.ui.models.MainModel
 import com.bnyro.wallpaper.ui.theme.WallYouTheme
 
@@ -27,9 +29,12 @@ open class BaseActivity : ComponentActivity() {
             ) {
                 Surface(
                     modifier = Modifier.fillMaxSize(),
-                    color = MaterialTheme.colorScheme.background
+                    color = Color.Transparent
                 ) {
-                    content.invoke()
+                    Box(modifier = Modifier.fillMaxSize()) {
+                        AnimatedBackground(modifier = Modifier.fillMaxSize())
+                        content.invoke()
+                    }
                 }
             }
         }

@@ -4,9 +4,10 @@ import androidx.compose.foundation.background
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
+import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.PaddingValues
 import androidx.compose.foundation.layout.aspectRatio
-import androidx.compose.foundation.layout.fillMaxWidth
+import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.lazy.grid.GridCells
 import androidx.compose.foundation.lazy.grid.LazyVerticalGrid
@@ -22,6 +23,7 @@ import androidx.compose.material3.ExperimentalMaterial3Api
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.SwipeToDismissBox
 import androidx.compose.material3.SwipeToDismissBoxValue
+import androidx.compose.material3.Text
 import androidx.compose.material3.rememberSwipeToDismissBoxState
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.LaunchedEffect
@@ -33,6 +35,8 @@ import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
+import androidx.compose.ui.graphics.Brush
+import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.unit.dp
 import coil.compose.AsyncImage
@@ -48,6 +52,7 @@ fun WallpaperGrid(
     viewModel: MainModel,
     wallpapers: List<Wallpaper>,
     onClickWallpaper: (Int) -> Unit,
+    isLoadingMore: Boolean = false,
     onDeleteWallpaper: ((Wallpaper) -> Unit)? = null,
     onScrollEnd: () -> Unit = {}
 ) {
@@ -57,18 +62,22 @@ fun WallpaperGrid(
             val lastVisibleItem = listState.layoutInfo.visibleItemsInfo.lastOrNull()
                 ?: return@derivedStateOf false
 
-            lastVisibleItem.index == listState.layoutInfo.totalItemsCount - 1
+            val totalItems = listState.layoutInfo.totalItemsCount
+            if (totalItems == 0) return@derivedStateOf false
+
+            lastVisibleItem.index >= totalItems - 1 - LOAD_MORE_THRESHOLD_ITEMS
         }
     }
 
-    val shape = RoundedCornerShape(10.dp)
+    val dismissShape = RoundedCornerShape(10.dp)
+    val cardShape = MaterialTheme.shapes.medium
 
     LazyVerticalGrid(
         columns = GridCells.Adaptive(MIN_GRID_ITEM_SIZE.dp),
         state = listState,
-        verticalArrangement = Arrangement.spacedBy(16.dp),
-        horizontalArrangement = Arrangement.spacedBy(16.dp),
-        contentPadding = PaddingValues(8.dp)
+        verticalArrangement = Arrangement.spacedBy(14.dp),
+        horizontalArrangement = Arrangement.spacedBy(14.dp),
+        contentPadding = PaddingValues(horizontal = 12.dp, vertical = 10.dp)
     ) {
         itemsIndexed(wallpapers, key = { _, wallpaper -> wallpaper.imgSrc }) { index, wallpaper ->
             var liked by remember {
@@ -95,7 +104,7 @@ fun WallpaperGrid(
                 confirmValueChange = { value ->
                     when (value) {
                         SwipeToDismissBoxValue.StartToEnd -> onDeleteWallpaper?.invoke(wallpaper)
-                        else -> Unit // cancelled by user
+                        else -> Unit
                     }
                     false
                 }
@@ -103,39 +112,85 @@ fun WallpaperGrid(
             SwipeToDismissBox(
                 state = dismissState,
                 backgroundContent = {
-                    WallpaperDismissBackground(cornerShape = shape)
+                    WallpaperDismissBackground(cornerShape = dismissShape)
                 },
                 enableDismissFromStartToEnd = onDeleteWallpaper != null
             ) {
                 ElevatedCard(
                     modifier = Modifier
                         .aspectRatio(9 / 16f)
-                        .clip(shape)
+                        .clip(cardShape)
                         .clickable {
                             onClickWallpaper(index)
-                        }
+                        },
+                    shape = cardShape
                 ) {
-                    Box {
+                    Box(
+                        modifier = Modifier.fillMaxSize()
+                    ) {
                         AsyncImage(
                             model = wallpaper.preview,
                             contentDescription = null,
                             contentScale = ContentScale.Crop,
-                            modifier = Modifier
-                                .fillMaxWidth()
-                                .clip(shape)
+                            modifier = Modifier.fillMaxSize()
                         )
+
+                        Box(
+                            modifier = Modifier
+                                .fillMaxSize()
+                                .background(
+                                    Brush.verticalGradient(
+                                        colors = listOf(
+                                            Color.Transparent,
+                                            Color.Black.copy(alpha = 0.55f)
+                                        )
+                                    )
+                                )
+                        )
+
                         Box(
                             Modifier
-                                .padding(bottom = 8.dp, end = 8.dp)
-                                .align(Alignment.BottomEnd)
+                                .padding(top = 8.dp, end = 8.dp)
+                                .align(Alignment.TopEnd)
                                 .clip(CircleShape)
-                                .background(MaterialTheme.colorScheme.primaryContainer)
+                                .background(MaterialTheme.colorScheme.surface.copy(alpha = 0.85f))
                         ) {
                             ButtonWithIcon(
                                 modifier = Modifier,
                                 if (liked) Icons.Default.Favorite else Icons.Default.FavoriteBorder
                             ) {
                                 toggleLiked()
+                            }
+                        }
+
+                        val title = wallpaper.title?.takeIf { it.isNotBlank() }
+                            ?: wallpaper.category?.takeIf { it.isNotBlank() }
+                            ?: wallpaper.author?.takeIf { it.isNotBlank() }
+                            ?: ""
+                        val subtitle = wallpaper.author?.takeIf { it.isNotBlank() }
+                            ?: wallpaper.url?.takeIf { it.isNotBlank() }
+                            ?: wallpaper.resolution?.takeIf { it.isNotBlank() }
+                            ?: ""
+                        if (title.isNotBlank()) {
+                            Column(
+                                modifier = Modifier
+                                    .align(Alignment.BottomStart)
+                                    .padding(horizontal = 10.dp, vertical = 8.dp)
+                            ) {
+                                Text(
+                                    text = title,
+                                    color = Color.White,
+                                    maxLines = 1,
+                                    style = MaterialTheme.typography.labelLarge
+                                )
+                                if (subtitle.isNotBlank()) {
+                                    Text(
+                                        text = subtitle,
+                                        color = Color.White.copy(alpha = 0.88f),
+                                        maxLines = 1,
+                                        style = MaterialTheme.typography.bodySmall
+                                    )
+                                }
                             }
                         }
                     }
@@ -145,8 +200,9 @@ fun WallpaperGrid(
     }
 
     LaunchedEffect(scrollEnded) {
-        if (scrollEnded) onScrollEnd.invoke()
+        if (scrollEnded && !isLoadingMore) onScrollEnd.invoke()
     }
 }
 
 const val MIN_GRID_ITEM_SIZE = 150
+private const val LOAD_MORE_THRESHOLD_ITEMS = 5

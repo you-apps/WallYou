@@ -18,6 +18,7 @@ import com.bnyro.wallpaper.util.Preferences
 import com.bnyro.wallpaper.util.WallpaperApiWrapper
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.Job
+import kotlinx.coroutines.CancellationException
 import kotlinx.coroutines.flow.SharingStarted
 import kotlinx.coroutines.flow.StateFlow
 import kotlinx.coroutines.flow.stateIn
@@ -27,8 +28,8 @@ import kotlinx.coroutines.withContext
 class MainModel : ViewModel() {
     private val themeModeIndex = Preferences.getString(
         Preferences.themeModeKey,
-        ThemeMode.AUTO.value.toString()
-    ).toInt()
+        ThemeMode.LIGHT.value.toString()
+    ).toIntOrNull()?.takeIf { it in ThemeMode.entries.indices } ?: ThemeMode.LIGHT.value
     var themeMode by mutableStateOf(ThemeMode.entries[themeModeIndex])
 
     var currentDestination: DrawerScreens by mutableStateOf(DrawerScreens.apiScreens.first())
@@ -37,6 +38,7 @@ class MainModel : ViewModel() {
     var wallpapers by mutableStateOf(
         listOf<Wallpaper>()
     )
+    var isLoadingWallpapers by mutableStateOf(false)
 
     val favWallpapers: StateFlow<List<Wallpaper>> =
         DatabaseHolder.Database.favoritesDao().getFavoritesFlow().stateIn(
@@ -58,10 +60,10 @@ class MainModel : ViewModel() {
 
     private var wallpaperJob: Job? = null
     fun fetchWallpapers(onException: (Exception, WallpaperApiWrapper) -> Unit) {
-        // ensure that only one job for loading new wallpapers is run at a time
-        // this prevents that quick switching between different wallpaper sources causes the app
-        // to display images from all sources, because they were still loading in the background
-        wallpaperJob?.cancel()
+        // Avoid duplicate "load more" requests while one is already running.
+        if (wallpaperJob?.isActive == true) return
+
+        isLoadingWallpapers = true
         wallpaperJob = viewModelScope.launch {
             try {
                 val newWallpapers = withContext(Dispatchers.IO) {
@@ -71,8 +73,12 @@ class MainModel : ViewModel() {
                 wallpapers = (wallpapers + newWallpapers).distinctBy { it.imgSrc }
                 page += 1
             } catch (e: Exception) {
+                if (e is CancellationException) return@launch
                 Log.e(this.javaClass.name, e.toString())
                 onException.invoke(e, api)
+            } finally {
+                isLoadingWallpapers = false
+                wallpaperJob = null
             }
         }
     }
@@ -91,7 +97,17 @@ class MainModel : ViewModel() {
         }
 
     fun clearWallpapers() {
+        wallpaperJob?.cancel()
+        wallpaperJob = null
+        isLoadingWallpapers = false
         wallpapers = listOf()
         page = 1
+    }
+
+    fun updateThemeMode(mode: ThemeMode) {
+        themeMode = mode
+        Preferences.edit {
+            putString(Preferences.themeModeKey, mode.value.toString())
+        }
     }
 }

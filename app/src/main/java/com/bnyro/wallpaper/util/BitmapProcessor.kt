@@ -7,12 +7,21 @@ import android.graphics.ColorMatrix
 import android.graphics.ColorMatrixColorFilter
 import android.graphics.Paint
 import androidx.core.graphics.createBitmap
-import com.google.android.renderscript.Toolkit
+import kotlin.math.max
 import kotlin.math.cos
 import kotlin.math.sin
 import kotlin.math.sqrt
 
 object BitmapProcessor {
+    private const val maxBlurRadius = 25
+
+    private val identityMatrix = floatArrayOf(
+        1f, 0f, 0f, 0f,
+        0f, 1f, 0f, 0f,
+        0f, 0f, 1f, 0f,
+        0f, 0f, 0f, 1f
+    )
+
     private val matrixInvert = floatArrayOf(
         -1f, 0f, 0f, 1.0f,
         0f, -1f, 0f, 1.0f,
@@ -48,14 +57,18 @@ object BitmapProcessor {
     }
 
     private fun Bitmap.blur(radius: Int): Bitmap {
-        if (radius == 0) return this
+        val safeRadius = radius.coerceIn(0, maxBlurRadius)
+        if (safeRadius == 0) return this
 
-        return Toolkit.blur(this, radius)
+        return stackBlur(safeRadius)
     }
 
     fun changeBrightness(bitmap: Bitmap, brightness: Float): Bitmap {
-        val brightnessMatrix = getBrightnessMatrix(brightness)
-        return Toolkit.colorMatrix(bitmap, brightnessMatrix)
+        return applyColorFilterMatrix(
+            bitmap = bitmap,
+            transformMatrix = getBrightnessMatrix(brightness).toAndroidColorMatrix(),
+            grayScale = false
+        )
     }
 
     fun multiply(a: FloatArray, b: FloatArray): FloatArray {
@@ -79,7 +92,7 @@ object BitmapProcessor {
         hue: Float,
         invert: Boolean
     ): FloatArray {
-        var transformMatrix = Toolkit.identityMatrix
+        var transformMatrix = identityMatrix
         if (contrast != 1f) {
             transformMatrix = multiply(transformMatrix, getContrastMatrix(contrast))
         }
@@ -93,13 +106,7 @@ object BitmapProcessor {
             transformMatrix = multiply(transformMatrix, matrixInvert)
         }
 
-        // the Android color matrix requires a 5th column with constant values to add
-        val paddedMatrix = transformMatrix.toMutableList()
-        for (i in 1..4) {
-            paddedMatrix.add(5 * i - 1, 0f)
-        }
-
-        return paddedMatrix.toFloatArray()
+        return transformMatrix.toAndroidColorMatrix()
     }
 
     fun processBitmapByPrefs(bitmap: Bitmap): Bitmap {
@@ -133,6 +140,239 @@ object BitmapProcessor {
 
         val canvas = Canvas(output)
         canvas.drawBitmap(bitmap, 0f, 0f, paint)
+        return output
+    }
+
+    private fun FloatArray.toAndroidColorMatrix(): FloatArray {
+        // Android expects a 4x5 matrix (20 values) for ColorMatrix operations.
+        val paddedMatrix = FloatArray(20)
+        var sourceIndex = 0
+        for (row in 0 until 4) {
+            for (column in 0 until 4) {
+                paddedMatrix[row * 5 + column] = this[sourceIndex++]
+            }
+            paddedMatrix[row * 5 + 4] = 0f
+        }
+        return paddedMatrix
+    }
+
+    private fun Bitmap.stackBlur(radius: Int): Bitmap {
+        val output = copy(Bitmap.Config.ARGB_8888, true)
+        val width = output.width
+        val height = output.height
+
+        if (width <= 1 || height <= 1) return output
+
+        val pixels = IntArray(width * height)
+        output.getPixels(pixels, 0, width, 0, 0, width, height)
+
+        val widthMax = width - 1
+        val heightMax = height - 1
+        val widthHeight = width * height
+        val diameter = radius * 2 + 1
+
+        val reds = IntArray(widthHeight)
+        val greens = IntArray(widthHeight)
+        val blues = IntArray(widthHeight)
+        val minValues = IntArray(max(width, height))
+
+        val divisorSum = (diameter + 1) shr 1
+        val divisor = divisorSum * divisorSum
+        val divisionLookup = IntArray(256 * divisor) { it / divisor }
+
+        var yIndex = 0
+        var yWidth = 0
+
+        val stack = Array(diameter) { IntArray(3) }
+        val radiusPlusOne = radius + 1
+
+        var stackPointer: Int
+        var stackStart: Int
+        var rgb: IntArray
+        var radiusBlurScale: Int
+        var redOutSum: Int
+        var greenOutSum: Int
+        var blueOutSum: Int
+        var redInSum: Int
+        var greenInSum: Int
+        var blueInSum: Int
+
+        for (y in 0 until height) {
+            var redSum = 0
+            var greenSum = 0
+            var blueSum = 0
+            redOutSum = 0
+            greenOutSum = 0
+            blueOutSum = 0
+            redInSum = 0
+            greenInSum = 0
+            blueInSum = 0
+
+            for (i in -radius..radius) {
+                rgb = stack[i + radius]
+                val pixel = pixels[yWidth + i.coerceIn(0, widthMax)]
+                rgb[0] = (pixel and 0x00ff0000) shr 16
+                rgb[1] = (pixel and 0x0000ff00) shr 8
+                rgb[2] = pixel and 0x000000ff
+
+                radiusBlurScale = radiusPlusOne - kotlin.math.abs(i)
+                redSum += rgb[0] * radiusBlurScale
+                greenSum += rgb[1] * radiusBlurScale
+                blueSum += rgb[2] * radiusBlurScale
+
+                if (i > 0) {
+                    redInSum += rgb[0]
+                    greenInSum += rgb[1]
+                    blueInSum += rgb[2]
+                } else {
+                    redOutSum += rgb[0]
+                    greenOutSum += rgb[1]
+                    blueOutSum += rgb[2]
+                }
+            }
+
+            stackPointer = radius
+            for (x in 0 until width) {
+                reds[yIndex] = divisionLookup[redSum]
+                greens[yIndex] = divisionLookup[greenSum]
+                blues[yIndex] = divisionLookup[blueSum]
+
+                redSum -= redOutSum
+                greenSum -= greenOutSum
+                blueSum -= blueOutSum
+
+                stackStart = stackPointer - radius + diameter
+                rgb = stack[stackStart % diameter]
+
+                redOutSum -= rgb[0]
+                greenOutSum -= rgb[1]
+                blueOutSum -= rgb[2]
+
+                if (y == 0) {
+                    minValues[x] = (x + radius + 1).coerceAtMost(widthMax)
+                }
+                val pixel = pixels[yWidth + minValues[x]]
+
+                rgb[0] = (pixel and 0x00ff0000) shr 16
+                rgb[1] = (pixel and 0x0000ff00) shr 8
+                rgb[2] = pixel and 0x000000ff
+
+                redInSum += rgb[0]
+                greenInSum += rgb[1]
+                blueInSum += rgb[2]
+
+                redSum += redInSum
+                greenSum += greenInSum
+                blueSum += blueInSum
+
+                stackPointer = (stackPointer + 1) % diameter
+                rgb = stack[stackPointer]
+
+                redOutSum += rgb[0]
+                greenOutSum += rgb[1]
+                blueOutSum += rgb[2]
+
+                redInSum -= rgb[0]
+                greenInSum -= rgb[1]
+                blueInSum -= rgb[2]
+
+                yIndex++
+            }
+            yWidth += width
+        }
+
+        for (x in 0 until width) {
+            var redSum = 0
+            var greenSum = 0
+            var blueSum = 0
+            redOutSum = 0
+            greenOutSum = 0
+            blueOutSum = 0
+            redInSum = 0
+            greenInSum = 0
+            blueInSum = 0
+
+            var yOffset = -radius * width
+            for (i in -radius..radius) {
+                val y = yOffset.coerceAtLeast(0)
+                rgb = stack[i + radius]
+                rgb[0] = reds[x + y]
+                rgb[1] = greens[x + y]
+                rgb[2] = blues[x + y]
+
+                radiusBlurScale = radiusPlusOne - kotlin.math.abs(i)
+                redSum += reds[x + y] * radiusBlurScale
+                greenSum += greens[x + y] * radiusBlurScale
+                blueSum += blues[x + y] * radiusBlurScale
+
+                if (i > 0) {
+                    redInSum += rgb[0]
+                    greenInSum += rgb[1]
+                    blueInSum += rgb[2]
+                } else {
+                    redOutSum += rgb[0]
+                    greenOutSum += rgb[1]
+                    blueOutSum += rgb[2]
+                }
+
+                if (i < heightMax) {
+                    yOffset += width
+                }
+            }
+
+            var pixelIndex = x
+            stackPointer = radius
+            for (y in 0 until height) {
+                val alpha = pixels[pixelIndex] and -0x1000000
+                pixels[pixelIndex] = alpha or
+                    (divisionLookup[redSum] shl 16) or
+                    (divisionLookup[greenSum] shl 8) or
+                    divisionLookup[blueSum]
+
+                redSum -= redOutSum
+                greenSum -= greenOutSum
+                blueSum -= blueOutSum
+
+                stackStart = stackPointer - radius + diameter
+                rgb = stack[stackStart % diameter]
+
+                redOutSum -= rgb[0]
+                greenOutSum -= rgb[1]
+                blueOutSum -= rgb[2]
+
+                if (x == 0) {
+                    minValues[y] = (y + radiusPlusOne).coerceAtMost(heightMax) * width
+                }
+                val index = x + minValues[y]
+
+                rgb[0] = reds[index]
+                rgb[1] = greens[index]
+                rgb[2] = blues[index]
+
+                redInSum += rgb[0]
+                greenInSum += rgb[1]
+                blueInSum += rgb[2]
+
+                redSum += redInSum
+                greenSum += greenInSum
+                blueSum += blueInSum
+
+                stackPointer = (stackPointer + 1) % diameter
+                rgb = stack[stackPointer]
+
+                redOutSum += rgb[0]
+                greenOutSum += rgb[1]
+                blueOutSum += rgb[2]
+
+                redInSum -= rgb[0]
+                greenInSum -= rgb[1]
+                blueInSum -= rgb[2]
+
+                pixelIndex += width
+            }
+        }
+
+        output.setPixels(pixels, 0, width, 0, 0, width, height)
         return output
     }
 
