@@ -104,4 +104,8 @@
     <string name="invert_wallpaper">Инвертировать обои</string>
     <string name="auto_darken_lighten_by_theme">Авто-яркость по теме</string>
     <string name="auto_darken_lighten_by_theme_desc">Автоматически затемнять или осветлять обои на основе темы</string>
+    <string name="apply_image_filters_desc">Размытие, оттенок, яркость, …</string>
+    <string name="time_interval_desc">Запускать только между определёнными отметками времени.</string>
+    <string name="days">дни</string>
+    <string name="hours">часы</string>
 </resources>
