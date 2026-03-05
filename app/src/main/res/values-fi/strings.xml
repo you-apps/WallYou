@@ -92,4 +92,5 @@
     <string name="add_wallpaper_changer_rule">Lisää taustakuvan vaihdon sääntö</string>
     <string name="brightness">Kirkkaus</string>
     <string name="hue">Sävy</string>
+    <string name="auto_darken_lighten_by_theme">Automaattinen kirkkaus teeman mukaan</string>
 </resources>

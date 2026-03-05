@@ -10,7 +10,7 @@
     <string name="coil_cache">Bildzwischenspeicher</string>
     <string name="local">Lokal</string>
     <string name="choose_dir">Pfad hinzufügen</string>
-    <string name="theme_mode">Theme</string>
+    <string name="theme_mode">Thema</string>
     <string name="theme_dark">Dunkel</string>
     <string name="no_favorites">Bisher keine Favoriten</string>
     <string name="auto_add_to_favorites">Beim Anwenden zu Favoriten hinzufügen</string>
@@ -83,8 +83,20 @@
     <string name="apply_image_filters">Bildfilter anwenden</string>
     <string name="history">Verlauf</string>
     <string name="unmetered">Unbegrenzt</string>
-    <string name="metered">Begrenzt</string>
+    <string name="metered">Getaktet</string>
     <string name="no_history">Bisher kein Verfauf</string>
     <string name="wallpaper_history">Hintergrundbild-Verlauf</string>
     <string name="description">Beschreibung</string>
+    <string name="brightness">Helligkeit</string>
+    <string name="hue">Farbton</string>
+    <string name="invert_wallpaper">Hintergrundbild umkehren</string>
+    <string name="apply_image_filters_desc">Unschärfe, Farbton, Helligkeit, …</string>
+    <string name="add_wallpaper_changer_rule">Regel für Hintergrundbildwechsler hinzufügen</string>
+    <string name="time_interval">Zeitintervall</string>
+    <string name="time_interval_desc">Nur zwischen bestimmten Zeiten ausführen.</string>
+    <string name="invalid_time_interval">Ungültiges Zeitintervall</string>
+    <string name="days">Tage</string>
+    <string name="hours">Stunden</string>
+    <string name="auto_darken_lighten_by_theme">Automatische Helligkeit nach Thema</string>
+    <string name="auto_darken_lighten_by_theme_desc">Die Hintergrundbildfarbe automatisch je nach Thema abdunkeln oder aufhellen</string>
 </resources>
