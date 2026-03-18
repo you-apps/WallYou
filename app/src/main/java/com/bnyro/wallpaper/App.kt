@@ -5,6 +5,7 @@ import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.Air
 import androidx.compose.material.icons.filled.AreaChart
 import androidx.compose.material.icons.filled.Book
+import androidx.compose.material.icons.filled.Deblur
 import androidx.compose.material.icons.filled.Forum
 import androidx.compose.material.icons.filled.Landscape
 import androidx.compose.material.icons.filled.LightMode
@@ -34,6 +35,7 @@ import net.youapps.wallpaper_apis.px.GooglePixelApi
 import net.youapps.wallpaper_apis.re.RedditApi
 import net.youapps.wallpaper_apis.sp.MicrosoftSpotlightApi
 import net.youapps.wallpaper_apis.us.UnsplashApi
+import net.youapps.wallpaper_apis.wc.WallpaperCaveApi
 import net.youapps.wallpaper_apis.wh.WallhavenApi
 import net.youapps.wallpaper_apis.wi.WikipediaPotdApi
 import net.youapps.wallpaper_apis.ze.ZedgeApi
@@ -76,6 +78,7 @@ class App : Application(), ImageLoaderFactory {
                 WallpaperApiWrapper(UnsplashApi(), Icons.Default.WaterDrop),
                 WallpaperApiWrapper(PixabayApi(), Icons.Default.Palette),
                 WallpaperApiWrapper(ZedgeApi(), Icons.Default.ScreenLockLandscape),
+                WallpaperApiWrapper(WallpaperCaveApi(), Icons.Default.Deblur),
                 WallpaperApiWrapper(BingApi(), Icons.Default.Nightlight),
                 WallpaperApiWrapper(RedditApi(), Icons.Default.Forum),
                 WallpaperApiWrapper(LemmyApi(), Icons.Default.Book),
@@ -83,7 +86,7 @@ class App : Application(), ImageLoaderFactory {
                 WallpaperApiWrapper(MicrosoftSpotlightApi(), Icons.Default.LightMode),
                 WallpaperApiWrapper(NasaPotdApi(), Icons.Default.Star),
                 WallpaperApiWrapper(WikipediaPotdApi(), Icons.Default.Today),
-                WallpaperApiWrapper(PicsumApi(), Icons.Default.AreaChart)
+                WallpaperApiWrapper(PicsumApi(), Icons.Default.AreaChart),
             )
         }
     }
