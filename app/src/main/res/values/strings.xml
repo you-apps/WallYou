@@ -47,6 +47,7 @@
     <string name="fit_width">Fit width</string>
     <string name="coil_cache">Coil image cache</string>
     <string name="wallpaper_changer">Wallpaper changer</string>
+    <string name="wallpaper_changer_summary">Automatically set new wallpaper periodically.</string>
     <string name="change_interval">Change interval</string>
     <string name="wallpaper_changer_source">Wallpaper changer source</string>
     <string name="combine_wallpaper_changers">Combined wallpaper changer</string>
