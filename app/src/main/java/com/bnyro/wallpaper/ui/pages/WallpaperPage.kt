@@ -41,7 +41,7 @@ fun WallpaperPage(
         mutableStateOf(false)
     }
 
-    var selectedIndex by remember { mutableStateOf<Int?>(null) }
+    var selectedIndex by rememberSaveable { mutableStateOf<Int?>(null) }
 
     var fetchedWallpapers by rememberSaveable {
         mutableStateOf(false)
