@@ -21,7 +21,6 @@ import androidx.compose.material3.ElevatedCard
 import androidx.compose.material3.ExperimentalMaterial3Api
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.SwipeToDismissBox
-import androidx.compose.material3.SwipeToDismissBoxValue
 import androidx.compose.material3.rememberSwipeToDismissBoxState
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.LaunchedEffect
@@ -91,21 +90,17 @@ fun WallpaperGrid(
                 }
             }
 
-            val dismissState = rememberSwipeToDismissBoxState(
-                confirmValueChange = { value ->
-                    when (value) {
-                        SwipeToDismissBoxValue.StartToEnd -> onDeleteWallpaper?.invoke(wallpaper)
-                        else -> Unit // cancelled by user
-                    }
-                    false
-                }
-            )
+            val dismissState = rememberSwipeToDismissBoxState()
             SwipeToDismissBox(
                 state = dismissState,
                 backgroundContent = {
                     WallpaperDismissBackground(cornerShape = shape)
                 },
-                enableDismissFromStartToEnd = onDeleteWallpaper != null
+                enableDismissFromStartToEnd = onDeleteWallpaper != null,
+                enableDismissFromEndToStart = false,
+                onDismiss = {
+                    onDeleteWallpaper?.invoke(wallpaper)
+                }
             ) {
                 ElevatedCard(
                     modifier = Modifier
