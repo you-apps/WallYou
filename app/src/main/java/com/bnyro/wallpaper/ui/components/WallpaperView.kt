@@ -42,7 +42,7 @@ import com.bnyro.wallpaper.enums.MultiState
 import com.bnyro.wallpaper.ext.rememberZoomState
 import com.bnyro.wallpaper.ext.zoomArea
 import com.bnyro.wallpaper.ext.zoomImage
-import com.bnyro.wallpaper.ui.components.bottombar.BottomBar
+import com.bnyro.wallpaper.ui.components.bottombar.WallpaperToolbar
 import com.bnyro.wallpaper.ui.components.bottombar.WallpaperViewTopBar
 import com.bnyro.wallpaper.ui.components.dialogs.MultiStateDialog
 import com.bnyro.wallpaper.ui.components.infosheet.WallpaperInfoSheet
@@ -119,65 +119,50 @@ fun WallpaperView(
                     .zoomImage(zoomState),
                 placeholder = lowRes
             )
-            Column(
-                Modifier
+            AnimatedVisibility(
+                modifier = Modifier
                     .fillMaxWidth()
-                    .align(Alignment.TopCenter)
+                    .align(Alignment.TopCenter),
+                visible = showUi
             ) {
-                AnimatedVisibility(
-                    visible = showUi
-                ) {
-                    WallpaperViewTopBar(
-                        onClickBack = onClickBack,
-                        onClickInfo = {
-                            showInfoSheet = true
-                        },
-                        title = wallpaper.title ?: stringResource(id = R.string.wallpaper)
-                    )
-                }
+                WallpaperViewTopBar(
+                    onClickBack = onClickBack,
+                    onClickInfo = {
+                        showInfoSheet = true
+                    },
+                    title = wallpaper.title ?: stringResource(id = R.string.wallpaper)
+                )
             }
-            Column(
-                Modifier
-                    .fillMaxWidth()
-                    .align(Alignment.BottomCenter),
-                horizontalAlignment = Alignment.CenterHorizontally
-            ) {
-                val scope = rememberCoroutineScope()
+            val scope = rememberCoroutineScope()
 
-                AnimatedVisibility(
-                    visible = showUi
-                ) {
-                    BottomBar(
-                        modifier = Modifier
-                            .padding(bottom = 30.dp)
-                            .clip(RoundedCornerShape(16.dp))
-                            .background(MaterialTheme.colorScheme.primaryContainer),
-                        contentColor = MaterialTheme.colorScheme.onPrimaryContainer,
-                        onClickEdit = {
-                            showEditView = true
-                        },
-                        onClickWallpaper = {
-                            showModeSelection = true
-                        },
-                        onClickDownload = {
-                            val prefix = wallpaper.title ?: wallpaper.category ?: wallpaper.author
-                            val timeStamp = Instant.now().epochSecond
-                            launcher.launch("$prefix-$timeStamp.png")
-                        },
-                        onClickFavourite = {
-                            liked = !liked
-                            scope.launch(Dispatchers.IO) {
-                                if (!liked) {
-                                    Database.favoritesDao().removeFromFavorites(wallpaper)
-                                } else {
-                                    Database.favoritesDao().insert(wallpaper, true, null)
-                                }
-                            }
-                        },
-                        isFavourite = liked
-                    )
-                }
-            }
+            WallpaperToolbar(
+                modifier = Modifier
+                    .align(Alignment.BottomCenter)
+                    .padding(bottom = 30.dp),
+                expanded = showUi,
+                onClickEdit = {
+                    showEditView = true
+                },
+                onClickWallpaper = {
+                    showModeSelection = true
+                },
+                onClickDownload = {
+                    val prefix = wallpaper.title ?: wallpaper.category ?: wallpaper.author
+                    val timeStamp = Instant.now().epochSecond
+                    launcher.launch("$prefix-$timeStamp.png")
+                },
+                onClickFavourite = {
+                    liked = !liked
+                    scope.launch(Dispatchers.IO) {
+                        if (!liked) {
+                            Database.favoritesDao().removeFromFavorites(wallpaper)
+                        } else {
+                            Database.favoritesDao().insert(wallpaper, true, null)
+                        }
+                    }
+                },
+                isFavourite = liked
+            )
         }
 
         if (showEditView) {

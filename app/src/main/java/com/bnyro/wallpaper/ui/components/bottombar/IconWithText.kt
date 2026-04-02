@@ -24,7 +24,7 @@ import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
 
 @Composable
-fun IconWithText(
+fun IconWithTexts(
     imageVector: ImageVector,
     title: String,
     color: Color,
