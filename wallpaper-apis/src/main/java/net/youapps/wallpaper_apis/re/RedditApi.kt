@@ -52,7 +52,8 @@ class RedditApi : WallpaperApi() {
                 imgSrc = preview?.source?.imgUrl ?: data.url.orEmpty(),
                 title = data.title,
                 thumb = thumb,
-                resolution = preview?.source?.let { img -> "${img.width}x${img.height}" }
+                resolution = preview?.source?.let { img -> "${img.width}x${img.height}" },
+                url = data.permalink?.let { baseUrl + it }
             )
         }.orEmpty()
     }
