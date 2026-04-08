@@ -99,4 +99,5 @@
     <string name="hours">Stunden</string>
     <string name="auto_darken_lighten_by_theme">Automatische Helligkeit nach Thema</string>
     <string name="auto_darken_lighten_by_theme_desc">Die Hintergrundbildfarbe automatisch je nach Thema abdunkeln oder aufhellen</string>
+    <string name="wallpaper_changer_summary">Regelmäßig automatisch ein neues Hintergrundbild festlegen.</string>
 </resources>
