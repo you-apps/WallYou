@@ -99,4 +99,5 @@
     <string name="time_interval_desc">Csak meghatározott időközönként futtatható.</string>
     <string name="days">nap</string>
     <string name="hours">óra</string>
+    <string name="wallpaper_changer_summary">Új háttérkép automatikus beállítása rendszeres időközönként.</string>
 </resources>
