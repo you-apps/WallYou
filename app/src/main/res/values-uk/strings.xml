@@ -108,4 +108,5 @@
     <string name="time_interval_desc">Працює тільки в зазначений час.</string>
     <string name="days">днів</string>
     <string name="hours">годин</string>
+    <string name="wallpaper_changer_summary">Автоматично змінювати шпалери через певні проміжки часу.</string>
 </resources>
