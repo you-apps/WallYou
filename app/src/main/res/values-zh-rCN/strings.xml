@@ -108,4 +108,5 @@
     <string name="time_interval_desc">只在指定时间段中运行。</string>
     <string name="days">天</string>
     <string name="hours">小时</string>
+    <string name="wallpaper_changer_summary">定期自动设置新壁纸。</string>
 </resources>
