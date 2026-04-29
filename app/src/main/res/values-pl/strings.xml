@@ -99,4 +99,5 @@
     <string name="preview_invert_effect">Podgląd efektu odwrócenia</string>
     <string name="description">Opis</string>
     <string name="go_back">Wróć</string>
+    <string name="wallpaper_changer_summary">Okresowo automatycznie ustaw nową tapetę.</string>
 </resources>

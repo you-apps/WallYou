@@ -19,4 +19,22 @@
     <string name="network_type">Tīkla veids</string>
     <string name="all_networks">Visi tīkli</string>
     <string name="days">dienas</string>
+    <string name="community_name">Kopienas nosaukums</string>
+    <string name="set_wallpaper">Iestatīt ekrāntapeti</string>
+    <string name="home">Sākuma ekrāns</string>
+    <string name="lockscreen">Aizslēgšanas ekrāns</string>
+    <string name="random_wallpaper">Nejauša ekrāntapete</string>
+    <string name="grayscale">Pelēktoņu</string>
+    <string name="contrast">Kontrasts</string>
+    <string name="brightness">Spilgtums</string>
+    <string name="hue">Krāsas tonis</string>
+    <string name="reset">Atiestatīt</string>
+    <string name="wallpaper_preview">Ekrāntapetes priekšskatījums</string>
+    <string name="applying_random">Pielieto nejaušu ekrāntapeti</string>
+    <string name="blur">Aizmiglojums</string>
+    <string name="resize_method">Izmēra maiņas veids</string>
+    <string name="crop">Apcirpšana</string>
+    <string name="zoom">Pietuvināšana (tiek paturēta malu attiecība)</string>
+    <string name="fit_height">Pielāgot augstumam</string>
+    <string name="fit_width">Pielāgot platumam</string>
 </resources>

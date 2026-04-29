@@ -99,4 +99,5 @@
     <string name="time_interval_desc">Spouští se pouze mezi zadanými časy.</string>
     <string name="days">dny</string>
     <string name="hours">hodiny</string>
+    <string name="wallpaper_changer_summary">Pravidelně automaticky nastavuje novou tapetu.</string>
 </resources>
