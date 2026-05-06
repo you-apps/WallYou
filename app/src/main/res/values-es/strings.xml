@@ -109,4 +109,5 @@
     <string name="hours">horas</string>
     <string name="time_interval_desc">Correr solo entre tiempos específicos.</string>
     <string name="apply_image_filters_desc">Desenfoque, tono, brillo, …</string>
+    <string name="wallpaper_changer_summary">Automatically set new wallpaper periodically.</string>
 </resources>
