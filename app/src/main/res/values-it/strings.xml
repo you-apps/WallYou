@@ -16,7 +16,7 @@
     <string name="resolution">Risoluzione</string>
     <string name="fileSize">Dimensione file</string>
     <string name="creationDate">Data creazione</string>
-    <string name="reset">Azzera</string>
+    <string name="reset">Reimposta</string>
     <string name="home">Schermata iniziale</string>
     <string name="lockscreen">Blocco schermo</string>
     <string name="both">Entrambi</string>
@@ -41,4 +41,15 @@
     <string name="history">Cronologia</string>
     <string name="community_name">Nome della comunità</string>
     <string name="set_wallpaper">Imposta sfondo</string>
+    <string name="add_to_favorites">Aggiungi ai preferiti</string>
+    <string name="image_url">URL immagine</string>
+    <string name="random_wallpaper">Sfondo casuale</string>
+    <string name="contrast">Costrasto</string>
+    <string name="hue">Tonalità</string>
+    <string name="wallpaper_preview">Anteprima sfondo</string>
+    <string name="zoom">Zoom (mantiene le proporzioni)</string>
+    <string name="fit_height">Adatta all\'altezza</string>
+    <string name="fit_width">Adatta alla larghezza</string>
+    <string name="download">Scarica</string>
+    <string name="resize_method">Metodo di ridimensionamento</string>
 </resources>
