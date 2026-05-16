@@ -52,4 +52,5 @@
     <string name="fit_width">Adatta alla larghezza</string>
     <string name="download">Scarica</string>
     <string name="resize_method">Metodo di ridimensionamento</string>
+    <string name="brightness">Luminosità</string>
 </resources>
