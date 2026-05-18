@@ -99,4 +99,5 @@
     <string name="time_interval_desc">குறிப்பிட்ட நேரங்களுக்கு இடையே மட்டும் இயக்கவும்.</string>
     <string name="days">நாட்கள்</string>
     <string name="hours">மணிநேரம்</string>
+    <string name="wallpaper_changer_summary">அவ்வப்போது புதிய சுவர் தாளைத் தானாகவே அமை.</string>
 </resources>
