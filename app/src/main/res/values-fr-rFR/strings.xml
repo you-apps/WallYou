@@ -97,11 +97,15 @@
     <string name="saving_wallpaper">Enregistrer le fond d\'écran</string>
     <string name="brightness">Luminosité</string>
     <string name="hue">Teinte</string>
-    <string name="invert_wallpaper">Inverser le font d\'écran</string>
+    <string name="invert_wallpaper">Inverser le fond d\'écran</string>
     <string name="auto_darken_lighten_by_theme">Luminosité automatique selon le thème</string>
-    <string name="auto_darken_lighten_by_theme_desc">Automatiquement assombrir ou éclaircir le font d\'écran en fonction du thème</string>
-    <string name="add_wallpaper_changer_rule">Ajouter une règle de changement de font d\'écran</string>
-    <string name="time_interval">Interval de temps</string>
+    <string name="auto_darken_lighten_by_theme_desc">Automatiquement assombrir ou éclaircir le fond d\'écran en fonction du thème</string>
+    <string name="add_wallpaper_changer_rule">Ajouter une règle de changement de fond d\'écran</string>
+    <string name="time_interval">Intervalle de temps</string>
     <string name="invalid_time_interval">Interval de temps invalide</string>
     <string name="description">Description</string>
+    <string name="wallpaper_changer_summary">Définir un nouveau fond d\'écran automatiquement de façon périodique.</string>
+    <string name="apply_image_filters_desc">Flou, teinte, luminosité, etc.</string>
+    <string name="days">jours</string>
+    <string name="hours">heures</string>
 </resources>
