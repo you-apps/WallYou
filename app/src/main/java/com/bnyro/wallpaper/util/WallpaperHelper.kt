@@ -111,7 +111,7 @@ object WallpaperHelper {
 
         var (newWidth, newHeight) = bitmap.width to bitmap.height
         if (bitmapRatio > screenRatio) {
-            newHeight = (scaleRatio * bitmap.height).toInt()
+            newHeight = (bitmap.height / scaleRatio).toInt()
         } else {
             newWidth = (scaleRatio * bitmap.width).toInt()
         }
