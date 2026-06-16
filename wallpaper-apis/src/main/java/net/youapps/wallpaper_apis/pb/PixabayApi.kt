@@ -29,7 +29,7 @@ class PixabayApi: WallpaperApi() {
         ).page.results.map { result ->
             Wallpaper(
                 url = baseUrl + result.href,
-                imgSrc = result.sources.values.last(),
+                imgSrc = result.sources.entries.last { it.key != "downloadUrl" }.value,
                 thumb = result.sources.values.first(),
                 title = result.alt,
                 author = result.user.username,
