@@ -31,6 +31,7 @@ object RetrofitHelper {
             val request = interceptorChain.request()
                 .newBuilder()
                 .addHeader("User-Agent", USER_AGENT_HEADER)
+                .addHeader("Accept", "*/*")
             interceptorChain.proceed(request.build())
         }
 

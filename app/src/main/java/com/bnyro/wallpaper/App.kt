@@ -15,15 +15,13 @@ import androidx.compose.material.icons.filled.Pix
 import androidx.compose.material.icons.filled.ScreenLockLandscape
 import androidx.compose.material.icons.filled.Star
 import androidx.compose.material.icons.filled.Today
-import androidx.compose.material.icons.filled.Wallpaper
-import androidx.compose.material.icons.filled.WaterDamage
 import androidx.compose.material.icons.filled.WaterDrop
 import coil.ImageLoader
 import coil.ImageLoaderFactory
 import coil.disk.DiskCache
 import com.bnyro.wallpaper.db.DatabaseHolder
-import com.bnyro.wallpaper.util.WallpaperApiWrapper
 import com.bnyro.wallpaper.util.Preferences
+import com.bnyro.wallpaper.util.WallpaperApiWrapper
 import net.youapps.wallpaper_apis.RetrofitHelper
 import net.youapps.wallpaper_apis.bi.BingApi
 import net.youapps.wallpaper_apis.le.LemmyApi

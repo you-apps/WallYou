@@ -1,5 +1,6 @@
 package com.bnyro.wallpaper.ui.components
 
+import android.graphics.Bitmap
 import androidx.activity.compose.rememberLauncherForActivityResult
 import androidx.activity.result.contract.ActivityResultContracts
 import androidx.compose.animation.AnimatedVisibility
@@ -8,12 +9,9 @@ import androidx.compose.animation.core.tween
 import androidx.compose.foundation.background
 import androidx.compose.foundation.gestures.detectTapGestures
 import androidx.compose.foundation.layout.Box
-import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
-import androidx.compose.foundation.shape.RoundedCornerShape
-import androidx.compose.material3.MaterialTheme
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.runtime.MutableState
@@ -26,12 +24,12 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.alpha
 import androidx.compose.ui.draw.blur
-import androidx.compose.ui.draw.clip
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.input.pointer.pointerInput
 import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.unit.dp
+import androidx.core.graphics.drawable.toBitmap
 import androidx.lifecycle.viewmodel.compose.viewModel
 import coil.compose.AsyncImage
 import coil.compose.rememberAsyncImagePainter
@@ -70,10 +68,15 @@ fun WallpaperView(
         }
     }
 
-    val launcher = rememberLauncherForActivityResult(
+    var cachedBitmap by remember { mutableStateOf<Bitmap?>(null) }
+
+    val saveImageLauncher = rememberLauncherForActivityResult(
         ActivityResultContracts.CreateDocument("image/png")
     ) {
-        wallpaperHelperModel.saveWallpaper(wallpaper, uri = it)
+        wallpaperHelperModel.saveWallpaper(
+            cachedBitmap ?: return@rememberLauncherForActivityResult,
+            uri = it
+        )
     }
 
     Box(
@@ -109,7 +112,9 @@ fun WallpaperView(
                 .zoomArea(zoomState),
             contentAlignment = Alignment.Center
         ) {
-            val lowRes = rememberAsyncImagePainter(model = wallpaper.preview)
+            val lowRes = rememberAsyncImagePainter(model = wallpaper.preview, onSuccess = {
+                if (cachedBitmap == null) cachedBitmap = it.result.drawable.toBitmap()
+            })
             AsyncImage(
                 model = wallpaper.imgSrc,
                 contentDescription = stringResource(id = R.string.wallpaper),
@@ -117,7 +122,12 @@ fun WallpaperView(
                 modifier = Modifier
                     .fillMaxSize()
                     .zoomImage(zoomState),
-                placeholder = lowRes
+                placeholder = lowRes,
+                // show when image fails to load
+                error = lowRes,
+                onSuccess = {
+                    cachedBitmap = it.result.drawable.toBitmap()
+                }
             )
             AnimatedVisibility(
                 modifier = Modifier
@@ -149,7 +159,7 @@ fun WallpaperView(
                 onClickDownload = {
                     val prefix = wallpaper.title ?: wallpaper.category ?: wallpaper.author
                     val timeStamp = Instant.now().epochSecond
-                    launcher.launch("$prefix-$timeStamp.png")
+                    saveImageLauncher.launch("$prefix-$timeStamp.png")
                 },
                 onClickFavourite = {
                     liked = !liked
@@ -165,8 +175,8 @@ fun WallpaperView(
             )
         }
 
-        if (showEditView) {
-            WallpaperFilterEditor(wallpaper = wallpaper) {
+        cachedBitmap?.takeIf { showEditView }?.let { cachedBitmap ->
+            WallpaperFilterEditor(wallpaper = wallpaper, cachedBitmap) {
                 showEditView = false
             }
         }
@@ -174,11 +184,13 @@ fun WallpaperView(
     if (showInfoSheet) {
         WallpaperInfoSheet(onDismissRequest = { showInfoSheet = false }, wallpaper = wallpaper)
     }
-    if (showModeSelection) {
-        WallpaperModeDialog(
+    cachedBitmap?.takeIf { showModeSelection }?.let { cachedBitmap ->
+        ApplyWallpaperDialog(
             wallpaper,
+            cachedBitmap,
             wallpaperHelperModel,
-            onDismissRequest = { showModeSelection = false })
+            onDismissRequest = { showModeSelection = false }
+        )
     }
 
     MultiStateDialog(

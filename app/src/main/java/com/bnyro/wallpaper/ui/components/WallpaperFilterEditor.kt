@@ -1,5 +1,6 @@
 package com.bnyro.wallpaper.ui.components
 
+import android.graphics.Bitmap
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
@@ -48,6 +49,7 @@ import com.bnyro.wallpaper.util.Preferences
 @Composable
 fun WallpaperFilterEditor(
     wallpaper: Wallpaper,
+    bitmap: Bitmap,
     wallpaperHelperModel: WallpaperHelperModel = viewModel(factory = WallpaperHelperModel.Factory),
     onDismissRequest: () -> Unit
 ) {
@@ -279,11 +281,11 @@ fun WallpaperFilterEditor(
                 )
             }
         }
-
     }
     if (showModeSelection) {
-        WallpaperModeDialog(
+        ApplyWallpaperDialog(
             wallpaper,
+            bitmap,
             wallpaperHelperModel,
             onDismissRequest = { showModeSelection = false },
             applyFilter = true

@@ -37,64 +37,34 @@ class WallpaperHelperModel(private val application: Application) : ViewModel() {
     var setWallpaperState by mutableStateOf(MultiState.IDLE)
     var saveWallpaperState by mutableStateOf(MultiState.IDLE)
 
-    fun setWallpaper(wallpaper: Wallpaper, targetIndex: Int) {
+    fun setWallpaper(bitmap: Bitmap, target: WallpaperTarget) {
         viewModelScope.launch {
             setWallpaperState = MultiState.RUNNING
-            val bitmap = withContext(Dispatchers.IO) {
-                ImageHelper.urlToBitmap(
-                    wallpaper.imgSrc,
-                    application.applicationContext
-                )
-            }
-            if (bitmap == null) {
-                setWallpaperState = MultiState.ERROR
-                return@launch
-            }
             WallpaperHelper.setWallpaper(
                 application.applicationContext,
                 convertToNonHardwareBitmap(bitmap),
-                WallpaperTarget.entries[targetIndex]
+                target
             )
             setWallpaperState = MultiState.SUCCESS
         }
     }
 
-    fun setWallpaperWithFilter(wallpaper: Wallpaper, targetIndex: Int) {
+    fun setWallpaperWithFilter(bitmap: Bitmap, target: WallpaperTarget) {
         viewModelScope.launch {
             setWallpaperState = MultiState.RUNNING
-            val bitmap = withContext(Dispatchers.IO) {
-                ImageHelper.urlToBitmap(
-                    wallpaper.imgSrc,
-                    application.applicationContext
-                )
-            }
-            if (bitmap == null) {
-                setWallpaperState = MultiState.ERROR
-                return@launch
-            }
             WallpaperHelper.setWallpaperWithFilters(
                 application.applicationContext,
                 convertToNonHardwareBitmap(bitmap),
-                WallpaperTarget.entries[targetIndex]
+                target
             )
             setWallpaperState = MultiState.SUCCESS
         }
     }
 
-    fun saveWallpaper(wallpaper: Wallpaper, uri: Uri?) {
+    fun saveWallpaper(bitmap: Bitmap, uri: Uri?) {
         if (uri == null) return
         viewModelScope.launch {
             saveWallpaperState = MultiState.RUNNING
-            val bitmap = withContext(Dispatchers.IO) {
-                ImageHelper.urlToBitmap(
-                    wallpaper.imgSrc,
-                    application.applicationContext
-                )
-            }
-            if (bitmap == null) {
-                saveWallpaperState = MultiState.ERROR
-                return@launch
-            }
             val transformedBitmap = BitmapProcessor.processBitmapByPrefs(bitmap)
             saveWallpaperState = try {
                 withContext(Dispatchers.IO) {
@@ -109,19 +79,9 @@ class WallpaperHelperModel(private val application: Application) : ViewModel() {
         }
     }
 
-    fun setWallpaperWith(context: Context, wallpaper: Wallpaper) {
+    fun setWallpaperWith(context: Context, bitmap: Bitmap) {
         viewModelScope.launch {
             saveWallpaperState = MultiState.RUNNING
-            val bitmap = withContext(Dispatchers.IO) {
-                ImageHelper.urlToBitmap(
-                    wallpaper.imgSrc,
-                    application.applicationContext
-                )
-            }
-            if (bitmap == null) {
-                saveWallpaperState = MultiState.ERROR
-                return@launch
-            }
             saveWallpaperState = try {
                 val cacheFile = File(application.cacheDir, UUID.randomUUID().toString())
                 withContext(Dispatchers.IO) {

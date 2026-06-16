@@ -1,5 +1,6 @@
 package com.bnyro.wallpaper.ui.components
 
+import android.graphics.Bitmap
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.rememberCoroutineScope
 import androidx.compose.ui.platform.LocalContext
@@ -7,6 +8,7 @@ import androidx.compose.ui.res.stringResource
 import com.bnyro.wallpaper.R
 import com.bnyro.wallpaper.db.DatabaseHolder
 import com.bnyro.wallpaper.db.obj.Wallpaper
+import com.bnyro.wallpaper.enums.WallpaperTarget
 import com.bnyro.wallpaper.ui.components.dialogs.ListDialog
 import com.bnyro.wallpaper.ui.models.WallpaperHelperModel
 import com.bnyro.wallpaper.util.Preferences
@@ -15,8 +17,9 @@ import kotlinx.coroutines.launch
 import kotlinx.coroutines.withContext
 
 @Composable
-fun WallpaperModeDialog(
+fun ApplyWallpaperDialog(
     wallpaper: Wallpaper,
+    bitmap: Bitmap,
     wallpaperHelperModel: WallpaperHelperModel,
     onDismissRequest: () -> Unit,
     applyFilter: Boolean = false
@@ -41,12 +44,12 @@ fun WallpaperModeDialog(
                 }
                 withContext(Dispatchers.Main) {
                     if (index == 3) {
-                        wallpaperHelperModel.setWallpaperWith(context, wallpaper)
+                        wallpaperHelperModel.setWallpaperWith(context, bitmap)
                     } else {
                         if (applyFilter) {
-                            wallpaperHelperModel.setWallpaperWithFilter(wallpaper = wallpaper, index)
+                            wallpaperHelperModel.setWallpaperWithFilter(bitmap, WallpaperTarget.entries[index])
                         } else {
-                            wallpaperHelperModel.setWallpaper(wallpaper = wallpaper, index)
+                            wallpaperHelperModel.setWallpaper(bitmap, WallpaperTarget.entries[index])
                         }
                     }
                     onDismissRequest.invoke()
