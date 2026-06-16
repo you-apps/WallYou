@@ -2,9 +2,11 @@ package net.youapps.wallpaper_apis.wi
 
 import net.youapps.wallpaper_apis.wi.obj.WikiImagesResponse
 import retrofit2.http.GET
+import retrofit2.http.Headers
 import retrofit2.http.Query
 
 interface WikiPOTD {
+    @Headers("Accept: application/json")
     @GET("w/api.php")
     suspend fun getImages(
         @Query("action") action: String = "query",

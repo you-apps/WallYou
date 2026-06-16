@@ -9,7 +9,7 @@ import retrofit2.Retrofit
 
 object RetrofitHelper {
     private const val USER_AGENT_HEADER =
-        "Mozilla/5.0 (X11; Linux x86_64; rv:143.0) Gecko/20100101 Firefox/143.0"
+        "Mozilla/5.0 (X11; Linux x86_64; rv:151.0) Gecko/20100101 Firefox/151.0"
 
     val json by lazy {
         Json {
