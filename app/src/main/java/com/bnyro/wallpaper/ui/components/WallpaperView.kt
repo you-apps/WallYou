@@ -27,6 +27,7 @@ import androidx.compose.ui.draw.blur
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.input.pointer.pointerInput
 import androidx.compose.ui.layout.ContentScale
+import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.unit.dp
 import androidx.core.graphics.drawable.toBitmap
@@ -45,6 +46,7 @@ import com.bnyro.wallpaper.ui.components.bottombar.WallpaperViewTopBar
 import com.bnyro.wallpaper.ui.components.dialogs.MultiStateDialog
 import com.bnyro.wallpaper.ui.components.infosheet.WallpaperInfoSheet
 import com.bnyro.wallpaper.ui.models.WallpaperHelperModel
+import com.bnyro.wallpaper.util.ImageHelper
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 import kotlinx.coroutines.withContext
@@ -57,6 +59,8 @@ fun WallpaperView(
     onClickBack: () -> Unit,
     wallpaperHelperModel: WallpaperHelperModel = viewModel(factory = WallpaperHelperModel.Factory)
 ) {
+    val context = LocalContext.current
+
     var showUi by showUiState()
     var showEditView by remember { mutableStateOf(false) }
     var showInfoSheet by remember { mutableStateOf(false) }
@@ -98,7 +102,7 @@ fun WallpaperView(
             animationSpec = tween(500)
         )
         AsyncImage(
-            model = wallpaper.preview,
+            model = ImageHelper.buildRequest(context, wallpaper.preview),
             contentDescription = null,
             contentScale = ContentScale.FillBounds,
             modifier = Modifier
@@ -112,11 +116,14 @@ fun WallpaperView(
                 .zoomArea(zoomState),
             contentAlignment = Alignment.Center
         ) {
-            val lowRes = rememberAsyncImagePainter(model = wallpaper.preview, onSuccess = {
-                if (cachedBitmap == null) cachedBitmap = it.result.drawable.toBitmap()
-            })
+            val lowRes = rememberAsyncImagePainter(
+                model = ImageHelper.buildRequest(context, wallpaper.preview),
+                onSuccess = {
+                    if (cachedBitmap == null) cachedBitmap = it.result.drawable.toBitmap()
+                }
+            )
             AsyncImage(
-                model = wallpaper.imgSrc,
+                model = ImageHelper.buildRequest(context, wallpaper.imgSrc),
                 contentDescription = stringResource(id = R.string.wallpaper),
                 contentScale = ContentScale.Fit,
                 modifier = Modifier

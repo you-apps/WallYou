@@ -1,6 +1,7 @@
 package com.bnyro.wallpaper.ui.components
 
 import android.graphics.Bitmap
+import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
@@ -27,6 +28,7 @@ import androidx.compose.ui.draw.blur
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.graphics.ColorFilter
 import androidx.compose.ui.graphics.ColorMatrix
+import androidx.compose.ui.graphics.asImageBitmap
 import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.unit.dp
@@ -239,7 +241,6 @@ fun WallpaperFilterEditor(
                     .background(Color.Black)
                     .zoomArea(zoomState)
             ) {
-                val lowRes = rememberAsyncImagePainter(model = wallpaper.preview)
                 val colorMatrix =
                     remember(
                         brightnessValue,
@@ -268,15 +269,14 @@ fun WallpaperFilterEditor(
                         }
                     }
 
-                AsyncImage(
-                    model = wallpaper.imgSrc,
+                Image(
+                    bitmap = bitmap.asImageBitmap(),
                     contentDescription = stringResource(R.string.wallpaper),
                     contentScale = ContentScale.Fit,
                     modifier = Modifier
                         .fillMaxSize()
                         .blur(radius = blurRadius.div(5).dp)
                         .zoomImage(zoomState),
-                    placeholder = lowRes,
                     colorFilter = ColorFilter.colorMatrix(colorMatrix)
                 )
             }

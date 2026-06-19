@@ -19,7 +19,14 @@ import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 
 object ImageHelper {
-    private fun buildRequest(context: Context, url: String, forceReload: Boolean = false): ImageRequest.Builder {
+    fun buildRequest(context: Context, url: String): ImageRequest =
+        createRequestBuilder(context, url).build()
+
+    private fun createRequestBuilder(
+        context: Context,
+        url: String,
+        forceReload: Boolean = false
+    ): ImageRequest.Builder {
         val imageRequestBuilder = ImageRequest.Builder(context)
             .data(url)
             .allowHardware(false)
@@ -42,7 +49,7 @@ object ImageHelper {
         onSuccess: (bitmap: Bitmap) -> Unit
     ) {
         scope.launch(Dispatchers.IO) {
-            val request = buildRequest(context, imageURL ?: return@launch)
+            val request = createRequestBuilder(context, imageURL ?: return@launch)
                 .target {
                     onSuccess(it.toBitmap())
                 }
@@ -58,7 +65,7 @@ object ImageHelper {
     ): Bitmap? {
         if (imageURL == null) return null
 
-        val imageRequest = buildRequest(context, imageURL, forceReload)
+        val imageRequest = createRequestBuilder(context, imageURL, forceReload)
         val result = context.imageLoader.execute(imageRequest.build())
 
         if (result is SuccessResult) {
