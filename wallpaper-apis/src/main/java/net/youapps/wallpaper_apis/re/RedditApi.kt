@@ -1,5 +1,6 @@
 package net.youapps.wallpaper_apis.re
 
+import com.fleeksoft.ksoup.Ksoup
 import net.youapps.wallpaper_apis.RetrofitHelper
 import net.youapps.wallpaper_apis.Wallpaper
 import net.youapps.wallpaper_apis.WallpaperApi
@@ -28,34 +29,35 @@ class RedditApi : WallpaperApi() {
 
         // reset the after query if starting from the beginning
         if (page == 1) nextPageAfter = null
-        val communityName = communityName!!.replaceFirst("r/", "")
+        val subreddit = communityName!!.replaceFirst("r/", "")
 
-        val response =
-            api.getRedditData(
-                communityName,
-                selectedFilters["sort"]!!,
-                selectedFilters["time"],
-                nextPageAfter
-            )
-        // needed in order to load the next page
-        nextPageAfter = response.data?.after
+        val xml = api.getRedditData(
+            subreddit,
+            selectedFilters["sort"]!!,
+            selectedFilters["time"],
+            nextPageAfter
+        ).string()
 
-        return response.data?.children?.filter {
-            it.childData.url?.matches(imageRegex) == true
-        }?.map { child ->
-            val data = child.childData
-            val preview = data.preview?.images?.firstOrNull()
-            val thumb = preview?.resolutions?.sortedBy { it.height }
-                ?.firstOrNull { it.height != null && it.height > 400 }?.imgUrl ?: data.thumbnail
+        val doc = Ksoup.parseXml(xml)
+        val entries = doc.select("entry")
+
+        nextPageAfter = entries.lastOrNull()?.selectFirst("id")?.text()
+
+        return entries.mapNotNull { entry ->
+            val content = Ksoup.parse(entry.selectFirst("content")?.text().orEmpty())
+            val imgSrc = content.select("a[href]")
+                .map { it.attr("href") }
+                .firstOrNull { it.matches(imageRegex) } ?: return@mapNotNull null
 
             Wallpaper(
-                imgSrc = preview?.source?.imgUrl ?: data.url.orEmpty(),
-                title = data.title,
-                thumb = thumb,
-                resolution = preview?.source?.let { img -> "${img.width}x${img.height}" },
-                url = data.permalink?.let { baseUrl + it }
+                imgSrc = imgSrc,
+                title = entry.selectFirst("title")?.text(),
+                thumb = content.selectFirst("img")?.attr("src"),
+                url = entry.selectFirst("link")?.attr("href"),
+                author = entry.selectFirst("author")?.selectFirst("name")?.text(),
+                creationDate = entry.selectFirst("published")?.text()?.take(10),
             )
-        }.orEmpty()
+        }
     }
 
     override suspend fun getRandomWallpaperUrl(): String? = getWallpapers(1).randomOrNull()?.imgSrc
