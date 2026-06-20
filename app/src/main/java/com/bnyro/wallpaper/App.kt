@@ -7,6 +7,7 @@ import androidx.compose.material.icons.filled.AreaChart
 import androidx.compose.material.icons.filled.Book
 import androidx.compose.material.icons.filled.Deblur
 import androidx.compose.material.icons.filled.Forum
+import androidx.compose.material.icons.filled.GridView
 import androidx.compose.material.icons.filled.Landscape
 import androidx.compose.material.icons.filled.LightMode
 import androidx.compose.material.icons.filled.Nightlight
@@ -24,6 +25,7 @@ import com.bnyro.wallpaper.util.Preferences
 import com.bnyro.wallpaper.util.WallpaperApiWrapper
 import net.youapps.wallpaper_apis.RetrofitHelper
 import net.youapps.wallpaper_apis.bi.BingApi
+import net.youapps.wallpaper_apis.im.ImgthApi
 import net.youapps.wallpaper_apis.le.LemmyApi
 import net.youapps.wallpaper_apis.na.NasaPotdApi
 import net.youapps.wallpaper_apis.ow.OwallsApi
@@ -85,6 +87,7 @@ class App : Application(), ImageLoaderFactory {
                 WallpaperApiWrapper(NasaPotdApi(), Icons.Default.Star),
                 WallpaperApiWrapper(WikipediaPotdApi(), Icons.Default.Today),
                 WallpaperApiWrapper(PicsumApi(), Icons.Default.AreaChart),
+                WallpaperApiWrapper(ImgthApi(), Icons.Default.GridView)
             )
         }
     }

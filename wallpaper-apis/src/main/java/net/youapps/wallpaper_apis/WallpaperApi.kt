@@ -72,5 +72,5 @@ abstract class WallpaperApi {
      * This does not always respect [selectedFilters] and [selectedTags] due to API restrictions,
      * but it attempts to respect these filters for generating the URL of a random wallpaper whenever possible.
      */
-    abstract suspend fun getRandomWallpaperUrl(): String?
+    open suspend fun getRandomWallpaperUrl(): String? = getWallpapers(1).firstOrNull()?.imgSrc
 }
