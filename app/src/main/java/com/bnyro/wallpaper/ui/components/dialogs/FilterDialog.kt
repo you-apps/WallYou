@@ -76,6 +76,7 @@ fun FilterDialog(
                             verticalAlignment = Alignment.CenterVertically
                         ) {
                             Text(
+                                modifier = Modifier.weight(1f),
                                 text = communityName,
                                 fontSize = 18.sp
                             )
