@@ -86,4 +86,5 @@
     <string name="unmetered">بی پایان</string>
     <string name="metered">محدود</string>
     <string name="not_roaming">غیر رومینگ</string>
+    <string name="brightness">روشنایی</string>
 </resources>
