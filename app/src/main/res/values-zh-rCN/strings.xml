@@ -1,12 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <!-- Navigation Drawer -->
-    <string name="favorites">收藏夹</string>
+    <string name="favorites">收藏</string>
     <string name="settings">设置</string>
     <string name="about">关于</string>
     <!-- Image Preview -->
     <string name="info">信息</string>
-    <string name="filter">过滤器</string>
+    <string name="filter">筛选器</string>
     <string name="add">添加</string>
     <!-- Info Dialog -->
     <string name="author">作者</string>
@@ -18,7 +18,7 @@
     <!-- Set wallpaper -->
     <string name="both">二者</string>
     <string name="home">主屏幕</string>
-    <string name="lockscreen">仅锁屏</string>
+    <string name="lockscreen">锁定屏幕</string>
     <!-- Preference categories -->
     <string name="general">常规</string>
     <string name="cache">缓存</string>
@@ -29,54 +29,54 @@
     <string name="change_interval">更换间隔</string>
     <!-- Theme -->
     <string name="theme_mode">主题</string>
-    <string name="theme_system">跟随系统</string>
-    <string name="theme_light">亮色</string>
-    <string name="theme_dark">暗色</string>
+    <string name="theme_system">系统</string>
+    <string name="theme_light">浅色</string>
+    <string name="theme_dark">深色</string>
     <!-- Favorites -->
-    <string name="no_favorites">暂无收藏</string>
+    <string name="no_favorites">尚无收藏</string>
     <!-- About -->
     <string name="version">版本</string>
     <string name="license">许可</string>
     <string name="website">网站</string>
     <string name="blur">模糊</string>
     <string name="auto_add_to_favorites">应用时添加到收藏</string>
-    <string name="reset">重设</string>
+    <string name="reset">重置</string>
     <string name="grayscale">灰度</string>
     <string name="applying_random">正在随机应用壁纸</string>
     <string name="wallpaper_changer_source">壁纸更换源</string>
     <string name="online">在线</string>
     <string name="local">本地</string>
     <string name="choose_dir">选择目录</string>
-    <string name="add_to_favorites">添加到收藏夹</string>
+    <string name="add_to_favorites">添加到收藏</string>
     <string name="community_name">社区名称</string>
     <string name="set_wallpaper">设置壁纸</string>
     <string name="wallpaper_preview">壁纸预览</string>
     <string name="combine_wallpaper_changers">合并更换壁纸</string>
     <string name="download">下载</string>
     <string name="combine_wallpaper_changers_summary">为主屏幕和锁定屏幕使用相同壁纸。</string>
-    <string name="import_export">导入 &amp; 导出</string>
+    <string name="import_export">导入和导出</string>
     <string name="success">成功！</string>
     <string name="current_directory">当前</string>
-    <string name="export_favorites">导出收藏夹</string>
-    <string name="import_favorites">导入收藏夹</string>
+    <string name="export_favorites">导出收藏</string>
+    <string name="import_favorites">导入收藏</string>
     <string name="none">无</string>
     <string name="random_wallpaper">随机壁纸</string>
     <string name="directories">目录</string>
     <string name="contrast">对比度</string>
     <string name="resize_method">调整尺寸方法</string>
-    <string name="zoom">缩放（保持纵横比）</string>
+    <string name="zoom">缩放（保持宽高比）</string>
     <string name="fit_height">适合高度</string>
     <string name="fit_width">适合宽度</string>
-    <string name="set_with">使用其他应用设定...</string>
+    <string name="set_with">设置为…</string>
     <string name="set_as">设置为</string>
     <string name="wallpaper">壁纸</string>
     <string name="apply">应用</string>
-    <string name="preview_invert_effect">预览反转效果</string>
+    <string name="preview_invert_effect">预览反色效果</string>
     <string name="colors">色彩</string>
-    <string name="details">细节</string>
+    <string name="details">详情</string>
     <string name="label">标签</string>
     <string name="error">错误</string>
-    <string name="done">已完成</string>
+    <string name="done">完成</string>
     <string name="save">保存</string>
     <string name="edit">编辑</string>
     <string name="favorite">收藏</string>
@@ -84,7 +84,7 @@
     <string name="image_info">图像信息</string>
     <string name="saving_wallpaper">正在保存壁纸</string>
     <string name="applying_wallpaper">正在应用壁纸</string>
-    <string name="dismiss">解除</string>
+    <string name="dismiss">关闭</string>
     <string name="image_url">图像 URL</string>
     <string name="unmetered">非计费网络</string>
     <string name="metered">计费网络</string>
@@ -94,16 +94,16 @@
     <string name="apply_image_filters">应用图像筛选器</string>
     <string name="no_history">尚无历史</string>
     <string name="wallpaper_history">壁纸历史</string>
-    <string name="history">历史记录</string>
+    <string name="history">历史</string>
     <string name="description">描述</string>
-    <string name="add_wallpaper_changer_rule">添加壁纸更改程序规则</string>
+    <string name="add_wallpaper_changer_rule">添加壁纸更换规则</string>
     <string name="time_interval">间隔</string>
     <string name="invalid_time_interval">无效的间隔</string>
     <string name="brightness">亮度</string>
     <string name="hue">色度</string>
     <string name="auto_darken_lighten_by_theme">按系统主题自动调节亮度</string>
-    <string name="auto_darken_lighten_by_theme_desc">根据主题自动将壁纸变暗或变亮</string>
-    <string name="invert_wallpaper">颠倒壁纸</string>
+    <string name="auto_darken_lighten_by_theme_desc">根据主题自动将壁纸调暗或调亮</string>
+    <string name="invert_wallpaper">反色壁纸</string>
     <string name="apply_image_filters_desc">模糊、色度、亮度…</string>
     <string name="time_interval_desc">只在指定时间段中运行。</string>
     <string name="days">天</string>
