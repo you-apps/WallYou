@@ -90,7 +90,7 @@
     <string name="dismiss">Annuler</string>
     <string name="applying_wallpaper">Appliquer le fond d\'écran</string>
     <string name="preview_invert_effect">Prévisualiser l\'effet d\'inversion</string>
-    <string name="apply_image_filters">Appliquer les filtres</string>
+    <string name="apply_image_filters">Appliquer des filtres</string>
     <string name="apply">Appliquer</string>
     <string name="colors">Couleurs</string>
     <string name="wallpaper">Fond d\'écran</string>
@@ -98,7 +98,7 @@
     <string name="brightness">Luminosité</string>
     <string name="hue">Teinte</string>
     <string name="invert_wallpaper">Inverser le fond d\'écran</string>
-    <string name="auto_darken_lighten_by_theme">Luminosité automatique selon le thème</string>
+    <string name="auto_darken_lighten_by_theme">Adapter automatiquement la luminosité selon le thème</string>
     <string name="auto_darken_lighten_by_theme_desc">Automatiquement assombrir ou éclaircir le fond d\'écran en fonction du thème</string>
     <string name="add_wallpaper_changer_rule">Ajouter une règle de changement de fond d\'écran</string>
     <string name="time_interval">Intervalle de temps</string>
