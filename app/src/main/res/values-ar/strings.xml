@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="coil_cache">خبيئة الصور ل‍ Coil</string>
+    <string name="coil_cache">ذاكرة صور Coil المؤقتة</string>
     <string name="theme_mode">سمة</string>
     <string name="theme_system">النظام</string>
     <string name="theme_dark">داكن</string>
@@ -21,9 +21,9 @@
     <string name="fileSize">حجم الملف</string>
     <string name="about">حول التطبيق</string>
     <string name="both">كلاهما</string>
-    <string name="home">الشاشة الرئيسة</string>
+    <string name="home">الشاشة الرئيسية</string>
     <string name="lockscreen">شاشة القفل</string>
-    <string name="applying_random">اختيار صورة خلفيَّة عشوائيَّة</string>
+    <string name="applying_random">اختيار خلفية عشوائيَّة</string>
     <string name="add">إضافة</string>
     <string name="general">عام</string>
     <string name="change_interval">فترة التغيير</string>
@@ -31,7 +31,7 @@
     <string name="theme_light">فاتح</string>
     <string name="favorites">المفضلة</string>
     <string name="blur">الضبابيَّة</string>
-    <string name="cache">الخبيئة</string>
+    <string name="cache">التخزين المؤقت</string>
     <string name="wallpaper_changer">مغيّر الخلفيَّة</string>
     <string name="crop">قُصَّ الصور</string>
     <string name="wallpaper_changer_source">مصدر مغيِّر الخلفية</string>
@@ -41,7 +41,7 @@
     <string name="add_to_favorites">إضافة إلى المفضلة</string>
     <string name="community_name">اسم المجتمع</string>
     <string name="set_wallpaper">تعيين الخلفية</string>
-    <string name="wallpaper_preview">عرض الخلفية</string>
+    <string name="wallpaper_preview">معاينة الخلفية</string>
     <string name="combine_wallpaper_changers">مغير الخلفية المدمج</string>
     <string name="download">تنزيل</string>
     <string name="combine_wallpaper_changers_summary">استخدم نفس الخلفية لشاشة الرئيسية و شاشة القفل.</string>
@@ -73,7 +73,7 @@
     <string name="favorite">المفضلة</string>
     <string name="go_back">الرجوع للخلف</string>
     <string name="image_info">معلومات الصورة</string>
-    <string name="saving_wallpaper">حفظ ورق الحائط</string>
+    <string name="saving_wallpaper">حفظ الخلفية</string>
     <string name="applying_wallpaper">تطبيق الخلفية</string>
     <string name="dismiss">رفض</string>
     <string name="network_type">نوع الشبكة</string>
@@ -84,7 +84,7 @@
     <string name="metered">مقننة</string>
     <string name="apply_image_filters">تطبيق مرشحات الصور</string>
     <string name="history">السجلّ</string>
-    <string name="no_history">لا يوجد سجل حتى الان</string>
+    <string name="no_history">لا يوجد سجل بعد</string>
     <string name="wallpaper_history">سجل الخلفيات</string>
     <string name="description">الوصف</string>
     <string name="time_interval">الفترة الزمنية</string>
