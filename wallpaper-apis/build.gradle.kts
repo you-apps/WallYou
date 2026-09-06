@@ -22,3 +22,6 @@ dependencies {
     implementation("org.jetbrains.kotlinx:kotlinx-coroutines-core:1.10.2")
     implementation("com.fleeksoft.ksoup:ksoup:0.2.6")
 }
+dependencies {
+    testImplementation("junit:junit:4.13.2")
+}
