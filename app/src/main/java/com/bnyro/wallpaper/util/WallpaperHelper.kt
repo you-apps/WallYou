@@ -10,6 +10,7 @@ import android.view.Display
 import android.view.Surface
 import android.view.WindowManager
 import androidx.annotation.RequiresApi
+import androidx.core.content.getSystemService
 import com.bnyro.wallpaper.enums.ResizeMethod
 import com.bnyro.wallpaper.enums.WallpaperTarget
 import kotlinx.coroutines.Dispatchers
@@ -81,6 +82,8 @@ object WallpaperHelper {
             metrics.widthPixels to metrics.heightPixels
         }
 
+        // `width` and `height` depend on the current screen orientation. To get the real metrics,
+        // we additionally check the current rotation of the display.
         return when (getDisplayRotation(context)) {
             Surface.ROTATION_90, Surface.ROTATION_270 -> height to width
             else -> width to height
@@ -88,13 +91,8 @@ object WallpaperHelper {
     }
 
     private fun getDisplayRotation(context: Context): Int {
-        val display = if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.R) {
-            (context.getSystemService(Context.DISPLAY_SERVICE) as DisplayManager)
-                .getDisplay(Display.DEFAULT_DISPLAY)
-        } else {
-            @Suppress("DEPRECATION")
-            (context.getSystemService(Context.WINDOW_SERVICE) as WindowManager).defaultDisplay
-        }
+        val display = context.getSystemService<DisplayManager>()
+            ?.getDisplay(Display.DEFAULT_DISPLAY)
 
         return display?.rotation ?: Surface.ROTATION_0
     }
