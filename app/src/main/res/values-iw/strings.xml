@@ -95,4 +95,9 @@
     <string name="invert_wallpaper">היפוך צבע טפט</string>
     <string name="auto_darken_lighten_by_theme">בהירות אוטומטית לפי ערכת עיצוב</string>
     <string name="auto_darken_lighten_by_theme_desc">טפט כהה או בהיר אוטומטית לפי ערכת העיצוב</string>
+    <string name="wallpaper_changer_summary">להגדיר תמונת רקע חדשה מעת לעת אוטומטית.</string>
+    <string name="apply_image_filters_desc">טשטוש, גוון, בהירות…</string>
+    <string name="time_interval_desc">להריץ רק בזמנים מוגדרים.</string>
+    <string name="days">ימים</string>
+    <string name="hours">שעות</string>
 </resources>
