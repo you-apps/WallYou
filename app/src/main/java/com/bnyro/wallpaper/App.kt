@@ -17,9 +17,13 @@ import androidx.compose.material.icons.filled.ScreenLockLandscape
 import androidx.compose.material.icons.filled.Star
 import androidx.compose.material.icons.filled.Today
 import androidx.compose.material.icons.filled.WaterDrop
-import coil.ImageLoader
-import coil.ImageLoaderFactory
-import coil.disk.DiskCache
+import coil3.ImageLoader
+import coil3.PlatformContext
+import coil3.SingletonImageLoader
+import coil3.disk.DiskCache
+import coil3.disk.directory
+import coil3.network.okhttp.OkHttpNetworkFetcherFactory
+import coil3.request.crossfade
 import com.bnyro.wallpaper.db.DatabaseHolder
 import com.bnyro.wallpaper.util.Preferences
 import com.bnyro.wallpaper.util.WallpaperApiWrapper
@@ -39,8 +43,9 @@ import net.youapps.wallpaper_apis.wc.WallpaperCaveApi
 import net.youapps.wallpaper_apis.wh.WallhavenApi
 import net.youapps.wallpaper_apis.wi.WikipediaPotdApi
 import net.youapps.wallpaper_apis.ze.ZedgeApi
+import okio.Path
 
-class App : Application(), ImageLoaderFactory {
+class App : Application(), SingletonImageLoader.Factory {
     override fun onCreate() {
         super.onCreate()
 
@@ -49,15 +54,12 @@ class App : Application(), ImageLoaderFactory {
         DatabaseHolder.create(this)
     }
 
-    override fun newImageLoader(): ImageLoader {
+    override fun newImageLoader(context: PlatformContext): ImageLoader {
         return ImageLoader.Builder(this)
             .crossfade(true)
-            .respectCacheHeaders(false)
             .diskCache(
                 DiskCache.Builder()
-                    .directory(
-                        cacheDir.resolve("coil")
-                    )
+                    .directory(context.cacheDir.resolve("coil"))
                     .maxSizeBytes(
                         Preferences.getString(
                             Preferences.diskCacheKey,
@@ -66,7 +68,13 @@ class App : Application(), ImageLoaderFactory {
                     )
                     .build()
             )
-            .okHttpClient { RetrofitHelper.okHttpClient }
+            .components {
+                add(
+                    OkHttpNetworkFetcherFactory(
+                        callFactory = { RetrofitHelper.okHttpClient }
+                    )
+                )
+            }
             .build()
     }
 

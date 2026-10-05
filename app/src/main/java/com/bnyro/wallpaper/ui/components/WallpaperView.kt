@@ -32,8 +32,9 @@ import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.unit.dp
 import androidx.core.graphics.drawable.toBitmap
 import androidx.lifecycle.viewmodel.compose.viewModel
-import coil.compose.AsyncImage
-import coil.compose.rememberAsyncImagePainter
+import coil3.compose.AsyncImage
+import coil3.compose.rememberAsyncImagePainter
+import coil3.toBitmap
 import com.bnyro.wallpaper.R
 import com.bnyro.wallpaper.db.DatabaseHolder.Database
 import com.bnyro.wallpaper.db.obj.Wallpaper
@@ -119,7 +120,7 @@ fun WallpaperView(
             val lowRes = rememberAsyncImagePainter(
                 model = ImageHelper.buildRequest(context, wallpaper.preview),
                 onSuccess = {
-                    if (cachedBitmap == null) cachedBitmap = it.result.drawable.toBitmap()
+                    if (cachedBitmap == null) cachedBitmap = it.result.image.toBitmap()
                 }
             )
             AsyncImage(
@@ -133,7 +134,7 @@ fun WallpaperView(
                 // show when image fails to load
                 error = lowRes,
                 onSuccess = {
-                    cachedBitmap = it.result.drawable.toBitmap()
+                    cachedBitmap = it.result.image.toBitmap()
                 }
             )
             AnimatedVisibility(

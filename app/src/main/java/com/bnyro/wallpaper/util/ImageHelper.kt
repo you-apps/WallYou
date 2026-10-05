@@ -8,12 +8,14 @@ import android.net.Uri
 import android.util.Log
 import androidx.core.graphics.drawable.toBitmap
 import androidx.exifinterface.media.ExifInterface
-import coil.imageLoader
-import coil.request.CachePolicy
-import coil.request.ErrorResult
-import coil.request.ImageRequest
-import coil.request.SuccessResult
-import coil.size.Size
+import coil3.imageLoader
+import coil3.request.CachePolicy
+import coil3.request.ErrorResult
+import coil3.request.ImageRequest
+import coil3.request.SuccessResult
+import coil3.request.allowHardware
+import coil3.size.Size
+import coil3.toBitmap
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
@@ -69,7 +71,7 @@ object ImageHelper {
         val result = context.imageLoader.execute(imageRequest.build())
 
         if (result is SuccessResult) {
-            return result.drawable.toBitmap()
+            return result.image.toBitmap()
         } else if (result is ErrorResult) {
             Log.e("error loading image", result.throwable.localizedMessage.orEmpty())
         }
