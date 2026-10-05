@@ -89,7 +89,129 @@ class ZedgeApi : WallpaperApi() {
         } ?: emptyList()
 
         val reqBody = ZedgeRequest(
-            query = "\n    query browse_filteredList(\$input: BrowseFilteredListFilterInput) {\n      browse_filteredList(input: \$input) {\n        ...browseFilteredListResource\n      }\n    }\n    \n  fragment browseFilteredListResource on BrowseContinuationItems {\n    items {\n      ...browseListItemResource\n\n      ... on BrowseProfileItem {\n        ...browseListProfileItemResource\n      }\n    }\n    next\n  }\n  \n  fragment browseListItemResource on BrowseItem {\n    ... on BrowseWallpaperItem {\n      id\n      shareUrl\n      licensed\n      title\n      description\n      tags\n      dateUploaded\n      type\n      paymentMethod {\n        type\n        price\n      }\n      meta {\n        previewUrl\n        microThumb\n        thumbUrl\n      }\n      profile {\n        id\n        name\n        avatarIconUrl\n        verified\n      }\n    }\n\n    ... on BrowseRingtoneItem {\n      id\n      licensed\n      title\n      type\n      paymentMethod {\n        type\n        price\n      }\n      meta {\n        audioUrl\n        duration\n        gradientStart\n        gradientEnd\n        thumbUrl\n      }\n      profile {\n        id\n        name\n        avatarIconUrl\n        verified\n      }\n    }\n\n    ... on BrowseNotificationSoundItem {\n      id\n      licensed\n      title\n      type\n      paymentMethod {\n        type\n        price\n      }\n      meta {\n        audioUrl\n        duration\n        gradientStart\n        gradientEnd\n        thumbUrl\n      }\n      profile {\n        id\n        name\n        avatarIconUrl\n        verified\n      }\n    }\n\n    ... on BrowseLiveWallpaperItem {\n      id\n      licensed\n      title\n      type\n      paymentMethod {\n        type\n        price\n      }\n      meta {\n        previewUrl\n        thumbUrl\n      }\n      profile {\n        id\n        name\n        avatarIconUrl\n        verified\n      }\n    }\n  }\n\n  \n  fragment browseListProfileItemResource on BrowseProfileItem {\n    id\n    type\n    avatarUrl\n    verified\n    name\n    shareUrl\n  }\n\n\n  ",
+            query = """query browse_filteredList(${'$'}input: BrowseFilteredListFilterInput) {
+  browse_filteredList(input: ${'$'}input) {
+    ...browseFilteredListResource
+  }
+}
+
+fragment browseFilteredListResource on BrowseContinuationItems {
+  items {
+    ...browseListItemResource
+
+    ... on BrowseProfileItem {
+      ...browseListProfileItemResource
+    }
+  }
+  next
+}
+
+fragment browseListItemResource on BrowseItem {
+  ... on BrowseWallpaperItem {
+    id
+    shareUrl
+    licensed
+    title
+    description
+    tags
+    dateUploaded
+    type
+    paymentMethod {
+      type
+      price
+    }
+    meta {
+      previewUrl
+      microThumb
+      thumbUrl
+    }
+    profile {
+      id
+      name
+      avatarIconUrl
+      verified
+    }
+  }
+
+  ... on BrowseRingtoneItem {
+    id
+    licensed
+    title
+    type
+    paymentMethod {
+      type
+      price
+    }
+    meta {
+      audioUrl
+      duration
+      gradientStart
+      gradientEnd
+      thumbUrl
+    }
+    profile {
+      id
+      name
+      avatarIconUrl
+      verified
+    }
+  }
+
+  ... on BrowseNotificationSoundItem {
+    id
+    licensed
+    title
+    type
+    paymentMethod {
+      type
+      price
+    }
+    meta {
+      audioUrl
+      duration
+      gradientStart
+      gradientEnd
+      thumbUrl
+    }
+    profile {
+      id
+      name
+      avatarIconUrl
+      verified
+    }
+  }
+
+  ... on BrowseLiveWallpaperItem {
+    id
+    licensed
+    title
+    type
+    paymentMethod {
+      type
+      price
+    }
+    meta {
+      previewUrl
+      thumbUrl
+    }
+    profile {
+      id
+      name
+      avatarIconUrl
+      verified
+    }
+  }
+}
+
+fragment browseListProfileItemResource on BrowseProfileItem {
+  id
+  type
+  avatarUrl
+  verified
+  name
+  shareUrl
+}
+""",
             variables = ZedgeVariables(
                 ZedgeInput(
                     categories = category,
