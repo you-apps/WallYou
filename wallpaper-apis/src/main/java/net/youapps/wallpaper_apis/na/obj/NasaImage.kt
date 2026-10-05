@@ -5,11 +5,10 @@ import kotlinx.serialization.Serializable
 
 @Serializable
 data class NasaImage(
-    val url: String? = null,
+    @SerialName("hdurl") val hdUrl: String,
     val title: String,
-    val explanation: String,
+    val alt: String,
     val copyright: String? = null,
     val date: String,
-    @SerialName("hdurl") val hdUrl: String? = null,
     @SerialName("media_type") val mediaType: String,
 )
