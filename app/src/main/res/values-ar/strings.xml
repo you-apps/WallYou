@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="coil_cache">ذاكرة صور Coil المؤقتة</string>
-    <string name="theme_mode">سمة</string>
+    <string name="theme_mode">السمة</string>
     <string name="theme_system">النظام</string>
     <string name="theme_dark">داكن</string>
     <string name="license">الترخيص</string>
@@ -27,7 +27,7 @@
     <string name="add">إضافة</string>
     <string name="general">عام</string>
     <string name="change_interval">فترة التغيير</string>
-    <string name="reset">أعِد التعيين</string>
+    <string name="reset">إعادة الضبط</string>
     <string name="theme_light">فاتح</string>
     <string name="favorites">المفضلة</string>
     <string name="blur">الضبابيَّة</string>
@@ -67,7 +67,7 @@
     <string name="details">التفاصيل</string>
     <string name="label">التسمية</string>
     <string name="error">خطأ</string>
-    <string name="done">إنتهى</string>
+    <string name="done">تم</string>
     <string name="save">حفظ</string>
     <string name="edit">تعديل</string>
     <string name="favorite">المفضلة</string>
@@ -83,7 +83,7 @@
     <string name="all_networks">جميع الشبكات</string>
     <string name="metered">مقننة</string>
     <string name="apply_image_filters">تطبيق مرشحات الصور</string>
-    <string name="history">السجلّ</string>
+    <string name="history">السجل</string>
     <string name="no_history">لا يوجد سجل بعد</string>
     <string name="wallpaper_history">سجل الخلفيات</string>
     <string name="description">الوصف</string>
