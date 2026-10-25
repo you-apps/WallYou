@@ -33,13 +33,11 @@ import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.layout.ContentScale
-import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.unit.dp
 import coil3.compose.AsyncImage
 import com.bnyro.wallpaper.db.DatabaseHolder.Database
 import com.bnyro.wallpaper.db.obj.Wallpaper
 import com.bnyro.wallpaper.ui.models.MainModel
-import com.bnyro.wallpaper.util.ImageHelper
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.withContext
 
@@ -52,8 +50,6 @@ fun WallpaperGrid(
     onDeleteWallpaper: ((Wallpaper) -> Unit)? = null,
     onScrollEnd: () -> Unit = {}
 ) {
-    val context = LocalContext.current
-
     val listState = rememberLazyGridState()
     val scrollEnded by remember {
         derivedStateOf {
@@ -115,8 +111,10 @@ fun WallpaperGrid(
                     shape = shape
                 ) {
                     Box {
+                        // sized to the tile: ImageHelper's full-size software request is for
+                        // bitmaps that get applied, and decoding every tile that way stutters
                         AsyncImage(
-                            model = ImageHelper.buildRequest(context, wallpaper.preview),
+                            model = wallpaper.preview,
                             contentDescription = null,
                             contentScale = ContentScale.Crop,
                             modifier = Modifier.fillMaxSize()
